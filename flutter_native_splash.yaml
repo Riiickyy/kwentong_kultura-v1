@@ -1,0 +1,11 @@
+flutter_native_splash:
+  android: true
+  ios: true
+  web: false
+
+  color: "#C5F1FF"
+  image: "assets/images/HomeUI/first.png"
+
+  android_12:fl
+    color: "#C5F1FF"
+    image: "assets/images/HomeUI/first.png"
