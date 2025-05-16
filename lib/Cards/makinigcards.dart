@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kwentong_kultura/AnimationPage/Alamatngpinya_animation/alamatngpinya.dart';
+import 'package:kwentong_kultura/AnimationPage/Sipagongatmatsing_animation/sipagongatmatsing.dart';
 import '../Styles/styles.dart';
 
 class Makinigcards extends StatefulWidget {
@@ -178,7 +179,18 @@ class _MakinigcardsState extends State<Makinigcards> {
                         ),
                         SizedBox(height: 10), // Add spacing
                         ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) {
+                                    return SiPagongatMatsing();
+                                  },
+                                ),
+                              );
+                            }
+                          },
                           style: Design.buttonDesign,
                           child: Text('Pakinggan', style: Design.tara),
                         ),
@@ -218,7 +230,7 @@ class _MakinigcardsState extends State<Makinigcards> {
                         ),
                         SizedBox(height: 10), // Add spacing
                         Text(
-                          'Bakunawa',
+                          'Si Tipaklong at Langgam',
                           style: Design.storyTitle,
                           textAlign: TextAlign.center,
                         ),

@@ -40,7 +40,7 @@ class _PagongState extends State<Pagong> {
 
   Future<void> loadImage() async {
     final ByteData data = await rootBundle.load(
-      'assets/images/turtol.jpg',
+      'assets/images/TurtlePencil.jpg',
     ); // Replace with your image path
     final ui.Codec codec = await ui.instantiateImageCodec(
       data.buffer.asUint8List(),
@@ -215,13 +215,6 @@ class _PagongState extends State<Pagong> {
                   height: height * 0.60,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.4),
-                        blurRadius: 5.0,
-                        spreadRadius: 1.0,
-                      ),
-                    ],
                   ),
 
                   child: GestureDetector(

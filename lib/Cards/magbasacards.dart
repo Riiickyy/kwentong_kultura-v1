@@ -238,7 +238,7 @@ class _MyWidgetState extends State<Magbasacards> {
                         ),
                         SizedBox(height: 10),
                         Text(
-                          'Bakunawa',
+                          'Si Tipaklong at Langgam',
                           style: Design.storyTitle,
                           textAlign: TextAlign.center,
                         ),

@@ -82,7 +82,8 @@ flutter:
     - assets/background.mp3
     - assets/images/turtol.jpg
     - assets/pdfs/Pinya.pdf
-
+    - assets/videos/Pagong.mp4
+    - assets/images/TurtlePencil.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
