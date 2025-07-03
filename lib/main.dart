@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'UI-stack-widget.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:just_audio/just_audio.dart';
+import 'Login-Folder/firstUI.dart';
 
 void main() {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -54,7 +55,7 @@ class _KwentongKulturaState extends State<KwentongKultura> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
 
-      home: Scaffold(backgroundColor: Color(0xFFC5F1FF), body: HomeUIWidget()),
+      home: Scaffold(backgroundColor: Color(0xFFC5F1FF), body: const Firstui()),
     );
   }
 }
