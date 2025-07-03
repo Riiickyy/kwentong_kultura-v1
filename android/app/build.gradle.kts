@@ -8,7 +8,9 @@ plugins {
 android {
     namespace = "com.example.kwentong_kultura"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+
+    // Add the NDK version here
+    ndkVersion = "27.0.12077973"  // Specify the required NDK version
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
