@@ -20,39 +20,6 @@ class _HomeUIWidgetState extends State<HomeUIWidget> {
         ),
 
         Positioned(
-          top: 110,
-          left: 0,
-          right: 0,
-          child: Align(
-            alignment: Alignment.center,
-            child: Stack(
-              alignment: Alignment.center,
-
-              children: [
-                Image.asset('assets/images/HomeUI/Wood.png'),
-
-                Text(
-                  'Kwentong\nKultura',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    shadows: [
-                      Shadow(
-                        blurRadius: 4,
-                        color: Colors.black.withOpacity(0.25), // shadow color
-                        offset: Offset(-3, 4),
-                      ),
-                    ],
-                    color: Color(0xFF336404),
-                    fontSize: 40,
-                    fontFamily: 'Nunito',
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-        Positioned(
           top: 45,
           right: 10,
           child: Image.asset('assets/images/HomeUI/sunncloud.png'),

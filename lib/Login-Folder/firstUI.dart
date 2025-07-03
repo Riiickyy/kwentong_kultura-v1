@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kwentong_kultura/Login-Folder/Login.dart';
 
 class Firstui extends StatefulWidget {
   const Firstui({super.key});
@@ -79,7 +80,14 @@ class _HomeUIWidgetState extends State<Firstui> {
                             ),
                             child: TextButton(
                               onPressed: () {
-                                // Add login functionality
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) {
+                                      return Login();
+                                    },
+                                  ),
+                                );
                               },
                               child: Text(
                                 'Mag-Login',
