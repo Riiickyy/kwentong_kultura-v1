@@ -96,6 +96,7 @@ class _PagongatmatsingState extends State<Pagongatmatsing> {
     });
   }
 
+  @override
   Widget build(BuildContext context) {
     List<String> words = _currentSubtitle.split(" ");
     return Scaffold(

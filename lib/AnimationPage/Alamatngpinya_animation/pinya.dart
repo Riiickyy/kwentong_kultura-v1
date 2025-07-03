@@ -99,6 +99,7 @@ class _MyWidgetState extends State<Pinya> {
     });
   }
 
+  @override
   Widget build(BuildContext context) {
     List<String> words = _currentSubtitle.split(" ");
     return Scaffold(

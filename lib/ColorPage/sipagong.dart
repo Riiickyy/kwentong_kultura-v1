@@ -85,9 +85,8 @@ class _PagongState extends State<Pagong> {
               (point) => jsonEncode({
                 'dx': point?.point.dx,
                 'dy': point?.point.dy,
-                'color': point == null ? null : point.areaPaint.color.value,
-                'strokeWidth':
-                    point == null ? null : point.areaPaint.strokeWidth,
+                'color': point?.areaPaint.color.value,
+                'strokeWidth': point?.areaPaint.strokeWidth,
               }),
             )
             .toList();

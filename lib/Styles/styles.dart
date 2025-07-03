@@ -38,4 +38,10 @@ class Design {
     fontFamily: 'Nunito',
     color: Colors.black,
   );
+  static TextStyle Login = TextStyle(
+    fontSize: 32,
+    fontWeight: FontWeight.bold,
+    fontFamily: 'Nunito',
+    color: Colors.black,
+  );
 }

@@ -8,9 +8,7 @@ plugins {
 android {
     namespace = "com.example.kwentong_kultura"
     compileSdk = flutter.compileSdkVersion
-
-    // Add the NDK version here
-    ndkVersion = "27.0.12077973"  // Specify the required NDK version
+    ndkVersion = flutter.ndkVersion
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -35,7 +33,7 @@ android {
     buildTypes {
         release {
             // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
+            // Signing with the debug keys for now, so flutter run --release works.
             signingConfig = signingConfigs.getByName("debug")
         }
     }

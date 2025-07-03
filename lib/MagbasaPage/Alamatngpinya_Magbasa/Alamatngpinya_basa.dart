@@ -22,6 +22,7 @@ class _AlamatngpinyaBasaState extends State<AlamatngpinyaBasa> {
     );
   }
 
+  @override
   void dispose() {
     _pinchController.dispose();
     super.dispose();
@@ -61,7 +62,7 @@ class _AlamatngpinyaBasaState extends State<AlamatngpinyaBasa> {
                 icon: const Icon(Icons.arrow_back),
               ),
               Text(
-                'Pahina: ${currentPage} / ${totalPages}',
+                'Pahina: $currentPage / $totalPages',
                 style: TextStyle(
                   fontFamily: 'Nunito',
                   fontWeight: FontWeight.w100,
