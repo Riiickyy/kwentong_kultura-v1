@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kwentong_kultura/Login-Folder/Login.dart';
+import 'package:kwentong_kultura/Login-Folder/createaccount.dart';
 import '../Styles/styles.dart';
 
 class Firstui extends StatefulWidget {
@@ -31,34 +32,19 @@ class _HomeUIWidgetState extends State<Firstui> {
                             alignment: Alignment.center,
                             children: [
                               Image.asset(
-                                'assets/images/HomeUI/Wood.png',
+                                'assets/images/HomeUI/first.png',
                                 fit: BoxFit.cover,
                                 width:
                                     constraints.maxWidth *
                                     0.8, // Responsive image
                               ),
-                              Text(
-                                'Kwentong\nKultura',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  shadows: [
-                                    Shadow(
-                                      blurRadius: 4,
-                                      color: Colors.black.withOpacity(0.25),
-                                      offset: Offset(-3, 4),
-                                    ),
-                                  ],
-                                  color: Color(0xFF336404),
-                                  fontSize: 40,
-                                  fontFamily: 'Nunito',
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
                             ],
                           ),
                         ),
+
                         SizedBox(height: 40),
-                        // Button Container
+
+                        // Container with Buttons
                         Container(
                           width: constraints.maxWidth * 0.8, // Responsive width
                           height: 236,
@@ -67,15 +53,25 @@ class _HomeUIWidgetState extends State<Firstui> {
                             borderRadius: BorderRadius.circular(10),
                             border: Border.all(
                               color: Colors.black, // Border color
-                              width: 2, // Border width (you can adjust this)
+                              width: 1, // Border width (you can adjust this)
                             ),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(
+                                  0.5,
+                                ), // Shadow color
+                                blurRadius: 4, // Blur intensity
+                                offset: Offset(
+                                  0,
+                                  4,
+                                ), // Shadow position (you can adjust this)
+                              ),
+                            ],
                           ),
                           child: Padding(
-                            padding: EdgeInsets.only(
-                              top: 25.0,
-                              bottom: 20.0,
-                              right: 20.0,
-                              left: 25.0,
+                            padding: EdgeInsets.symmetric(
+                              vertical: 25.0,
+                              horizontal: 25.0,
                             ),
                             child: Column(
                               children: [
@@ -101,7 +97,14 @@ class _HomeUIWidgetState extends State<Firstui> {
                                 // Create Account Button
                                 ElevatedButton(
                                   onPressed: () {
-                                    // Add create account functionality here
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) {
+                                          return Createaccount();
+                                        },
+                                      ),
+                                    );
                                   },
                                   style: Design.buttonDesign,
                                   child: Text(
