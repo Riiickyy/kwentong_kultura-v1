@@ -1,5 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:kwentong_kultura/UI-stack-widget.dart';
+import 'package:kwentong_kultura/auth_service.dart';
 import '../Styles/styles.dart';
 
 class Createaccount extends StatefulWidget {
@@ -10,7 +13,30 @@ class Createaccount extends StatefulWidget {
 }
 
 class _HomeUIWidgetState extends State<Createaccount> {
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  String errorMessage = '';
+
   @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+  }
+
+  void register() async {
+    try {
+      await authService.value.createAccount(
+        email: emailController.text,
+        password: passwordController.text,
+      );
+    } on FirebaseAuthException catch (e) {
+      setState(() {
+        errorMessage = e.message ?? 'Bad format of Email';
+      });
+    }
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFFB3D9FF), // Light blue background color
@@ -76,6 +102,7 @@ class _HomeUIWidgetState extends State<Createaccount> {
                             ),
                             SizedBox(height: 10),
                             TextField(
+                              controller: nameController,
                               decoration: InputDecoration(
                                 labelText: 'Name',
                                 border: OutlineInputBorder(),
@@ -87,7 +114,7 @@ class _HomeUIWidgetState extends State<Createaccount> {
                                   Alignment
                                       .centerLeft, // Aligns the text to the left
                               child: Text(
-                                "Username",
+                                "Email",
                                 style: Design.storyTitle,
                                 textAlign:
                                     TextAlign
@@ -96,8 +123,10 @@ class _HomeUIWidgetState extends State<Createaccount> {
                             ),
                             SizedBox(height: 10),
                             TextField(
+                              controller: emailController,
+                              keyboardType: TextInputType.emailAddress,
                               decoration: InputDecoration(
-                                labelText: 'Username',
+                                labelText: 'Email',
                                 border: OutlineInputBorder(),
                               ),
                             ),
@@ -116,11 +145,17 @@ class _HomeUIWidgetState extends State<Createaccount> {
                             ),
                             SizedBox(height: 10),
                             TextField(
+                              controller: passwordController,
                               obscureText: true,
                               decoration: InputDecoration(
                                 labelText: 'Password',
                                 border: OutlineInputBorder(),
                               ),
+                            ),
+                            SizedBox(height: 10),
+                            Text(
+                              errorMessage,
+                              style: TextStyle(color: Colors.redAccent),
                             ),
                             SizedBox(height: 20),
                             // Login button

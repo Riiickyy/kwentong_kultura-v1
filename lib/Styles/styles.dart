@@ -44,4 +44,10 @@ class Design {
     fontFamily: 'Nunito',
     color: Colors.black,
   );
+  static TextStyle RecoPass = TextStyle(
+    fontSize: 24,
+    fontWeight: FontWeight.bold,
+    fontFamily: 'Nunito',
+    color: Colors.black,
+  );
 }

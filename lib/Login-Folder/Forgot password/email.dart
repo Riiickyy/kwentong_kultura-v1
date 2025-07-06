@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:kwentong_kultura/Login-Folder/Forgot%20password/email.dart';
+import 'package:kwentong_kultura/Login-Folder/Login.dart';
 import 'package:kwentong_kultura/UI-stack-widget.dart';
-import '../Styles/styles.dart';
+import '../../Styles/styles.dart';
 
-class Login extends StatefulWidget {
-  const Login({super.key});
+class Passrec extends StatefulWidget {
+  const Passrec({super.key});
 
   @override
-  State<Login> createState() => _HomeUIWidgetState();
+  State<Passrec> createState() => _PassrecState();
 }
 
-class _HomeUIWidgetState extends State<Login> {
+class _PassrecState extends State<Passrec> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,7 +37,7 @@ class _HomeUIWidgetState extends State<Login> {
                         ),
                       ),
                       SizedBox(height: 40), // Space between title and form
-                      // Login Form Container
+                      // Password Recovery Form Container
                       Container(
                         width: constraints.maxWidth * 0.8, // Responsive width
                         padding: EdgeInsets.all(16),
@@ -50,9 +50,7 @@ class _HomeUIWidgetState extends State<Login> {
                           ),
                           boxShadow: [
                             BoxShadow(
-                              color: Colors.black.withOpacity(
-                                0.5,
-                              ), // Shadow color
+                              color: Colors.black.withOpacity(0.5),
                               blurRadius: 4, // Blur intensity
                               offset: Offset(0, 4), // Shadow position
                             ),
@@ -64,15 +62,18 @@ class _HomeUIWidgetState extends State<Login> {
                             Align(
                               alignment: Alignment.centerLeft,
                               child: Text(
-                                "Username",
-                                style: Design.storyTitle,
+                                "Your Username",
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
                                 textAlign: TextAlign.left,
                               ),
                             ),
                             SizedBox(height: 10),
                             TextField(
                               decoration: InputDecoration(
-                                labelText: 'Username',
+                                labelText: 'Your Username',
                                 border: OutlineInputBorder(),
                               ),
                             ),
@@ -82,8 +83,11 @@ class _HomeUIWidgetState extends State<Login> {
                             Align(
                               alignment: Alignment.centerLeft,
                               child: Text(
-                                "Password",
-                                style: Design.storyTitle,
+                                "Current Password",
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
                                 textAlign: TextAlign.left,
                               ),
                             ),
@@ -91,55 +95,56 @@ class _HomeUIWidgetState extends State<Login> {
                             TextField(
                               obscureText: true,
                               decoration: InputDecoration(
-                                labelText: 'Password',
+                                labelText: 'Current Password',
                                 border: OutlineInputBorder(),
                               ),
                             ),
-                            GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) {
-                                      return Passrec();
-                                    },
-                                  ),
-                                );
-                              },
-                              child: Align(
-                                alignment:
-                                    Alignment
-                                        .centerRight, // Align text to the left
-                                child: RichText(
-                                  text: TextSpan(
-                                    text: 'Forgot Password?',
-                                    style: TextStyle(
-                                      color: Colors.blue, // Text color
-                                      fontSize: 16,
-                                      decoration: TextDecoration.underline,
-                                      decorationColor:
-                                          Colors.blue, // Underline color
-                                    ),
-                                  ),
+
+                            SizedBox(height: 20),
+
+                            // Password field
+                            Align(
+                              alignment: Alignment.centerLeft,
+                              child: Text(
+                                "New Password",
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
                                 ),
+                                textAlign: TextAlign.left,
                               ),
                             ),
+                            SizedBox(height: 10),
+                            TextField(
+                              obscureText: true,
+                              decoration: InputDecoration(
+                                labelText: 'New Password',
+                                border: OutlineInputBorder(),
+                              ),
+                            ),
+
                             SizedBox(height: 20),
 
                             // Login button
                             ElevatedButton(
                               onPressed: () {
+                                // Handle login logic
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) {
-                                      return HomeUIWidget();
+                                      // Replace with the correct screen after login
+                                      return Login();
                                     },
                                   ),
                                 );
                               },
                               style: Design.buttonDesign,
-                              child: Text('Mag - Login', style: Design.Login),
+                              child: Text(
+                                'Change Password',
+                                textAlign: TextAlign.center,
+                                style: Design.Login,
+                              ),
                             ),
                           ],
                         ),
