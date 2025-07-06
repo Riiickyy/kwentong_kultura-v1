@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "416233407003",
+    "project_id": "kwentong-kultura",
+    "storage_bucket": "kwentong-kultura.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:416233407003:android:c7d57fa9b2d82011f66ebe",
+        "android_client_info": {
+          "package_name": "com.kwentong_kultura"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBXAdxnu6JmpuyUClPhwfnP2sfw3xPeGM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

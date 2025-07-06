@@ -93,6 +93,17 @@ class _HomeUIWidgetState extends State<HomeUIWidget> {
 
           // Home Buttons positioned near the middle of the screen
           Positioned(top: 270, right: 0, left: 0, child: Homebuttons()),
+          Positioned(
+            bottom: 100,
+            right: 20,
+            child: FloatingActionButton(
+              backgroundColor: Colors.orange.shade300,
+              onPressed: () {
+                print('Settings button pressed!');
+              },
+              child: Icon(Icons.logout),
+            ),
+          ),
         ],
       ),
     );
