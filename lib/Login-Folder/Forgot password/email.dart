@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:kwentong_kultura/Login-Folder/Login.dart';
-import 'package:kwentong_kultura/UI-stack-widget.dart';
 import '../../Styles/styles.dart';
 
 class Passrec extends StatefulWidget {
