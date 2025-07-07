@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kwentong_kultura/Login-Folder/Login.dart';
+import 'package:kwentong_kultura/auth_service.dart';
 import '../../Styles/styles.dart';
 
 class Passrec extends StatefulWidget {
@@ -10,10 +11,37 @@ class Passrec extends StatefulWidget {
 }
 
 class _PassrecState extends State<Passrec> {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController currentPasswordController =
+      TextEditingController();
+  final TextEditingController newPasswordController = TextEditingController();
+  String errorMessage = '';
+
+  void dispose() {
+    emailController.dispose();
+    currentPasswordController.dispose();
+    newPasswordController.dispose();
+    super.dispose();
+  }
+
+    void updatePassword() async {
+    try {
+      await authService.value.resetPasswordFromCurrentPassword(currentPassword: currentPasswordController.text, newPassword: newPasswordController.text, email: emailController.text),
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => HomeUIWidget()),
+      );
+    } on FirebaseAuthException catch (e) {
+      setState(() {
+        errorMessage = e.message ?? 'Your credentials is wrong';
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFB3D9FF), // Light blue background color
+      backgroundColor: Color(0xFFB3D9FF),
       body: SafeArea(
         child: SingleChildScrollView(
           child: LayoutBuilder(
@@ -30,33 +58,42 @@ class _PassrecState extends State<Passrec> {
                         child: Image.asset(
                           'assets/images/HomeUI/first.png',
                           fit: BoxFit.cover,
-                          width:
-                              constraints.maxWidth *
-                              0.8, // Responsive image width
+                          width: constraints.maxWidth * 0.8,
                         ),
                       ),
-                      SizedBox(height: 40), // Space between title and form
-                      // Password Recovery Form Container
+                      SizedBox(height: 40),
                       Container(
-                        width: constraints.maxWidth * 0.8, // Responsive width
+                        width: constraints.maxWidth * 0.8,
                         padding: EdgeInsets.all(16),
                         decoration: BoxDecoration(
                           color: const Color(0xFFACDC94),
                           borderRadius: BorderRadius.circular(10),
-                          border: Border.all(
-                            color: Colors.black, // Border color
-                            width: 1, // Border width
-                          ),
+                          border: Border.all(color: Colors.black, width: 1),
                           boxShadow: [
                             BoxShadow(
                               color: Colors.black.withOpacity(0.5),
-                              blurRadius: 4, // Blur intensity
-                              offset: Offset(0, 4), // Shadow position
+                              blurRadius: 4,
+                              offset: Offset(0, 4),
                             ),
                           ],
                         ),
                         child: Column(
                           children: [
+                            ElevatedButton(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) {
+                                      return Login();
+                                    },
+                                  ),
+                                );
+                              },
+                              style: Design.buttonDesign,
+                              child: Icon(Icons.arrow_back),
+                            ),
+                            SizedBox(height: 10),
                             // Username field
                             Align(
                               alignment: Alignment.centerLeft,
@@ -78,7 +115,7 @@ class _PassrecState extends State<Passrec> {
                             ),
                             SizedBox(height: 20),
 
-                            // Password field
+                            // Current Password field
                             Align(
                               alignment: Alignment.centerLeft,
                               child: Text(
@@ -101,7 +138,7 @@ class _PassrecState extends State<Passrec> {
 
                             SizedBox(height: 20),
 
-                            // Password field
+                            // New Password field
                             Align(
                               alignment: Alignment.centerLeft,
                               child: Text(
@@ -127,12 +164,10 @@ class _PassrecState extends State<Passrec> {
                             // Login button
                             ElevatedButton(
                               onPressed: () {
-                                // Handle login logic
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) {
-                                      // Replace with the correct screen after login
                                       return Login();
                                     },
                                   ),

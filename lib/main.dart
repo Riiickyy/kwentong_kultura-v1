@@ -4,6 +4,7 @@ import 'package:just_audio/just_audio.dart';
 import 'Login-Folder/firstUI.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+import 'auth_layout.dart'; // Make sure to import the AuthLayout widget
 
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -21,6 +22,7 @@ class KwentongKultura extends StatefulWidget {
 
 class _KwentongKulturaState extends State<KwentongKultura> {
   late AudioPlayer _audioPlayer;
+
   @override
   void initState() {
     super.initState();
@@ -56,8 +58,9 @@ class _KwentongKulturaState extends State<KwentongKultura> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-
-      home: Scaffold(backgroundColor: Color(0xFFC5F1FF), body: Firstui()),
+      home: AuthLayout(
+        pageIfNotConnected: const Firstui(),
+      ), // Use AuthLayout here
     );
   }
 }

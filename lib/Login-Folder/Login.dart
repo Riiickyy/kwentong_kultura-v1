@@ -1,6 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:kwentong_kultura/Login-Folder/Forgot%20password/email.dart';
 import 'package:kwentong_kultura/UI-stack-widget.dart';
+import 'package:kwentong_kultura/auth_service.dart';
 import '../Styles/styles.dart';
 
 class Login extends StatefulWidget {
@@ -11,6 +13,33 @@ class Login extends StatefulWidget {
 }
 
 class _HomeUIWidgetState extends State<Login> {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  String errorMessage = '';
+
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
+
+  void signIn() async {
+    try {
+      await authService.value.signIn(
+        email: emailController.text,
+        password: passwordController.text,
+      );
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => HomeUIWidget()),
+      );
+    } on FirebaseAuthException catch (e) {
+      setState(() {
+        errorMessage = e.message ?? 'Your credentials is wrong';
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,6 +100,7 @@ class _HomeUIWidgetState extends State<Login> {
                             ),
                             SizedBox(height: 10),
                             TextField(
+                              controller: emailController,
                               decoration: InputDecoration(
                                 labelText: 'Username',
                                 border: OutlineInputBorder(),
@@ -89,6 +119,7 @@ class _HomeUIWidgetState extends State<Login> {
                             ),
                             SizedBox(height: 10),
                             TextField(
+                              controller: passwordController,
                               obscureText: true,
                               decoration: InputDecoration(
                                 labelText: 'Password',
@@ -124,20 +155,16 @@ class _HomeUIWidgetState extends State<Login> {
                                 ),
                               ),
                             ),
+                            SizedBox(height: 10),
+                            Text(
+                              errorMessage,
+                              style: TextStyle(color: Colors.redAccent),
+                            ),
                             SizedBox(height: 20),
 
                             // Login button
                             ElevatedButton(
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) {
-                                      return HomeUIWidget();
-                                    },
-                                  ),
-                                );
-                              },
+                              onPressed: signIn,
                               style: Design.buttonDesign,
                               child: Text('Mag - Login', style: Design.Login),
                             ),

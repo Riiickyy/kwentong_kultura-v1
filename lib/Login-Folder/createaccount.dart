@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:kwentong_kultura/Login-Folder/Login.dart';
 import 'package:kwentong_kultura/UI-stack-widget.dart';
 import 'package:kwentong_kultura/auth_service.dart';
 import '../Styles/styles.dart';
@@ -21,6 +22,7 @@ class _HomeUIWidgetState extends State<Createaccount> {
   void dispose() {
     emailController.dispose();
     passwordController.dispose();
+    super.dispose();
   }
 
   void register() async {
@@ -29,6 +31,7 @@ class _HomeUIWidgetState extends State<Createaccount> {
         email: emailController.text,
         password: passwordController.text,
       );
+      _showSuccessDialog(); // Show success dialog after successful account creation
     } on FirebaseAuthException catch (e) {
       setState(() {
         errorMessage = e.message ?? 'Bad format of Email';
@@ -36,6 +39,63 @@ class _HomeUIWidgetState extends State<Createaccount> {
     }
   }
 
+  void _showSuccessDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return Dialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15),
+          ),
+          elevation: 7,
+          child: Container(
+            decoration: BoxDecoration(
+              color: Color(0xFFACDC94), // Light green background
+              borderRadius: BorderRadius.circular(15),
+              border: Border.all(
+                color: Colors.black, // Black border
+                width: 2, // Border width
+              ),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    'Your account has been successfully created!',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 28,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  TextButton(
+                    style: Design.buttonDesign,
+                    onPressed: () {
+                      Navigator.of(context).pop(); // Close the dialog
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => const Login()),
+                      ); // Navigate to the login screen
+                    },
+                    child: Text(
+                      'Go to Login',
+                      style: TextStyle(color: Colors.black, fontSize: 18),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFFB3D9FF), // Light blue background color
@@ -157,20 +217,11 @@ class _HomeUIWidgetState extends State<Createaccount> {
                               style: TextStyle(color: Colors.redAccent),
                             ),
                             SizedBox(height: 20),
-                            // Login button
+                            // Register button
                             ElevatedButton(
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) {
-                                      return HomeUIWidget();
-                                    },
-                                  ),
-                                );
-                              },
+                              onPressed: register,
                               style: Design.buttonDesign,
-                              child: Text('Mag - Login', style: Design.Login),
+                              child: Text('Register', style: Design.Login),
                             ),
                           ],
                         ),

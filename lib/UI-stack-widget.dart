@@ -1,4 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:kwentong_kultura/Login-Folder/firstUI.dart';
+import 'package:kwentong_kultura/Styles/styles.dart';
+import 'package:kwentong_kultura/auth_service.dart';
 import 'buttons/Home-Buttons.dart';
 
 class HomeUIWidget extends StatefulWidget {
@@ -9,21 +13,105 @@ class HomeUIWidget extends StatefulWidget {
 }
 
 class _HomeUIWidgetState extends State<HomeUIWidget> {
+  // Method to show the logout confirmation dialog
+  void _showLogoutDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return Dialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15),
+          ),
+          elevation: 7,
+          child: Container(
+            decoration: BoxDecoration(
+              color: Color(0xFFACDC94), // Light green background
+              borderRadius: BorderRadius.circular(15),
+              border: Border.all(
+                color: Colors.black, // Black border
+                width: 2, // Border width
+              ),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    'Are you sure you want to logout?',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 28,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(height: 20),
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      TextButton(
+                        style: Design.buttonDesign,
+                        onPressed: () async {
+                          try {
+                            // Sign out the user
+                            await authService.value.signOut();
+                            // Navigate to Firstui after logout
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const Firstui(),
+                              ),
+                            );
+                          } on FirebaseAuthException catch (e) {
+                            print(e);
+                          }
+                        },
+                        child: Text(
+                          'Yes',
+                          style: TextStyle(color: Colors.black, fontSize: 28),
+                        ),
+                      ),
+                      TextButton(
+                        style: Design.buttonDesign,
+                        onPressed: () {
+                          Navigator.of(context).pop(); // Close the dialog
+                        },
+                        child: Text(
+                          'No',
+                          style: TextStyle(color: Colors.black, fontSize: 28),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFFC5F1FF),
       body: Stack(
         children: [
-          // Cloud Image Positioned at the top
           Positioned(
             top: 30,
             child: Image.asset('assets/images/HomeUI/Cloud.png'),
           ),
 
-          // Wood Image and Title Positioned at the top center
           Positioned(
-            top: 105, // Adjust top to place it properly
+            top: 105,
             left: 0,
             right: 0,
             child: Align(
@@ -34,11 +122,9 @@ class _HomeUIWidgetState extends State<HomeUIWidget> {
                   Image.asset(
                     'assets/images/HomeUI/Wood.png',
                     fit: BoxFit.cover,
-                    width:
-                        MediaQuery.of(context).size.width *
-                        0.8, // Responsive image width
+                    width: MediaQuery.of(context).size.width * 0.8,
                   ),
-                  // Title Text "Kwentong Kultura"
+
                   Text(
                     'Kwentong\nKultura',
                     textAlign: TextAlign.center,
@@ -61,14 +147,12 @@ class _HomeUIWidgetState extends State<HomeUIWidget> {
             ),
           ),
 
-          // Sun Cloud Positioned on the top right
           Positioned(
             top: 45,
             right: 10,
             child: Image.asset('assets/images/HomeUI/sunncloud.png'),
           ),
 
-          // Grass Image at the bottom
           Positioned(
             bottom: 0,
             child: Image.asset(
@@ -77,30 +161,26 @@ class _HomeUIWidgetState extends State<HomeUIWidget> {
             ),
           ),
 
-          // Turtle Image positioned towards the bottom right
           Positioned(
             bottom: 65,
             right: -5,
             child: Image.asset('assets/images/HomeUI/Turtle.png'),
           ),
 
-          // Rock Image positioned towards the bottom left
           Positioned(
             bottom: 150,
             left: -5,
             child: Image.asset('assets/images/HomeUI/Rock.png'),
           ),
 
-          // Home Buttons positioned near the middle of the screen
           Positioned(top: 270, right: 0, left: 0, child: Homebuttons()),
           Positioned(
             bottom: 100,
             right: 20,
             child: FloatingActionButton(
               backgroundColor: Colors.orange.shade300,
-              onPressed: () {
-                print('Settings button pressed!');
-              },
+              onPressed:
+                  _showLogoutDialog, // Directly call the method to show dialog
               child: Icon(Icons.logout),
             ),
           ),
