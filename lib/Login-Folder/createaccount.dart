@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:kwentong_kultura/Login-Folder/Login.dart';
-import 'package:kwentong_kultura/UI-stack-widget.dart';
+import 'package:kwentong_kultura/Login-Folder/firstUI.dart';
 import 'package:kwentong_kultura/auth_service.dart';
 import '../Styles/styles.dart';
 
@@ -147,6 +147,30 @@ class _HomeUIWidgetState extends State<Createaccount> {
                         ),
                         child: Column(
                           children: [
+                            Row(
+                              children: [
+                                Align(
+                                  alignment:
+                                      Alignment.centerLeft, // Align to the left
+                                  child: ElevatedButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) {
+                                            return Firstui();
+                                          },
+                                        ),
+                                      );
+                                    },
+                                    style: Design.buttonDesign,
+                                    child: Icon(Icons.arrow_back),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: 10),
+
                             Align(
                               alignment:
                                   Alignment

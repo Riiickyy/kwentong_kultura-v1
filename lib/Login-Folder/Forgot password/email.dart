@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:kwentong_kultura/Login-Folder/Login.dart';
 import 'package:kwentong_kultura/auth_service.dart';
@@ -24,18 +25,43 @@ class _PassrecState extends State<Passrec> {
     super.dispose();
   }
 
-    void updatePassword() async {
+  void resetPassword() async {
     try {
-      await authService.value.resetPasswordFromCurrentPassword(currentPassword: currentPasswordController.text, newPassword: newPasswordController.text, email: emailController.text),
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => HomeUIWidget()),
-      );
+      await authService.value.resetPassword(email: emailController.text);
+      showSnackBarSuccess();
+      print("success");
     } on FirebaseAuthException catch (e) {
       setState(() {
-        errorMessage = e.message ?? 'Your credentials is wrong';
+        showSnackBarFailure(e);
       });
+      print("fail"); // Pass the exception to show detailed error
     }
+  }
+
+  void showSnackBarSuccess() {
+    ScaffoldMessenger.of(context).clearSnackBars();
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          'It will send to yourr email',
+          style: TextStyle(color: Colors.white),
+        ),
+        backgroundColor: Colors.green,
+      ),
+    );
+  }
+
+  void showSnackBarFailure(FirebaseAuthException e) {
+    ScaffoldMessenger.of(context).clearSnackBars();
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          e.message ?? "Email not register", // Displaying error message
+          style: TextStyle(color: Colors.white),
+        ),
+        backgroundColor: Colors.red,
+      ),
+    );
   }
 
   @override
@@ -79,19 +105,27 @@ class _PassrecState extends State<Passrec> {
                         ),
                         child: Column(
                           children: [
-                            ElevatedButton(
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) {
-                                      return Login();
+                            Row(
+                              children: [
+                                Align(
+                                  alignment:
+                                      Alignment.centerLeft, // Align to the left
+                                  child: ElevatedButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) {
+                                            return Login();
+                                          },
+                                        ),
+                                      );
                                     },
+                                    style: Design.buttonDesign,
+                                    child: Icon(Icons.arrow_back),
                                   ),
-                                );
-                              },
-                              style: Design.buttonDesign,
-                              child: Icon(Icons.arrow_back),
+                                ),
+                              ],
                             ),
                             SizedBox(height: 10),
                             // Username field
@@ -108,6 +142,7 @@ class _PassrecState extends State<Passrec> {
                             ),
                             SizedBox(height: 10),
                             TextField(
+                              controller: emailController,
                               decoration: InputDecoration(
                                 labelText: 'Your Username',
                                 border: OutlineInputBorder(),
@@ -115,64 +150,9 @@ class _PassrecState extends State<Passrec> {
                             ),
                             SizedBox(height: 20),
 
-                            // Current Password field
-                            Align(
-                              alignment: Alignment.centerLeft,
-                              child: Text(
-                                "Current Password",
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                                textAlign: TextAlign.left,
-                              ),
-                            ),
-                            SizedBox(height: 10),
-                            TextField(
-                              obscureText: true,
-                              decoration: InputDecoration(
-                                labelText: 'Current Password',
-                                border: OutlineInputBorder(),
-                              ),
-                            ),
-
-                            SizedBox(height: 20),
-
-                            // New Password field
-                            Align(
-                              alignment: Alignment.centerLeft,
-                              child: Text(
-                                "New Password",
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                                textAlign: TextAlign.left,
-                              ),
-                            ),
-                            SizedBox(height: 10),
-                            TextField(
-                              obscureText: true,
-                              decoration: InputDecoration(
-                                labelText: 'New Password',
-                                border: OutlineInputBorder(),
-                              ),
-                            ),
-
-                            SizedBox(height: 20),
-
-                            // Login button
+                            // Change Password button
                             ElevatedButton(
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) {
-                                      return Login();
-                                    },
-                                  ),
-                                );
-                              },
+                              onPressed: resetPassword,
                               style: Design.buttonDesign,
                               child: Text(
                                 'Change Password',

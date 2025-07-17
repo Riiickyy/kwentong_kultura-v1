@@ -36,9 +36,9 @@ class AuthService {
   }
 
   Future<void> resetPasswordFromCurrentPassword({
-    required currentPassword,
-    required newPassword,
-    required email,
+    required String currentPassword,
+    required String newPassword,
+    required String email,
   }) async {
     AuthCredential credential = EmailAuthProvider.credential(
       email: email,
@@ -46,5 +46,9 @@ class AuthService {
     );
     await currentUser!.reauthenticateWithCredential(credential);
     await currentUser!.updatePassword(newPassword);
+  }
+
+  Future<void> resetPassword({required String email}) async {
+    await firebaseAuth.sendPasswordResetEmail(email: email);
   }
 }

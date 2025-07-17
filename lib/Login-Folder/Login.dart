@@ -89,6 +89,29 @@ class _HomeUIWidgetState extends State<Login> {
                         ),
                         child: Column(
                           children: [
+                            Row(
+                              children: [
+                                Align(
+                                  alignment:
+                                      Alignment.centerLeft, // Align to the left
+                                  child: ElevatedButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) {
+                                            return Login();
+                                          },
+                                        ),
+                                      );
+                                    },
+                                    style: Design.buttonDesign,
+                                    child: Icon(Icons.arrow_back),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: 10),
                             // Username field
                             Align(
                               alignment: Alignment.centerLeft,
