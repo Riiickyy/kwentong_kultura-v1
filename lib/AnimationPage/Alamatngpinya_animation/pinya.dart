@@ -1,5 +1,7 @@
 import 'package:appinio_video_player/appinio_video_player.dart';
 import 'package:flutter/material.dart';
+import 'package:kwentong_kultura/QUIZZES/pinyaQuiz/pinyaQuiz.dart';
+import 'package:kwentong_kultura/Styles/styles.dart';
 import 'package:video_player/video_player.dart';
 
 class Pinya extends StatefulWidget {
@@ -168,6 +170,29 @@ class _MyWidgetState extends State<Pinya> {
               backgroundColor: Colors.orange.shade300,
               onPressed: _toggleSettings,
               child: Icon(Icons.settings),
+            ),
+          ),
+
+          Positioned(
+            bottom: 30, // Adjust to your liking
+            left: 50, // Adjust for centering if needed
+            right: 50, // Center the button horizontally
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return Pinyaquiz();
+                    },
+                  ),
+                );
+              },
+              style: Design.buttonDesign,
+              child: Text(
+                'Tap to Continue', // Button text
+                style: Design.action,
+              ),
             ),
           ),
 

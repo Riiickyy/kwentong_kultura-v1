@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:kwentong_kultura/Login-Folder/Forgot%20password/email.dart';
+import 'package:kwentong_kultura/Login-Folder/firstUI.dart';
 import 'package:kwentong_kultura/UI-stack-widget.dart';
 import 'package:kwentong_kultura/auth_service.dart';
 import '../Styles/styles.dart';
@@ -100,7 +101,7 @@ class _HomeUIWidgetState extends State<Login> {
                                         context,
                                         MaterialPageRoute(
                                           builder: (context) {
-                                            return Login();
+                                            return Firstui();
                                           },
                                         ),
                                       );
