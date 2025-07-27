@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:kwentong_kultura/AnimationPage/Sipagongatmatsing_animation/pagongatmatsing.dart';
+import 'package:kwentong_kultura/AnimationPage/Sipagongatmatsing_animation/pagongatmatsingCT.dart';
 
-class SiPagongatMatsing extends StatefulWidget {
-  const SiPagongatMatsing({super.key});
+class SiPagongatMatsingTitle extends StatefulWidget {
+  const SiPagongatMatsingTitle({super.key});
 
   @override
-  State<SiPagongatMatsing> createState() => _SiPagongatMatsingState();
+  State<SiPagongatMatsingTitle> createState() => _SiPagongatMatsingTitleState();
 }
 
-class _SiPagongatMatsingState extends State<SiPagongatMatsing> {
+class _SiPagongatMatsingTitleState extends State<SiPagongatMatsingTitle> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +26,7 @@ class _SiPagongatMatsingState extends State<SiPagongatMatsing> {
         elevation: 6,
         shadowColor: Colors.black.withOpacity(0.5),
       ),
-      body: Pagongatmatsing(),
+      body: PagongatmatsingCT(),
     );
   }
 }

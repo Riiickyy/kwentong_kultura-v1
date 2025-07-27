@@ -1,15 +1,17 @@
 import 'package:appinio_video_player/appinio_video_player.dart';
 import 'package:flutter/material.dart';
+import 'package:kwentong_kultura/QUIZZES/pinyaQuiz.dart';
+import 'package:kwentong_kultura/Styles/styles.dart';
 import 'package:video_player/video_player.dart';
 
-class Pagongatmatsing extends StatefulWidget {
-  const Pagongatmatsing({super.key});
+class PinyaTitle extends StatefulWidget {
+  const PinyaTitle({super.key});
 
   @override
-  State<Pagongatmatsing> createState() => _PagongatmatsingState();
+  State<PinyaTitle> createState() => _PinyaTitleState();
 }
 
-class _PagongatmatsingState extends State<Pagongatmatsing> {
+class _PinyaTitleState extends State<PinyaTitle> {
   late CustomVideoPlayerController _customVideoPlayerController;
   late VideoPlayerController _controller;
   double _playbackSpeed = 1.0;
@@ -19,14 +21,17 @@ class _PagongatmatsingState extends State<Pagongatmatsing> {
   int _currentWordIndex = -1;
 
   final List<Map<String, dynamic>> subtitles = [
-    {"time": 0, "text": "Isang araw sa kagubatan"},
-    {"time": 5, "text": "Namataan ang isang hayop na nagngangalang pagong"},
-    {"time": 10, "text": "Siya ay kulay berde"},
-    {"time": 15, "text": "At lagi nyang bitbit ang kanyang bahay"},
-    {"time": 20, "text": "Dahilan kung bakit sobra nitong bagal maglakad"},
+    {"time": 0, "text": "Isang araw, may batang babae na nagngangalang Pinya."},
+    {"time": 5, "text": "Siya ay tamad at laging nawawala ang kanyang gamit."},
+    {"time": 10, "text": "Minsan, inutusan siya ng kanyang ina."},
+    {"time": 15, "text": "Ngunit hindi niya ito makita at nagalit ang ina."},
+    {
+      "time": 20,
+      "text": "Dahil dito, siya ay isinumpa at naging isang prutas.",
+    },
   ];
 
-  String assetVideo = 'assets/videos/Pagong.mp4';
+  String assetVideo = 'assets/videos/ElephantsDream.mp4';
 
   @override
   void initState() {
@@ -165,6 +170,29 @@ class _PagongatmatsingState extends State<Pagongatmatsing> {
               backgroundColor: Colors.orange.shade300,
               onPressed: _toggleSettings,
               child: Icon(Icons.settings),
+            ),
+          ),
+
+          Positioned(
+            bottom: 30, // Adjust to your liking
+            left: 50, // Adjust for centering if needed
+            right: 50, // Center the button horizontally
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return Pinyaquiz();
+                    },
+                  ),
+                );
+              },
+              style: Design.buttonDesign,
+              child: Text(
+                'Tap to Continue', // Button text
+                style: Design.action,
+              ),
             ),
           ),
 
