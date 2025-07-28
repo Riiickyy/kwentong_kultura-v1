@@ -20,6 +20,14 @@ class _HomeUIWidgetState extends State<Firstui> {
             color: Color(0xFFC5F1FF), // Set the background color here
             child: Stack(
               children: [
+                Positioned(
+                  top: 50,
+                  child: Image.asset('assets/images/HomeUI/Cloud.png'),
+                ),
+                Positioned(
+                  bottom: 10,
+                  child: Image.asset('assets/images/HomeUI/Cloud.png'),
+                ),
                 Center(
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:kwentong_kultura/AnimationPage/Alamatngpinya_animation/alamatngpinyaTitle.dart';
 import 'package:kwentong_kultura/AnimationPage/Alamatngpinya_animation/alamatngpinyaCT.dart';
-import 'package:kwentong_kultura/AnimationPage/Alamatngpinya_animation/pinyaTitle.dart';
+import 'package:kwentong_kultura/AnimationPage/KunehoatPagong_animation/kunehoatpagongTitle.dart';
 import 'package:kwentong_kultura/AnimationPage/Sipagongatmatsing_animation/sipagongatmatsingTitle.dart';
 import '../Styles/styles.dart';
 
@@ -68,7 +69,7 @@ class _MakinigcardsState extends State<Makinigcards> {
                               context,
                               MaterialPageRoute(
                                 builder: (context) {
-                                  return PinyaTitle();
+                                  return AlamatngpinyaTitle();
                                 },
                               ),
                             );
@@ -430,7 +431,7 @@ class _MakinigcardsState extends State<Makinigcards> {
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) {
-                                    return SiPagongatMatsingTitle();
+                                    return KunehoatPagongTitle();
                                   },
                                 ),
                               );

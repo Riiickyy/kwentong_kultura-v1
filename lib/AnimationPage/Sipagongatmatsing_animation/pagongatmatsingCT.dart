@@ -1,17 +1,17 @@
 import 'package:appinio_video_player/appinio_video_player.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
-import 'package:kwentong_kultura/QUIZZES/pinyaQuiz/pagongatmatsingQuiz.dart';
+import 'package:kwentong_kultura/QUIZZES/pagongatmatsingQuiz.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
 
-class Pagongatmatsing extends StatefulWidget {
-  const Pagongatmatsing({super.key});
+class PagongatmatsingCT extends StatefulWidget {
+  const PagongatmatsingCT({super.key});
 
   @override
-  State<Pagongatmatsing> createState() => _PagongatmatsingState();
+  State<PagongatmatsingCT> createState() => _PagongatmatsingCTState();
 }
 
-class _PagongatmatsingState extends State<Pagongatmatsing> {
+class _PagongatmatsingCTState extends State<PagongatmatsingCT> {
   late CustomVideoPlayerController _customVideoPlayerController;
   late VideoPlayerController _controller;
   double _playbackSpeed = 1.0;

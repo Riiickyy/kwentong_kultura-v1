@@ -1,17 +1,18 @@
 import 'package:appinio_video_player/appinio_video_player.dart';
 import 'package:flutter/material.dart';
-import 'package:kwentong_kultura/QUIZZES/pinyaQuiz.dart';
-import 'package:kwentong_kultura/Styles/styles.dart';
+import 'package:kwentong_kultura/QUIZZES/kunehoatpagongQuiz.dart';
 import 'package:video_player/video_player.dart';
+import 'package:kwentong_kultura/QUIZZES/pagongatmatsingQuiz.dart';
+import 'package:kwentong_kultura/Styles/styles.dart';
 
-class PinyaTitle extends StatefulWidget {
-  const PinyaTitle({super.key});
+class KunehotPagongCT extends StatefulWidget {
+  const KunehotPagongCT({super.key});
 
   @override
-  State<PinyaTitle> createState() => _PinyaTitleState();
+  State<KunehotPagongCT> createState() => _KunehotPagongCTState();
 }
 
-class _PinyaTitleState extends State<PinyaTitle> {
+class _KunehotPagongCTState extends State<KunehotPagongCT> {
   late CustomVideoPlayerController _customVideoPlayerController;
   late VideoPlayerController _controller;
   double _playbackSpeed = 1.0;
@@ -19,19 +20,28 @@ class _PinyaTitleState extends State<PinyaTitle> {
   bool _isSettingsOpen = false;
   String _currentSubtitle = "";
   int _currentWordIndex = -1;
+  Duration fractionalSecondsToDuration(double seconds) {
+    return Duration(milliseconds: (seconds * 1000).toInt());
+  }
 
   final List<Map<String, dynamic>> subtitles = [
-    {"time": 0, "text": "Isang araw, may batang babae na nagngangalang Pinya."},
-    {"time": 5, "text": "Siya ay tamad at laging nawawala ang kanyang gamit."},
-    {"time": 10, "text": "Minsan, inutusan siya ng kanyang ina."},
-    {"time": 15, "text": "Ngunit hindi niya ito makita at nagalit ang ina."},
-    {
-      "time": 20,
-      "text": "Dahil dito, siya ay isinumpa at naging isang prutas.",
-    },
+    {"time": 0, "text": "Ang Kuneho at ang pagong"},
+    {"time": 4, "text": "Isang araw"},
+    {"time": 6, "text": "Ang Kuneho at ang pagong"},
+    {"time": 8, "text": "Ay nagpapahinga sa ilalim ng malaking punong manggaw"},
+    {"time": 12, "text": "Pagong: Kaibigang Kuneho"},
+    {"time": 14, "text": "Wika ng pagong"},
+    {"time": 16, "text": "Pagong: Wala ba tayong gagawin"},
+    {"time": 19, "text": "Pagong: kundi panoorin"},
+    {"time": 21, "text": "Pagong: ang mga dahon ng manggang ito"},
+    {"time": 24, "text": "Kuneho: Bakit?"},
+    {"time": 26, "text": "Kuneho: Ano ba ang gusto mong gawin"},
+    {"time": 29, "text": "Tanong ng Kuneho"},
+    {"time": 30, "text": "Pagong: Halika"},
+    {"time": 30, "text": "Pagong: Magkarera tayo"},
   ];
 
-  String assetVideo = 'assets/videos/ElephantsDream.mp4';
+  String assetVideo = 'assets/videos/KunehoatPagong.mp4';
 
   @override
   void initState() {
@@ -183,7 +193,7 @@ class _PinyaTitleState extends State<PinyaTitle> {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return Pinyaquiz();
+                      return KunehoatPagongQuiz();
                     },
                   ),
                 );

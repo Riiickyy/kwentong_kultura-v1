@@ -98,7 +98,8 @@ class _HomeUIWidgetState extends State<Createaccount> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFB3D9FF), // Light blue background color
+      backgroundColor: Color(0xFFB3D9FF),
+      // Light blue background color
       body: SafeArea(
         child: SingleChildScrollView(
           child: LayoutBuilder(
