@@ -40,7 +40,7 @@ class _PagongKunehoManggaState extends State<PagongKunehoMangga> {
 
   Future<void> loadImage() async {
     final ByteData data = await rootBundle.load(
-      'assets/images/Color/Scenario/Pagong at Kuneho sa mangga (Sketched).jpg',
+      'assets/images/Color/Scenario/kuneho at pagong Mangga (sketched).jpg',
     ); // Replace with your image path
     final ui.Codec codec = await ui.instantiateImageCodec(
       data.buffer.asUint8List(),
@@ -189,15 +189,23 @@ class _PagongKunehoManggaState extends State<PagongKunehoMangga> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'Si Pagong at ang kuneho sa ilalim ng mangga',
-          style: TextStyle(
-            fontFamily: 'Nunito',
-            fontWeight: FontWeight.w900,
-            fontSize: 14,
-          ),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.start, // Align text to the left
+          crossAxisAlignment: CrossAxisAlignment.center, // Vertically center it
+          children: [
+            Expanded(
+              child: Text(
+                'Si Pagong at ang kuneho \n sa ilalim ng mangga',
+                style: TextStyle(
+                  fontFamily: 'Nunito',
+                  fontWeight: FontWeight.w900,
+                  fontSize: 14,
+                ),
+                textAlign: TextAlign.justify, // Justify the text
+              ),
+            ),
+          ],
         ),
-        centerTitle: true,
         backgroundColor: Color(0xFFACDC94),
         elevation: 6,
         shadowColor: Colors.black.withOpacity(0.5),
@@ -211,72 +219,79 @@ class _PagongKunehoManggaState extends State<PagongKunehoMangga> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                  width: width * 0.80,
-                  height: height * 0.60,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.4),
-                        blurRadius: 5.0,
-                        spreadRadius: 1.0,
-                      ),
-                    ],
-                  ),
-
-                  child: GestureDetector(
-                    onPanDown: (details) {
-                      setState(() {
-                        if (isEraser) {
-                          eraseAtPoint(details.localPosition);
-                        } else {
-                          points.add(
-                            DrawingArea(
-                              point: details.localPosition,
-                              areaPaint:
-                                  Paint()
-                                    ..strokeCap = StrokeCap.round
-                                    ..isAntiAlias = true
-                                    ..color = selectedColor
-                                    ..strokeWidth = strokeWidth,
-                            ),
-                          );
-                        }
-                      });
-                    },
-                    onPanUpdate: (details) {
-                      setState(() {
-                        if (isEraser) {
-                          eraseAtPoint(details.localPosition);
-                        } else {
-                          points.add(
-                            DrawingArea(
-                              point: details.localPosition,
-                              areaPaint:
-                                  Paint()
-                                    ..strokeCap = StrokeCap.round
-                                    ..isAntiAlias = true
-                                    ..color = selectedColor
-                                    ..strokeWidth = strokeWidth,
-                            ),
-                          );
-                        }
-                      });
-                    },
-                    onPanEnd: (details) {
-                      setState(() {
-                        points.add(null);
-                      });
-                    },
-                    child: ClipRRect(
+                AspectRatio(
+                  aspectRatio:
+                      backgroundImage != null
+                          ? backgroundImage!.width.toDouble() /
+                              backgroundImage!.height.toDouble()
+                          : 1.0,
+                  child: Container(
+                    width: width * 0.80,
+                    height: height * 0.60,
+                    decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                      child: CustomPaint(
-                        painter: PagongkunehoManggacolorclass(
-                          points: points,
-                          strokeWidth: strokeWidth,
-                          color: selectedColor,
-                          backgroundImage: backgroundImage,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.4),
+                          blurRadius: 5.0,
+                          spreadRadius: 1.0,
+                        ),
+                      ],
+                    ),
+
+                    child: GestureDetector(
+                      onPanDown: (details) {
+                        setState(() {
+                          if (isEraser) {
+                            eraseAtPoint(details.localPosition);
+                          } else {
+                            points.add(
+                              DrawingArea(
+                                point: details.localPosition,
+                                areaPaint:
+                                    Paint()
+                                      ..strokeCap = StrokeCap.round
+                                      ..isAntiAlias = true
+                                      ..color = selectedColor
+                                      ..strokeWidth = strokeWidth,
+                              ),
+                            );
+                          }
+                        });
+                      },
+                      onPanUpdate: (details) {
+                        setState(() {
+                          if (isEraser) {
+                            eraseAtPoint(details.localPosition);
+                          } else {
+                            points.add(
+                              DrawingArea(
+                                point: details.localPosition,
+                                areaPaint:
+                                    Paint()
+                                      ..strokeCap = StrokeCap.round
+                                      ..isAntiAlias = true
+                                      ..color = selectedColor
+                                      ..strokeWidth = strokeWidth,
+                              ),
+                            );
+                          }
+                        });
+                      },
+                      onPanEnd: (details) {
+                        setState(() {
+                          points.add(null);
+                        });
+                      },
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                        child: CustomPaint(
+                          painter: PagongkunehoManggacolorclass(
+                            points: points,
+                            strokeWidth: strokeWidth,
+                            color: selectedColor,
+                            backgroundImage: backgroundImage,
+                          ),
                         ),
                       ),
                     ),

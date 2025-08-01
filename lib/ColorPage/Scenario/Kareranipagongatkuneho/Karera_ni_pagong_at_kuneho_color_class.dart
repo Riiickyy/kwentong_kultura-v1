@@ -17,13 +17,27 @@ class KareraNiPagongAtKunehoColorClass extends CustomPainter {
   });
   @override
   void paint(Canvas canvas, Size size) {
+    if (backgroundImage == null) return;
+
+    double imageAspectRatio = backgroundImage!.width / backgroundImage!.height;
+    double canvasAspectRatio = size.width / size.height;
+
+    double scaleX = size.width;
+    double scaleY = size.height;
+
+    if (imageAspectRatio > canvasAspectRatio) {
+      scaleY = size.width / imageAspectRatio;
+    } else {
+      scaleX = size.height * imageAspectRatio;
+    }
+
     Rect src = Rect.fromLTWH(
       0,
       0,
       backgroundImage!.width.toDouble(),
       backgroundImage!.height.toDouble(),
     );
-    Rect dst = Rect.fromLTWH(0, 0, size.width, size.height);
+    Rect dst = Rect.fromLTWH(0, 0, scaleX, scaleY);
 
     canvas.drawImageRect(backgroundImage!, src, dst, Paint());
 

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:kwentong_kultura/AnimationPage/Alamatngpinya_animation/alamatngpinyaTitle.dart';
-import 'package:kwentong_kultura/AnimationPage/AsoatKanyangAnino_animation/aso_at_kanyang_anino_CT.dart';
 import 'package:kwentong_kultura/AnimationPage/AsoatKanyangAnino_animation/aso_at_kanyang_anino_Title.dart';
 import 'package:kwentong_kultura/AnimationPage/KunehoatPagong_animation/kunehoatpagongTitle.dart';
 import 'package:kwentong_kultura/AnimationPage/Sipagongatmatsing_animation/sipagongatmatsingTitle.dart';
@@ -605,7 +604,7 @@ class _MakinigcardsState extends State<Makinigcards> {
 
                         SizedBox(height: 40),
                         Text(
-                          'Lorem ipsum dolor Lorem ipsum dolor',
+                          'Ito ay kwento ng paghahanap ng aso ng makakain para sa kanyang hapunan',
                           style: Design.desciption,
                         ),
                         SizedBox(height: 10), // Add spacing

@@ -40,7 +40,7 @@ class _KareraNiPagongAtKunehoState extends State<KareraNiPagongAtKuneho> {
 
   Future<void> loadImage() async {
     final ByteData data = await rootBundle.load(
-      'assets/images/Color/Scenario/Karera ni kuneho at pagong (Sketched).png',
+      'assets/images/Color/Scenario/Kareranikunehoatpagong (sketched).png',
     ); // Replace with your image path
     final ui.Codec codec = await ui.instantiateImageCodec(
       data.buffer.asUint8List(),
@@ -211,72 +211,79 @@ class _KareraNiPagongAtKunehoState extends State<KareraNiPagongAtKuneho> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                  width: width * 0.80,
-                  height: height * 0.60,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.4),
-                        blurRadius: 5.0,
-                        spreadRadius: 1.0,
-                      ),
-                    ],
-                  ),
-
-                  child: GestureDetector(
-                    onPanDown: (details) {
-                      setState(() {
-                        if (isEraser) {
-                          eraseAtPoint(details.localPosition);
-                        } else {
-                          points.add(
-                            DrawingArea(
-                              point: details.localPosition,
-                              areaPaint:
-                                  Paint()
-                                    ..strokeCap = StrokeCap.round
-                                    ..isAntiAlias = true
-                                    ..color = selectedColor
-                                    ..strokeWidth = strokeWidth,
-                            ),
-                          );
-                        }
-                      });
-                    },
-                    onPanUpdate: (details) {
-                      setState(() {
-                        if (isEraser) {
-                          eraseAtPoint(details.localPosition);
-                        } else {
-                          points.add(
-                            DrawingArea(
-                              point: details.localPosition,
-                              areaPaint:
-                                  Paint()
-                                    ..strokeCap = StrokeCap.round
-                                    ..isAntiAlias = true
-                                    ..color = selectedColor
-                                    ..strokeWidth = strokeWidth,
-                            ),
-                          );
-                        }
-                      });
-                    },
-                    onPanEnd: (details) {
-                      setState(() {
-                        points.add(null);
-                      });
-                    },
-                    child: ClipRRect(
+                AspectRatio(
+                  aspectRatio:
+                      backgroundImage != null
+                          ? backgroundImage!.width.toDouble() /
+                              backgroundImage!.height.toDouble()
+                          : 1.0,
+                  child: Container(
+                    width: width * 0.80,
+                    height: height * 0.60,
+                    decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                      child: CustomPaint(
-                        painter: KareraNiPagongAtKunehoColorClass(
-                          points: points,
-                          strokeWidth: strokeWidth,
-                          color: selectedColor,
-                          backgroundImage: backgroundImage,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.4),
+                          blurRadius: 5.0,
+                          spreadRadius: 1.0,
+                        ),
+                      ],
+                    ),
+
+                    child: GestureDetector(
+                      onPanDown: (details) {
+                        setState(() {
+                          if (isEraser) {
+                            eraseAtPoint(details.localPosition);
+                          } else {
+                            points.add(
+                              DrawingArea(
+                                point: details.localPosition,
+                                areaPaint:
+                                    Paint()
+                                      ..strokeCap = StrokeCap.round
+                                      ..isAntiAlias = true
+                                      ..color = selectedColor
+                                      ..strokeWidth = strokeWidth,
+                              ),
+                            );
+                          }
+                        });
+                      },
+                      onPanUpdate: (details) {
+                        setState(() {
+                          if (isEraser) {
+                            eraseAtPoint(details.localPosition);
+                          } else {
+                            points.add(
+                              DrawingArea(
+                                point: details.localPosition,
+                                areaPaint:
+                                    Paint()
+                                      ..strokeCap = StrokeCap.round
+                                      ..isAntiAlias = true
+                                      ..color = selectedColor
+                                      ..strokeWidth = strokeWidth,
+                              ),
+                            );
+                          }
+                        });
+                      },
+                      onPanEnd: (details) {
+                        setState(() {
+                          points.add(null);
+                        });
+                      },
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                        child: CustomPaint(
+                          painter: KareraNiPagongAtKunehoColorClass(
+                            points: points,
+                            strokeWidth: strokeWidth,
+                            color: selectedColor,
+                            backgroundImage: backgroundImage,
+                          ),
                         ),
                       ),
                     ),

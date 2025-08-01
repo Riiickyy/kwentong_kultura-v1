@@ -84,11 +84,10 @@ flutter:
     - assets/background.mp3
     - assets/pdfs/Pinya.pdf
     - assets/videos/Pagong.mp4
-    - assets/images/TurtlePencil.jpg
-    - assets/images/Color/Scenario/Pagong at Kuneho sa mangga (Sketched).jpg
-    - assets/images/Color/Character/Si pagong (Sketeched).png
-    - assets/images/Color/Character/Kuneho (sketched).jpg
-    - assets/images/Color/Scenario/Karera ni kuneho at pagong (Sketched).png
+    - assets/images/Color/Character/Sipagong (Sketched).png
+    - assets/images/Color/Character/sikuneho(sketched).png
+    - assets/images/Color/Scenario/kuneho at pagong Mangga (sketched).jpg
+    - assets/images/Color/Scenario/Kareranikunehoatpagong (sketched).png
     - assets/Buttonclick.mp3
     - assets/images/Thumbnails/Animation & Read/Ang Kuneho at ang Pagong.jpg
     - assets/images/Thumbnails/Kulay/Scenario/Pagong at ang kuneho sa ilalim ng mangga thumbnail.jpg
