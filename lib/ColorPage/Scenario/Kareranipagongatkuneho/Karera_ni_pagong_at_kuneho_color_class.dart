@@ -1,15 +1,15 @@
 import 'dart:ui' as ui;
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:kwentong_kultura/Classes/drawingarea.dart';
+import 'package:kwentong_kultura/ColorPage/Scenario/Kareranipagongatkuneho/Karera_ni_pagong_at_kuneho.dart';
 
-class CharacCustomPaint extends CustomPainter {
+class KareraNiPagongAtKunehoColorClass extends CustomPainter {
   List<DrawingArea?> points;
   Color color;
   double strokeWidth;
   ui.Image? backgroundImage;
 
-  CharacCustomPaint({
+  KareraNiPagongAtKunehoColorClass({
     required this.points,
     required this.color,
     required this.strokeWidth,

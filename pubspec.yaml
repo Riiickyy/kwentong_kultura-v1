@@ -45,7 +45,7 @@ dependencies:
   pdfx: ^2.9.1
   firebase_core: ^3.15.1
   firebase_auth: ^5.6.2
-
+  audioplayers: ^6.5.0
 
 dev_dependencies:
   flutter_test:
@@ -79,15 +79,23 @@ flutter:
     - assets/images/HomeUI/sunncloud.png
     - assets/images/HomeUI/Title.png
     - assets/images/HomeUI/first.png
-    - assets/images/
     - assets/videos/KunehoatPagong.mp4
     - assets/videos/AngAlamatngPinya.mp4
     - assets/background.mp3
-    - assets/images/turtol.jpg
     - assets/pdfs/Pinya.pdf
     - assets/videos/Pagong.mp4
     - assets/images/TurtlePencil.jpg
-    - assets/images/Teacherquiz.png
+    - assets/images/Color/Scenario/Pagong at Kuneho sa mangga (Sketched).jpg
+    - assets/images/Color/Character/Si pagong (Sketeched).png
+    - assets/images/Color/Character/Kuneho (sketched).jpg
+    - assets/images/Color/Scenario/Karera ni kuneho at pagong (Sketched).png
+    - assets/Buttonclick.mp3
+    - assets/images/Thumbnails/Animation & Read/Ang Kuneho at ang Pagong.jpg
+    - assets/images/Thumbnails/Kulay/Scenario/Pagong at ang kuneho sa ilalim ng mangga thumbnail.jpg
+    - assets/images/Thumbnails/Kulay/Character/Sipagongthumbnail.png
+    - assets/images/Thumbnails/Kulay/Character/Kunehothumbnail.jpg
+    - assets/images/Thumbnails/Kulay/Scenario/Karera ni kuneho at pagong.jpg
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

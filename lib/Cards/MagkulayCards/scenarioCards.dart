@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:kwentong_kultura/ColorPage/sipagong.dart';
-import '../Styles/styles.dart';
+import 'package:kwentong_kultura/ColorPage/Scenario/Kareranipagongatkuneho/Karera_ni_pagong_at_kuneho.dart';
+import 'package:kwentong_kultura/ColorPage/Scenario/PagongkunehoMangga/PagongKunehoMangga.dart';
+import '../../Styles/styles.dart';
 
-class Magkulaycards extends StatefulWidget {
-  const Magkulaycards({super.key});
+class ScenarioCards extends StatelessWidget {
+  const ScenarioCards({super.key});
 
-  @override
-  State<Magkulaycards> createState() => _MagkulaycardsState();
-}
-
-class _MagkulaycardsState extends State<Magkulaycards> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -20,7 +16,6 @@ class _MagkulaycardsState extends State<Magkulaycards> {
           Row(
             children: [
               Container(
-                height: 275,
                 width: 165,
                 decoration: BoxDecoration(
                   color: Color(0xFFACDC94),
@@ -43,14 +38,14 @@ class _MagkulaycardsState extends State<Magkulaycards> {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Image.network(
-                          'https://picsum.photos/250?image=9',
+                        Image.asset(
+                          'assets/images/Thumbnails/Kulay/Scenario/Pagong at ang kuneho sa ilalim ng mangga thumbnail.jpg',
                           width: 150,
                           height: 150,
                         ),
                         SizedBox(height: 10),
                         Text(
-                          'Si Pagong',
+                          'Si Pagong at Kuneho sa ilalim ng puno',
                           style: Design.storyTitle,
                           textAlign: TextAlign.center,
                         ),
@@ -62,7 +57,7 @@ class _MagkulaycardsState extends State<Magkulaycards> {
                               context,
                               MaterialPageRoute(
                                 builder: (context) {
-                                  return Pagong();
+                                  return PagongKunehoMangga();
                                 },
                               ),
                             );
@@ -100,14 +95,13 @@ class _MagkulaycardsState extends State<Magkulaycards> {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Image.network(
-                          'https://picsum.photos/250?image=9',
+                        Image.asset(
+                          'assets/images/Thumbnails/Kulay/Scenario/Karera ni kuneho at pagong.jpg',
                           width: 150,
-                          height: 150,
                         ),
                         SizedBox(height: 10),
                         Text(
-                          'Si Kuneho',
+                          'Karera ni Pagong at Kuneho',
                           style: Design.storyTitle,
                           textAlign: TextAlign.center,
                         ),
@@ -115,7 +109,16 @@ class _MagkulaycardsState extends State<Magkulaycards> {
                         SizedBox(height: 10),
 
                         ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return KareraNiPagongAtKuneho();
+                                },
+                              ),
+                            );
+                          },
                           style: Design.buttonDesign,
                           child: Text('Kulayan', style: Design.tara),
                         ),

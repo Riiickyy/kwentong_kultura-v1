@@ -388,20 +388,20 @@ class _MyWidgetState extends State<Magbasacards> {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Image.network(
-                          'https://picsum.photos/250?image=9',
+                        Image.asset(
+                          'assets/images/Thumbnails/Animation & Read/Ang Kuneho at ang Pagong.jpg',
                           width: 150,
-                          height: 150,
+                          height: 100,
                         ),
-                        SizedBox(height: 10),
+                        SizedBox(height: 10), // Add spacing
                         Text(
-                          'Alamat ng Maya',
+                          'Ang Kuneho at ang Pagong',
                           style: Design.storyTitle,
                           textAlign: TextAlign.center,
                         ),
                         SizedBox(height: 10),
                         Text(
-                          'Lorem ipsum dolor Lorem ipsum dolor',
+                          'Ito ay kwento ng paghahamon ng karera ni pagong sa kaibigan niya na si kuneho',
                           style: Design.desciption,
                         ),
                         SizedBox(height: 10),
@@ -446,7 +446,7 @@ class _MyWidgetState extends State<Magbasacards> {
                         ),
                         SizedBox(height: 10),
                         Text(
-                          'Alamat ng Niyog',
+                          'Maria Makiling',
                           style: Design.storyTitle,
                           textAlign: TextAlign.center,
                         ),

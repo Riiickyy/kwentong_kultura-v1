@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:kwentong_kultura/Classes/custompaint.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'dart:ui' as ui;
 import 'package:flutter/services.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
+import 'package:kwentong_kultura/ColorPage/Character/Si Kuneho/sikunehocolorclass.dart';
 
-class Pagong extends StatefulWidget {
-  const Pagong({super.key});
+class SiKuneho extends StatefulWidget {
+  const SiKuneho({super.key});
 
   @override
-  State<Pagong> createState() => _PagongState();
+  State<SiKuneho> createState() => _SiKunehoState();
 }
 
 class DrawingArea {
@@ -21,7 +21,7 @@ class DrawingArea {
   DrawingArea({required this.point, required this.areaPaint});
 }
 
-class _PagongState extends State<Pagong> {
+class _SiKunehoState extends State<SiKuneho> {
   List<DrawingArea?> points = [];
   List<DrawingArea?> redoStack = [];
   late Color selectedColor;
@@ -40,7 +40,7 @@ class _PagongState extends State<Pagong> {
 
   Future<void> loadImage() async {
     final ByteData data = await rootBundle.load(
-      'assets/images/TurtlePencil.jpg',
+      'assets/images/Color/Character/Kuneho (sketched).jpg',
     ); // Replace with your image path
     final ui.Codec codec = await ui.instantiateImageCodec(
       data.buffer.asUint8List(),
@@ -54,7 +54,7 @@ class _PagongState extends State<Pagong> {
 
   Future<void> loadDrawing() async {
     final prefs = await SharedPreferences.getInstance();
-    List<String>? pointsJson = prefs.getStringList('savedDrawing');
+    List<String>? pointsJson = prefs.getStringList('savedDrawingKuneho');
 
     if (pointsJson != null) {
       setState(() {
@@ -91,7 +91,7 @@ class _PagongState extends State<Pagong> {
             )
             .toList();
 
-    await prefs.setStringList('savedDrawing', pointsJson);
+    await prefs.setStringList('savedDrawingKuneho', pointsJson);
     ScaffoldMessenger.of(
       context,
     ).showSnackBar(SnackBar(content: Text("Drawing saved!")));
@@ -188,7 +188,7 @@ class _PagongState extends State<Pagong> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Si Pagong',
+          'Si Kuneho',
           style: TextStyle(
             fontFamily: 'Nunito',
             fontWeight: FontWeight.w900,
@@ -270,7 +270,7 @@ class _PagongState extends State<Pagong> {
                     child: ClipRRect(
                       borderRadius: BorderRadius.all(Radius.circular(20.0)),
                       child: CustomPaint(
-                        painter: CharacCustomPaint(
+                        painter: Sikunehocolorclass(
                           points: points,
                           strokeWidth: strokeWidth,
                           color: selectedColor,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:audioplayers/audioplayers.dart';
 import 'package:kwentong_kultura/Pages/taramagbasa.dart';
-
 import 'package:kwentong_kultura/Pages/taramagkulay.dart';
 import 'package:kwentong_kultura/Pages/taramakinig.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
@@ -13,6 +13,12 @@ class Homebuttons extends StatefulWidget {
 }
 
 class _HomebuttonsState extends State<Homebuttons> {
+  final AudioPlayer _audioPlayer = AudioPlayer();
+
+  void playSound() async {
+    await _audioPlayer.play(AssetSource('assets/Buttonclick.mp3'));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Align(
@@ -27,6 +33,7 @@ class _HomebuttonsState extends State<Homebuttons> {
             child: Center(
               child: ElevatedButton(
                 onPressed: () {
+                  playSound();
                   Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -64,6 +71,7 @@ class _HomebuttonsState extends State<Homebuttons> {
             child: Center(
               child: ElevatedButton(
                 onPressed: () {
+                  playSound();
                   Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -103,6 +111,7 @@ class _HomebuttonsState extends State<Homebuttons> {
             child: Center(
               child: ElevatedButton(
                 onPressed: () {
+                  playSound();
                   Navigator.push(
                     context,
                     MaterialPageRoute(

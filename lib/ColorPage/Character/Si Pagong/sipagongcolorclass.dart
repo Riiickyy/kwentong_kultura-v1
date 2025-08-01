@@ -1,15 +1,15 @@
 import 'dart:ui' as ui;
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:kwentong_kultura/Classes/drawingarea.dart';
+import 'package:kwentong_kultura/ColorPage/Character/Si Pagong/sipagong.dart';
 
-class CharacCustomPaint extends CustomPainter {
+class Sipagongcolorclass extends CustomPainter {
   List<DrawingArea?> points;
   Color color;
   double strokeWidth;
   ui.Image? backgroundImage;
 
-  CharacCustomPaint({
+  Sipagongcolorclass({
     required this.points,
     required this.color,
     required this.strokeWidth,

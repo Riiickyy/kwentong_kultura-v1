@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:kwentong_kultura/Cards/magkulaycards.dart';
+import 'package:kwentong_kultura/Cards/MagkulayCards/characterCards.dart';
+import 'package:kwentong_kultura/Cards/MagkulayCards/scenarioCards.dart';
+import 'package:kwentong_kultura/Widgets/colornavbarWidget.dart';
+import 'package:kwentong_kultura/Widgets/notifier.dart';
+
+List<Widget> pages = [CharacterCards(), ScenarioCards()];
 
 class Taramagkulay extends StatelessWidget {
   const Taramagkulay({super.key});
@@ -21,21 +26,41 @@ class Taramagkulay extends StatelessWidget {
         elevation: 6,
         shadowColor: Colors.black.withOpacity(0.5),
       ),
+      bottomNavigationBar: ColorNavbarWidget(),
 
       body: Stack(
         children: [
+          // Background Color
           Container(color: Color(0xFFC5F1FF)),
 
+          // Cloud Images - top and bottom
           Positioned(
             top: 50,
-            child: Image.asset('assets/images/HomeUI/Cloud.png'),
+            left: 0,
+            right: 0,
+            child: Image.asset(
+              'assets/images/HomeUI/Cloud.png',
+              width: MediaQuery.of(context).size.width, // Ensure full-width
+            ),
           ),
           Positioned(
             bottom: 10,
-            child: Image.asset('assets/images/HomeUI/Cloud.png'),
+            left: 0,
+            right: 0,
+            child: Image.asset(
+              'assets/images/HomeUI/Cloud.png',
+              width: MediaQuery.of(context).size.width, // Ensure full-width
+            ),
           ),
 
-          Magkulaycards(),
+          ValueListenableBuilder(
+            valueListenable: selectedPageNotifier,
+            builder: (context, selectedPage, child) {
+              return pages.elementAt(
+                selectedPage,
+              ); // Switching between Character and Scenario Cards
+            },
+          ),
         ],
       ),
     );

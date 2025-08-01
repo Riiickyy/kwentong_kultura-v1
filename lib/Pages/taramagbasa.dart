@@ -22,7 +22,6 @@ class Taramagbasa extends StatelessWidget {
         elevation: 6,
         shadowColor: Colors.black.withOpacity(0.5),
       ),
-
       body: Stack(
         children: [
           Container(color: Color(0xFFC5F1FF)),

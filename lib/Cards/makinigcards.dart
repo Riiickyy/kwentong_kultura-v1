@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kwentong_kultura/AnimationPage/Alamatngpinya_animation/alamatngpinyaTitle.dart';
-import 'package:kwentong_kultura/AnimationPage/Alamatngpinya_animation/alamatngpinyaCT.dart';
+import 'package:kwentong_kultura/AnimationPage/AsoatKanyangAnino_animation/aso_at_kanyang_anino_CT.dart';
+import 'package:kwentong_kultura/AnimationPage/AsoatKanyangAnino_animation/aso_at_kanyang_anino_Title.dart';
 import 'package:kwentong_kultura/AnimationPage/KunehoatPagong_animation/kunehoatpagongTitle.dart';
 import 'package:kwentong_kultura/AnimationPage/Sipagongatmatsing_animation/sipagongatmatsingTitle.dart';
 import '../Styles/styles.dart';
@@ -407,10 +408,10 @@ class _MakinigcardsState extends State<Makinigcards> {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Image.network(
-                          'https://picsum.photos/250?image=9',
+                        Image.asset(
+                          'assets/images/Thumbnails/Animation & Read/Ang Kuneho at ang Pagong.jpg',
                           width: 150,
-                          height: 150,
+                          height: 100,
                         ),
                         SizedBox(height: 10), // Add spacing
                         Text(
@@ -420,10 +421,10 @@ class _MakinigcardsState extends State<Makinigcards> {
                         ),
                         SizedBox(height: 10),
                         Text(
-                          'Lorem ipsum dolor Lorem ipsum dolor',
+                          'Ito ay kwento ng paghahamon ng karera ni pagong sa kaibigan niya na si kuneho',
                           style: Design.desciption,
                         ),
-                        SizedBox(height: 10), // Add spacing
+                        SizedBox(height: 10),
                         ElevatedButton(
                           onPressed: () {
                             {
@@ -609,7 +610,16 @@ class _MakinigcardsState extends State<Makinigcards> {
                         ),
                         SizedBox(height: 10), // Add spacing
                         ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return AsoAtKanyangAninoTitle();
+                                },
+                              ),
+                            );
+                          },
                           style: Design.buttonDesign,
                           child: Text('Pakinggan', style: Design.tara),
                         ),

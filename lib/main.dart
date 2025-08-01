@@ -4,7 +4,7 @@ import 'package:just_audio/just_audio.dart';
 import 'Login-Folder/firstUI.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
-import 'auth_layout.dart'; // Make sure to import the AuthLayout widget
+import 'auth_layout.dart';
 
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
