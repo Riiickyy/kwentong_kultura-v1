@@ -40,7 +40,7 @@ class _SiKunehoState extends State<SiKuneho> {
 
   Future<void> loadImage() async {
     final ByteData data = await rootBundle.load(
-      'assets/images/Color/Character/sikuneho(sketched).png',
+      'assets/images/Color/Character/Si Kuneho (Sketched).png',
     ); // Replace with your image path
     final ui.Codec codec = await ui.instantiateImageCodec(
       data.buffer.asUint8List(),

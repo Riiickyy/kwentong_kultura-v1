@@ -547,10 +547,10 @@ class _MyWidgetState extends State<Magbasacards> {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Image.network(
-                          'https://picsum.photos/250?image=9',
+                        Image.asset(
+                          'assets/images/Thumbnails/Animation & Read/Ang Aso at ang kanyang Anino.jpg',
                           width: 150,
-                          height: 150,
+                          height: 100,
                         ),
                         SizedBox(height: 10),
                         Text(
@@ -561,7 +561,7 @@ class _MyWidgetState extends State<Magbasacards> {
 
                         SizedBox(height: 40),
                         Text(
-                          'Lorem ipsum dolor Lorem ipsum dolor',
+                          'Ito ay kwento ng paghahanap ng aso ng makakain para sa kanyang hapunan',
                           style: Design.desciption,
                         ),
                         SizedBox(height: 10),

@@ -144,7 +144,7 @@ class _PagongatmatsingCTState extends State<PagongatmatsingCT> {
                                   fontWeight: FontWeight.bold,
                                   color:
                                       index <= _currentWordIndex
-                                          ? Colors.blue
+                                          ? Color(0xFFFF4C4C)
                                           : Colors.black, // Highlight effect
                                 ),
                               );

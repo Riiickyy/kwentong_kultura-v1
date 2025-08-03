@@ -5,13 +5,13 @@ import 'package:flutter/services.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
-import 'package:kwentong_kultura/ColorPage/Scenario/Kareranipagongatkuneho/Karera_ni_pagong_at_kuneho_color_class.dart';
+import 'package:kwentong_kultura/ColorPage/Character/Ang Aso/angAsocolorclass.dart';
 
-class KareraNiPagongAtKuneho extends StatefulWidget {
-  const KareraNiPagongAtKuneho({super.key});
+class AngAso extends StatefulWidget {
+  const AngAso({super.key});
 
   @override
-  State<KareraNiPagongAtKuneho> createState() => _KareraNiPagongAtKunehoState();
+  State<AngAso> createState() => _AngAsoState();
 }
 
 class DrawingArea {
@@ -21,7 +21,7 @@ class DrawingArea {
   DrawingArea({required this.point, required this.areaPaint});
 }
 
-class _KareraNiPagongAtKunehoState extends State<KareraNiPagongAtKuneho> {
+class _AngAsoState extends State<AngAso> {
   List<DrawingArea?> points = [];
   List<DrawingArea?> redoStack = [];
   late Color selectedColor;
@@ -40,7 +40,7 @@ class _KareraNiPagongAtKunehoState extends State<KareraNiPagongAtKuneho> {
 
   Future<void> loadImage() async {
     final ByteData data = await rootBundle.load(
-      'assets/images/Color/Scenario/KareraniKunehoatPagong (Sketched).png',
+      'assets/images/Color/Character/Ang Aso (Sketched).png',
     ); // Replace with your image path
     final ui.Codec codec = await ui.instantiateImageCodec(
       data.buffer.asUint8List(),
@@ -54,9 +54,7 @@ class _KareraNiPagongAtKunehoState extends State<KareraNiPagongAtKuneho> {
 
   Future<void> loadDrawing() async {
     final prefs = await SharedPreferences.getInstance();
-    List<String>? pointsJson = prefs.getStringList(
-      'savedDrawingKareraniPagongatKuneho',
-    );
+    List<String>? pointsJson = prefs.getStringList('savedDrawingAngAso');
 
     if (pointsJson != null) {
       setState(() {
@@ -93,7 +91,7 @@ class _KareraNiPagongAtKunehoState extends State<KareraNiPagongAtKuneho> {
             )
             .toList();
 
-    await prefs.setStringList('savedDrawingKareraniPagongatKuneho', pointsJson);
+    await prefs.setStringList('savedDrawingAngAso', pointsJson);
     ScaffoldMessenger.of(
       context,
     ).showSnackBar(SnackBar(content: Text("Drawing saved!")));
@@ -189,15 +187,23 @@ class _KareraNiPagongAtKunehoState extends State<KareraNiPagongAtKuneho> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'Karera ni Pagong at Kuneho',
-          style: TextStyle(
-            fontFamily: 'Nunito',
-            fontWeight: FontWeight.w900,
-            fontSize: 14,
-          ),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.start, // Align text to the left
+          crossAxisAlignment: CrossAxisAlignment.center, // Vertically center it
+          children: [
+            Expanded(
+              child: Text(
+                'Ang Aso',
+                style: TextStyle(
+                  fontFamily: 'Nunito',
+                  fontWeight: FontWeight.w900,
+                  fontSize: 14,
+                ),
+                textAlign: TextAlign.justify, // Justify the text
+              ),
+            ),
+          ],
         ),
-        centerTitle: true,
         backgroundColor: Color(0xFFACDC94),
         elevation: 6,
         shadowColor: Colors.black.withOpacity(0.5),
@@ -278,7 +284,7 @@ class _KareraNiPagongAtKunehoState extends State<KareraNiPagongAtKuneho> {
                       child: ClipRRect(
                         borderRadius: BorderRadius.all(Radius.circular(20.0)),
                         child: CustomPaint(
-                          painter: KareraNiPagongAtKunehoColorClass(
+                          painter: AngAsocolorclass(
                             points: points,
                             strokeWidth: strokeWidth,
                             color: selectedColor,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kwentong_kultura/ColorPage/Scenario/AngTulognasiKuneho/Tulog_si_kuneho.dart';
 import 'package:kwentong_kultura/ColorPage/Scenario/Kareranipagongatkuneho/Karera_ni_pagong_at_kuneho.dart';
 import 'package:kwentong_kultura/ColorPage/Scenario/PagongkunehoMangga/PagongKunehoMangga.dart';
 import '../../Styles/styles.dart';
@@ -41,7 +42,7 @@ class ScenarioCards extends StatelessWidget {
                         Image.asset(
                           'assets/images/Thumbnails/Kulay/Scenario/Pagong at ang kuneho sa ilalim ng mangga thumbnail.jpg',
                           width: 150,
-                          height: 150,
+                          height: 100,
                         ),
                         SizedBox(height: 10),
                         Text(
@@ -98,6 +99,7 @@ class ScenarioCards extends StatelessWidget {
                         Image.asset(
                           'assets/images/Thumbnails/Kulay/Scenario/Karera ni kuneho at pagong.jpg',
                           width: 150,
+                          height: 100,
                         ),
                         SizedBox(height: 10),
                         Text(
@@ -106,7 +108,7 @@ class ScenarioCards extends StatelessWidget {
                           textAlign: TextAlign.center,
                         ),
 
-                        SizedBox(height: 10),
+                        SizedBox(height: 9),
 
                         ElevatedButton(
                           onPressed: () {
@@ -158,21 +160,30 @@ class ScenarioCards extends StatelessWidget {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Image.network(
-                          'https://picsum.photos/250?image=9',
+                        Image.asset(
+                          'assets/images/Thumbnails/Kulay/Scenario/Tulogsikuneho Thumbnnail.png',
                           width: 150,
-                          height: 150,
+                          height: 100,
                         ),
                         SizedBox(height: 10),
                         Text(
-                          'Si Matsing',
+                          'Ang Tulog na si Kuneho',
                           style: Design.storyTitle,
                           textAlign: TextAlign.center,
                         ),
 
                         SizedBox(height: 10),
                         ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return TulogSiKuneho();
+                                },
+                              ),
+                            );
+                          },
                           style: Design.buttonDesign,
                           child: Text('Kulayan', style: Design.tara),
                         ),
@@ -316,7 +327,7 @@ class ScenarioCards extends StatelessWidget {
                         ),
                         SizedBox(height: 10),
                         Text(
-                          'Si Bakunawa',
+                          'Maria Makiling',
                           style: Design.storyTitle,
                           textAlign: TextAlign.center,
                         ),

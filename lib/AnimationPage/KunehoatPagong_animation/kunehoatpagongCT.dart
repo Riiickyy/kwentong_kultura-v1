@@ -471,7 +471,7 @@ class _KunehotPagongCTState extends State<KunehotPagongCT> {
                                   fontWeight: FontWeight.w900,
                                   color:
                                       index <= _currentWordIndex
-                                          ? Colors.orange.shade300
+                                          ? Color(0xFFFF4C4C)
                                           : Colors.black, // Highlight effect
                                 ),
                               );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kwentong_kultura/ColorPage/Character/Ang%20Aso/angAso.dart';
 import 'package:kwentong_kultura/ColorPage/Character/Si%20Kuneho/sikuneho.dart';
 import 'package:kwentong_kultura/ColorPage/Character/Si%20Pagong/sipagong.dart';
 import '../../Styles/styles.dart';
@@ -162,21 +163,30 @@ class _CharacterCardsState extends State<CharacterCards> {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Image.network(
-                          'https://picsum.photos/250?image=9',
+                        Image.asset(
+                          'assets/images/Thumbnails/Kulay/Character/Ang aso Thumbnail.jpg',
                           width: 150,
-                          height: 150,
+                          height: 100,
                         ),
                         SizedBox(height: 10),
                         Text(
-                          'Si Matsing',
+                          'Ang Aso',
                           style: Design.storyTitle,
                           textAlign: TextAlign.center,
                         ),
 
                         SizedBox(height: 10),
                         ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return AngAso();
+                                },
+                              ),
+                            );
+                          },
                           style: Design.buttonDesign,
                           child: Text('Kulayan', style: Design.tara),
                         ),
@@ -320,7 +330,7 @@ class _CharacterCardsState extends State<CharacterCards> {
                         ),
                         SizedBox(height: 10),
                         Text(
-                          'Si Bakunawa',
+                          'Maria Makiling',
                           style: Design.storyTitle,
                           textAlign: TextAlign.center,
                         ),

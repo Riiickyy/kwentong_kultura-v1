@@ -40,7 +40,7 @@ class _PagongState extends State<Pagong> {
 
   Future<void> loadImage() async {
     final ByteData data = await rootBundle.load(
-      'assets/images/Color/Character/Sipagong (Sketched).png',
+      'assets/images/Color/Character/Si Pagong (Sketched).png',
     ); // Replace with your image path
     final ui.Codec codec = await ui.instantiateImageCodec(
       data.buffer.asUint8List(),

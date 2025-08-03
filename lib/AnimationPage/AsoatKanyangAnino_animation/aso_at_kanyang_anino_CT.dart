@@ -174,7 +174,7 @@ class _AsoAtKanyangAninoCTState extends State<AsoAtKanyangAninoCT> {
     },
   ];
 
-  String assetVideo = 'assets/videos/KunehoatPagong.mp4';
+  String assetVideo = 'assets/videos/AngAsoatangKanyangAnino.mp4';
 
   @override
   void initState() {
@@ -300,7 +300,7 @@ class _AsoAtKanyangAninoCTState extends State<AsoAtKanyangAninoCT> {
                                   fontWeight: FontWeight.w900,
                                   color:
                                       index <= _currentWordIndex
-                                          ? Colors.orange.shade300
+                                          ? Color(0xFFFF4C4C)
                                           : Colors.black, // Highlight effect
                                 ),
                               );
