@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kwentong_kultura/Login-Folder/Alamatngpinya_Magbasa/Alamatngpinya_basa.dart';
+import 'package:kwentong_kultura/MagbasaPage/Alamatngpinya_Magbasa/Alamatngpinya_basa.dart';
 import '../Styles/styles.dart';
 
 class Magbasacards extends StatefulWidget {
@@ -64,9 +64,50 @@ class _MyWidgetState extends State<Magbasacards> {
                           onPressed: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(
-                                builder: (context) {
-                                  return AlamatngpinyaBasa();
+                              PageRouteBuilder(
+                                pageBuilder:
+                                    (context, animation, secondaryAnimation) =>
+                                        AlamatngpinyaBasa(),
+                                transitionsBuilder: (
+                                  context,
+                                  animation,
+                                  secondaryAnimation,
+                                  child,
+                                ) {
+                                  const begin = Offset(
+                                    1.0,
+                                    0.0,
+                                  ); // Start position (right side)
+                                  const end =
+                                      Offset
+                                          .zero; // End position (normal position)
+                                  const curve = Curves.easeInOut;
+
+                                  var tween = Tween(
+                                    begin: begin,
+                                    end: end,
+                                  ).chain(CurveTween(curve: curve));
+                                  var offsetAnimation = animation.drive(tween);
+
+                                  // Create a fade animation for smooth fade in/out effect
+                                  var fadeAnimation = Tween(
+                                    begin: 0.0,
+                                    end: 1.0,
+                                  ).animate(
+                                    CurvedAnimation(
+                                      parent: animation,
+                                      curve: curve,
+                                    ),
+                                  );
+
+                                  // Use both SlideTransition and FadeTransition
+                                  return FadeTransition(
+                                    opacity: fadeAnimation,
+                                    child: SlideTransition(
+                                      position: offsetAnimation,
+                                      child: child,
+                                    ),
+                                  );
                                 },
                               ),
                             );

@@ -17,6 +17,7 @@ class _HomeUIWidgetState extends State<Login> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   String errorMessage = '';
+  bool isLoading = false; // Add a loading state
 
   void dispose() {
     emailController.dispose();
@@ -25,17 +26,52 @@ class _HomeUIWidgetState extends State<Login> {
   }
 
   void signIn() async {
+    setState(() {
+      isLoading = true; // Start loading
+    });
+
     try {
       await authService.value.signIn(
         email: emailController.text,
         password: passwordController.text,
       );
+      setState(() {
+        isLoading = false; // Stop loading
+      });
+
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => HomeUIWidget()),
+        PageRouteBuilder(
+          pageBuilder:
+              (context, animation, secondaryAnimation) => HomeUIWidget(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            const begin = Offset(1.0, 0.0); // Start position (right side)
+            const end = Offset.zero; // End position (normal position)
+            const curve = Curves.easeInOut;
+
+            var tween = Tween(
+              begin: begin,
+              end: end,
+            ).chain(CurveTween(curve: curve));
+            var offsetAnimation = animation.drive(tween);
+
+            // Create a fade animation for smooth fade in/out effect
+            var fadeAnimation = Tween(
+              begin: 0.0,
+              end: 1.0,
+            ).animate(CurvedAnimation(parent: animation, curve: curve));
+
+            // Use both SlideTransition and FadeTransition
+            return FadeTransition(
+              opacity: fadeAnimation,
+              child: SlideTransition(position: offsetAnimation, child: child),
+            );
+          },
+        ),
       );
     } on FirebaseAuthException catch (e) {
       setState(() {
+        isLoading = false; // Stop loading on error
         errorMessage = e.message ?? 'Your credentials are wrong';
       });
     }
@@ -117,9 +153,54 @@ class _HomeUIWidgetState extends State<Login> {
                                     onPressed: () {
                                       Navigator.push(
                                         context,
-                                        MaterialPageRoute(
-                                          builder: (context) {
-                                            return Firstui();
+                                        PageRouteBuilder(
+                                          pageBuilder:
+                                              (
+                                                context,
+                                                animation,
+                                                secondaryAnimation,
+                                              ) => Firstui(),
+                                          transitionsBuilder: (
+                                            context,
+                                            animation,
+                                            secondaryAnimation,
+                                            child,
+                                          ) {
+                                            const begin = Offset(
+                                              1.0,
+                                              0.0,
+                                            ); // Start position (right side)
+                                            const end =
+                                                Offset
+                                                    .zero; // End position (normal position)
+                                            const curve = Curves.easeInOut;
+
+                                            var tween = Tween(
+                                              begin: begin,
+                                              end: end,
+                                            ).chain(CurveTween(curve: curve));
+                                            var offsetAnimation = animation
+                                                .drive(tween);
+
+                                            // Create a fade animation for smooth fade in/out effect
+                                            var fadeAnimation = Tween(
+                                              begin: 0.0,
+                                              end: 1.0,
+                                            ).animate(
+                                              CurvedAnimation(
+                                                parent: animation,
+                                                curve: curve,
+                                              ),
+                                            );
+
+                                            // Use both SlideTransition and FadeTransition
+                                            return FadeTransition(
+                                              opacity: fadeAnimation,
+                                              child: SlideTransition(
+                                                position: offsetAnimation,
+                                                child: child,
+                                              ),
+                                            );
                                           },
                                         ),
                                       );
@@ -171,9 +252,36 @@ class _HomeUIWidgetState extends State<Login> {
                               onTap: () {
                                 Navigator.push(
                                   context,
-                                  MaterialPageRoute(
-                                    builder: (context) {
-                                      return Passrec();
+                                  PageRouteBuilder(
+                                    pageBuilder:
+                                        (
+                                          context,
+                                          animation,
+                                          secondaryAnimation,
+                                        ) => Passrec(),
+                                    transitionsBuilder: (
+                                      context,
+                                      animation,
+                                      secondaryAnimation,
+                                      child,
+                                    ) {
+                                      const begin = Offset(1.0, 0.0);
+                                      const end = Offset.zero;
+                                      const curve = Curves.easeInOut;
+
+                                      var tween = Tween(
+                                        begin: begin,
+                                        end: end,
+                                      ).chain(CurveTween(curve: curve));
+                                      var offsetAnimation = animation.drive(
+                                        tween,
+                                      );
+
+                                      // Use SlideTransition to apply the animation
+                                      return SlideTransition(
+                                        position: offsetAnimation,
+                                        child: child,
+                                      );
                                     },
                                   ),
                                 );
@@ -200,11 +308,16 @@ class _HomeUIWidgetState extends State<Login> {
                             ),
                             SizedBox(height: 20),
                             // Login button
-                            ElevatedButton(
-                              onPressed: signIn,
-                              style: Design.buttonDesign,
-                              child: Text('Mag - Login', style: Design.Login),
-                            ),
+                            isLoading
+                                ? CircularProgressIndicator() // Show loading indicator
+                                : ElevatedButton(
+                                  onPressed: signIn,
+                                  style: Design.buttonDesign,
+                                  child: Text(
+                                    'Mag - Login',
+                                    style: Design.Login,
+                                  ),
+                                ),
                           ],
                         ),
                       ),

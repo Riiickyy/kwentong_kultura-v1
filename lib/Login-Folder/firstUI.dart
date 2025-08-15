@@ -31,13 +31,13 @@ class _HomeUIWidgetState extends State<Firstui> {
       );
       if (controller != null) {
         _riveArtboard.addController(controller);
-        controller.isActive = true; // Start animation
+        controller.isActive = true;
       } else {
         print('Error: StateMachineController could not be created.');
       }
 
       setState(() {
-        _isLoaded = true; // Set loaded to true once the animation is ready
+        _isLoaded = true;
       });
     } catch (e) {
       throw Exception('Error loading Rive animation: $e');
@@ -47,7 +47,7 @@ class _HomeUIWidgetState extends State<Firstui> {
   @override
   void initState() {
     super.initState();
-    loadRiveAnimation(); // Initialize the animation on app start
+    loadRiveAnimation();
   }
 
   @override
@@ -55,16 +55,13 @@ class _HomeUIWidgetState extends State<Firstui> {
     return Scaffold(
       body:
           !_isLoaded
-              ? const Center(
-                child:
-                    CircularProgressIndicator(), // Show loading indicator while waiting
-              )
+              ? const Center(child: CircularProgressIndicator())
               : Stack(
                 children: [
                   // Background: Rive animation filling the entire screen
                   Positioned.fill(
                     child: Opacity(
-                      opacity: 1.0, // Set the opacity level (adjust as needed)
+                      opacity: 1.0,
                       child: Rive(artboard: _riveArtboard, fit: BoxFit.cover),
                     ),
                   ),
@@ -86,8 +83,37 @@ class _HomeUIWidgetState extends State<Firstui> {
                               onPressed: () {
                                 Navigator.push(
                                   context,
-                                  MaterialPageRoute(
-                                    builder: (context) => Login(),
+                                  PageRouteBuilder(
+                                    pageBuilder:
+                                        (
+                                          context,
+                                          animation,
+                                          secondaryAnimation,
+                                        ) => Login(),
+                                    transitionsBuilder: (
+                                      context,
+                                      animation,
+                                      secondaryAnimation,
+                                      child,
+                                    ) {
+                                      const begin = Offset(0.0, 1.0);
+                                      const end = Offset.zero;
+                                      const curve = Curves.easeInOut;
+
+                                      var tween = Tween(
+                                        begin: begin,
+                                        end: end,
+                                      ).chain(CurveTween(curve: curve));
+                                      var offsetAnimation = animation.drive(
+                                        tween,
+                                      );
+
+                                      // Use SlideTransition to apply the animation
+                                      return SlideTransition(
+                                        position: offsetAnimation,
+                                        child: child,
+                                      );
+                                    },
                                   ),
                                 );
                               },
@@ -108,8 +134,56 @@ class _HomeUIWidgetState extends State<Firstui> {
                               onPressed: () {
                                 Navigator.push(
                                   context,
-                                  MaterialPageRoute(
-                                    builder: (context) => Createaccount(),
+                                  PageRouteBuilder(
+                                    pageBuilder:
+                                        (
+                                          context,
+                                          animation,
+                                          secondaryAnimation,
+                                        ) => Createaccount(),
+                                    transitionsBuilder: (
+                                      context,
+                                      animation,
+                                      secondaryAnimation,
+                                      child,
+                                    ) {
+                                      const begin = Offset(
+                                        1.0,
+                                        0.0,
+                                      ); // Start position (right side)
+                                      const end =
+                                          Offset
+                                              .zero; // End position (normal position)
+                                      const curve = Curves.easeInOut;
+
+                                      var tween = Tween(
+                                        begin: begin,
+                                        end: end,
+                                      ).chain(CurveTween(curve: curve));
+                                      var offsetAnimation = animation.drive(
+                                        tween,
+                                      );
+
+                                      // Create a fade animation for smooth fade in/out effect
+                                      var fadeAnimation = Tween(
+                                        begin: 0.0,
+                                        end: 1.0,
+                                      ).animate(
+                                        CurvedAnimation(
+                                          parent: animation,
+                                          curve: curve,
+                                        ),
+                                      );
+
+                                      // Use both SlideTransition and FadeTransition
+                                      return FadeTransition(
+                                        opacity: fadeAnimation,
+                                        child: SlideTransition(
+                                          position: offsetAnimation,
+                                          child: child,
+                                        ),
+                                      );
+                                    },
                                   ),
                                 );
                               },

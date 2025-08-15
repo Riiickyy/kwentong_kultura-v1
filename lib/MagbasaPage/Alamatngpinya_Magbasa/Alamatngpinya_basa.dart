@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kwentong_kultura/Login-Folder/Alamatngpinya_Magbasa/Scenes/ANPscene1.dart';
+import 'package:kwentong_kultura/MagbasaPage/Alamatngpinya_Magbasa/Scenes/ANPscene1.dart';
 
 class AlamatngpinyaBasa extends StatefulWidget {
   const AlamatngpinyaBasa({super.key});
@@ -79,9 +79,30 @@ class _AlamatngpinyaBasaState extends State<AlamatngpinyaBasa> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return Anpscene1(); // Change this to your next screen
+                  PageRouteBuilder(
+                    pageBuilder:
+                        (context, animation, secondaryAnimation) => Anpscene1(),
+                    transitionsBuilder: (
+                      context,
+                      animation,
+                      secondaryAnimation,
+                      child,
+                    ) {
+                      const begin = Offset(1.0, 0.0);
+                      const end = Offset.zero;
+                      const curve = Curves.easeInOut;
+
+                      var tween = Tween(
+                        begin: begin,
+                        end: end,
+                      ).chain(CurveTween(curve: curve));
+                      var offsetAnimation = animation.drive(tween);
+
+                      // Use SlideTransition to apply the animation
+                      return SlideTransition(
+                        position: offsetAnimation,
+                        child: child,
+                      );
                     },
                   ),
                 );

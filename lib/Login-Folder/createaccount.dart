@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:kwentong_kultura/Login-Folder/Forgot%20password/email.dart';
 import 'package:kwentong_kultura/Login-Folder/Login.dart';
 import 'package:kwentong_kultura/Login-Folder/firstUI.dart';
+import 'package:kwentong_kultura/UI-stack-widget.dart';
 import 'package:kwentong_kultura/auth_service.dart';
 import '../Styles/styles.dart';
 
@@ -18,6 +18,7 @@ class _HomeUIWidgetState extends State<Createaccount> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   String errorMessage = '';
+  bool isLoading = false; // Track loading state
 
   @override
   void dispose() {
@@ -27,14 +28,22 @@ class _HomeUIWidgetState extends State<Createaccount> {
   }
 
   void register() async {
+    setState(() {
+      isLoading = true; // Start loading
+    });
+
     try {
       await authService.value.createAccount(
         email: emailController.text,
         password: passwordController.text,
       );
+      setState(() {
+        isLoading = false; // Stop loading on success
+      });
       _showSuccessDialog(); // Show success dialog after successful account creation
     } on FirebaseAuthException catch (e) {
       setState(() {
+        isLoading = false; // Stop loading on error
         errorMessage = e.message ?? 'Bad format of Email';
       });
     }
@@ -79,7 +88,33 @@ class _HomeUIWidgetState extends State<Createaccount> {
                       Navigator.of(context).pop(); // Close the dialog
                       Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(builder: (context) => const Login()),
+                        PageRouteBuilder(
+                          pageBuilder:
+                              (context, animation, secondaryAnimation) =>
+                                  HomeUIWidget(),
+                          transitionsBuilder: (
+                            context,
+                            animation,
+                            secondaryAnimation,
+                            child,
+                          ) {
+                            const begin = Offset(0.0, 1.0);
+                            const end = Offset.zero;
+                            const curve = Curves.easeInOut;
+
+                            var tween = Tween(
+                              begin: begin,
+                              end: end,
+                            ).chain(CurveTween(curve: curve));
+                            var offsetAnimation = animation.drive(tween);
+
+                            // Use SlideTransition to apply the animation
+                            return SlideTransition(
+                              position: offsetAnimation,
+                              child: child,
+                            );
+                          },
+                        ),
                       ); // Navigate to the login screen
                     },
                     child: Text(
@@ -163,9 +198,54 @@ class _HomeUIWidgetState extends State<Createaccount> {
                                     onPressed: () {
                                       Navigator.push(
                                         context,
-                                        MaterialPageRoute(
-                                          builder: (context) {
-                                            return Firstui();
+                                        PageRouteBuilder(
+                                          pageBuilder:
+                                              (
+                                                context,
+                                                animation,
+                                                secondaryAnimation,
+                                              ) => Firstui(),
+                                          transitionsBuilder: (
+                                            context,
+                                            animation,
+                                            secondaryAnimation,
+                                            child,
+                                          ) {
+                                            const begin = Offset(
+                                              1.0,
+                                              0.0,
+                                            ); // Start position (right side)
+                                            const end =
+                                                Offset
+                                                    .zero; // End position (normal position)
+                                            const curve = Curves.easeInOut;
+
+                                            var tween = Tween(
+                                              begin: begin,
+                                              end: end,
+                                            ).chain(CurveTween(curve: curve));
+                                            var offsetAnimation = animation
+                                                .drive(tween);
+
+                                            // Create a fade animation for smooth fade in/out effect
+                                            var fadeAnimation = Tween(
+                                              begin: 0.0,
+                                              end: 1.0,
+                                            ).animate(
+                                              CurvedAnimation(
+                                                parent: animation,
+                                                curve: curve,
+                                              ),
+                                            );
+
+                                            // Use both SlideTransition and FadeTransition
+                                            return FadeTransition(
+                                              opacity: fadeAnimation,
+                                              child: SlideTransition(
+                                                position: offsetAnimation,
+                                                child: child,
+                                              ),
+                                            );
                                           },
                                         ),
                                       );
@@ -235,11 +315,14 @@ class _HomeUIWidgetState extends State<Createaccount> {
                               style: TextStyle(color: Colors.redAccent),
                             ),
                             SizedBox(height: 20),
-                            ElevatedButton(
-                              onPressed: register,
-                              style: Design.buttonDesign,
-                              child: Text('Register', style: Design.Login),
-                            ),
+                            // Show CircularProgressIndicator while loading
+                            isLoading
+                                ? CircularProgressIndicator() // Show loading spinner
+                                : ElevatedButton(
+                                  onPressed: register,
+                                  style: Design.buttonDesign,
+                                  child: Text('Register', style: Design.Login),
+                                ),
                           ],
                         ),
                       ),

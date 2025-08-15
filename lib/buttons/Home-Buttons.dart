@@ -36,9 +36,31 @@ class _HomebuttonsState extends State<Homebuttons> {
                   playSound();
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return Taramagbasa();
+                    PageRouteBuilder(
+                      pageBuilder:
+                          (context, animation, secondaryAnimation) =>
+                              Taramagbasa(),
+                      transitionsBuilder: (
+                        context,
+                        animation,
+                        secondaryAnimation,
+                        child,
+                      ) {
+                        const begin = Offset(0.0, 1.0);
+                        const end = Offset.zero;
+                        const curve = Curves.easeInOut;
+
+                        var tween = Tween(
+                          begin: begin,
+                          end: end,
+                        ).chain(CurveTween(curve: curve));
+                        var offsetAnimation = animation.drive(tween);
+
+                        // Use SlideTransition to apply the animation
+                        return SlideTransition(
+                          position: offsetAnimation,
+                          child: child,
+                        );
                       },
                     ),
                   );
@@ -74,9 +96,31 @@ class _HomebuttonsState extends State<Homebuttons> {
                   playSound();
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return Taramakinig();
+                    PageRouteBuilder(
+                      pageBuilder:
+                          (context, animation, secondaryAnimation) =>
+                              Taramakinig(),
+                      transitionsBuilder: (
+                        context,
+                        animation,
+                        secondaryAnimation,
+                        child,
+                      ) {
+                        const begin = Offset(0.0, 1.0);
+                        const end = Offset.zero;
+                        const curve = Curves.easeInOut;
+
+                        var tween = Tween(
+                          begin: begin,
+                          end: end,
+                        ).chain(CurveTween(curve: curve));
+                        var offsetAnimation = animation.drive(tween);
+
+                        // Use SlideTransition to apply the animation
+                        return SlideTransition(
+                          position: offsetAnimation,
+                          child: child,
+                        );
                       },
                     ),
                   );
@@ -114,9 +158,31 @@ class _HomebuttonsState extends State<Homebuttons> {
                   playSound();
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return Taramagkulay();
+                    PageRouteBuilder(
+                      pageBuilder:
+                          (context, animation, secondaryAnimation) =>
+                              Taramagkulay(),
+                      transitionsBuilder: (
+                        context,
+                        animation,
+                        secondaryAnimation,
+                        child,
+                      ) {
+                        const begin = Offset(0.0, 1.0);
+                        const end = Offset.zero;
+                        const curve = Curves.easeInOut;
+
+                        var tween = Tween(
+                          begin: begin,
+                          end: end,
+                        ).chain(CurveTween(curve: curve));
+                        var offsetAnimation = animation.drive(tween);
+
+                        // Use SlideTransition to apply the animation
+                        return SlideTransition(
+                          position: offsetAnimation,
+                          child: child,
+                        );
                       },
                     ),
                   );

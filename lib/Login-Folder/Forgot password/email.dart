@@ -1,9 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:kwentong_kultura/Login-Folder/Forgot%20password/email.dart';
 import 'package:kwentong_kultura/Login-Folder/Login.dart';
-import 'package:kwentong_kultura/Login-Folder/firstUI.dart';
-import 'package:kwentong_kultura/UI-stack-widget.dart';
 import 'package:kwentong_kultura/auth_service.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
 
@@ -20,6 +17,7 @@ class _PassrecState extends State<Passrec> {
       TextEditingController();
   final TextEditingController newPasswordController = TextEditingController();
   String errorMessage = '';
+  bool isLoading = false; // Track the loading state
 
   void dispose() {
     emailController.dispose();
@@ -29,12 +27,20 @@ class _PassrecState extends State<Passrec> {
   }
 
   void resetPassword() async {
+    setState(() {
+      isLoading = true; // Start loading
+    });
+
     try {
       await authService.value.resetPassword(email: emailController.text);
+      setState(() {
+        isLoading = false; // Stop loading on success
+      });
       showSnackBarSuccess();
       print("success");
     } on FirebaseAuthException catch (e) {
       setState(() {
+        isLoading = false; // Stop loading on error
         showSnackBarFailure(e);
       });
       print("fail"); // Pass the exception to show detailed error
@@ -101,7 +107,7 @@ class _PassrecState extends State<Passrec> {
               ),
             ),
 
-            // Main content (login form) wrapped inside a scrollable area
+            // Main content (password reset form) wrapped inside a scrollable area
             Positioned.fill(
               child: SingleChildScrollView(
                 child: Column(
@@ -174,15 +180,18 @@ class _PassrecState extends State<Passrec> {
                               ),
                             ),
                             SizedBox(height: 20),
-                            ElevatedButton(
-                              onPressed: resetPassword,
-                              style: Design.buttonDesign,
-                              child: Text(
-                                'Change Password',
-                                textAlign: TextAlign.center,
-                                style: Design.Login,
-                              ),
-                            ),
+                            // If loading, show the CircularProgressIndicator
+                            isLoading
+                                ? CircularProgressIndicator() // Show loading spinner
+                                : ElevatedButton(
+                                  onPressed: resetPassword,
+                                  style: Design.buttonDesign,
+                                  child: Text(
+                                    'Change Password',
+                                    textAlign: TextAlign.center,
+                                    style: Design.Login,
+                                  ),
+                                ),
                           ],
                         ),
                       ),
