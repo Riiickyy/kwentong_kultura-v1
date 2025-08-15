@@ -1,8 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:kwentong_kultura/Login-Folder/Forgot%20password/email.dart';
 import 'package:kwentong_kultura/Login-Folder/Login.dart';
+import 'package:kwentong_kultura/Login-Folder/firstUI.dart';
+import 'package:kwentong_kultura/UI-stack-widget.dart';
 import 'package:kwentong_kultura/auth_service.dart';
-import '../../Styles/styles.dart';
+import 'package:kwentong_kultura/Styles/styles.dart';
 
 class Passrec extends StatefulWidget {
   const Passrec({super.key});
@@ -43,7 +46,7 @@ class _PassrecState extends State<Passrec> {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(
-          'It will send to yourr email',
+          'It will send to your email',
           style: TextStyle(color: Colors.white),
         ),
         backgroundColor: Colors.green,
@@ -56,7 +59,7 @@ class _PassrecState extends State<Passrec> {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(
-          e.message ?? "Email not register", // Displaying error message
+          e.message ?? "Email not registered", // Displaying error message
           style: TextStyle(color: Colors.white),
         ),
         backgroundColor: Colors.red,
@@ -69,32 +72,56 @@ class _PassrecState extends State<Passrec> {
     return Scaffold(
       backgroundColor: Color(0xFFB3D9FF),
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: LayoutBuilder(
-            builder: (context, constraints) {
-              return Center(
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      // Image section
-                      Align(
-                        alignment: Alignment.center,
-                        child: Image.asset(
-                          'assets/images/HomeUI/first.png',
-                          fit: BoxFit.cover,
-                          width: constraints.maxWidth * 0.8,
-                        ),
-                      ),
-                      SizedBox(height: 40),
-                      Container(
-                        width: constraints.maxWidth * 0.8,
+        child: Stack(
+          children: [
+            Positioned(
+              top: -75,
+              left: 20,
+              right: 0,
+              child: Image.asset('assets/Animations/LOGIN ANIMATIONS/MAYA.gif'),
+            ),
+            // Positioned background image or GIF
+            Positioned(
+              bottom: 0,
+              left: 0,
+              right: 0,
+              child: Image.asset(
+                'assets/Animations/LOGIN ANIMATIONS/GRASS BG.png',
+                fit: BoxFit.fitWidth, // Make sure it fits the screen width
+                height: 100, // Adjust height as needed
+              ),
+            ),
+            Positioned(
+              bottom: 0,
+              left: 10,
+              child: Image.asset(
+                'assets/Animations/LOGIN ANIMATIONS/DOG.gif',
+                fit: BoxFit.fitWidth, // Make sure it fits the screen width
+                height: 100, // Adjust height as needed
+              ),
+            ),
+
+            // Main content (login form) wrapped inside a scrollable area
+            Positioned.fill(
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(height: 200), // Adjust for image/GIF height
+                    Opacity(
+                      opacity: 1.0,
+                      child: Container(
+                        width:
+                            MediaQuery.of(context).size.width *
+                            0.8, // Responsive width
                         padding: EdgeInsets.all(16),
                         decoration: BoxDecoration(
                           color: const Color(0xFFACDC94),
                           borderRadius: BorderRadius.circular(10),
-                          border: Border.all(color: Colors.black, width: 1),
+                          border: Border.all(
+                            color: Colors.black, // Border color
+                            width: 1, // Border width
+                          ),
                           boxShadow: [
                             BoxShadow(
                               color: Colors.black.withOpacity(0.5),
@@ -108,8 +135,7 @@ class _PassrecState extends State<Passrec> {
                             Row(
                               children: [
                                 Align(
-                                  alignment:
-                                      Alignment.centerLeft, // Align to the left
+                                  alignment: Alignment.centerLeft,
                                   child: ElevatedButton(
                                     onPressed: () {
                                       Navigator.push(
@@ -128,7 +154,6 @@ class _PassrecState extends State<Passrec> {
                               ],
                             ),
                             SizedBox(height: 10),
-                            // Username field
                             Align(
                               alignment: Alignment.centerLeft,
                               child: Text(
@@ -149,8 +174,6 @@ class _PassrecState extends State<Passrec> {
                               ),
                             ),
                             SizedBox(height: 20),
-
-                            // Change Password button
                             ElevatedButton(
                               onPressed: resetPassword,
                               style: Design.buttonDesign,
@@ -163,12 +186,12 @@ class _PassrecState extends State<Passrec> {
                           ],
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-              );
-            },
-          ),
+              ),
+            ),
+          ],
         ),
       ),
     );

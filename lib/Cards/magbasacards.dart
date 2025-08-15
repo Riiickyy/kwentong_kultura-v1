@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kwentong_kultura/MagbasaPage/Alamatngpinya_Magbasa/Alamatngpinya_basa.dart';
+import 'package:kwentong_kultura/Login-Folder/Alamatngpinya_Magbasa/Alamatngpinya_basa.dart';
 import '../Styles/styles.dart';
 
 class Magbasacards extends StatefulWidget {

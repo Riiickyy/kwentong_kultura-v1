@@ -36,7 +36,7 @@ class _HomeUIWidgetState extends State<Login> {
       );
     } on FirebaseAuthException catch (e) {
       setState(() {
-        errorMessage = e.message ?? 'Your credentials is wrong';
+        errorMessage = e.message ?? 'Your credentials are wrong';
       });
     }
   }
@@ -46,30 +46,51 @@ class _HomeUIWidgetState extends State<Login> {
     return Scaffold(
       backgroundColor: Color(0xFFB3D9FF), // Light blue background color
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: LayoutBuilder(
-            builder: (context, constraints) {
-              return Center(
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      // Image section
-                      Align(
-                        alignment: Alignment.center,
-                        child: Image.asset(
-                          'assets/images/HomeUI/first.png',
-                          fit: BoxFit.cover,
-                          width:
-                              constraints.maxWidth *
-                              0.8, // Responsive image width
-                        ),
-                      ),
-                      SizedBox(height: 40), // Space between title and form
-                      // Login Form Container
-                      Container(
-                        width: constraints.maxWidth * 0.8, // Responsive width
+        child: Stack(
+          children: [
+            Positioned(
+              top: -75,
+              left: 20,
+              right: 0,
+              child: Image.asset('assets/Animations/LOGIN ANIMATIONS/MAYA.gif'),
+            ),
+            // Positioned background image or GIF
+            Positioned(
+              bottom: 0,
+              left: 0,
+              right: 0,
+              child: Image.asset(
+                'assets/Animations/LOGIN ANIMATIONS/GRASS BG.png',
+                fit: BoxFit.fitWidth, // Make sure it fits the screen width
+                height: 100, // Adjust height as needed
+              ),
+            ),
+            Positioned(
+              bottom: 0,
+              left: 10,
+              child: Image.asset(
+                'assets/Animations/LOGIN ANIMATIONS/DOG.gif',
+                fit: BoxFit.fitWidth, // Make sure it fits the screen width
+                height: 100, // Adjust height as needed
+              ),
+            ),
+
+            // Main content (login form) wrapped inside a scrollable area
+            Positioned.fill(
+              // Ensures that the form takes up the remaining space
+              child: SingleChildScrollView(
+                // Make the form scrollable
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(height: 200), // Adjust for image/GIF height
+                    // Login Form Container
+                    Opacity(
+                      opacity: 1.0,
+                      child: Container(
+                        width:
+                            MediaQuery.of(context).size.width *
+                            0.8, // Responsive width
                         padding: EdgeInsets.all(16),
                         decoration: BoxDecoration(
                           color: const Color(0xFFACDC94),
@@ -80,11 +101,9 @@ class _HomeUIWidgetState extends State<Login> {
                           ),
                           boxShadow: [
                             BoxShadow(
-                              color: Colors.black.withOpacity(
-                                0.5,
-                              ), // Shadow color
-                              blurRadius: 4, // Blur intensity
-                              offset: Offset(0, 4), // Shadow position
+                              color: Colors.black.withOpacity(0.5),
+                              blurRadius: 4,
+                              offset: Offset(0, 4),
                             ),
                           ],
                         ),
@@ -93,8 +112,7 @@ class _HomeUIWidgetState extends State<Login> {
                             Row(
                               children: [
                                 Align(
-                                  alignment:
-                                      Alignment.centerLeft, // Align to the left
+                                  alignment: Alignment.centerLeft,
                                   child: ElevatedButton(
                                     onPressed: () {
                                       Navigator.push(
@@ -131,7 +149,6 @@ class _HomeUIWidgetState extends State<Login> {
                               ),
                             ),
                             SizedBox(height: 20),
-
                             // Password field
                             Align(
                               alignment: Alignment.centerLeft,
@@ -162,18 +179,15 @@ class _HomeUIWidgetState extends State<Login> {
                                 );
                               },
                               child: Align(
-                                alignment:
-                                    Alignment
-                                        .centerRight, // Align text to the left
+                                alignment: Alignment.centerRight,
                                 child: RichText(
                                   text: TextSpan(
                                     text: 'Forgot Password?',
                                     style: TextStyle(
-                                      color: Colors.blue, // Text color
+                                      color: Colors.blue,
                                       fontSize: 16,
                                       decoration: TextDecoration.underline,
-                                      decorationColor:
-                                          Colors.blue, // Underline color
+                                      decorationColor: Colors.blue,
                                     ),
                                   ),
                                 ),
@@ -185,7 +199,6 @@ class _HomeUIWidgetState extends State<Login> {
                               style: TextStyle(color: Colors.redAccent),
                             ),
                             SizedBox(height: 20),
-
                             // Login button
                             ElevatedButton(
                               onPressed: signIn,
@@ -195,12 +208,12 @@ class _HomeUIWidgetState extends State<Login> {
                           ],
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-              );
-            },
-          ),
+              ),
+            ),
+          ],
         ),
       ),
     );

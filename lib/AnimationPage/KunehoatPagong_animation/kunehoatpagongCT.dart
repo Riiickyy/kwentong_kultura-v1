@@ -2,7 +2,6 @@ import 'package:appinio_video_player/appinio_video_player.dart';
 import 'package:flutter/material.dart';
 import 'package:kwentong_kultura/QUIZZES/kunehoatpagongQuiz.dart';
 import 'package:video_player/video_player.dart';
-import 'package:kwentong_kultura/Styles/styles.dart';
 
 class KunehotPagongCT extends StatefulWidget {
   const KunehotPagongCT({super.key});
@@ -430,9 +429,19 @@ class _KunehotPagongCTState extends State<KunehotPagongCT> {
   Widget build(BuildContext context) {
     List<String> words = _currentSubtitle.split(" ");
     return Scaffold(
-      backgroundColor: Colors.lightBlue.shade100,
       body: Stack(
         children: [
+          Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(
+                  'assets/images/Animation Page/Wood.png',
+                ), // Replace with your image path
+                fit:
+                    BoxFit.cover, // Adjust the image to cover the entire screen
+              ),
+            ),
+          ),
           Column(
             children: [
               Expanded(
@@ -471,8 +480,13 @@ class _KunehotPagongCTState extends State<KunehotPagongCT> {
                                   fontWeight: FontWeight.w900,
                                   color:
                                       index <= _currentWordIndex
-                                          ? Color(0xFFFF4C4C)
-                                          : Colors.black, // Highlight effect
+                                          ? Color.fromARGB(255, 7, 255, 81)
+                                          : const Color.fromARGB(
+                                            255,
+                                            255,
+                                            255,
+                                            255,
+                                          ), // Highlight effect
                                 ),
                               );
                             }),
@@ -486,21 +500,80 @@ class _KunehotPagongCTState extends State<KunehotPagongCT> {
             ],
           ),
 
-          // Settings button
           Positioned(
-            bottom: 100,
-            right: 20,
-            child: FloatingActionButton(
-              backgroundColor: Colors.orange.shade300,
-              onPressed: _toggleSettings,
-              child: Icon(Icons.settings),
+            bottom:
+                105, // Adjust to position above the quiz and settings buttons
+            left: 20, // Positioned left
+            child: ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  if (_controller.value.isPlaying) {
+                    // If video is currently playing, pause it
+                    _controller.pause();
+                  } else {
+                    // If video is paused, play it
+                    _controller.play();
+                  }
+                });
+              },
+              style: ButtonStyle(
+                padding: MaterialStateProperty.all(
+                  EdgeInsets.symmetric(vertical: 15.0, horizontal: 15.0),
+                ),
+                shape: MaterialStateProperty.all(
+                  CircleBorder(),
+                ), // Makes the button circular
+                backgroundColor: MaterialStateProperty.all(
+                  Colors.orange.shade300,
+                ),
+                shadowColor: MaterialStateProperty.all(
+                  const Color.fromARGB(255, 0, 0, 0),
+                ), // White shadow
+                elevation: MaterialStateProperty.all(
+                  7,
+                ), // Add shadow effect by setting elevation
+              ),
+              child: Column(
+                mainAxisSize:
+                    MainAxisSize
+                        .min, // Ensures the column only takes as much space as needed
+                children: [
+                  Icon(
+                    _controller.value.isPlaying
+                        ? Icons.pause
+                        : Icons.play_arrow,
+                    size: 32, // Adjust the icon size
+                    color: const Color.fromARGB(
+                      255,
+                      100,
+                      3,
+                      255,
+                    ), // Set icon color to white
+                  ),
+                  SizedBox(
+                    height: 0, // Adds space between the icon and the label
+                  ),
+                  Text(
+                    _controller.value.isPlaying ? 'Pause' : 'Play',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 12,
+                      color: const Color.fromARGB(
+                        255,
+                        100,
+                        3,
+                        255,
+                      ), // Set text color to white (same as button color)
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
 
           Positioned(
-            bottom: 30, // Adjust to your liking
-            left: 50, // Adjust for centering if needed
-            right: 50, // Center the button horizontally
+            bottom: 20, // Adjust to position below Play button
+            left: 20, // Positioned left with some margin
             child: ElevatedButton(
               onPressed: () {
                 Navigator.push(
@@ -512,11 +585,66 @@ class _KunehotPagongCTState extends State<KunehotPagongCT> {
                   ),
                 );
               },
-              style: Design.buttonDesign,
-              child: Text(
-                'Tap to Continue', // Button text
-                style: Design.action,
+              style: ButtonStyle(
+                padding: MaterialStateProperty.all(
+                  EdgeInsets.symmetric(vertical: 15.0, horizontal: 10.0),
+                ),
+                shape: MaterialStateProperty.all(
+                  CircleBorder(),
+                ), // Makes the button circular
+                backgroundColor: MaterialStateProperty.all(
+                  Colors.orange.shade300,
+                ),
+                shadowColor: MaterialStateProperty.all(
+                  const Color.fromARGB(255, 0, 0, 0),
+                ), // White shadow
+                elevation: MaterialStateProperty.all(
+                  7,
+                ), // Add shadow effect by setting elevation
               ),
+              child: Column(
+                mainAxisSize:
+                    MainAxisSize
+                        .min, // Ensures the column only takes as much space as needed
+                children: [
+                  Icon(
+                    Icons.quiz,
+                    size: 32, // Adjust the icon size
+                    color: const Color.fromARGB(
+                      255,
+                      100,
+                      3,
+                      255,
+                    ), // Set icon color to white
+                  ),
+                  SizedBox(
+                    height: 0, // Adds space between the icon and the label
+                  ),
+                  Text(
+                    'Quiz',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 12,
+                      color: const Color.fromARGB(
+                        255,
+                        100,
+                        3,
+                        255,
+                      ), // Set text color to white (same as button color)
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          // Settings button
+          Positioned(
+            bottom: 50,
+            right: 20,
+            child: FloatingActionButton(
+              backgroundColor: Colors.orange.shade300,
+              onPressed: _toggleSettings,
+              child: Icon(Icons.settings),
             ),
           ),
 

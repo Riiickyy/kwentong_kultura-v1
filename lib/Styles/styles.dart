@@ -8,6 +8,13 @@ class Design {
     elevation: 4, // Controls the shadow intensity
     shadowColor: Colors.black.withOpacity(0.5),
   );
+  static ButtonStyle LoginbuttonDesign = ElevatedButton.styleFrom(
+    backgroundColor: Color(0xFFFFCCBC),
+    padding: EdgeInsets.symmetric(vertical: 3, horizontal: 10),
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+    elevation: 4, // Controls the shadow intensity
+    shadowColor: Colors.black.withOpacity(0.5),
+  );
   static TextStyle tara = TextStyle(
     fontSize: 18,
     fontWeight: FontWeight.bold,
