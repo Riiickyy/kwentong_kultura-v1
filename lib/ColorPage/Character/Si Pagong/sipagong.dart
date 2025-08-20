@@ -202,7 +202,22 @@ class _PagongState extends State<Pagong> {
       ),
       body: Stack(
         children: [
-          Container(color: Color(0xFFC5F1FF)),
+          Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(
+                  'assets/images/Animation Page/PaperBG.png',
+                ), // Replace with your image path
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: -30,
+            left: 10,
+            width: 150,
+            child: Image.asset('assets/Animations/Paint/Paint.gif'),
+          ),
 
           Center(
             child: Column(
@@ -292,7 +307,7 @@ class _PagongState extends State<Pagong> {
                 Container(
                   width: width * 0.80,
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: Color(0xFFACDC94),
                     borderRadius: BorderRadius.all(Radius.circular(20.0)),
                   ),
                   child: Padding(

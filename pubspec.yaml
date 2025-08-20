@@ -72,11 +72,8 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/images/HomeUI/Grass.png
     - assets/images/HomeUI/Cloud.png
-    - assets/images/HomeUI/Rock.png
     - assets/images/HomeUI/Wood.png
-    - assets/images/HomeUI/Turtle.png
     - assets/images/HomeUI/sunncloud.png
     - assets/images/HomeUI/Title.png
     - assets/images/HomeUI/first.png
@@ -84,8 +81,13 @@ flutter:
     - assets/images/HomeUI/Login BG/Ant.png
     - assets/images/HomeUI/Login BG/Grasshopper.png
     - assets/Animations/LOGIN ANIMATIONS/
+    - assets/Animations/Quiz/
+    - assets/Animations/Paint/
     - assets/images/Animation Page/
     - assets/Animations/login_bg_last (4).riv
+    - assets/Animations/honmepage.riv
+    - assets/Animations/homepage.riv
+    - assets/Animations/Read BG/read_bg.riv
     - assets/videos/KunehoatPagong.mp4
     - assets/videos/AngAsoatangKanyangAnino.mp4
     - assets/videos/AngAlamatngPinya.mp4
@@ -101,6 +103,8 @@ flutter:
     - assets/Buttonclick.mp3
     - assets/images/Thumbnails/Animation & Read/Ang Aso at ang kanyang Anino.jpg
     - assets/images/Thumbnails/Animation & Read/Ang Kuneho at ang Pagong.jpg
+    - assets/images/Thumbnails/Animation & Read/Si Malakas at Maganda.png
+    - assets/images/Thumbnails/Animation & Read/Si Matsing at ang Pagong.png
     - assets/images/Thumbnails/Kulay/Scenario/Pagong at ang kuneho sa ilalim ng mangga thumbnail.jpg
     - assets/images/Thumbnails/Kulay/Character/Sipagongthumbnail.png
     - assets/images/Thumbnails/Kulay/Character/Kunehothumbnail.jpg

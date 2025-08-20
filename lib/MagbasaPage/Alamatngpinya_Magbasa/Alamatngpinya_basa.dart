@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:kwentong_kultura/Background%20Classes/background_read.dart';
 import 'package:kwentong_kultura/MagbasaPage/Alamatngpinya_Magbasa/Scenes/ANPscene1.dart';
+import 'package:kwentong_kultura/Styles/styles.dart';
+import 'package:kwentong_kultura/Pages/taramagbasa.dart';
 
 class AlamatngpinyaBasa extends StatefulWidget {
   const AlamatngpinyaBasa({super.key});
@@ -10,11 +13,6 @@ class AlamatngpinyaBasa extends StatefulWidget {
 
 class _AlamatngpinyaBasaState extends State<AlamatngpinyaBasa> {
   @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
   void dispose() {
     super.dispose();
   }
@@ -23,6 +21,53 @@ class _AlamatngpinyaBasaState extends State<AlamatngpinyaBasa> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back), // The back icon
+          onPressed: () {
+            Navigator.pushAndRemoveUntil(
+              context,
+              PageRouteBuilder(
+                pageBuilder:
+                    (context, animation, secondaryAnimation) => Taramagbasa(),
+                transitionsBuilder: (
+                  context,
+                  animation,
+                  secondaryAnimation,
+                  child,
+                ) {
+                  const begin = Offset(
+                    -1.0,
+                    0.0,
+                  ); // Start position (right side)
+                  const end = Offset.zero; // End position (normal position)
+                  const curve = Curves.easeInOut;
+
+                  var tween = Tween(
+                    begin: begin,
+                    end: end,
+                  ).chain(CurveTween(curve: curve));
+                  var offsetAnimation = animation.drive(tween);
+
+                  // Create a fade animation for smooth fade in/out effect
+                  var fadeAnimation = Tween(
+                    begin: 0.0,
+                    end: 1.0,
+                  ).animate(CurvedAnimation(parent: animation, curve: curve));
+
+                  // Use both SlideTransition and FadeTransition
+                  return FadeTransition(
+                    opacity: fadeAnimation,
+                    child: SlideTransition(
+                      position: offsetAnimation,
+                      child: child,
+                    ),
+                  );
+                },
+              ),
+              (Route<dynamic> route) => false,
+            ); // This will navigate back to the previous screen
+          },
+        ),
         title: const Text(
           "Alamat ng Pinya",
           style: TextStyle(
@@ -38,6 +83,16 @@ class _AlamatngpinyaBasaState extends State<AlamatngpinyaBasa> {
       ),
       body: Stack(
         children: [
+          // Background: Rive animation filling the entire screen
+          Positioned.fill(
+            child: Opacity(
+              opacity: 1.0, // Set the opacity value here (0.0 to 1.0)
+              child: BackgroundRead(
+                assetPath: 'assets/Animations/Read BG/read_bg.riv',
+                stateMachineName: 'State Machine 1',
+              ),
+            ),
+          ),
           Column(
             children: [
               Padding(
@@ -52,19 +107,13 @@ class _AlamatngpinyaBasaState extends State<AlamatngpinyaBasa> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(
-                    'YOUR STORY',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  ),
+                  Text('YOUR STORY', style: Design.storyTitle),
                   SizedBox(height: 20), // Adds vertical space between the texts
                   Container(
                     width: 300, // Specify the width here
                     child: Text(
                       'STORY IS ALL about ....dsdssdsdsfddffsdfrf',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: Design.readStory,
                       textAlign: TextAlign.justify, // Justify the text
                     ),
                   ),
@@ -107,25 +156,7 @@ class _AlamatngpinyaBasaState extends State<AlamatngpinyaBasa> {
                   ),
                 );
               },
-              style: ButtonStyle(
-                padding: MaterialStateProperty.all(
-                  EdgeInsets.symmetric(vertical: 15.0, horizontal: 20.0),
-                ),
-                shape: MaterialStateProperty.all(
-                  RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(
-                      30,
-                    ), // Makes the button rounded
-                  ),
-                ),
-                backgroundColor: MaterialStateProperty.all(
-                  Colors.orange.shade300, // Button color
-                ),
-                shadowColor: MaterialStateProperty.all(
-                  const Color.fromARGB(255, 0, 0, 0), // Shadow color
-                ),
-                elevation: MaterialStateProperty.all(7), // Shadow effect
-              ),
+              style: Design.nextandPrevButtonDesign,
               icon: Icon(
                 Icons.arrow_forward, // Next button icon
                 size: 32, // Icon size

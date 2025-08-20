@@ -106,10 +106,10 @@ class _MakinigcardsState extends State<Makinigcards> {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Image.network(
-                          'https://picsum.photos/250?image=9',
+                        Image.asset(
+                          'assets/images/Thumbnails/Animation & Read/Si Malakas at Maganda.png',
                           width: 150,
-                          height: 150,
+                          height: 100,
                         ),
                         SizedBox(height: 10), // Add spacing
                         Text(
@@ -120,7 +120,7 @@ class _MakinigcardsState extends State<Makinigcards> {
 
                         SizedBox(height: 10),
                         Text(
-                          'Lorem ipsum dolor Lorem ipsum dolor',
+                          'Ang unang lalaki na si Malakas at ang unang babae na si Maganda',
                           style: Design.desciption,
                         ),
                         SizedBox(height: 10), // Add spacing
@@ -165,10 +165,10 @@ class _MakinigcardsState extends State<Makinigcards> {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Image.network(
-                          'https://picsum.photos/250?image=9',
+                        Image.asset(
+                          'assets/images/Thumbnails/Animation & Read/Si Matsing at ang Pagong.png',
                           width: 150,
-                          height: 150,
+                          height: 100,
                         ),
                         SizedBox(height: 10), // Add spacing
                         Text(
@@ -178,7 +178,7 @@ class _MakinigcardsState extends State<Makinigcards> {
                         ),
                         SizedBox(height: 10),
                         Text(
-                          'Lorem ipsum dolor Lorem ipsum dolor',
+                          'Ang Kwento ng magkaibigang si Matsing at Pagong',
                           style: Design.desciption,
                         ),
                         SizedBox(height: 10), // Add spacing

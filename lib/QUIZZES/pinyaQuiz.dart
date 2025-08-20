@@ -138,14 +138,27 @@ class _PinyaquizState extends State<Pinyaquiz> {
       body: SafeArea(
         child: Stack(
           children: [
-            Container(color: Color(0xFFB3D9FF)), // Background color
-            Positioned(
-              top: 50,
-              child: Image.asset('assets/images/HomeUI/Cloud.png'),
+            Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(
+                    'assets/images/Animation Page/PaperBG.png',
+                  ), // Replace with your image path
+                  fit: BoxFit.cover,
+                ),
+              ),
             ),
             Positioned(
-              bottom: 10,
-              child: Image.asset('assets/images/HomeUI/Cloud.png'),
+              bottom: 0,
+              left: 10,
+              width: 150,
+              child: Image.asset('assets/Animations/Quiz/Cup.gif'),
+            ),
+            Positioned(
+              bottom: -20,
+              right: -50,
+              width: 200,
+              child: Image.asset('assets/Animations/Quiz/Confused.gif'),
             ),
             // The main content of the quiz (moved outside of the Stack)
             SingleChildScrollView(

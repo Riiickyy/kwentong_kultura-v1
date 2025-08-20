@@ -262,6 +262,17 @@ class _AsoAtKanyangAninoCTState extends State<AsoAtKanyangAninoCT> {
       backgroundColor: Colors.lightBlue.shade100,
       body: Stack(
         children: [
+          Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(
+                  'assets/images/Animation Page/PaperBG.png',
+                ), // Replace with your image path
+                fit:
+                    BoxFit.cover, // Adjust the image to cover the entire screen
+              ),
+            ),
+          ),
           Column(
             children: [
               Expanded(
@@ -300,8 +311,10 @@ class _AsoAtKanyangAninoCTState extends State<AsoAtKanyangAninoCT> {
                                   fontWeight: FontWeight.w900,
                                   color:
                                       index <= _currentWordIndex
-                                          ? Color(0xFFFF4C4C)
-                                          : Colors.black, // Highlight effect
+                                          ? Color(0xFF760AFB)
+                                          : Color(
+                                            0xFF3f3f3f,
+                                          ), // Highlight effect
                                 ),
                               );
                             }),
@@ -314,22 +327,56 @@ class _AsoAtKanyangAninoCTState extends State<AsoAtKanyangAninoCT> {
               ),
             ],
           ),
-
-          // Settings button
           Positioned(
-            bottom: 100,
-            right: 20,
-            child: FloatingActionButton(
-              backgroundColor: Colors.orange.shade300,
-              onPressed: _toggleSettings,
-              child: Icon(Icons.settings),
+            bottom:
+                105, // Adjust to position above the quiz and settings buttons
+            left: 20, // Positioned left
+            child: ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  if (_controller.value.isPlaying) {
+                    // If video is currently playing, pause it
+                    _controller.pause();
+                  } else {
+                    // If video is paused, play it
+                    _controller.play();
+                  }
+                });
+              },
+              style: Design.playVideoButtonDesign,
+              child: Column(
+                mainAxisSize:
+                    MainAxisSize
+                        .min, // Ensures the column only takes as much space as needed
+                children: [
+                  Icon(
+                    _controller.value.isPlaying
+                        ? Icons.pause
+                        : Icons.play_arrow,
+                    size: 32, // Adjust the icon size
+                    color: Color(0xFF3f3f3f), // Set icon color to white
+                  ),
+                  SizedBox(
+                    height: 0, // Adds space between the icon and the label
+                  ),
+                  Text(
+                    _controller.value.isPlaying ? 'Pause' : 'Play',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 12,
+                      color: Color(
+                        0xFF3f3f3f,
+                      ), // Set text color to white (same as button color)
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
 
           Positioned(
-            bottom: 30, // Adjust to your liking
-            left: 50, // Adjust for centering if needed
-            right: 50, // Center the button horizontally
+            bottom: 20, // Adjust to position below Play button
+            left: 20, // Positioned left with some margin
             child: ElevatedButton(
               onPressed: () {
                 Navigator.push(
@@ -341,11 +388,40 @@ class _AsoAtKanyangAninoCTState extends State<AsoAtKanyangAninoCT> {
                   ),
                 );
               },
-              style: Design.buttonDesign,
-              child: Text(
-                'Tap to Continue', // Button text
-                style: Design.action,
+              style: Design.quizButtonDesign,
+              child: Column(
+                mainAxisSize:
+                    MainAxisSize
+                        .min, // Ensures the column only takes as much space as needed
+                children: [
+                  Icon(
+                    Icons.quiz,
+                    size: 24, // Adjust the icon size
+                    color: Color(0xFF3f3f3f),
+                  ),
+                  SizedBox(
+                    height: 0, // Adds space between the icon and the label
+                  ),
+                  Text(
+                    'Quiz',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 12,
+                      color: Color(0xFF3f3f3f),
+                    ),
+                  ),
+                ],
               ),
+            ),
+          ),
+          // Settings button
+          Positioned(
+            bottom: 100,
+            right: 20,
+            child: FloatingActionButton(
+              backgroundColor: Colors.orange.shade300,
+              onPressed: _toggleSettings,
+              child: Icon(Icons.settings),
             ),
           ),
 

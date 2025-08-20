@@ -1,6 +1,7 @@
 import 'package:appinio_video_player/appinio_video_player.dart';
 import 'package:flutter/material.dart';
 import 'package:kwentong_kultura/QUIZZES/kunehoatpagongQuiz.dart';
+import 'package:kwentong_kultura/Styles/styles.dart';
 import 'package:video_player/video_player.dart';
 
 class KunehotPagongCT extends StatefulWidget {
@@ -435,7 +436,7 @@ class _KunehotPagongCTState extends State<KunehotPagongCT> {
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(
-                  'assets/images/Animation Page/Wood.png',
+                  'assets/images/Animation Page/PaperBG.png',
                 ), // Replace with your image path
                 fit:
                     BoxFit.cover, // Adjust the image to cover the entire screen
@@ -480,13 +481,8 @@ class _KunehotPagongCTState extends State<KunehotPagongCT> {
                                   fontWeight: FontWeight.w900,
                                   color:
                                       index <= _currentWordIndex
-                                          ? Color.fromARGB(255, 7, 255, 81)
-                                          : const Color.fromARGB(
-                                            255,
-                                            255,
-                                            255,
-                                            255,
-                                          ), // Highlight effect
+                                          ? Color(0xFF760AFB)
+                                          : Color(0xFF3f3f3f),
                                 ),
                               );
                             }),
@@ -516,23 +512,7 @@ class _KunehotPagongCTState extends State<KunehotPagongCT> {
                   }
                 });
               },
-              style: ButtonStyle(
-                padding: MaterialStateProperty.all(
-                  EdgeInsets.symmetric(vertical: 15.0, horizontal: 15.0),
-                ),
-                shape: MaterialStateProperty.all(
-                  CircleBorder(),
-                ), // Makes the button circular
-                backgroundColor: MaterialStateProperty.all(
-                  Colors.orange.shade300,
-                ),
-                shadowColor: MaterialStateProperty.all(
-                  const Color.fromARGB(255, 0, 0, 0),
-                ), // White shadow
-                elevation: MaterialStateProperty.all(
-                  7,
-                ), // Add shadow effect by setting elevation
-              ),
+              style: Design.playVideoButtonDesign,
               child: Column(
                 mainAxisSize:
                     MainAxisSize
@@ -543,12 +523,7 @@ class _KunehotPagongCTState extends State<KunehotPagongCT> {
                         ? Icons.pause
                         : Icons.play_arrow,
                     size: 32, // Adjust the icon size
-                    color: const Color.fromARGB(
-                      255,
-                      100,
-                      3,
-                      255,
-                    ), // Set icon color to white
+                    color: Color(0xFF3f3f3f), // Set icon color to white
                   ),
                   SizedBox(
                     height: 0, // Adds space between the icon and the label
@@ -558,11 +533,8 @@ class _KunehotPagongCTState extends State<KunehotPagongCT> {
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 12,
-                      color: const Color.fromARGB(
-                        255,
-                        100,
-                        3,
-                        255,
+                      color: Color(
+                        0xFF3f3f3f,
                       ), // Set text color to white (same as button color)
                     ),
                   ),
@@ -585,23 +557,7 @@ class _KunehotPagongCTState extends State<KunehotPagongCT> {
                   ),
                 );
               },
-              style: ButtonStyle(
-                padding: MaterialStateProperty.all(
-                  EdgeInsets.symmetric(vertical: 15.0, horizontal: 10.0),
-                ),
-                shape: MaterialStateProperty.all(
-                  CircleBorder(),
-                ), // Makes the button circular
-                backgroundColor: MaterialStateProperty.all(
-                  Colors.orange.shade300,
-                ),
-                shadowColor: MaterialStateProperty.all(
-                  const Color.fromARGB(255, 0, 0, 0),
-                ), // White shadow
-                elevation: MaterialStateProperty.all(
-                  7,
-                ), // Add shadow effect by setting elevation
-              ),
+              style: Design.quizButtonDesign,
               child: Column(
                 mainAxisSize:
                     MainAxisSize
@@ -609,13 +565,8 @@ class _KunehotPagongCTState extends State<KunehotPagongCT> {
                 children: [
                   Icon(
                     Icons.quiz,
-                    size: 32, // Adjust the icon size
-                    color: const Color.fromARGB(
-                      255,
-                      100,
-                      3,
-                      255,
-                    ), // Set icon color to white
+                    size: 24, // Adjust the icon size
+                    color: Color(0xFF3f3f3f),
                   ),
                   SizedBox(
                     height: 0, // Adds space between the icon and the label
@@ -625,12 +576,7 @@ class _KunehotPagongCTState extends State<KunehotPagongCT> {
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 12,
-                      color: const Color.fromARGB(
-                        255,
-                        100,
-                        3,
-                        255,
-                      ), // Set text color to white (same as button color)
+                      color: Color(0xFF3f3f3f),
                     ),
                   ),
                 ],

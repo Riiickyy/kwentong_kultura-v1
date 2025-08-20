@@ -15,6 +15,27 @@ class Design {
     elevation: 4, // Controls the shadow intensity
     shadowColor: Colors.black.withOpacity(0.5),
   );
+  static ButtonStyle nextandPrevButtonDesign = ElevatedButton.styleFrom(
+    padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 20.0),
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+    backgroundColor: Colors.orange.shade300, // Button color
+    shadowColor: Color(0xFF3f3f3f), // Shadow color
+    elevation: 7, // Shadow effect
+  );
+  static ButtonStyle playVideoButtonDesign = ElevatedButton.styleFrom(
+    padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 18.0),
+    shape: CircleBorder(),
+    backgroundColor: Colors.orange.shade300, // Button color
+    shadowColor: const Color.fromARGB(255, 0, 0, 0), // Shadow color
+    elevation: 7, // Shadow effect
+  );
+  static ButtonStyle quizButtonDesign = ElevatedButton.styleFrom(
+    padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 10.0),
+    shape: CircleBorder(),
+    backgroundColor: Colors.orange.shade300, // Button color
+    shadowColor: Color(0xFF3f3f3f),
+    elevation: 7, // Shadow effect
+  );
   static TextStyle tara = TextStyle(
     fontSize: 18,
     fontWeight: FontWeight.bold,
@@ -56,5 +77,11 @@ class Design {
     fontWeight: FontWeight.bold,
     fontFamily: 'Nunito',
     color: Colors.black,
+  );
+  static TextStyle readStory = TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.w700,
+    fontFamily: 'Nunito',
+    color: Color(0xFF3f3f3f),
   );
 }

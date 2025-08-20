@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:kwentong_kultura/MagbasaPage/Alamatngpinya_Magbasa/Alamatngpinya_basa.dart';
 import 'package:kwentong_kultura/Pages/taramagbasa.dart';
+import 'package:kwentong_kultura/Background%20Classes/background_read.dart';
+import 'package:kwentong_kultura/Styles/styles.dart';
 
 class Anpscene1 extends StatefulWidget {
   const Anpscene1({super.key});
@@ -17,7 +19,7 @@ class _Anpscene1State extends State<Anpscene1> {
         leading: IconButton(
           icon: Icon(Icons.arrow_back), // The back icon
           onPressed: () {
-            Navigator.push(
+            Navigator.pushAndRemoveUntil(
               context,
               PageRouteBuilder(
                 pageBuilder:
@@ -57,6 +59,7 @@ class _Anpscene1State extends State<Anpscene1> {
                   );
                 },
               ),
+              (Route<dynamic> route) => false,
             ); // This will navigate back to the previous screen
           },
         ),
@@ -75,6 +78,15 @@ class _Anpscene1State extends State<Anpscene1> {
       ),
       body: Stack(
         children: [
+          Positioned.fill(
+            child: Opacity(
+              opacity: 1.0,
+              child: BackgroundRead(
+                assetPath: 'assets/Animations/Read BG/read_bg.riv',
+                stateMachineName: 'State Machine 1',
+              ),
+            ),
+          ),
           Column(
             children: [
               Padding(
@@ -123,25 +135,7 @@ class _Anpscene1State extends State<Anpscene1> {
                   ),
                 );
               },
-              style: ButtonStyle(
-                padding: MaterialStateProperty.all(
-                  EdgeInsets.symmetric(vertical: 15.0, horizontal: 20.0),
-                ),
-                shape: MaterialStateProperty.all(
-                  RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(
-                      30,
-                    ), // Makes the button rounded
-                  ),
-                ),
-                backgroundColor: MaterialStateProperty.all(
-                  Colors.orange.shade300, // Button color
-                ),
-                shadowColor: MaterialStateProperty.all(
-                  const Color.fromARGB(255, 0, 0, 0), // Shadow color
-                ),
-                elevation: MaterialStateProperty.all(7), // Shadow effect
-              ),
+              style: Design.nextandPrevButtonDesign,
               icon: Icon(
                 Icons.arrow_forward, // Next button icon
                 size: 32, // Icon size
