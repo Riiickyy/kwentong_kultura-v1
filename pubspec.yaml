@@ -88,12 +88,9 @@ flutter:
     - assets/Animations/honmepage.riv
     - assets/Animations/homepage.riv
     - assets/Animations/Read BG/read_bg.riv
-    - assets/videos/KunehoatPagong.mp4
-    - assets/videos/AngAsoatangKanyangAnino.mp4
-    - assets/videos/AngAlamatngPinya.mp4
+    - assets/videos/
     - assets/background.mp3
     - assets/pdfs/Pinya.pdf
-    - assets/videos/Pagong.mp4
     - assets/images/Color/Character/Si Pagong (Sketched).png
     - assets/images/Color/Character/Si Kuneho (Sketched).png
     - assets/images/Color/Character/Ang Aso (Sketched).png
