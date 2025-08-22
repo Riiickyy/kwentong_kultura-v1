@@ -257,7 +257,7 @@ class _PagongatmatsingCTState extends State<PagongatmatsingCT> {
       "startSec": 106,
       "startMilli": 200,
       "endSec": 109,
-      "endMilli": 567,
+      "endMilli": 367,
       "text": "Matsing: kayang kaya kong panikin ang punong saging",
     },
     {

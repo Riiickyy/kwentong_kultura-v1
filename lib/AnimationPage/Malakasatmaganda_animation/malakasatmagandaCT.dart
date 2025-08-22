@@ -23,158 +23,81 @@ class _MalakasatmagandaCTState extends State<MalakasatmagandaCT> {
   final List<Map<String, dynamic>> subtitles = [
     {
       "startSec": 0,
-      "startMilli": 0,
-      "endSec": 3,
-      "endMilli": 433,
-      "text": "Ang Aso at ang kanyang Anino",
+      "startMilli": 900,
+      "endSec": 2,
+      "endMilli": 460,
+      "text": "Malakas at Maganda",
     },
     {
       "startSec": 5,
-      "startMilli": 133,
+      "startMilli": 300,
       "endSec": 9,
-      "endMilli": 800,
+      "endMilli": 300,
+      "text": "Isang ibong kulay abuhin ang naghahanap ng makakain",
+    },
+    {
+      "startSec": 11,
+      "startMilli": 667,
+      "endSec": 16,
+      "endMilli": 100,
       "text":
-          "may isang asong naglalakad sa kagubatan at nakahanap ng makakain",
+          "Nahila niya ang isang uod na nakasiksik sa isang puno ng kawayan",
     },
-
-    {
-      "startSec": 10,
-      "startMilli": 600,
-      "endSec": 14,
-      "endMilli": 0,
-      "text": "Pagod na pagod sya habang nililibot ang buong paligid",
-    },
-    {
-      "startSec": 14,
-      "startMilli": 733,
-      "endSec": 17,
-      "endMilli": 800,
-      "text": "Sa wakas ay may nakita siyang kapirasong buto",
-    },
-
     {
       "startSec": 18,
-      "startMilli": 533,
-      "endSec": 21,
-      "endMilli": 66,
-      "text": "Agad niya itong sinakmal at itinakbo",
+      "startMilli": 167,
+      "endSec": 23,
+      "endMilli": 367,
+      "text":
+          "tinuka niya ng tinuka ang bahaging ito upang makuha at makain ang uod",
+    },
+    {
+      "startSec": 24,
+      "startMilli": 733,
+      "endSec": 28,
+      "endMilli": 333,
+      "text": "hindi niya tinigilan ang pagtuka hanggang sa mabiyak ito",
     },
 
-    {
-      "startSec": 22,
-      "startMilli": 633,
-      "endSec": 24,
-      "endMilli": 933,
-      "text": "Aso: Salamat naman at makakain na ako",
-    },
-
-    {
-      "startSec": 25,
-      "startMilli": 566,
-      "endSec": 26,
-      "endMilli": 933,
-      "text": "Wika nya sa sarili",
-    },
-
-    {
-      "startSec": 27,
-      "startMilli": 633,
-      "endSec": 30,
-      "endMilli": 667,
-      "text": "Aso: Iuwi ko na ito at nang makapaghapunan na ako",
-    },
     {
       "startSec": 31,
-      "startMilli": 567,
-      "endSec": 32,
-      "endMilli": 533,
-      "text": "Dagdag pa niya",
-    },
-    {
-      "startSec": 33,
-      "startMilli": 167,
+      "startMilli": 500,
       "endSec": 37,
-      "endMilli": 567,
+      "endMilli": 767,
       "text":
-          "May kalayuan ang tirahan ng aso kaya't siya'y nagmadaling tumakbo",
+          "nakatakas ang uod ngunit lumabas ang dalawang nilikha na tinawag na Malakas at Maganda",
     },
     {
-      "startSec": 38,
-      "startMilli": 300,
-      "endSec": 43,
+      "startSec": 39,
+      "startMilli": 567,
+      "endSec": 42,
       "endMilli": 333,
-      "text":
-          "bago siya makarating sa kanyang tahanan ay kailangan niyang dumaan sa isang batis",
+      "text": "Si Malakas ay matipuno at gwapong lalaki",
     },
     {
-      "startSec": 43,
-      "startMilli": 600,
-      "endSec": 46,
-      "endMilli": 367,
-      "text": "Na may malinis at malinaw na tubig",
+      "startSec": 44,
+      "startMilli": 133,
+      "endSec": 48,
+      "endMilli": 733,
+      "text": "Si Maganda ay mahinhin, balingkinitan ang katawan at masipag",
     },
     {
-      "startSec": 48,
-      "startMilli": 633,
+      "startSec": 50,
+      "startMilli": 500,
       "endSec": 53,
-      "endMilli": 600,
-      "text":
-          "Habang siya ay patawid na nasilayan niya ang kanyang anino sa tubig",
-    },
-    {
-      "startSec": 54,
-      "startMilli": 67,
-      "endSec": 57,
-      "endMilli": 67,
-      "text": "Ngunit di nya alam na ito'y kanyang anino",
-    },
-
-    {
-      "startSec": 57,
-      "startMilli": 533,
-      "endSec": 61,
-      "endMilli": 367,
-      "text": "Ang buong akala niya'y may isa pang may hawak ng buto",
-    },
-
-    {
-      "startSec": 61,
-      "startMilli": 967,
-      "endSec": 65,
       "endMilli": 100,
-      "text": "Sa Kanyang pagnanasang mapasakanya pa ang buto",
+      "text": "sila ang kauna-unahang babae at lalaki",
     },
     {
-      "startSec": 65,
-      "startMilli": 633,
-      "endSec": 68,
-      "endMilli": 700,
-      "text": "Ibinukas niya ang kanyang bibig para kunin ito",
-    },
-    {
-      "startSec": 69,
-      "startMilli": 733,
-      "endSec": 74,
-      "endMilli": 700,
-      "text": "Nahulog ang butong hawak niya at ito'y pumasailalim sa tubig",
-    },
-    {
-      "startSec": 75,
-      "startMilli": 467,
-      "endSec": 78,
-      "endMilli": 200,
-      "text": "Ang aso'y lungkot na lungkot umuwi",
-    },
-    {
-      "startSec": 78,
-      "startMilli": 333,
-      "endSec": 82,
-      "endMilli": 400,
-      "text": "Dahil ang kanyang pinakaiingat ingatan na buto ay nawala din",
+      "startSec": 53,
+      "startMilli": 600,
+      "endSec": 55,
+      "endMilli": 333,
+      "text": "sa lahi ng mga tagalog",
     },
   ];
 
-  String assetVideo = 'assets/videos/AngAsoatangKanyangAnino.mp4';
+  String assetVideo = 'assets/videos/MalakasatMaganda.mp4';
 
   @override
   void initState() {

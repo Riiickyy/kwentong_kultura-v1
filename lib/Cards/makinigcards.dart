@@ -3,6 +3,7 @@ import 'package:kwentong_kultura/AnimationPage/Alamatngpinya_animation/alamatngp
 import 'package:kwentong_kultura/AnimationPage/AsoatKanyangAnino_animation/aso_at_kanyang_anino_Title.dart';
 import 'package:kwentong_kultura/AnimationPage/KunehoatPagong_animation/kunehoatpagongTitle.dart';
 import 'package:kwentong_kultura/AnimationPage/Sipagongatmatsing_animation/sipagongatmatsingTitle.dart';
+import 'package:kwentong_kultura/AnimationPage/Malakasatmaganda_animation/malakasatmagandaTitle.dart';
 import '../Styles/styles.dart';
 
 class Makinigcards extends StatefulWidget {
@@ -125,7 +126,16 @@ class _MakinigcardsState extends State<Makinigcards> {
                         ),
                         SizedBox(height: 10), // Add spacing
                         ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return Malakasatmagandatitle();
+                                },
+                              ),
+                            );
+                          },
                           style: Design.buttonDesign,
                           child: Text('Pakinggan', style: Design.tara),
                         ),
