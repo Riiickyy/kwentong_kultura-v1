@@ -1,17 +1,17 @@
 import 'package:appinio_video_player/appinio_video_player.dart';
 import 'package:flutter/material.dart';
-import 'package:kwentong_kultura/QUIZZES/pinyaQuiz.dart';
-import 'package:kwentong_kultura/Styles/styles.dart';
+import 'package:kwentong_kultura/QUIZZES/angasoatkanyanganinoQuiz.dart';
 import 'package:video_player/video_player.dart';
+import 'package:kwentong_kultura/Styles/styles.dart';
 
-class AlamatngpinyaCT extends StatefulWidget {
-  const AlamatngpinyaCT({super.key});
+class AlamatngmayaCT extends StatefulWidget {
+  const AlamatngmayaCT({super.key});
 
   @override
-  State<AlamatngpinyaCT> createState() => _AlamatngpinyaCTState();
+  State<AlamatngmayaCT> createState() => _AlamatngmayaCTState();
 }
 
-class _AlamatngpinyaCTState extends State<AlamatngpinyaCT> {
+class _AlamatngmayaCTState extends State<AlamatngmayaCT> {
   late CustomVideoPlayerController _customVideoPlayerController;
   late VideoPlayerController _controller;
   double _playbackSpeed = 1.0;
@@ -23,340 +23,213 @@ class _AlamatngpinyaCTState extends State<AlamatngpinyaCT> {
   final List<Map<String, dynamic>> subtitles = [
     {
       "startSec": 1,
-      "startMilli": 333,
-      "endSec": 3,
-      "endMilli": 133,
-      "text": "Ang Alamat ng Pinya",
-    },
-    {
-      "startSec": 5,
-      "startMilli": 66,
-      "endSec": 6,
-      "endMilli": 800,
-      "text": "mahal na mahal ni aling Rosa",
-    },
-    {
-      "startSec": 7,
-      "startMilli": 200,
-      "endSec": 8,
-      "endMilli": 800,
-      "text": "ang kanyang anak na si Pina",
-    },
-    {
-      "startSec": 9,
-      "startMilli": 700,
-      "endSec": 13,
-      "endMilli": 667,
-      "text": "inaalagaan niya itong mabuti at hindi niya pinagagawa sa bahay",
-    },
-    {
-      "startSec": 14,
-      "startMilli": 200,
-      "endSec": 15,
+      "startMilli": 0,
+      "endSec": 2,
       "endMilli": 333,
-      "text": "upang hindi mapagod",
+      "text": "Ang Alamat ng Maya",
     },
-
     {
-      "startSec": 16,
-      "startMilli": 500,
-      "endSec": 21,
+      "startSec": 4,
+      "startMilli": 267,
+      "endSec": 9,
       "endMilli": 0,
       "text":
-          "masaya na siyang nagsisilbi sa anak at gumagawa ng lahat ng trabaho sa bahay",
+          "noong unang panahon sa isang liblib na lugar SA bundok ng Carabayo",
     },
-
     {
-      "startSec": 22,
+      "startSec": 18,
+      "startMilli": 67,
+      "endSec": 23,
+      "endMilli": 400,
+      "text":
+          "nakaugalian na sa kanilang lugar na kailangan bayuhin muna ang palay bago kainin",
+    },
+    {
+      "startSec": 24,
       "startMilli": 800,
-      "endSec": 27,
-      "endMilli": 967,
+      "endSec": 29,
+      "endMilli": 100,
       "text":
-          "si Pina ay lumaki sa layaw dahil na rin sa kagagawan ni Aling Rosa",
+          "si Mayan ay isang batang babaeng may labing tatlong taong gulang",
     },
-
     {
-      "startSec": 28,
-      "startMilli": 467,
-      "endSec": 35,
-      "endMilli": 0,
-      "text":
-          "gustuhin man niyang turuan ito gumawa sa bahay at magbago ng ugali ay hindi na niya magagawa",
+      "startSec": 30,
+      "startMilli": 200,
+      "endSec": 32,
+      "endMilli": 267,
+      "text": "bukod sa ito'y ubod ng likot",
+    },
+    {
+      "startSec": 32,
+      "startMilli": 933,
+      "endSec": 34,
+      "endMilli": 600,
+      "text": "saksakan pa ito ng tamad",
     },
     {
       "startSec": 36,
-      "startMilli": 267,
-      "endSec": 40,
-      "endMilli": 800,
-      "text":
-          "ayaw na baguhin ni Pina ang kanyang nakasanayang masarap na buhay",
+      "startMilli": 67,
+      "endSec": 39,
+      "endMilli": 400,
+      "text": "nagbabayo ng palay ang Ina nito isang umaga",
+    },
+
+    {
+      "startSec": 42,
+      "startMilli": 367,
+      "endSec": 45,
+      "endMilli": 700,
+      "text": "sapagkat sa tanghalian ay wala na silang isasaing",
     },
     {
-      "startSec": 41,
-      "startMilli": 600,
-      "endSec": 44,
+      "startSec": 46,
+      "startMilli": 767,
+      "endSec": 51,
+      "endMilli": 967,
+      "text":
+          "habang ang batang si Mayan ay abala naman sa pakikipaglaro sa kanyang mga kapwa bata",
+    },
+    {
+      "startSec": 54,
+      "startMilli": 967,
+      "endSec": 62,
+      "endMilli": 0,
+      "text":
+          "nang datnan niyang pagkapagod ay lumapit sa kanyang ina at pinanood na lamang ang kanyang ina sa pagbabayo",
+    },
+    {
+      "startSec": 63,
+      "startMilli": 367,
+      "endSec": 64,
+      "endMilli": 867,
+      "text": "habang siya'y nakaupo",
+    },
+    {
+      "startSec": 65,
+      "startMilli": 500,
+      "endSec": 68,
       "endMilli": 133,
-      "text": "kung kaya't napilitan si Aling Rosa",
+      "text": "nakadama siya ng pagkalam ng sikmura",
     },
     {
-      "startSec": 44,
-      "startMilli": 600,
-      "endSec": 50,
-      "endMilli": 900,
-      "text":
-          "na kahit na matanda na siya ay siya pa rin ang nagtatrabaho at gumawa ng lahat ng gawaing bahay",
-    },
-    {
-      "startSec": 52,
-      "startMilli": 733,
-      "endSec": 55,
-      "endMilli": 167,
-      "text": "isang araw ay nagkasakit si Aling Rosa",
-    },
-    {
-      "startSec": 56,
-      "startMilli": 267,
-      "endSec": 59,
-      "endMilli": 667,
-      "text": "mahinang mahina siya at hindi siya makabangon sa higaan",
-    },
-    {
-      "startSec": 61,
-      "startMilli": 0,
-      "endSec": 66,
-      "endMilli": 900,
-      "text":
-          "nagmamakaawa siya sa anak na magluto ng pagkain upang hindi sila magutom mag-ina",
-    },
-    {
-      "startSec": 69,
-      "startMilli": 700,
-      "endSec": 74,
-      "endMilli": 367,
-      "text":
-          "masama man ang loob ay pumayag si Pina na magluto at gumawa ng iba pa",
-    },
-    {
-      "startSec": 75,
-      "startMilli": 200,
-      "endSec": 79,
-      "endMilli": 100,
-      "text": "ngunit pamali mali dahil hindi siya sanay magtrabaho",
-    },
-    {
-      "startSec": 80,
-      "startMilli": 700,
-      "endSec": 82,
-      "endMilli": 467,
-      "text": "nagtagal ang sakit ni Aling Rosa",
-    },
-    {
-      "startSec": 83,
-      "startMilli": 0,
-      "endSec": 87,
+      "startSec": 70,
+      "startMilli": 467,
+      "endSec": 76,
       "endMilli": 333,
-      "text": "at nagsawa si Pina sa paggawa at pagsunod sa utos ng ina",
+      "text":
+          "nagtungo siya sa kanilang kusina at tumingin sa kaldero kung mayroong makakain kahit ano",
+    },
+    {
+      "startSec": 76,
+      "startMilli": 767,
+      "endSec": 78,
+      "endMilli": 567,
+      "text": "ngunit bigo siya",
+    },
+    {
+      "startSec": 79,
+      "startMilli": 0,
+      "endSec": 81,
+      "endMilli": 267,
+      "text": "at dagli siyang lumapit sa bakol",
+    },
+    {
+      "startSec": 82,
+      "startMilli": 500,
+      "endSec": 86,
+      "endMilli": 67,
+      "text": "sa tantsa niya'y may isang salop pa ang laman niyon",
+    },
+    {
+      "startSec": 87,
+      "startMilli": 567,
+      "endSec": 89,
+      "endMilli": 467,
+      "text": "dahil sa tindi ng gutom",
     },
     {
       "startSec": 89,
-      "startMilli": 400,
-      "endSec": 91,
+      "startMilli": 900,
+      "endSec": 92,
       "endMilli": 167,
-      "text": "madalas na silang magkagalit",
+      "text": "sinimulan niyang kainin ang bigas",
     },
     {
-      "startSec": 91,
-      "startMilli": 933,
-      "endSec": 96,
-      "endMilli": 100,
-      "text":
-          "laging masama ang loob ni Pina habang gumagawa ng trabaho sa bahay",
+      "startSec": 93,
+      "startMilli": 533,
+      "endSec": 95,
+      "endMilli": 567,
+      "text": "waring hindi pa siya nasiyahan",
     },
     {
-      "startSec": 97,
-      "startMilli": 300,
-      "endSec": 98,
-      "endMilli": 167,
-      "text": "Isang araw",
-    },
-    {
-      "startSec": 98,
-      "startMilli": 467,
-      "endSec": 100,
-      "endMilli": 667,
-      "text": "ay magluluto na naman si Pina",
+      "startSec": 96,
+      "startMilli": 67,
+      "endSec": 99,
+      "endMilli": 800,
+      "text": "inalis pa ang takip ng bakol at palihim na pumasok sa loob",
     },
     {
       "startSec": 101,
-      "startMilli": 467,
-      "endSec": 105,
-      "endMilli": 467,
-      "text": "hindi siya makapagsimula dahil hindi niya makita ang sandok",
+      "startMilli": 0,
+      "endSec": 102,
+      "endMilli": 233,
+      "text": "siya'y naupo",
     },
     {
-      "startSec": 106,
-      "startMilli": 967,
-      "endSec": 111,
-      "endMilli": 500,
-      "text":
-          "hinanap niya ito ng mabuti sa loob ng bahay ngunit di pa rin niya makita",
-    },
-    {
-      "startSec": 112,
-      "startMilli": 367,
-      "endSec": 114,
-      "endMilli": 367,
-      "text": "nagreklamo na siya sa kanyang ina",
-    },
-    {
-      "startSec": 115,
-      "startMilli": 333,
-      "endSec": 119,
-      "endMilli": 100,
-      "text": "inutusan siya ng ina na bumaba ng bahay at doon hanapin",
-    },
-    {
-      "startSec": 119,
-      "startMilli": 400,
-      "endSec": 121,
-      "endMilli": 333,
-      "text": "dahil baka nahulog sa lupa",
-    },
-    {
-      "startSec": 123,
+      "startSec": 102,
       "startMilli": 567,
-      "endSec": 127,
-      "endMilli": 733,
+      "endSec": 107,
+      "endMilli": 767,
       "text":
-          "nagkakagalit na ang mag ina dahil sa paghahanap ng nawawalang sandok",
+          "at sa kanya muling ibinalik ang takip hangad niyang hindi siya makita ng Ina",
+    },
+    {
+      "startSec": 110,
+      "startMilli": 167,
+      "endSec": 112,
+      "endMilli": 467,
+      "text": "natapos ang kanyang Ina sa pagbabayo",
+    },
+    {
+      "startSec": 113,
+      "startMilli": 100,
+      "endSec": 118,
+      "endMilli": 933,
+      "text":
+          "tinawag niya si Mayan ngunit halos mamaos na'y hindi pa rin lumilitaw si Mayan",
+    },
+    {
+      "startSec": 121,
+      "startMilli": 167,
+      "endSec": 126,
+      "endMilli": 67,
+      "text":
+          "nang buksan ng Ina ang bakol ay may isang maliit na ibon ang lumabas doon",
     },
     {
       "startSec": 128,
-      "startMilli": 600,
-      "endSec": 131,
-      "endMilli": 133,
-      "text": "hanggang sa nasambit ni Aling Rosa ang",
+      "startMilli": 100,
+      "endSec": 130,
+      "endMilli": 400,
+      "text": "nanginain ng bigas ang ibon",
     },
     {
       "startSec": 131,
-      "startMilli": 900,
-      "endSec": 135,
-      "endMilli": 867,
-      "text":
-          "Ina: Sana'y tubuan ka ng maraming mata ng makita mo ang iyong hinahanap",
-    },
-    {
-      "startSec": 136,
-      "startMilli": 867,
-      "endSec": 141,
-      "endMilli": 800,
-      "text":
-          "ilang oras na ang nagdaan ay hindi pa umaakyat si Pina sa bahay  ",
-    },
-    {
-      "startSec": 143,
-      "startMilli": 933,
-      "endSec": 148,
-      "endMilli": 0,
-      "text": "lumipas na ang gutom ni Aling Rosa ay wala pa rin si Pina",
-    },
-    {
-      "startSec": 149,
-      "startMilli": 0,
-      "endSec": 150,
-      "endMilli": 967,
-      "text": "gabi na ay wala pa rin si Pina",
-    },
-    {
-      "startSec": 151,
-      "startMilli": 600,
-      "endSec": 154,
-      "endMilli": 867,
-      "text": "nagaalalana si Aling Rosa sa hindi pagbalik ni Pina",
-    },
-    {
-      "startSec": 155,
-      "startMilli": 867,
-      "endSec": 160,
-      "endMilli": 267,
-      "text":
-          "nagtanong na siya sa kanilang kapitbahay ngunit walang nakakita kay Pina",
-    },
-    {
-      "startSec": 161,
-      "startMilli": 400,
-      "endSec": 166,
-      "endMilli": 867,
-      "text": "hinanap niya itong muli sa buong kabahayan at buong bakuran",
-    },
-    {
-      "startSec": 167,
-      "startMilli": 767,
-      "endSec": 169,
-      "endMilli": 767,
-      "text": "hindi na niya nakita si Pina",
-    },
-    {
-      "startSec": 170,
-      "startMilli": 900,
-      "endSec": 174,
-      "endMilli": 800,
-      "text": "sa isang sulok ng bakuran ay nakita niya ang isang halaman",
-    },
-    {
-      "startSec": 175,
-      "startMilli": 67,
-      "endSec": 178,
-      "endMilli": 500,
-      "text": "na ang bunga ay tulad ng isang tao na maraming mata",
-    },
-    {
-      "startSec": 181,
-      "startMilli": 67,
-      "endSec": 183,
-      "endMilli": 900,
-      "text": "naalala ni Aling Rosa ang sinabi sa kanyang anak",
-    },
-    {
-      "startSec": 184,
-      "startMilli": 667,
-      "endSec": 190,
+      "startMilli": 133,
+      "endSec": 134,
       "endMilli": 167,
-      "text":
-          "na sana'y tubuan ka ng maraming mata ng makita mo ang iyong hinahanap",
+      "text": "kalaunan ang ibong iyon ay tinawag na Maya",
     },
     {
-      "startSec": 191,
-      "startMilli": 767,
-      "endSec": 196,
-      "endMilli": 667,
-      "text":
-          "napaiyak si Aling Rosa at iniisip na ang halamang tumubo sa kanyang bakuran",
-    },
-    {
-      "startSec": 197,
-      "startMilli": 200,
-      "endSec": 199,
-      "endMilli": 67,
-      "text": "ay ang kanyang anak na si Pina",
-    },
-    {
-      "startSec": 200,
-      "startMilli": 567,
-      "endSec": 204,
-      "endMilli": 800,
-      "text": "inalagaan niya ang halaman at simula noon tinawag niya itong ",
-    },
-    {
-      "startSec": 205,
-      "startMilli": 300,
-      "endSec": 206,
-      "endMilli": 233,
-      "text": "Pinya",
+      "startSec": 135,
+      "startMilli": 467,
+      "endSec": 139,
+      "endMilli": 133,
+      "text": "malaki ang hinala ng kanyang Ina na si Mayan iyon",
     },
   ];
 
-  String assetVideo = 'assets/videos/AlamatngPinya.mp4';
+  String assetVideo = 'assets/videos/AngAsoatangKanyangAnino.mp4';
 
   @override
   void initState() {
@@ -565,7 +438,7 @@ class _AlamatngpinyaCTState extends State<AlamatngpinyaCT> {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return Pinyaquiz();
+                      return AngAsoatkanyangAninoQuiz();
                     },
                   ),
                 );

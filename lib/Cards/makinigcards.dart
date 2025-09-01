@@ -4,6 +4,7 @@ import 'package:kwentong_kultura/AnimationPage/AsoatKanyangAnino_animation/aso_a
 import 'package:kwentong_kultura/AnimationPage/KunehoatPagong_animation/kunehoatpagongTitle.dart';
 import 'package:kwentong_kultura/AnimationPage/Sipagongatmatsing_animation/sipagongatmatsingTitle.dart';
 import 'package:kwentong_kultura/AnimationPage/Malakasatmaganda_animation/malakasatmagandaTitle.dart';
+import 'package:kwentong_kultura/AnimationPage/alamatngmaya_animation/alamatngmayaTitle.dart';
 import '../Styles/styles.dart';
 
 class Makinigcards extends StatefulWidget {
@@ -47,12 +48,12 @@ class _MakinigcardsState extends State<Makinigcards> {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Image.network(
-                          'https://picsum.photos/250?image=9',
+                        Image.asset(
+                          'assets/images/Thumbnails/Animation & Read/Ang Alamat ng Pinya.png',
                           width: 150,
-                          height: 150,
+                          height: 100,
                         ),
-                        SizedBox(height: 10), // Add spacing
+                        SizedBox(height: 10),
                         Text(
                           'Alamat ng Pinya',
                           style: Design.storyTitle,
@@ -60,7 +61,7 @@ class _MakinigcardsState extends State<Makinigcards> {
                         ),
                         SizedBox(height: 10),
                         Text(
-                          'Lorem ipsum dolor Lorem ipsum dolor',
+                          'Ang kwento ni pina at ng kanyang ina at paano nagkameron ng isang prutas na Pinya',
                           style: Design.desciption,
                         ),
                         SizedBox(height: 10), // Add spacing
@@ -377,7 +378,18 @@ class _MakinigcardsState extends State<Makinigcards> {
                         ),
                         SizedBox(height: 10), // Add spacing
                         ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) {
+                                    return AlamatngmayaTitle();
+                                  },
+                                ),
+                              );
+                            }
+                          },
                           style: Design.buttonDesign,
                           child: Text('Pakinggan', style: Design.tara),
                         ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:kwentong_kultura/MagbasaPage/Kuneho%20at%20Pagong/Scenes/KAPscene3.dart';
 import 'package:kwentong_kultura/MagbasaPage/Kuneho%20at%20Pagong/Scenes/KAPscene6.dart';
 import 'package:kwentong_kultura/Pages/taramagbasa.dart';
 import 'package:kwentong_kultura/Background%20Classes/background_read.dart';
@@ -120,10 +119,9 @@ class _Kapscene5State extends State<Kapscene5> {
                   Container(
                     width: 300, // Specify the width here
                     child: Text(
-                      'Lumipas ang mga minuto. Naabutan ng pagong ang kinaroroonan ng kuneho.\n\n'
-                      'Nakita niya kung gaano kahimbing ang tulog nito sa ilalim ng punong mangga.\n\n'
-                      'Pagong: Tignan mo nga naman itong si kuneho. Masyado kasing nagtitiwala sa kanyang kakayahan. Ngayon, naunahan ko na siya,\n'
-                      'sabi ng pagong.',
+                      'Pagong: Huwag kang masyadong pakasiguro, kaibigan,\n'
+                      'sabi ng pagong. \n\n'
+                      'Pagong: Sige, halika na, mag-umpisa na tayo.\n',
                       style: Design.readStory,
                       textAlign: TextAlign.justify, // Justify the text
                     ),

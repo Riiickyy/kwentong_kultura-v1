@@ -120,9 +120,8 @@ class _Kapscene2State extends State<Kapscene2> {
                   Container(
                     width: 300, // Specify the width here
                     child: Text(
-                      'Kuneho: Kilala mo naman kung sino ako at kung gaano ako kabilis sa takbuhan. Hindi pa man ay alam ko nang ako ang mananalo sa paligsahang ito,\n'
-                      'dagdag pa nito, '
-                      'Kuneho:  Kaya, bago ka pa mapagod ay bawiin mo na ang sinabi mo, kawawa ka lang,',
+                      'Pagong: Halika, magkarera tayo. Nakikita mo ba ang puno ng sampalok na ‘yon? Kung sino ang unang makakarating sa atin doon ay siyang panalo,\n\n'
+                      'sabi ng pagong.',
                       style: Design.readStory,
                       textAlign: TextAlign.justify, // Justify the text
                     ),

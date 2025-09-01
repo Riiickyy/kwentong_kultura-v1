@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:kwentong_kultura/MagbasaPage/Kuneho%20at%20Pagong/Scenes/KAPscene5.dart';
-import 'package:kwentong_kultura/MagbasaPage/Kuneho%20at%20Pagong/Scenes/KAPscene7.dart';
+import 'package:kwentong_kultura/AnimationPage/KunehoatPagong_animation/kunehoatpagongTitle.dart';
 import 'package:kwentong_kultura/Pages/taramagbasa.dart';
 import 'package:kwentong_kultura/Background%20Classes/background_read.dart';
+import 'package:kwentong_kultura/QUIZZES/kunehoatpagongQuiz.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
 
-class Kapscene6 extends StatefulWidget {
-  const Kapscene6({super.key});
+class Kapscene10 extends StatefulWidget {
+  const Kapscene10({super.key});
 
   @override
-  State<Kapscene6> createState() => _Kapscene6State();
+  State<Kapscene10> createState() => _Kapscene10State();
 }
 
-class _Kapscene6State extends State<Kapscene6> {
+class _Kapscene10State extends State<Kapscene10> {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -101,7 +101,7 @@ class _Kapscene6State extends State<Kapscene6> {
                     decoration: BoxDecoration(
                       image: DecorationImage(
                         image: AssetImage(
-                          'assets/images/Read Scenes/Pagong at Kuneho/SC7.png',
+                          'assets/images/Read Scenes/Pagong at Kuneho/SC11.png',
                         ), // Replace with your image
                         fit:
                             BoxFit
@@ -120,9 +120,9 @@ class _Kapscene6State extends State<Kapscene6> {
                   Container(
                     width: 300, // Specify the width here
                     child: Text(
-                      'Kuneho: O sige, ikaw ang may kagustuhan nito.\n'
-                      'sagot ng kuneho. \n\n'
-                      'At nag-umpisa ang paligsahan. Nakakalayo na ang kuneho ngunit ang pagong ay mabagal pa rin ang pag-usad sa kanyang likuran.\n\n',
+                      'Pagong: Kuneho, Kuneho! Gumising ka na. Nanalo na ako sa paligsahan natin! \n'
+                      'tawag ng pagong sa kuneho.  \n\n'
+                      'Nagising ang kuneho at laking gulat na lamang niya nang makita niya ang pagong na sumasayaw sa ilalim ng puno ng sampalok.\n',
                       style: Design.readStory,
                       textAlign: TextAlign.justify, // Justify the text
                     ),
@@ -140,7 +140,8 @@ class _Kapscene6State extends State<Kapscene6> {
                   context,
                   PageRouteBuilder(
                     pageBuilder:
-                        (context, animation, secondaryAnimation) => Kapscene7(),
+                        (context, animation, secondaryAnimation) =>
+                            KunehoatPagongQuiz(),
                     transitionsBuilder: (
                       context,
                       animation,
@@ -168,12 +169,12 @@ class _Kapscene6State extends State<Kapscene6> {
               },
               style: Design.nextandPrevButtonDesign,
               icon: Icon(
-                Icons.arrow_forward, // Next button icon
+                Icons.quiz, // Next button icon
                 size: 32, // Icon size
                 color: Colors.white, // Icon color
               ),
               label: Text(
-                'Next', // Button label
+                'Take Quiz', // Button label
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 18, // Font size of label
@@ -191,7 +192,8 @@ class _Kapscene6State extends State<Kapscene6> {
                   context,
                   PageRouteBuilder(
                     pageBuilder:
-                        (context, animation, secondaryAnimation) => Kapscene5(),
+                        (context, animation, secondaryAnimation) =>
+                            KunehoatPagongTitle(),
                     transitionsBuilder: (
                       context,
                       animation,
@@ -219,12 +221,12 @@ class _Kapscene6State extends State<Kapscene6> {
               },
               style: Design.nextandPrevButtonDesign,
               icon: Icon(
-                Icons.arrow_back, // Next button icon
+                Icons.live_tv_sharp, // Next button icon
                 size: 32, // Icon size
                 color: Colors.white, // Icon color
               ),
               label: Text(
-                'Prev', // Button label
+                'Watch', // Button label
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 18, // Font size of label

@@ -121,12 +121,9 @@ class _Kapscene3State extends State<Kapscene3> {
                     child: Container(
                       width: 300, // Specify the width here
                       child: Text(
-                        'Pagong: Huwag kang masyadong pakasiguro, kaibigan,\n'
-                        'sabi ng pagong.\n\n'
-                        'Pagong: Sige, halika na, mag-umpisa na tayo.\n\n'
-                        'Kuneho: O sige, ikaw ang may kagustuhan nito.\n'
-                        'sagot ng kuneho.\n\n'
-                        'At nag-umpisa ang paligsahan. Nakakalayo na ang kuneho ngunit ang pagong ay mabagal pa rin ang pag-usad sa kanyang likuran.',
+                        'Tumawa ng malakas ang kuneho. \n\n'
+                        'Kuneho: Ha-ha-ha! Ako ba ang iyong hinahamon sa paligsahang ito? Baka nagkakamali ka.\n'
+                        'Sabi ng kuneho ng buong pagmamalaki.\n\n',
                         style: Design.readStory,
                         textAlign: TextAlign.justify, // Justify the text
                       ),

@@ -123,18 +123,17 @@ class _KunehoatpagongBasaState extends State<KunehoatpagongBasa> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text('Ang Kuneho at ang Pagong', style: Design.storyTitle),
-                  SizedBox(height: 20), // Adds vertical space between the texts
-                  Container(
-                    width: 300, // Specify the width here
-                    child: Text(
-                      'Isang araw, ang kuneho at ang pagong ay nagpapahinga sa ilalim ng malaking, punong mangga.\n'
-                      'Pagong: Kaibigang kuneho'
-                      'wika ng pagong.\n'
-                      'Pagong: Wala ba tayong gagawin kundi panoorin ang mga dahon ng punong manggang ito?\n'
-                      'Kuneho: Bakit, ano ba ang gusto mong gawin?'
-                      'tanong ng kuneho.',
-                      style: Design.readStory,
-                      textAlign: TextAlign.justify, // Justify the text
+                  SizedBox(height: 20),
+                  SingleChildScrollView(
+                    child: Container(
+                      width: 300, // Specify the width here
+                      child: Text(
+                        'Isang araw, ang kuneho at ang pagong ay nagpapahinga sa ilalim ng malaking, punong mangga. \n\n'
+                        'Pagong: Kaibigang kuneho \n'
+                        'wika ng pagong ',
+                        style: Design.readStory,
+                        textAlign: TextAlign.justify, // Justify the text
+                      ),
                     ),
                   ),
                 ],

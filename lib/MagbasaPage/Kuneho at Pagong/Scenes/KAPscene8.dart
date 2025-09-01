@@ -1,18 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:kwentong_kultura/MagbasaPage/Kuneho%20at%20Pagong/Scenes/KAPscene5.dart';
 import 'package:kwentong_kultura/MagbasaPage/Kuneho%20at%20Pagong/Scenes/KAPscene7.dart';
+import 'package:kwentong_kultura/MagbasaPage/Kuneho%20at%20Pagong/Scenes/KAPscene9.dart';
 import 'package:kwentong_kultura/Pages/taramagbasa.dart';
 import 'package:kwentong_kultura/Background%20Classes/background_read.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
 
-class Kapscene6 extends StatefulWidget {
-  const Kapscene6({super.key});
+class Kapscene8 extends StatelessWidget {
+  const Kapscene8({super.key});
 
-  @override
-  State<Kapscene6> createState() => _Kapscene6State();
-}
-
-class _Kapscene6State extends State<Kapscene6> {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -101,7 +96,7 @@ class _Kapscene6State extends State<Kapscene6> {
                     decoration: BoxDecoration(
                       image: DecorationImage(
                         image: AssetImage(
-                          'assets/images/Read Scenes/Pagong at Kuneho/SC7.png',
+                          'assets/images/Read Scenes/Pagong at Kuneho/SC9.png',
                         ), // Replace with your image
                         fit:
                             BoxFit
@@ -120,9 +115,8 @@ class _Kapscene6State extends State<Kapscene6> {
                   Container(
                     width: 300, // Specify the width here
                     child: Text(
-                      'Kuneho: O sige, ikaw ang may kagustuhan nito.\n'
-                      'sagot ng kuneho. \n\n'
-                      'At nag-umpisa ang paligsahan. Nakakalayo na ang kuneho ngunit ang pagong ay mabagal pa rin ang pag-usad sa kanyang likuran.\n\n',
+                      'Lumipas ang mga minuto. Naabutan ng pagong ang kinaroroonan ng kuneho. \n\n'
+                      'Nakita niya kung gaano kahimbing ang tulog nito sa ilalim ng punong mangga.  \n\n',
                       style: Design.readStory,
                       textAlign: TextAlign.justify, // Justify the text
                     ),
@@ -140,7 +134,7 @@ class _Kapscene6State extends State<Kapscene6> {
                   context,
                   PageRouteBuilder(
                     pageBuilder:
-                        (context, animation, secondaryAnimation) => Kapscene7(),
+                        (context, animation, secondaryAnimation) => Kapscene9(),
                     transitionsBuilder: (
                       context,
                       animation,
@@ -191,7 +185,7 @@ class _Kapscene6State extends State<Kapscene6> {
                   context,
                   PageRouteBuilder(
                     pageBuilder:
-                        (context, animation, secondaryAnimation) => Kapscene5(),
+                        (context, animation, secondaryAnimation) => Kapscene7(),
                     transitionsBuilder: (
                       context,
                       animation,
