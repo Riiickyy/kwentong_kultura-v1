@@ -5,6 +5,9 @@ import 'package:kwentong_kultura/AnimationPage/KunehoatPagong_animation/kunehoat
 import 'package:kwentong_kultura/AnimationPage/Sipagongatmatsing_animation/sipagongatmatsingTitle.dart';
 import 'package:kwentong_kultura/AnimationPage/Malakasatmaganda_animation/malakasatmagandaTitle.dart';
 import 'package:kwentong_kultura/AnimationPage/alamatngmaya_animation/alamatngmayaTitle.dart';
+import 'package:kwentong_kultura/AnimationPage/alamatngniyog_animation/alamatngniyogTitle.dart';
+import 'package:kwentong_kultura/AnimationPage/angalamatngunggoy_animation/alamantngunggoyTitle.dart';
+import 'package:kwentong_kultura/AnimationPage/mariamakiling_animation/mariamakilingTitle.dart';
 import '../Styles/styles.dart';
 
 class Makinigcards extends StatefulWidget {
@@ -61,7 +64,7 @@ class _MakinigcardsState extends State<Makinigcards> {
                         ),
                         SizedBox(height: 10),
                         Text(
-                          'Ang kwento ni pina at ng kanyang ina at paano nagkameron ng isang prutas na Pinya',
+                          'Ito ay ag kwento kung paano nagkameron ng prutas na Pinya',
                           style: Design.desciption,
                         ),
                         SizedBox(height: 10), // Add spacing
@@ -310,7 +313,7 @@ class _MakinigcardsState extends State<Makinigcards> {
                         ),
                         SizedBox(height: 10),
                         Text(
-                          'Lorem ipsum dolor Lorem ipsum dolor',
+                          'Ito ay kwento ng kauna-unahang puno ng Niyog',
                           style: Design.desciption,
                         ),
                         SizedBox(height: 10), // Add spacing
@@ -321,7 +324,7 @@ class _MakinigcardsState extends State<Makinigcards> {
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) {
-                                    return SiPagongatMatsingTitle();
+                                    return AlamatngniyogTitle();
                                   },
                                 ),
                               );
@@ -373,7 +376,7 @@ class _MakinigcardsState extends State<Makinigcards> {
 
                         SizedBox(height: 40),
                         Text(
-                          'Lorem ipsum dolor Lorem ipsum dolor',
+                          'Ito ay ang kwento ng unang ibong maya',
                           style: Design.desciption,
                         ),
                         SizedBox(height: 10), // Add spacing
@@ -505,12 +508,23 @@ class _MakinigcardsState extends State<Makinigcards> {
 
                         SizedBox(height: 40),
                         Text(
-                          'Lorem ipsum dolor Lorem ipsum dolor',
+                          'Ang pag-iibigan ni Maria at Gatdula',
                           style: Design.desciption,
                         ),
                         SizedBox(height: 10), // Add spacing
                         ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) {
+                                    return MariamakilingTitle();
+                                  },
+                                ),
+                              );
+                            }
+                          },
                           style: Design.buttonDesign,
                           child: Text('Pakinggan', style: Design.tara),
                         ),
@@ -563,7 +577,7 @@ class _MakinigcardsState extends State<Makinigcards> {
                         ),
                         SizedBox(height: 10),
                         Text(
-                          'Lorem ipsum dolor Lorem ipsum dolor',
+                          'Ito ay ang kwento ng unang Unggoy',
                           style: Design.desciption,
                         ),
                         SizedBox(height: 10), // Add spacing
@@ -574,7 +588,7 @@ class _MakinigcardsState extends State<Makinigcards> {
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) {
-                                    return SiPagongatMatsingTitle();
+                                    return AlamantngunggoyTitle();
                                   },
                                 ),
                               );

@@ -4,14 +4,14 @@ import 'package:kwentong_kultura/QUIZZES/angasoatkanyanganinoQuiz.dart';
 import 'package:video_player/video_player.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
 
-class AlamatngmayaCT extends StatefulWidget {
-  const AlamatngmayaCT({super.key});
+class MariamakilingCT extends StatefulWidget {
+  const MariamakilingCT({super.key});
 
   @override
-  State<AlamatngmayaCT> createState() => _AlamatngmayaCTState();
+  State<MariamakilingCT> createState() => _MariamakilingCTState();
 }
 
-class _AlamatngmayaCTState extends State<AlamatngmayaCT> {
+class _MariamakilingCTState extends State<MariamakilingCT> {
   late CustomVideoPlayerController _customVideoPlayerController;
   late VideoPlayerController _controller;
   double _playbackSpeed = 1.0;
@@ -22,228 +22,267 @@ class _AlamatngmayaCTState extends State<AlamatngmayaCT> {
 
   final List<Map<String, dynamic>> subtitles = [
     {
-      "startSec": 1,
-      "startMilli": 0,
-      "endSec": 2,
+      "startSec": 0,
+      "startMilli": 933,
+      "endSec": 3,
       "endMilli": 333,
-      "text": "Ang Alamat ng Maya",
+      "text": "Ang Alamat ng Maria Makiling",
     },
     {
       "startSec": 4,
-      "startMilli": 267,
+      "startMilli": 867,
+      "endSec": 5,
+      "endMilli": 867,
+      "text": "noong unang panahon",
+    },
+    {
+      "startSec": 6,
+      "startMilli": 200,
       "endSec": 9,
-      "endMilli": 0,
-      "text":
-          "noong unang panahon sa isang liblib na lugar SA bundok ng Carabayo",
+      "endMilli": 467,
+      "text": "ang mga diyos ay namumuhay na katulad ng mga tao",
     },
     {
-      "startSec": 9,
-      "startMilli": 933,
-      "endSec": 12,
-      "endMilli": 0,
-      "text": "may mag inang nananahan doon",
-    },
-    {
-      "startSec": 13,
-      "startMilli": 100,
+      "startSec": 10,
+      "startMilli": 533,
       "endSec": 16,
-      "endMilli": 600,
-      "text": "malayo ang kanilang bahay sa mga naninirahan din doon",
+      "endMilli": 700,
+      "text":
+          "sina Dayang Makiling at Gat Panahon ay may nag iisang anak na nagngangalang Maria",
     },
     {
       "startSec": 18,
       "startMilli": 67,
-      "endSec": 23,
-      "endMilli": 400,
-      "text":
-          "nakaugalian na sa kanilang lugar na kailangan bayuhin muna ang palay bago kainin",
+      "endSec": 21,
+      "endMilli": 300,
+      "text": "itinuring siyang isang kayamanan ng mga mag asawa",
     },
     {
-      "startSec": 24,
-      "startMilli": 800,
+      "startSec": 23,
+      "startMilli": 600,
+      "endSec": 26,
+      "endMilli": 733,
+      "text": "dahil sa ang diyos ay namumuhay na parang tao",
+    },
+    {
+      "startSec": 27,
+      "startMilli": 367,
       "endSec": 29,
-      "endMilli": 100,
-      "text":
-          "si Mayan ay isang batang babaeng may labing tatlong taong gulang",
+      "endMilli": 733,
+      "text": "sila rin ay nagtungo sa palengke",
     },
     {
       "startSec": 30,
-      "startMilli": 200,
+      "startMilli": 300,
       "endSec": 32,
-      "endMilli": 267,
-      "text": "bukod sa ito'y ubod ng likot",
+      "endMilli": 800,
+      "text": "si Maria ay madalas pumunta sa palengke",
     },
     {
-      "startSec": 32,
-      "startMilli": 933,
-      "endSec": 34,
-      "endMilli": 600,
-      "text": "saksakan pa ito ng tamad",
-    },
-    {
-      "startSec": 36,
+      "startSec": 33,
       "startMilli": 67,
-      "endSec": 39,
-      "endMilli": 400,
-      "text": "nagbabayo ng palay ang Ina nito isang umaga",
+      "endSec": 34,
+      "endMilli": 733,
+      "text": "kasama ang dalawang alalay",
     },
 
     {
-      "startSec": 42,
-      "startMilli": 367,
-      "endSec": 45,
-      "endMilli": 700,
-      "text": "sapagkat sa tanghalian ay wala na silang isasaing",
-    },
-    {
-      "startSec": 46,
-      "startMilli": 767,
-      "endSec": 51,
-      "endMilli": 967,
+      "startSec": 35,
+      "startMilli": 867,
+      "endSec": 42,
+      "endMilli": 567,
       "text":
-          "habang ang batang si Mayan ay abala naman sa pakikipaglaro sa kanyang mga kapwa bata",
+          "ang mga alalay ay may dalang basket na puno ng gintong luya na ipinagpapalit sa mga bagay na nais",
     },
     {
-      "startSec": 54,
-      "startMilli": 967,
-      "endSec": 62,
-      "endMilli": 0,
-      "text":
-          "nang datnan niyang pagkapagod ay lumapit sa kanyang ina at pinanood na lamang ang kanyang ina sa pagbabayo",
-    },
-    {
-      "startSec": 63,
-      "startMilli": 367,
-      "endSec": 64,
-      "endMilli": 867,
-      "text": "habang siya'y nakaupo",
-    },
-    {
-      "startSec": 65,
-      "startMilli": 500,
-      "endSec": 68,
-      "endMilli": 133,
-      "text": "nakadama siya ng pagkalam ng sikmura",
-    },
-    {
-      "startSec": 70,
+      "startSec": 44,
       "startMilli": 467,
-      "endSec": 76,
+      "endSec": 50,
+      "endMilli": 267,
+      "text":
+          "at lahat ng tao na nadaraanan ni Maria ay yumuyuko bilang paggalang sa kanya",
+    },
+    {
+      "startSec": 52,
+      "startMilli": 933,
+      "endSec": 57,
       "endMilli": 333,
       "text":
-          "nagtungo siya sa kanilang kusina at tumingin sa kaldero kung mayroong makakain kahit ano",
+          "hindi lamang ang mga tao sa lugar nila ang nagtutungo sa palengke",
     },
     {
-      "startSec": 76,
-      "startMilli": 767,
-      "endSec": 78,
-      "endMilli": 567,
-      "text": "ngunit bigo siya",
+      "startSec": 57,
+      "startMilli": 733,
+      "endSec": 59,
+      "endMilli": 900,
+      "text": "pati na rin ang mga taga ibang nayon",
     },
     {
-      "startSec": 79,
-      "startMilli": 0,
-      "endSec": 81,
+      "startSec": 61,
+      "startMilli": 300,
+      "endSec": 62,
+      "endMilli": 100,
+      "text": "isang araw",
+    },
+    {
+      "startSec": 62,
+      "startMilli": 667,
+      "endSec": 67,
+      "endMilli": 900,
+      "text":
+          "habang namimili si Maria ay nakabangga niya si Gatdula na nakatira sa ibang nayon",
+    },
+    {
+      "startSec": 69,
+      "startMilli": 167,
+      "endSec": 73,
       "endMilli": 267,
-      "text": "at dagli siyang lumapit sa bakol",
+      "text": "nagkataon na sabay nilang nadampot ang magandang balat ng hayop",
     },
     {
-      "startSec": 82,
-      "startMilli": 500,
-      "endSec": 86,
-      "endMilli": 67,
-      "text": "sa tantsa niya'y may isang salop pa ang laman niyon",
-    },
-    {
-      "startSec": 87,
+      "startSec": 73,
       "startMilli": 567,
-      "endSec": 89,
-      "endMilli": 467,
-      "text": "dahil sa tindi ng gutom",
+      "endSec": 75,
+      "endMilli": 700,
+      "text": "at nagkahawakan sila ng kamay",
     },
     {
-      "startSec": 89,
-      "startMilli": 900,
-      "endSec": 92,
-      "endMilli": 167,
-      "text": "sinimulan niyang kainin ang bigas",
+      "startSec": 78,
+      "startMilli": 933,
+      "endSec": 84,
+      "endMilli": 300,
+      "text":
+          "yumuko si Gatdula bilang paghingi ng pasensya at pagbibigay respeto kay Maria",
     },
     {
-      "startSec": 93,
-      "startMilli": 533,
-      "endSec": 95,
-      "endMilli": 567,
-      "text": "waring hindi pa siya nasiyahan",
+      "startSec": 85,
+      "startMilli": 367,
+      "endSec": 90,
+      "endMilli": 0,
+      "text":
+          "magmula noon ay madalas na silang nagkikita ni Gatdula sa palengke",
     },
     {
-      "startSec": 96,
-      "startMilli": 67,
-      "endSec": 99,
-      "endMilli": 800,
-      "text": "inalis pa ang takip ng bakol at palihim na pumasok sa loob",
+      "startSec": 90,
+      "startMilli": 700,
+      "endSec": 93,
+      "endMilli": 500,
+      "text": "minsan nilapitan niya si Maria at kinausap",
     },
     {
-      "startSec": 101,
-      "startMilli": 0,
+      "startSec": 94,
+      "startMilli": 300,
+      "endSec": 96,
+      "endMilli": 867,
+      "text": "binigyan siya nito ng isang matamis na ngiti",
+    },
+    {
+      "startSec": 97,
+      "startMilli": 933,
       "endSec": 102,
-      "endMilli": 233,
-      "text": "siya'y naupo",
+      "endMilli": 267,
+      "text": "ito ang naging simula ng pag iibigan ni Maria at Gatdula",
     },
     {
-      "startSec": 102,
-      "startMilli": 567,
-      "endSec": 107,
-      "endMilli": 767,
+      "startSec": 105,
+      "startMilli": 200,
+      "endSec": 110,
+      "endMilli": 167,
       "text":
-          "at sa kanya muling ibinalik ang takip hangad niyang hindi siya makita ng Ina",
+          "hindi rin naglaon ay nalaman ng ama ni Maria at nagalit ito sa dalaga",
     },
     {
-      "startSec": 110,
-      "startMilli": 167,
-      "endSec": 112,
-      "endMilli": 467,
-      "text": "natapos ang kanyang Ina sa pagbabayo",
+      "startSec": 111,
+      "startMilli": 300,
+      "endSec": 114,
+      "endMilli": 900,
+      "text": "hindi na pinayagan pang muli si Maria na makababa sa lupa",
     },
     {
-      "startSec": 113,
+      "startSec": 116,
+      "startMilli": 300,
+      "endSec": 121,
+      "endMilli": 567,
+      "text":
+          "hindi nila matanggap na ang isang katulad nitong diyosa ay iibig lamang sa isang mortal",
+    },
+
+    {
+      "startSec": 123,
       "startMilli": 100,
-      "endSec": 118,
-      "endMilli": 933,
-      "text":
-          "tinawag niya si Mayan ngunit halos mamaos na'y hindi pa rin lumilitaw si Mayan",
-    },
-    {
-      "startSec": 121,
-      "startMilli": 167,
-      "endSec": 126,
-      "endMilli": 67,
-      "text":
-          "nang buksan ng Ina ang bakol ay may isang maliit na ibon ang lumabas doon",
+      "endSec": 127,
+      "endMilli": 400,
+      "text": "kahit na ang pag iibigan nila Maria at Gatdula ay hinahadlangan",
     },
     {
       "startSec": 128,
-      "startMilli": 100,
-      "endSec": 130,
-      "endMilli": 400,
-      "text": "nanginain ng bigas ang ibon",
+      "startMilli": 67,
+      "endSec": 131,
+      "endMilli": 367,
+      "text": "ang kanilang pag iibigan ay mas lalo pang yumabong",
     },
     {
-      "startSec": 131,
-      "startMilli": 133,
-      "endSec": 134,
-      "endMilli": 167,
-      "text": "kalaunan ang ibong iyon ay tinawag na Maya",
-    },
-    {
-      "startSec": 135,
-      "startMilli": 467,
+      "startSec": 132,
+      "startMilli": 300,
       "endSec": 139,
-      "endMilli": 133,
-      "text": "malaki ang hinala ng kanyang Ina na si Mayan iyon",
+      "endMilli": 200,
+      "text":
+          "hindi na nakakapunta si maria sa lupa ay nagagawa pa rin niyang subaybayan at panoorin si Gatdula",
+    },
+    {
+      "startSec": 140,
+      "startMilli": 733,
+      "endSec": 148,
+      "endMilli": 0,
+      "text":
+          "kahit na nagkaroon ng labanan sina Gatdula at Lakan Buto ay wala ni isang galos si Gatdula sa binata",
+    },
+    {
+      "startSec": 148,
+      "startMilli": 800,
+      "endSec": 151,
+      "endMilli": 967,
+      "text": "dahil na rin sa palagiang pagsubaybay ni Maria",
+    },
+    {
+      "startSec": 153,
+      "startMilli": 367,
+      "endSec": 156,
+      "endMilli": 867,
+      "text": "si Gatdula ay walang kakayahang makita si Maria",
+    },
+    {
+      "startSec": 157,
+      "startMilli": 500,
+      "endSec": 158,
+      "endMilli": 500,
+      "text": "sa lungkot ay nagkasakit ito at namatay",
+    },
+    {
+      "startSec": 161,
+      "startMilli": 267,
+      "endSec": 166,
+      "endMilli": 200,
+      "text":
+          "dahil sa labis na pag ibig ni Maria kay Gatdula hiniling nito sa ama",
+    },
+    {
+      "startSec": 166,
+      "startMilli": 467,
+      "endSec": 169,
+      "endMilli": 933,
+      "text": "na ibigay na lamang sa kanya ang kaluluwa ni Gatdula",
+    },
+    {
+      "startSec": 170,
+      "startMilli": 67,
+      "endSec": 172,
+      "endMilli": 967,
+      "text": "bilang alaala sa yumao nitong pag-ibig",
     },
   ];
 
-  String assetVideo = 'assets/videos/AlamatngMaya.mp4';
+  String assetVideo = 'assets/videos/MariaMakiling.mp4';
 
   @override
   void initState() {

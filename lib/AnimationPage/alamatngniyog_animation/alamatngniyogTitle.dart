@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:kwentong_kultura/AnimationPage/alamatngmaya_animation/alamatngmayaCT.dart';
+import 'package:kwentong_kultura/AnimationPage/alamatngniyog_animation/alamatngniyogCT.dart';
 
-class AlamatngmayaTitle extends StatefulWidget {
-  const AlamatngmayaTitle({super.key});
+class AlamatngniyogTitle extends StatefulWidget {
+  const AlamatngniyogTitle({super.key});
 
   @override
-  State<AlamatngmayaTitle> createState() => _AlamatngmayaTitleState();
+  State<AlamatngniyogTitle> createState() => _AlamatngniyogTitleState();
 }
 
-class _AlamatngmayaTitleState extends State<AlamatngmayaTitle> {
+class _AlamatngniyogTitleState extends State<AlamatngniyogTitle> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Ang Alamat ng Maya",
+          "Alamat ng Niyog",
           style: TextStyle(
             fontFamily: 'Nunito',
             fontWeight: FontWeight.w900,
@@ -26,7 +26,7 @@ class _AlamatngmayaTitleState extends State<AlamatngmayaTitle> {
         elevation: 6,
         shadowColor: Colors.black.withOpacity(0.5),
       ),
-      body: AlamatngmayaCT(),
+      body: AlamatngniyogCT(),
     );
   }
 }
