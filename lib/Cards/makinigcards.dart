@@ -4,6 +4,7 @@ import 'package:kwentong_kultura/AnimationPage/AsoatKanyangAnino_animation/aso_a
 import 'package:kwentong_kultura/AnimationPage/KunehoatPagong_animation/kunehoatpagongTitle.dart';
 import 'package:kwentong_kultura/AnimationPage/Sipagongatmatsing_animation/sipagongatmatsingTitle.dart';
 import 'package:kwentong_kultura/AnimationPage/Malakasatmaganda_animation/malakasatmagandaTitle.dart';
+import 'package:kwentong_kultura/AnimationPage/Tipaklongatlanggam_animation/tipaklongatlanggamTitle.dart';
 import 'package:kwentong_kultura/AnimationPage/alamatngmaya_animation/alamatngmayaTitle.dart';
 import 'package:kwentong_kultura/AnimationPage/alamatngniyog_animation/alamatngniyogTitle.dart';
 import 'package:kwentong_kultura/AnimationPage/angalamatngunggoy_animation/alamantngunggoyTitle.dart';
@@ -255,12 +256,23 @@ class _MakinigcardsState extends State<Makinigcards> {
 
                         SizedBox(height: 40),
                         Text(
-                          'Lorem ipsum dolor Lorem ipsum dolor',
+                          'Ito ay kwento ng magkaibigang si Tipaklong at Langgam',
                           style: Design.desciption,
                         ),
                         SizedBox(height: 10), // Add spacing
                         ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) {
+                                    return TipaklongatlanggamTitle();
+                                  },
+                                ),
+                              );
+                            }
+                          },
                           style: Design.buttonDesign,
                           child: Text('Pakinggan', style: Design.tara),
                         ),
