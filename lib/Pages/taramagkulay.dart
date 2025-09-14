@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:kwentong_kultura/Cards/MagkulayCards/characterCards.dart';
-import 'package:kwentong_kultura/Cards/MagkulayCards/scenarioCards.dart';
-import 'package:kwentong_kultura/Widgets/colornavbarWidget.dart';
-import 'package:kwentong_kultura/Widgets/notifier.dart';
-
-List<Widget> pages = [CharacterCards(), ScenarioCards()];
 
 class Taramagkulay extends StatelessWidget {
   const Taramagkulay({super.key});
@@ -26,7 +21,6 @@ class Taramagkulay extends StatelessWidget {
         elevation: 6,
         shadowColor: Colors.black.withOpacity(0.5),
       ),
-      bottomNavigationBar: ColorNavbarWidget(),
 
       body: Stack(
         children: [
@@ -53,14 +47,7 @@ class Taramagkulay extends StatelessWidget {
             ),
           ),
 
-          ValueListenableBuilder(
-            valueListenable: selectedPageNotifier,
-            builder: (context, selectedPage, child) {
-              return pages.elementAt(
-                selectedPage,
-              ); // Switching between Character and Scenario Cards
-            },
-          ),
+          CharacterCards(),
         ],
       ),
     );

@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:kwentong_kultura/Classes/slide_transition.dart';
 import 'package:kwentong_kultura/Login-Folder/Login.dart';
 import 'package:kwentong_kultura/auth_service.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
@@ -146,10 +147,9 @@ class _PassrecState extends State<Passrec> {
                                     onPressed: () {
                                       Navigator.push(
                                         context,
-                                        MaterialPageRoute(
-                                          builder: (context) {
-                                            return Login();
-                                          },
+                                        SlidePageRoute(
+                                          page: Login(),
+                                          direction: SlideDirection.left,
                                         ),
                                       );
                                     },
@@ -163,7 +163,7 @@ class _PassrecState extends State<Passrec> {
                             Align(
                               alignment: Alignment.centerLeft,
                               child: Text(
-                                "Your Username",
+                                "Email",
                                 style: TextStyle(
                                   fontSize: 18,
                                   fontWeight: FontWeight.bold,
@@ -175,7 +175,7 @@ class _PassrecState extends State<Passrec> {
                             TextField(
                               controller: emailController,
                               decoration: InputDecoration(
-                                labelText: 'Your Username',
+                                labelText: 'Email',
                                 border: OutlineInputBorder(),
                               ),
                             ),

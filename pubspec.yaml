@@ -87,11 +87,13 @@ flutter:
     - assets/Animations/login_bg_last (4).riv
     - assets/Animations/honmepage.riv
     - assets/Animations/homepage.riv
+    - assets/Animations/
     - assets/Animations/Read BG/read_bg.riv
     - assets/videos/
     - assets/videos/AlamatngMaya.mp4
     - assets/images/Read Scenes/Ang aso at kanyang anino/
     - assets/images/Read Scenes/Pagong at Kuneho/
+    - assets/images/Read Scenes/Malakas at Maganda/
     - assets/background.mp3
     - assets/pdfs/Pinya.pdf
     - assets/images/Color/Character/Si Pagong (Sketched).png
@@ -101,10 +103,6 @@ flutter:
     - assets/images/Color/Scenario/KareraniKunehoatPagong (Sketched).png
     - assets/images/Color/Scenario/TulognasiKuneho (Sketched).png
     - assets/Buttonclick.mp3
-    - assets/images/Thumbnails/Animation & Read/Ang Aso at ang kanyang Anino.jpg
-    - assets/images/Thumbnails/Animation & Read/Ang Kuneho at ang Pagong.jpg
-    - assets/images/Thumbnails/Animation & Read/Si Malakas at Maganda.png
-    - assets/images/Thumbnails/Animation & Read/Si Matsing at ang Pagong.png
     - assets/images/Thumbnails/Animation & Read/
     - assets/images/Thumbnails/Kulay/Scenario/Pagong at ang kuneho sa ilalim ng mangga thumbnail.jpg
     - assets/images/Thumbnails/Kulay/Character/Sipagongthumbnail.png

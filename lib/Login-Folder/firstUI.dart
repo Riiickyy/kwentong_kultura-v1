@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:kwentong_kultura/Classes/slide_transition.dart';
 import 'package:kwentong_kultura/Login-Folder/Login.dart';
 import 'package:kwentong_kultura/Login-Folder/createaccount.dart';
 import '../Styles/styles.dart';
@@ -19,9 +20,7 @@ class _HomeUIWidgetState extends State<Firstui> {
   // Function to load the Rive animation
   Future<void> loadRiveAnimation() async {
     try {
-      final data = await rootBundle.load(
-        'assets/Animations/login_bg_last (4).riv',
-      );
+      final data = await rootBundle.load('assets/Animations/loginbg_final.riv');
       final file = RiveFile.import(data);
       _riveArtboard = file.mainArtboard;
       print('Available State Machines: ${_riveArtboard.stateMachines}');
@@ -78,42 +77,15 @@ class _HomeUIWidgetState extends State<Firstui> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
+                            SizedBox(height: 60),
                             // Login Button
                             ElevatedButton(
                               onPressed: () {
                                 Navigator.push(
                                   context,
-                                  PageRouteBuilder(
-                                    pageBuilder:
-                                        (
-                                          context,
-                                          animation,
-                                          secondaryAnimation,
-                                        ) => Login(),
-                                    transitionsBuilder: (
-                                      context,
-                                      animation,
-                                      secondaryAnimation,
-                                      child,
-                                    ) {
-                                      const begin = Offset(0.0, 1.0);
-                                      const end = Offset.zero;
-                                      const curve = Curves.easeInOut;
-
-                                      var tween = Tween(
-                                        begin: begin,
-                                        end: end,
-                                      ).chain(CurveTween(curve: curve));
-                                      var offsetAnimation = animation.drive(
-                                        tween,
-                                      );
-
-                                      // Use SlideTransition to apply the animation
-                                      return SlideTransition(
-                                        position: offsetAnimation,
-                                        child: child,
-                                      );
-                                    },
+                                  SlidePageRoute(
+                                    page: Login(),
+                                    direction: SlideDirection.right,
                                   ),
                                 );
                               },
@@ -134,56 +106,9 @@ class _HomeUIWidgetState extends State<Firstui> {
                               onPressed: () {
                                 Navigator.push(
                                   context,
-                                  PageRouteBuilder(
-                                    pageBuilder:
-                                        (
-                                          context,
-                                          animation,
-                                          secondaryAnimation,
-                                        ) => Createaccount(),
-                                    transitionsBuilder: (
-                                      context,
-                                      animation,
-                                      secondaryAnimation,
-                                      child,
-                                    ) {
-                                      const begin = Offset(
-                                        1.0,
-                                        0.0,
-                                      ); // Start position (right side)
-                                      const end =
-                                          Offset
-                                              .zero; // End position (normal position)
-                                      const curve = Curves.easeInOut;
-
-                                      var tween = Tween(
-                                        begin: begin,
-                                        end: end,
-                                      ).chain(CurveTween(curve: curve));
-                                      var offsetAnimation = animation.drive(
-                                        tween,
-                                      );
-
-                                      // Create a fade animation for smooth fade in/out effect
-                                      var fadeAnimation = Tween(
-                                        begin: 0.0,
-                                        end: 1.0,
-                                      ).animate(
-                                        CurvedAnimation(
-                                          parent: animation,
-                                          curve: curve,
-                                        ),
-                                      );
-
-                                      // Use both SlideTransition and FadeTransition
-                                      return FadeTransition(
-                                        opacity: fadeAnimation,
-                                        child: SlideTransition(
-                                          position: offsetAnimation,
-                                          child: child,
-                                        ),
-                                      );
-                                    },
+                                  SlidePageRoute(
+                                    page: Createaccount(),
+                                    direction: SlideDirection.right,
                                   ),
                                 );
                               },

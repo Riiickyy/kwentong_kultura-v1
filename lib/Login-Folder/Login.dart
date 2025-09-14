@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:kwentong_kultura/Classes/slide_transition.dart';
 import 'package:kwentong_kultura/Login-Folder/Forgot%20password/email.dart';
 import 'package:kwentong_kultura/Login-Folder/firstUI.dart';
 import 'package:kwentong_kultura/UI-stack-widget.dart';
@@ -41,33 +42,7 @@ class _HomeUIWidgetState extends State<Login> {
 
       Navigator.pushReplacement(
         context,
-        PageRouteBuilder(
-          pageBuilder:
-              (context, animation, secondaryAnimation) => HomeUIWidget(),
-          transitionsBuilder: (context, animation, secondaryAnimation, child) {
-            const begin = Offset(1.0, 0.0); // Start position (right side)
-            const end = Offset.zero; // End position (normal position)
-            const curve = Curves.easeInOut;
-
-            var tween = Tween(
-              begin: begin,
-              end: end,
-            ).chain(CurveTween(curve: curve));
-            var offsetAnimation = animation.drive(tween);
-
-            // Create a fade animation for smooth fade in/out effect
-            var fadeAnimation = Tween(
-              begin: 0.0,
-              end: 1.0,
-            ).animate(CurvedAnimation(parent: animation, curve: curve));
-
-            // Use both SlideTransition and FadeTransition
-            return FadeTransition(
-              opacity: fadeAnimation,
-              child: SlideTransition(position: offsetAnimation, child: child),
-            );
-          },
-        ),
+        SlidePageRoute(page: HomeUIWidget(), direction: SlideDirection.right),
       );
     } on FirebaseAuthException catch (e) {
       setState(() {
@@ -153,55 +128,9 @@ class _HomeUIWidgetState extends State<Login> {
                                     onPressed: () {
                                       Navigator.push(
                                         context,
-                                        PageRouteBuilder(
-                                          pageBuilder:
-                                              (
-                                                context,
-                                                animation,
-                                                secondaryAnimation,
-                                              ) => Firstui(),
-                                          transitionsBuilder: (
-                                            context,
-                                            animation,
-                                            secondaryAnimation,
-                                            child,
-                                          ) {
-                                            const begin = Offset(
-                                              1.0,
-                                              0.0,
-                                            ); // Start position (right side)
-                                            const end =
-                                                Offset
-                                                    .zero; // End position (normal position)
-                                            const curve = Curves.easeInOut;
-
-                                            var tween = Tween(
-                                              begin: begin,
-                                              end: end,
-                                            ).chain(CurveTween(curve: curve));
-                                            var offsetAnimation = animation
-                                                .drive(tween);
-
-                                            // Create a fade animation for smooth fade in/out effect
-                                            var fadeAnimation = Tween(
-                                              begin: 0.0,
-                                              end: 1.0,
-                                            ).animate(
-                                              CurvedAnimation(
-                                                parent: animation,
-                                                curve: curve,
-                                              ),
-                                            );
-
-                                            // Use both SlideTransition and FadeTransition
-                                            return FadeTransition(
-                                              opacity: fadeAnimation,
-                                              child: SlideTransition(
-                                                position: offsetAnimation,
-                                                child: child,
-                                              ),
-                                            );
-                                          },
+                                        SlidePageRoute(
+                                          page: Firstui(),
+                                          direction: SlideDirection.left,
                                         ),
                                       );
                                     },
@@ -252,37 +181,9 @@ class _HomeUIWidgetState extends State<Login> {
                               onTap: () {
                                 Navigator.push(
                                   context,
-                                  PageRouteBuilder(
-                                    pageBuilder:
-                                        (
-                                          context,
-                                          animation,
-                                          secondaryAnimation,
-                                        ) => Passrec(),
-                                    transitionsBuilder: (
-                                      context,
-                                      animation,
-                                      secondaryAnimation,
-                                      child,
-                                    ) {
-                                      const begin = Offset(1.0, 0.0);
-                                      const end = Offset.zero;
-                                      const curve = Curves.easeInOut;
-
-                                      var tween = Tween(
-                                        begin: begin,
-                                        end: end,
-                                      ).chain(CurveTween(curve: curve));
-                                      var offsetAnimation = animation.drive(
-                                        tween,
-                                      );
-
-                                      // Use SlideTransition to apply the animation
-                                      return SlideTransition(
-                                        position: offsetAnimation,
-                                        child: child,
-                                      );
-                                    },
+                                  SlidePageRoute(
+                                    page: Passrec(),
+                                    direction: SlideDirection.right,
                                   ),
                                 );
                               },

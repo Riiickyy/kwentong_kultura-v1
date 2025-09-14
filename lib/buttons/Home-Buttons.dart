@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'package:kwentong_kultura/Classes/slide_transition.dart';
 import 'package:kwentong_kultura/Pages/taramagbasa.dart';
 import 'package:kwentong_kultura/Pages/taramagkulay.dart';
 import 'package:kwentong_kultura/Pages/taramakinig.dart';
@@ -36,32 +37,9 @@ class _HomebuttonsState extends State<Homebuttons> {
                   playSound();
                   Navigator.push(
                     context,
-                    PageRouteBuilder(
-                      pageBuilder:
-                          (context, animation, secondaryAnimation) =>
-                              Taramagbasa(),
-                      transitionsBuilder: (
-                        context,
-                        animation,
-                        secondaryAnimation,
-                        child,
-                      ) {
-                        const begin = Offset(0.0, 1.0);
-                        const end = Offset.zero;
-                        const curve = Curves.easeInOut;
-
-                        var tween = Tween(
-                          begin: begin,
-                          end: end,
-                        ).chain(CurveTween(curve: curve));
-                        var offsetAnimation = animation.drive(tween);
-
-                        // Use SlideTransition to apply the animation
-                        return SlideTransition(
-                          position: offsetAnimation,
-                          child: child,
-                        );
-                      },
+                    SlidePageRoute(
+                      page: Taramagbasa(),
+                      direction: SlideDirection.up,
                     ),
                   );
                 },
@@ -96,32 +74,9 @@ class _HomebuttonsState extends State<Homebuttons> {
                   playSound();
                   Navigator.push(
                     context,
-                    PageRouteBuilder(
-                      pageBuilder:
-                          (context, animation, secondaryAnimation) =>
-                              Taramakinig(),
-                      transitionsBuilder: (
-                        context,
-                        animation,
-                        secondaryAnimation,
-                        child,
-                      ) {
-                        const begin = Offset(0.0, 1.0);
-                        const end = Offset.zero;
-                        const curve = Curves.easeInOut;
-
-                        var tween = Tween(
-                          begin: begin,
-                          end: end,
-                        ).chain(CurveTween(curve: curve));
-                        var offsetAnimation = animation.drive(tween);
-
-                        // Use SlideTransition to apply the animation
-                        return SlideTransition(
-                          position: offsetAnimation,
-                          child: child,
-                        );
-                      },
+                    SlidePageRoute(
+                      page: Taramakinig(),
+                      direction: SlideDirection.up,
                     ),
                   );
                 },
@@ -158,32 +113,9 @@ class _HomebuttonsState extends State<Homebuttons> {
                   playSound();
                   Navigator.push(
                     context,
-                    PageRouteBuilder(
-                      pageBuilder:
-                          (context, animation, secondaryAnimation) =>
-                              Taramagkulay(),
-                      transitionsBuilder: (
-                        context,
-                        animation,
-                        secondaryAnimation,
-                        child,
-                      ) {
-                        const begin = Offset(0.0, 1.0);
-                        const end = Offset.zero;
-                        const curve = Curves.easeInOut;
-
-                        var tween = Tween(
-                          begin: begin,
-                          end: end,
-                        ).chain(CurveTween(curve: curve));
-                        var offsetAnimation = animation.drive(tween);
-
-                        // Use SlideTransition to apply the animation
-                        return SlideTransition(
-                          position: offsetAnimation,
-                          child: child,
-                        );
-                      },
+                    SlidePageRoute(
+                      page: Taramagkulay(),
+                      direction: SlideDirection.up,
                     ),
                   );
                 },

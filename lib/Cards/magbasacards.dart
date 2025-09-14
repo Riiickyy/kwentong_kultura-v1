@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:kwentong_kultura/AnimationPage/Malakasatmaganda_animation/malakasatmagandaTitle.dart';
+import 'package:kwentong_kultura/Classes/slide_transition.dart';
 import 'package:kwentong_kultura/MagbasaPage/Alamatngpinya_Magbasa/Alamatngpinya_basa.dart';
 import 'package:kwentong_kultura/MagbasaPage/AsoatKanyangAnino/asoatkanyanganino_basa.dart';
 import 'package:kwentong_kultura/MagbasaPage/Kuneho%20at%20Pagong/kunehoatpagong_basa.dart';
+import 'package:kwentong_kultura/MagbasaPage/MalakasatMaganda/malakasatmaganda_basa.dart';
 import '../Styles/styles.dart';
 
 class Magbasacards extends StatefulWidget {
@@ -66,51 +69,9 @@ class _MyWidgetState extends State<Magbasacards> {
                           onPressed: () {
                             Navigator.push(
                               context,
-                              PageRouteBuilder(
-                                pageBuilder:
-                                    (context, animation, secondaryAnimation) =>
-                                        AlamatngpinyaBasa(),
-                                transitionsBuilder: (
-                                  context,
-                                  animation,
-                                  secondaryAnimation,
-                                  child,
-                                ) {
-                                  const begin = Offset(
-                                    1.0,
-                                    0.0,
-                                  ); // Start position (right side)
-                                  const end =
-                                      Offset
-                                          .zero; // End position (normal position)
-                                  const curve = Curves.easeInOut;
-
-                                  var tween = Tween(
-                                    begin: begin,
-                                    end: end,
-                                  ).chain(CurveTween(curve: curve));
-                                  var offsetAnimation = animation.drive(tween);
-
-                                  // Create a fade animation for smooth fade in/out effect
-                                  var fadeAnimation = Tween(
-                                    begin: 0.0,
-                                    end: 1.0,
-                                  ).animate(
-                                    CurvedAnimation(
-                                      parent: animation,
-                                      curve: curve,
-                                    ),
-                                  );
-
-                                  // Use both SlideTransition and FadeTransition
-                                  return FadeTransition(
-                                    opacity: fadeAnimation,
-                                    child: SlideTransition(
-                                      position: offsetAnimation,
-                                      child: child,
-                                    ),
-                                  );
-                                },
+                              SlidePageRoute(
+                                page: AlamatngpinyaBasa(),
+                                direction: SlideDirection.right,
                               ),
                             );
                           },
@@ -168,10 +129,9 @@ class _MyWidgetState extends State<Magbasacards> {
                           onPressed: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(
-                                builder: (context) {
-                                  return AlamatngpinyaBasa();
-                                },
+                              SlidePageRoute(
+                                page: MalakasatMagandaBasa(),
+                                direction: SlideDirection.right,
                               ),
                             );
                           },
@@ -452,100 +412,9 @@ class _MyWidgetState extends State<Magbasacards> {
                           onPressed: () {
                             Navigator.push(
                               context,
-                              PageRouteBuilder(
-                                pageBuilder:
-                                    (context, animation, secondaryAnimation) =>
-                                        AsoatkanyanganinoBasa(),
-                                transitionsBuilder: (
-                                  context,
-                                  animation,
-                                  secondaryAnimation,
-                                  child,
-                                ) {
-                                  const begin = Offset(
-                                    1.0,
-                                    0.0,
-                                  ); // Start position (right side)
-                                  const end =
-                                      Offset
-                                          .zero; // End position (normal position)
-                                  const curve = Curves.easeInOut;
-
-                                  var tween = Tween(
-                                    begin: begin,
-                                    end: end,
-                                  ).chain(CurveTween(curve: curve));
-                                  var offsetAnimation = animation.drive(tween);
-
-                                  // Create a fade animation for smooth fade in/out effect
-                                  var fadeAnimation = Tween(
-                                    begin: 0.0,
-                                    end: 1.0,
-                                  ).animate(
-                                    CurvedAnimation(
-                                      parent: animation,
-                                      curve: curve,
-                                    ),
-                                  );
-
-                                  // Use both SlideTransition and FadeTransition
-                                  return FadeTransition(
-                                    opacity: fadeAnimation,
-                                    child: SlideTransition(
-                                      position: offsetAnimation,
-                                      child: child,
-                                    ),
-                                  );
-                                },
-                              ),
-                            );
-                            Navigator.push(
-                              context,
-                              PageRouteBuilder(
-                                pageBuilder:
-                                    (context, animation, secondaryAnimation) =>
-                                        KunehoatpagongBasa(),
-                                transitionsBuilder: (
-                                  context,
-                                  animation,
-                                  secondaryAnimation,
-                                  child,
-                                ) {
-                                  const begin = Offset(
-                                    1.0,
-                                    0.0,
-                                  ); // Start position (right side)
-                                  const end =
-                                      Offset
-                                          .zero; // End position (normal position)
-                                  const curve = Curves.easeInOut;
-
-                                  var tween = Tween(
-                                    begin: begin,
-                                    end: end,
-                                  ).chain(CurveTween(curve: curve));
-                                  var offsetAnimation = animation.drive(tween);
-
-                                  // Create a fade animation for smooth fade in/out effect
-                                  var fadeAnimation = Tween(
-                                    begin: 0.0,
-                                    end: 1.0,
-                                  ).animate(
-                                    CurvedAnimation(
-                                      parent: animation,
-                                      curve: curve,
-                                    ),
-                                  );
-
-                                  // Use both SlideTransition and FadeTransition
-                                  return FadeTransition(
-                                    opacity: fadeAnimation,
-                                    child: SlideTransition(
-                                      position: offsetAnimation,
-                                      child: child,
-                                    ),
-                                  );
-                                },
+                              SlidePageRoute(
+                                page: KunehoatpagongBasa(),
+                                direction: SlideDirection.right,
                               ),
                             );
                           },
@@ -600,7 +469,15 @@ class _MyWidgetState extends State<Magbasacards> {
                         ),
                         SizedBox(height: 10),
                         ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              SlidePageRoute(
+                                page: MalakasatMagandaBasa(),
+                                direction: SlideDirection.right,
+                              ),
+                            );
+                          },
                           style: Design.buttonDesign,
                           child: Text('Basahin', style: Design.tara),
                         ),
@@ -711,51 +588,9 @@ class _MyWidgetState extends State<Magbasacards> {
                           onPressed: () {
                             Navigator.push(
                               context,
-                              PageRouteBuilder(
-                                pageBuilder:
-                                    (context, animation, secondaryAnimation) =>
-                                        AsoatkanyanganinoBasa(),
-                                transitionsBuilder: (
-                                  context,
-                                  animation,
-                                  secondaryAnimation,
-                                  child,
-                                ) {
-                                  const begin = Offset(
-                                    1.0,
-                                    0.0,
-                                  ); // Start position (right side)
-                                  const end =
-                                      Offset
-                                          .zero; // End position (normal position)
-                                  const curve = Curves.easeInOut;
-
-                                  var tween = Tween(
-                                    begin: begin,
-                                    end: end,
-                                  ).chain(CurveTween(curve: curve));
-                                  var offsetAnimation = animation.drive(tween);
-
-                                  // Create a fade animation for smooth fade in/out effect
-                                  var fadeAnimation = Tween(
-                                    begin: 0.0,
-                                    end: 1.0,
-                                  ).animate(
-                                    CurvedAnimation(
-                                      parent: animation,
-                                      curve: curve,
-                                    ),
-                                  );
-
-                                  // Use both SlideTransition and FadeTransition
-                                  return FadeTransition(
-                                    opacity: fadeAnimation,
-                                    child: SlideTransition(
-                                      position: offsetAnimation,
-                                      child: child,
-                                    ),
-                                  );
-                                },
+                              SlidePageRoute(
+                                page: AsoatkanyanganinoBasa(),
+                                direction: SlideDirection.right,
                               ),
                             );
                           },

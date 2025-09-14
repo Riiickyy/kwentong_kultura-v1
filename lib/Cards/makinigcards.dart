@@ -9,6 +9,7 @@ import 'package:kwentong_kultura/AnimationPage/alamatngmaya_animation/alamatngma
 import 'package:kwentong_kultura/AnimationPage/alamatngniyog_animation/alamatngniyogTitle.dart';
 import 'package:kwentong_kultura/AnimationPage/angalamatngunggoy_animation/alamantngunggoyTitle.dart';
 import 'package:kwentong_kultura/AnimationPage/mariamakiling_animation/mariamakilingTitle.dart';
+import 'package:kwentong_kultura/Classes/slide_transition.dart';
 import '../Styles/styles.dart';
 
 class Makinigcards extends StatefulWidget {
@@ -73,10 +74,9 @@ class _MakinigcardsState extends State<Makinigcards> {
                           onPressed: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(
-                                builder: (context) {
-                                  return AlamatngpinyaTitle();
-                                },
+                              SlidePageRoute(
+                                page: AlamatngpinyaTitle(),
+                                direction: SlideDirection.right,
                               ),
                             );
                           },
@@ -134,10 +134,9 @@ class _MakinigcardsState extends State<Makinigcards> {
                           onPressed: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(
-                                builder: (context) {
-                                  return Malakasatmagandatitle();
-                                },
+                              SlidePageRoute(
+                                page: Malakasatmagandatitle(),
+                                direction: SlideDirection.right,
                               ),
                             );
                           },
@@ -202,10 +201,9 @@ class _MakinigcardsState extends State<Makinigcards> {
                             {
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(
-                                  builder: (context) {
-                                    return SiPagongatMatsingTitle();
-                                  },
+                                SlidePageRoute(
+                                  page: SiPagongatMatsingTitle(),
+                                  direction: SlideDirection.right,
                                 ),
                               );
                             }
@@ -265,10 +263,9 @@ class _MakinigcardsState extends State<Makinigcards> {
                             {
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(
-                                  builder: (context) {
-                                    return TipaklongatlanggamTitle();
-                                  },
+                                SlidePageRoute(
+                                  page: TipaklongatlanggamTitle(),
+                                  direction: SlideDirection.right,
                                 ),
                               );
                             }
@@ -334,10 +331,9 @@ class _MakinigcardsState extends State<Makinigcards> {
                             {
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(
-                                  builder: (context) {
-                                    return AlamatngniyogTitle();
-                                  },
+                                SlidePageRoute(
+                                  page: AlamatngniyogTitle(),
+                                  direction: SlideDirection.right,
                                 ),
                               );
                             }
@@ -374,10 +370,10 @@ class _MakinigcardsState extends State<Makinigcards> {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Image.network(
-                          'https://picsum.photos/250?image=9',
+                        Image.asset(
+                          'assets/images/Thumbnails/Animation & Read/Ang Alamat ng Maya.png',
                           width: 150,
-                          height: 150,
+                          height: 100,
                         ),
                         SizedBox(height: 10), // Add spacing
                         Text(
@@ -397,10 +393,9 @@ class _MakinigcardsState extends State<Makinigcards> {
                             {
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(
-                                  builder: (context) {
-                                    return AlamatngmayaTitle();
-                                  },
+                                SlidePageRoute(
+                                  page: AlamatngmayaTitle(),
+                                  direction: SlideDirection.right,
                                 ),
                               );
                             }
@@ -466,10 +461,9 @@ class _MakinigcardsState extends State<Makinigcards> {
                             {
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(
-                                  builder: (context) {
-                                    return KunehoatPagongTitle();
-                                  },
+                                SlidePageRoute(
+                                  page: KunehoatPagongTitle(),
+                                  direction: SlideDirection.right,
                                 ),
                               );
                             }
@@ -529,10 +523,9 @@ class _MakinigcardsState extends State<Makinigcards> {
                             {
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(
-                                  builder: (context) {
-                                    return MariamakilingTitle();
-                                  },
+                                SlidePageRoute(
+                                  page: MariamakilingTitle(),
+                                  direction: SlideDirection.right,
                                 ),
                               );
                             }
@@ -598,10 +591,9 @@ class _MakinigcardsState extends State<Makinigcards> {
                             {
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(
-                                  builder: (context) {
-                                    return AlamantngunggoyTitle();
-                                  },
+                                SlidePageRoute(
+                                  page: AlamantngunggoyTitle(),
+                                  direction: SlideDirection.right,
                                 ),
                               );
                             }
@@ -660,10 +652,9 @@ class _MakinigcardsState extends State<Makinigcards> {
                           onPressed: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(
-                                builder: (context) {
-                                  return AsoAtKanyangAninoTitle();
-                                },
+                              SlidePageRoute(
+                                page: AsoAtKanyangAninoTitle(),
+                                direction: SlideDirection.right,
                               ),
                             );
                           },
