@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:kwentong_kultura/Background%20Classes/background_read.dart';
 import 'package:kwentong_kultura/Classes/slide_transition.dart';
 import 'package:kwentong_kultura/MagbasaPage/MalakasatMaganda/Scenes/MAMscene1.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
@@ -93,7 +92,7 @@ class _MalakasatMagandaBasaState extends State<MalakasatMagandaBasa> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text('Malakas at Maganda', style: Design.storyTitle),
+                    Text('Malakas at Maganda', style: Design.readTitle),
                     SizedBox(height: 20),
                     SingleChildScrollView(
                       child: Container(

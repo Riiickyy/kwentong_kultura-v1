@@ -3,7 +3,6 @@ import 'package:kwentong_kultura/Classes/slide_transition.dart';
 import 'package:kwentong_kultura/MagbasaPage/MalakasatMaganda/Scenes/MAMscene1.dart';
 import 'package:kwentong_kultura/MagbasaPage/MalakasatMaganda/Scenes/MAMscene3.dart';
 import 'package:kwentong_kultura/Pages/taramagbasa.dart';
-import 'package:kwentong_kultura/Background%20Classes/background_read.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
 
 class Mamscene2 extends StatefulWidget {

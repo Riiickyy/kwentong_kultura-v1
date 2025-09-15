@@ -102,7 +102,7 @@ class _Pamscene2State extends State<Pamscene2> {
                     ),
                   ],
                 ),
-                SizedBox(height: 50),
+                SizedBox(height: 20),
                 Positioned(
                   bottom: 20,
                   left: 0,

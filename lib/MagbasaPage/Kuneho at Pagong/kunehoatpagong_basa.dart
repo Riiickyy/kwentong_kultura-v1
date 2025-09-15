@@ -93,12 +93,16 @@ class _KunehoatpagongBasaState extends State<KunehoatpagongBasa> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text('Ang Kuneho at ang Pagong', style: Design.readTitle),
+                    Text(
+                      'Ang Kuneho at ang Pagong',
+                      style: Design.readTitle,
+                      textAlign: TextAlign.center,
+                    ),
                     SizedBox(height: 20),
 
                     Container(
                       width: 300,
-                      height: 450, // Specify the width here
+                      height: 350, // Specify the width here
                       child: Text(
                         'Isang araw, ang kuneho at ang pagong ay nagpapahinga sa ilalim ng malaking, punong mangga. \n\n'
                         'Pagong: Kaibigang kuneho \n'

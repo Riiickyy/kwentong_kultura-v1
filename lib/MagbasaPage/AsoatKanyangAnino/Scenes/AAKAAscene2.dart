@@ -3,7 +3,6 @@ import 'package:kwentong_kultura/Classes/slide_transition.dart';
 import 'package:kwentong_kultura/MagbasaPage/AsoatKanyangAnino/Scenes/AAKAAscene1.dart';
 import 'package:kwentong_kultura/MagbasaPage/AsoatKanyangAnino/Scenes/AAKAAscene3.dart';
 import 'package:kwentong_kultura/Pages/taramagbasa.dart';
-import 'package:kwentong_kultura/Background%20Classes/background_read.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
 
 class Aakaascene2 extends StatelessWidget {

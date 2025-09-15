@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kwentong_kultura/Classes/slide_transition.dart';
+import 'package:kwentong_kultura/MagbasaPage/PagongatMatsing/Scenes/PAMscene11.dart';
+import 'package:kwentong_kultura/MagbasaPage/PagongatMatsing/Scenes/PAMscene9.dart';
 import 'package:kwentong_kultura/Pages/taramagbasa.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
 
@@ -126,7 +128,7 @@ class _Pamscene10State extends State<Pamscene10> {
                 Navigator.push(
                   context,
                   SlidePageRoute(
-                    page: Pamscene5(),
+                    page: Pamscene11(),
                     direction: SlideDirection.right,
                   ),
                 );
@@ -155,7 +157,7 @@ class _Pamscene10State extends State<Pamscene10> {
                 Navigator.push(
                   context,
                   SlidePageRoute(
-                    page: Pamscene3(),
+                    page: Pamscene9(),
                     direction: SlideDirection.left,
                   ),
                 );

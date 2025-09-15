@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:kwentong_kultura/AnimationPage/AsoatKanyangAnino_animation/aso_at_kanyang_anino_Title.dart';
 import 'package:kwentong_kultura/Classes/slide_transition.dart';
 import 'package:kwentong_kultura/Pages/taramagbasa.dart';
-import 'package:kwentong_kultura/Background%20Classes/background_read.dart';
 import 'package:kwentong_kultura/QUIZZES/angasoatkanyanganinoQuiz.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
 

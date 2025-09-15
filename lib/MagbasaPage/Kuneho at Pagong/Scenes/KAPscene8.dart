@@ -3,7 +3,6 @@ import 'package:kwentong_kultura/Classes/slide_transition.dart';
 import 'package:kwentong_kultura/MagbasaPage/Kuneho%20at%20Pagong/Scenes/KAPscene7.dart';
 import 'package:kwentong_kultura/MagbasaPage/Kuneho%20at%20Pagong/Scenes/KAPscene9.dart';
 import 'package:kwentong_kultura/Pages/taramagbasa.dart';
-import 'package:kwentong_kultura/Background%20Classes/background_read.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
 
 class Kapscene8 extends StatelessWidget {
@@ -44,12 +43,9 @@ class Kapscene8 extends StatelessWidget {
       body: Stack(
         children: [
           Positioned.fill(
-            child: Opacity(
-              opacity: 1.0,
-              child: BackgroundRead(
-                assetPath: 'assets/Animations/Read BG/read_bg.riv',
-                stateMachineName: 'State Machine 1',
-              ),
+            child: Image.asset(
+              'assets/images/Animation Page/PaperBG.png',
+              fit: BoxFit.cover,
             ),
           ),
           SingleChildScrollView(
@@ -90,7 +86,7 @@ class Kapscene8 extends StatelessWidget {
                   children: [
                     Container(
                       width: 300,
-                      height: 450,
+                      height: 350,
                       child: Text(
                         'Lumipas ang mga minuto. \n\n'
                         'Naabutan ng pagong ang kinaroroonan ng kuneho. \n\n'

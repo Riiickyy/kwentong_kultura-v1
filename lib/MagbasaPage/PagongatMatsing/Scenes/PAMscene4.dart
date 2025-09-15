@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:kwentong_kultura/Classes/slide_transition.dart';
-import 'package:kwentong_kultura/MagbasaPage/PagongatMatsing/Scenes/PAMscene2.dart';
 import 'package:kwentong_kultura/MagbasaPage/PagongatMatsing/Scenes/PAMscene3.dart';
 import 'package:kwentong_kultura/MagbasaPage/PagongatMatsing/Scenes/PAMscene5.dart';
 import 'package:kwentong_kultura/Pages/taramagbasa.dart';
@@ -94,9 +93,10 @@ class _Pamscene4State extends State<Pamscene4> {
                   children: [
                     Container(
                       width: 300,
-                      height: 600, // Specify the width here
+                      height: 1000, // Specify the width here
                       child: Text(
-                        'Pagong: Ah! Ang sa akin ay napakabuti. May mga dahong malalapad at ngayon ay namunga na. Hindi ko nga makuha ang mga bunga dala ng di ko naman maakyat ito  \n'
+                        'Pagong: Ah! Ang sa akin ay napakabuti. May mga dahong malalapad at ngayon ay namunga na. \n'
+                        'Pagong: Hindi ko nga makuha ang mga bunga dala ng di ko naman maakyat ito  \n'
                         'Sabi ni Pagong.\n\n'
                         'Matsing: Kung ang pag-uusapan ay ang pag-akyat sa punong saging, ipaubaya mo iyan sa akin. Kayang kaya kong pumanhik sa punong saging\n'
                         'Pagmamayabang ni Matsing. \n\n'

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kwentong_kultura/Classes/slide_transition.dart';
-import 'package:kwentong_kultura/MagbasaPage/PagongatMatsing/Scenes/PAMscene2.dart';
+import 'package:kwentong_kultura/MagbasaPage/PagongatMatsing/Scenes/PAMscene4.dart';
+import 'package:kwentong_kultura/MagbasaPage/PagongatMatsing/Scenes/PAMscene6.dart';
 import 'package:kwentong_kultura/Pages/taramagbasa.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
 
@@ -92,7 +93,7 @@ class _Pamscene5State extends State<Pamscene5> {
                   children: [
                     Container(
                       width: 300,
-                      height: 600, // Specify the width here
+                      height: 700, // Specify the width here
                       child: Text(
                         'Nang makita ni Matsing ang magangang buwig ng saging ay hindi niya maitago ang buong pagnanasa niya rito. \n\n'
                         'Agad niyang inakyat ang puno ng saging, pagkuwa’y sinimulan na niyang kainin ang mga bungang mayroon\n\n'
@@ -125,7 +126,7 @@ class _Pamscene5State extends State<Pamscene5> {
                 Navigator.push(
                   context,
                   SlidePageRoute(
-                    page: Pamscene3(),
+                    page: Pamscene6(),
                     direction: SlideDirection.right,
                   ),
                 );
@@ -154,7 +155,7 @@ class _Pamscene5State extends State<Pamscene5> {
                 Navigator.push(
                   context,
                   SlidePageRoute(
-                    page: Pamscene2(),
+                    page: Pamscene4(),
                     direction: SlideDirection.left,
                   ),
                 );

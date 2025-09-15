@@ -3,7 +3,6 @@ import 'package:kwentong_kultura/Classes/slide_transition.dart';
 import 'package:kwentong_kultura/MagbasaPage/Kuneho%20at%20Pagong/Scenes/KAPscene1.dart';
 import 'package:kwentong_kultura/MagbasaPage/Kuneho%20at%20Pagong/Scenes/KAPscene3.dart';
 import 'package:kwentong_kultura/Pages/taramagbasa.dart';
-import 'package:kwentong_kultura/Background%20Classes/background_read.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
 
 class Kapscene2 extends StatefulWidget {
@@ -96,7 +95,7 @@ class _Kapscene2State extends State<Kapscene2> {
                       child: Text(
                         'Pagong: Halika, magkarera tayo. Nakikita mo ba ang puno ng sampalok na ‘yon? \n\n'
                         'Pagong:Kung sino ang unang makakarating sa atin doon ay siyang panalo\n\n'
-                        'sabi ng pagong.',
+                        'Sabi ng pagong.',
                         style: Design.readStory,
                         textAlign: TextAlign.justify, // Justify the text
                       ),
@@ -124,7 +123,7 @@ class _Kapscene2State extends State<Kapscene2> {
                   context,
                   SlidePageRoute(
                     page: Kapscene3(),
-                    direction: SlideDirection.left,
+                    direction: SlideDirection.right,
                   ),
                 );
               },
@@ -153,7 +152,7 @@ class _Kapscene2State extends State<Kapscene2> {
                   context,
                   SlidePageRoute(
                     page: Kapscene1(),
-                    direction: SlideDirection.right,
+                    direction: SlideDirection.left,
                   ),
                 );
               },

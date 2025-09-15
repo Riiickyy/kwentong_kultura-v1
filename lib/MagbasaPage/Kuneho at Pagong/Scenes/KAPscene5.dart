@@ -91,7 +91,7 @@ class _Kapscene5State extends State<Kapscene5> {
                   children: [
                     Container(
                       width: 300,
-                      height: 450, // Specify the width here
+                      height: 250, // Specify the width here
                       child: Text(
                         'Pagong: Huwag kang masyadong pakasiguro, kaibigan,\n'
                         'Sabi ng pagong. \n\n'

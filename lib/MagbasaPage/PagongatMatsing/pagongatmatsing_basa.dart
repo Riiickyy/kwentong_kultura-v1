@@ -98,7 +98,7 @@ class _PagongatMatsingBasaState extends State<PagongatMatsingBasa> {
                       height: 450, // Specify the width here
                       child: Text(
                         'Minsan sa paglalakad nina matsing at Pagong ay di sinasadyang makakita sila ng isang punong saging.  \n\n'
-                        'Ang punong ito’y mataba at malaki, malalapad ang kulay luntiang mga dahoon. \n\n'
+                        'Ang punong ito’y mataba at malaki, malalapad ang kulay luntiang mga dahon. \n\n'
                         'Napagkaisahan nilang kunin ang punong iyon. \n',
                         style: Design.readStory,
                         textAlign: TextAlign.justify, // Justify the text

@@ -92,7 +92,7 @@ class _Kapscene1State extends State<Kapscene1> {
                     SingleChildScrollView(
                       child: Container(
                         width: 300,
-                        height: 450,
+                        height: 350,
                         child: Text(
                           'Pagong: wala ba tayong gagawin kundi panoorin ang mga dahon ng punong manggang ito?\n\n'
                           'Kuneho: Bakit ano ba ang gusto mong gawin?\n'

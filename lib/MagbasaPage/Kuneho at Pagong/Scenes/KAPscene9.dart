@@ -3,7 +3,6 @@ import 'package:kwentong_kultura/Classes/slide_transition.dart';
 import 'package:kwentong_kultura/MagbasaPage/Kuneho%20at%20Pagong/Scenes/KAPscene10.dart';
 import 'package:kwentong_kultura/MagbasaPage/Kuneho%20at%20Pagong/Scenes/KAPscene8.dart';
 import 'package:kwentong_kultura/Pages/taramagbasa.dart';
-import 'package:kwentong_kultura/Background%20Classes/background_read.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
 
 class Kapscene9 extends StatefulWidget {
@@ -94,8 +93,9 @@ class _Kapscene9State extends State<Kapscene9> {
                       width: 300,
                       height: 450,
                       child: Text(
-                        'Pagong: Tignan mo nga naman itong si kuneho. Masyado kasing nagtitiwala sa kanyang kakayahan. Ngayon, naunahan ko na siya, \n'
-                        'sabi ni Pagong  \n\n'
+                        'Pagong: Tignan mo nga naman itong si kuneho. \n \n'
+                        'Pagong: Masyado kasing nagtitiwala sa kanyang kakayahan. Ngayon, naunahan ko na siya \n'
+                        'Sabi ni Pagong  \n\n'
                         'Ilang sandali pa lamang ay nakarating na ang pagong sa ilalim ng puno ng sampalok. \n',
                         style: Design.readStory,
                         textAlign: TextAlign.justify, // Justify the text

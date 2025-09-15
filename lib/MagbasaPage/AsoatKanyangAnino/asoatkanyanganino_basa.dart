@@ -51,7 +51,6 @@ class _AsoatkanyanganinoBasaState extends State<AsoatkanyanganinoBasa> {
       ),
       body: Stack(
         children: [
-          // Background: Rive animation filling the entire screen
           Positioned.fill(
             child: Image.asset(
               'assets/images/Animation Page/PaperBG.png',
@@ -96,12 +95,13 @@ class _AsoatkanyanganinoBasaState extends State<AsoatkanyanganinoBasa> {
                   children: [
                     Text(
                       'Ang Aso at ang Kanyang Anino',
-                      style: Design.storyTitle,
+                      style: Design.readTitle,
+                      textAlign: TextAlign.center,
                     ),
                     SizedBox(height: 20),
                     Container(
                       width: 300,
-                      height: 450, // Specify the width here
+                      height: 350, // Specify the width here
                       child: Text(
                         'May isang asong naglalakad sa kagubatan at nakahanap ng makakain. \n\n Pagod na pagod siya habang nililibot ang buong paligid. ',
                         style: Design.readStory,

@@ -3,7 +3,6 @@ import 'package:kwentong_kultura/Classes/slide_transition.dart';
 import 'package:kwentong_kultura/MagbasaPage/AsoatKanyangAnino/Scenes/AAKAAscene2.dart';
 import 'package:kwentong_kultura/MagbasaPage/AsoatKanyangAnino/Scenes/AAKAAscene4.dart';
 import 'package:kwentong_kultura/Pages/taramagbasa.dart';
-import 'package:kwentong_kultura/Background%20Classes/background_read.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
 
 class Aakaascene3 extends StatefulWidget {
@@ -91,11 +90,12 @@ class _Aakaascene3State extends State<Aakaascene3> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
-                      width: 300, // Specify the width here
+                      width: 300,
+                      height: 450, // Specify the width here
                       child: Text(
-                        'Ang buong akala niya’y may isa pang may hawak ng buto.\n'
-                        'Sa kanyang pagnanasang mapasakanya pa ang buto, ibinukas niya ang kanyang bibig para kunin ito. \n'
-                        'Nahulog ang butong hawak niya at ito’y pumasa-ilalim na sa tubig. \n',
+                        'Ang buong akala niya’y may isa pang may hawak ng buto.\n\n'
+                        'Sa kanyang pagnanasang mapasakanya pa ang buto, ibinukas niya ang kanyang bibig para kunin ito. \n\n'
+                        'Nahulog ang butong hawak niya at ito’y pumasa-ilalim na sa tubig. \n\n',
                         style: Design.readStory,
                         textAlign: TextAlign.justify, // Justify the text
                       ),
@@ -122,7 +122,7 @@ class _Aakaascene3State extends State<Aakaascene3> {
                 Navigator.push(
                   context,
                   SlidePageRoute(
-                    page: Taramagbasa(),
+                    page: Aakaascene4(),
                     direction: SlideDirection.right,
                   ),
                 );

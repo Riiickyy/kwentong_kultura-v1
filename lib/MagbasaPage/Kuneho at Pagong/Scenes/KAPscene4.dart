@@ -90,7 +90,8 @@ class _Kapscene4State extends State<Kapscene4> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
-                      width: 300, // Specify the width here
+                      width: 300,
+                      height: 450, // Specify the width here
                       child: Text(
                         'Kuneho: Kilala mo naman kung sino ako at kung gaano ako kabilis sa takbuhan. \n\n '
                         'Kuneho: Hindi pa man ay alam ko nang ako ang mananalo sa paligsahang ito,\n'
@@ -123,7 +124,7 @@ class _Kapscene4State extends State<Kapscene4> {
                   context,
                   SlidePageRoute(
                     page: Kapscene5(),
-                    direction: SlideDirection.left,
+                    direction: SlideDirection.right,
                   ),
                 );
               },
@@ -152,7 +153,7 @@ class _Kapscene4State extends State<Kapscene4> {
                   context,
                   SlidePageRoute(
                     page: Kapscene3(),
-                    direction: SlideDirection.right,
+                    direction: SlideDirection.left,
                   ),
                 );
               },

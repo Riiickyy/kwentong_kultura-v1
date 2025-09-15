@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:kwentong_kultura/AnimationPage/Malakasatmaganda_animation/malakasatmagandaTitle.dart';
 import 'package:kwentong_kultura/Classes/slide_transition.dart';
 import 'package:kwentong_kultura/Pages/taramagbasa.dart';
-import 'package:kwentong_kultura/Background%20Classes/background_read.dart';
 import 'package:kwentong_kultura/QUIZZES/malakasatmagandaQuiz.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
 

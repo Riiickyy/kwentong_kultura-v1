@@ -124,7 +124,7 @@ class _Kapscene3State extends State<Kapscene3> {
                   context,
                   SlidePageRoute(
                     page: Kapscene4(),
-                    direction: SlideDirection.left,
+                    direction: SlideDirection.right,
                   ),
                 );
               },
@@ -153,7 +153,7 @@ class _Kapscene3State extends State<Kapscene3> {
                   context,
                   SlidePageRoute(
                     page: Kapscene2(),
-                    direction: SlideDirection.right,
+                    direction: SlideDirection.left,
                   ),
                 );
               },

@@ -129,7 +129,7 @@ class _Pamscene11State extends State<Pamscene11> {
                   context,
                   SlidePageRoute(
                     page: Pagongatmatsingquiz(),
-                    direction: SlideDirection.right,
+                    direction: SlideDirection.up,
                   ),
                 );
               },
@@ -158,7 +158,7 @@ class _Pamscene11State extends State<Pamscene11> {
                   context,
                   SlidePageRoute(
                     page: SiPagongatMatsingTitle(),
-                    direction: SlideDirection.left,
+                    direction: SlideDirection.down,
                   ),
                 );
               },

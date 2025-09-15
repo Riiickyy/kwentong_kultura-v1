@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:kwentong_kultura/Classes/slide_transition.dart';
-import 'package:kwentong_kultura/MagbasaPage/Alamatngpinya_Magbasa/Alamatngpinya_basa.dart';
 import 'package:kwentong_kultura/MagbasaPage/AsoatKanyangAnino/Scenes/AAKAAscene2.dart';
 import 'package:kwentong_kultura/MagbasaPage/AsoatKanyangAnino/asoatkanyanganino_basa.dart';
 import 'package:kwentong_kultura/Pages/taramagbasa.dart';
@@ -94,11 +93,11 @@ class _Aakaascene1State extends State<Aakaascene1> {
                       width: 300,
                       height: 450, // Specify the width here
                       child: Text(
-                        'Sa wakas ay may nakita siyang kapirasong buto. Agad niya itong sinakmal at itinakbo.\n'
+                        'Sa wakas ay may nakita siyang kapirasong buto. Agad niya itong sinakmal at itinakbo.\n\n'
                         'Aso: Salamat naman at makakakain na ako\n'
-                        'wika niya sa sarili.\n'
+                        'Wika niya sa sarili.\n\n'
                         'Aso: Iuuwi ko na ito at nang makapaghapunan na ako,\n'
-                        'dagdag pa niya.',
+                        'Dagdag pa niya.',
                         style: Design.readStory,
                         textAlign: TextAlign.justify, // Justify the text
                       ),
