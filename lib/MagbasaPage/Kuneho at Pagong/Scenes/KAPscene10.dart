@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kwentong_kultura/AnimationPage/KunehoatPagong_animation/kunehoatpagongTitle.dart';
+import 'package:kwentong_kultura/Classes/slide_transition.dart';
 import 'package:kwentong_kultura/Pages/taramagbasa.dart';
-import 'package:kwentong_kultura/Background%20Classes/background_read.dart';
 import 'package:kwentong_kultura/QUIZZES/kunehoatpagongQuiz.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
 
@@ -24,43 +24,9 @@ class _Kapscene10State extends State<Kapscene10> {
           onPressed: () {
             Navigator.pushAndRemoveUntil(
               context,
-              PageRouteBuilder(
-                pageBuilder:
-                    (context, animation, secondaryAnimation) => Taramagbasa(),
-                transitionsBuilder: (
-                  context,
-                  animation,
-                  secondaryAnimation,
-                  child,
-                ) {
-                  const begin = Offset(
-                    -1.0,
-                    0.0,
-                  ); // Start position (right side)
-                  const end = Offset.zero; // End position (normal position)
-                  const curve = Curves.easeInOut;
-
-                  var tween = Tween(
-                    begin: begin,
-                    end: end,
-                  ).chain(CurveTween(curve: curve));
-                  var offsetAnimation = animation.drive(tween);
-
-                  // Create a fade animation for smooth fade in/out effect
-                  var fadeAnimation = Tween(
-                    begin: 0.0,
-                    end: 1.0,
-                  ).animate(CurvedAnimation(parent: animation, curve: curve));
-
-                  // Use both SlideTransition and FadeTransition
-                  return FadeTransition(
-                    opacity: fadeAnimation,
-                    child: SlideTransition(
-                      position: offsetAnimation,
-                      child: child,
-                    ),
-                  );
-                },
+              SlidePageRoute(
+                page: Taramagbasa(),
+                direction: SlideDirection.right,
               ),
               (Route<dynamic> route) => false,
             ); // This will navigate back to the previous screen
@@ -82,54 +48,72 @@ class _Kapscene10State extends State<Kapscene10> {
       body: Stack(
         children: [
           Positioned.fill(
-            child: Opacity(
-              opacity: 1.0,
-              child: BackgroundRead(
-                assetPath: 'assets/Animations/Read BG/read_bg.riv',
-                stateMachineName: 'State Machine 1',
-              ),
+            child: Image.asset(
+              'assets/images/Animation Page/PaperBG.png',
+              fit: BoxFit.cover,
             ),
           ),
-          Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 20),
-                child: Center(
-                  child: Container(
-                    height: screenHeight * 0.3, // 40% of the screen height
-                    width: screenWidth * 0.8, // 60% of the screen width
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage(
-                          'assets/images/Read Scenes/Pagong at Kuneho/SC11.png',
-                        ), // Replace with your image
-                        fit:
-                            BoxFit
-                                .contain, // You can adjust fit (contain, cover, etc.)
+          SingleChildScrollView(
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 20),
+                  child: Center(
+                    child: Container(
+                      height: screenHeight * 0.3, // 40% of the screen height
+                      width: screenWidth * 0.8, // 60% of the screen width
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage(
+                            'assets/images/Read Scenes/Pagong at Kuneho/SC11.png',
+                          ), // Replace with your image
+                          fit:
+                              BoxFit
+                                  .contain, // You can adjust fit (contain, cover, etc.)
+                        ),
+                        borderRadius: BorderRadius.circular(8),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.2),
+                            spreadRadius: 2,
+                            blurRadius: 8,
+                          ),
+                        ],
                       ),
                     ),
                   ),
                 ),
-              ),
-              SizedBox(height: 20),
+                SizedBox(height: 20),
 
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                    width: 300, // Specify the width here
-                    child: Text(
-                      'Pagong: Kuneho, Kuneho! Gumising ka na. Nanalo na ako sa paligsahan natin! \n'
-                      'tawag ng pagong sa kuneho.  \n\n'
-                      'Nagising ang kuneho at laking gulat na lamang niya nang makita niya ang pagong na sumasayaw sa ilalim ng puno ng sampalok.\n',
-                      style: Design.readStory,
-                      textAlign: TextAlign.justify, // Justify the text
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: 300,
+                      height: 450, // Specify the width here
+                      child: Text(
+                        'Pagong: Kuneho, Kuneho! \n\n '
+                        'Pagong: Gumising ka na. Nanalo na ako sa paligsahan natin! \n\n'
+                        'Tawag ng pagong sa kuneho.  \n\n'
+                        'Nagising ang kuneho at laking gulat na lamang niya nang makita niya ang pagong na sumasayaw sa ilalim ng puno ng sampalok.\n',
+                        style: Design.readStory,
+                        textAlign: TextAlign.justify, // Justify the text
+                      ),
                     ),
+                  ],
+                ),
+                SizedBox(height: 20),
+                Positioned(
+                  bottom: 20,
+                  left: 0,
+                  right: 0,
+                  child: Image.asset(
+                    'assets/Animations/Read BG/Read-animate.gif',
                   ),
-                ],
-              ),
-            ],
+                ),
+              ],
+            ),
           ),
           Positioned(
             bottom: 20, // Position below the Play button
@@ -138,32 +122,9 @@ class _Kapscene10State extends State<Kapscene10> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  PageRouteBuilder(
-                    pageBuilder:
-                        (context, animation, secondaryAnimation) =>
-                            KunehoatPagongQuiz(),
-                    transitionsBuilder: (
-                      context,
-                      animation,
-                      secondaryAnimation,
-                      child,
-                    ) {
-                      const begin = Offset(1.0, 0.0);
-                      const end = Offset.zero;
-                      const curve = Curves.easeInOut;
-
-                      var tween = Tween(
-                        begin: begin,
-                        end: end,
-                      ).chain(CurveTween(curve: curve));
-                      var offsetAnimation = animation.drive(tween);
-
-                      // Use SlideTransition to apply the animation
-                      return SlideTransition(
-                        position: offsetAnimation,
-                        child: child,
-                      );
-                    },
+                  SlidePageRoute(
+                    page: KunehoatPagongQuiz(),
+                    direction: SlideDirection.up,
                   ),
                 );
               },
@@ -190,32 +151,9 @@ class _Kapscene10State extends State<Kapscene10> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  PageRouteBuilder(
-                    pageBuilder:
-                        (context, animation, secondaryAnimation) =>
-                            KunehoatPagongTitle(),
-                    transitionsBuilder: (
-                      context,
-                      animation,
-                      secondaryAnimation,
-                      child,
-                    ) {
-                      const begin = Offset(-1.0, 0.0);
-                      const end = Offset.zero;
-                      const curve = Curves.easeInOut;
-
-                      var tween = Tween(
-                        begin: begin,
-                        end: end,
-                      ).chain(CurveTween(curve: curve));
-                      var offsetAnimation = animation.drive(tween);
-
-                      // Use SlideTransition to apply the animation
-                      return SlideTransition(
-                        position: offsetAnimation,
-                        child: child,
-                      );
-                    },
+                  SlidePageRoute(
+                    page: KunehoatPagongTitle(),
+                    direction: SlideDirection.down,
                   ),
                 );
               },

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:kwentong_kultura/Classes/slide_transition.dart';
 import 'package:kwentong_kultura/MagbasaPage/PagongatMatsing/Scenes/PAMscene2.dart';
+import 'package:kwentong_kultura/MagbasaPage/PagongatMatsing/Scenes/PAMscene4.dart';
 import 'package:kwentong_kultura/Pages/taramagbasa.dart';
-import 'package:kwentong_kultura/Background%20Classes/background_read.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
 
 class Pamscene3 extends StatefulWidget {
@@ -48,61 +48,81 @@ class _Pamscene3State extends State<Pamscene3> {
       body: Stack(
         children: [
           Positioned.fill(
-            child: Opacity(
-              opacity: 1.0,
-              child: BackgroundRead(
-                assetPath: 'assets/Animations/Read BG/read_bg.riv',
-                stateMachineName: 'State Machine 1',
-              ),
+            child: Image.asset(
+              'assets/images/Animation Page/PaperBG.png',
+              fit: BoxFit.cover,
             ),
           ),
-          Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 20),
-                child: Center(
-                  child: Container(
-                    height: screenHeight * 0.3, // 40% of the screen height
-                    width: screenWidth * 0.8, // 60% of the screen width
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage(
-                          'assets/images/Read Scenes/Pagong at Matsing/SC4.png',
-                        ), // Replace with your image
-                        fit:
-                            BoxFit
-                                .contain, // You can adjust fit (contain, cover, etc.)
+          SingleChildScrollView(
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 20),
+                  child: Center(
+                    child: Container(
+                      height: screenHeight * 0.3, // 40% of the screen height
+                      width: screenWidth * 0.8, // 60% of the screen width
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage(
+                            'assets/images/Read Scenes/Pagong at Matsing/SC4.png',
+                          ), // Replace with your image
+                          fit:
+                              BoxFit
+                                  .contain, // You can adjust fit (contain, cover, etc.)
+                        ),
+                        borderRadius: BorderRadius.circular(
+                          8,
+                        ), // Optional: rounded corners for the border
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.2),
+                            spreadRadius: 2,
+                            blurRadius: 8,
+                          ),
+                        ],
                       ),
                     ),
                   ),
                 ),
-              ),
-              SizedBox(height: 20),
+                SizedBox(height: 20),
 
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                    width: 300, // Specify the width here
-                    child: Text(
-                      'Pagkalipas ng ilang araw, sina Pagong at Matsing ay muling nagkita.  \n\n'
-                      'Pagong: Magandang araw s aiyo, Ginoong Matsing.  \n'
-                      'bungad ng pagong\n'
-                      'Pagong: Ano ang nangyari sa itinanim mong punong saging na mayroong malalapad na dahon?\n'
-                      'tanong ni Pagong\n'
-                      'Matsing: Ay! \n'
-                      'ang wika ni Matsing. \n'
-                      'Matsing: Malaon ng namatay! Kumusta naman ang itinanim mo? \n'
-                      'tanong ni Matsing.',
-                      style: Design.readStory,
-                      textAlign: TextAlign.justify, // Justify the text
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: 300,
+                      height: 600, // Specify the width here
+                      child: Text(
+                        'Pagkalipas ng ilang araw, sina Pagong at Matsing ay muling nagkita.  \n\n'
+                        'Pagong: Magandang araw s aiyo, Ginoong Matsing.  \n'
+                        'Bungad ng pagong\n\n'
+                        'Pagong: Ano ang nangyari sa itinanim mong punong saging na mayroong malalapad na dahon?\n'
+                        'Tanong ni Pagong\n\n'
+                        'Matsing: Ay! \n'
+                        'Ang wika ni Matsing. \n\n'
+                        'Matsing: Malaon ng namatay! Kumusta naman ang itinanim mo? \n'
+                        'Tanong ni Matsing.',
+                        style: Design.readStory,
+                        textAlign: TextAlign.justify, // Justify the text
+                      ),
                     ),
+                  ],
+                ),
+                SizedBox(height: 20),
+                Positioned(
+                  bottom: 20,
+                  left: 0,
+                  right: 0,
+                  child: Image.asset(
+                    'assets/Animations/Read BG/Read-animate.gif',
                   ),
-                ],
-              ),
-            ],
+                ),
+              ],
+            ),
           ),
+
           Positioned(
             bottom: 20, // Position below the Play button
             right: 20, // Positioned left with some margin
@@ -111,8 +131,8 @@ class _Pamscene3State extends State<Pamscene3> {
                 Navigator.push(
                   context,
                   SlidePageRoute(
-                    page: Pamscene3(),
-                    direction: SlideDirection.left,
+                    page: Pamscene4(),
+                    direction: SlideDirection.right,
                   ),
                 );
               },

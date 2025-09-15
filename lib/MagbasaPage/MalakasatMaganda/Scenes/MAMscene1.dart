@@ -74,6 +74,14 @@ class _Mamscene1State extends State<Mamscene1> {
                             BoxFit
                                 .contain, // You can adjust fit (contain, cover, etc.)
                       ),
+                      borderRadius: BorderRadius.circular(8),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.2),
+                          spreadRadius: 2,
+                          blurRadius: 8,
+                        ),
+                      ],
                     ),
                   ),
                 ),
@@ -85,7 +93,8 @@ class _Mamscene1State extends State<Mamscene1> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
-                    width: 300, // Specify the width here
+                    width: 300,
+                    height: 300, // Specify the width here
                     child: Text(
                       'Tinuka niya nang tinuka ang bahaging ito upang makuha at makain ang uod. \n\n'
                       'Hindi niya tinigilan ang pagtuka hanggang sa mabiyak ito.',
@@ -94,6 +103,14 @@ class _Mamscene1State extends State<Mamscene1> {
                     ),
                   ),
                 ],
+              ),
+              Positioned(
+                bottom: 20,
+                left: 0,
+                right: 0,
+                child: Image.asset(
+                  'assets/Animations/Read BG/Read-animate.gif',
+                ),
               ),
             ],
           ),

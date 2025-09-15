@@ -569,7 +569,7 @@ class _MakinigcardsState extends State<Makinigcards> {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Image.network(
+                        Image.asset(
                           'assets/images/Thumbnails/Animation & Read/Ang Alamat ng Unggoy.png',
                           width: 150,
                           height: 150,

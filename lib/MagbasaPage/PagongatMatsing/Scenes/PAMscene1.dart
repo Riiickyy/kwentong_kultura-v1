@@ -3,7 +3,6 @@ import 'package:kwentong_kultura/Classes/slide_transition.dart';
 import 'package:kwentong_kultura/MagbasaPage/PagongatMatsing/Scenes/PAMscene2.dart';
 import 'package:kwentong_kultura/MagbasaPage/PagongatMatsing/pagongatmatsing_basa.dart';
 import 'package:kwentong_kultura/Pages/taramagbasa.dart';
-import 'package:kwentong_kultura/Background%20Classes/background_read.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
 
 class PamScene1 extends StatefulWidget {
@@ -49,55 +48,72 @@ class _PamScene1State extends State<PamScene1> {
       body: Stack(
         children: [
           Positioned.fill(
-            child: Opacity(
-              opacity: 1.0,
-              child: BackgroundRead(
-                assetPath: 'assets/Animations/Read BG/read_bg.riv',
-                stateMachineName: 'State Machine 1',
-              ),
+            child: Image.asset(
+              'assets/images/Animation Page/PaperBG.png',
+              fit: BoxFit.cover,
             ),
           ),
-          Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 20),
-                child: Center(
-                  child: Container(
-                    height: screenHeight * 0.3, // 40% of the screen height
-                    width: screenWidth * 0.8, // 60% of the screen width
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage(
-                          'assets/images/Read Scenes/Pagong at Matsing/SC2.png',
-                        ), // Replace with your image
-                        fit:
-                            BoxFit
-                                .contain, // You can adjust fit (contain, cover, etc.)
+          SingleChildScrollView(
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 20),
+                  child: Center(
+                    child: Container(
+                      height: screenHeight * 0.3, // 40% of the screen height
+                      width: screenWidth * 0.8, // 60% of the screen width
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage(
+                            'assets/images/Read Scenes/Pagong at Matsing/SC2.png',
+                          ), // Replace with your image
+                          fit:
+                              BoxFit
+                                  .contain, // You can adjust fit (contain, cover, etc.)
+                        ),
+                        borderRadius: BorderRadius.circular(8),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.2),
+                            spreadRadius: 2,
+                            blurRadius: 8,
+                          ),
+                        ],
                       ),
                     ),
                   ),
                 ),
-              ),
-              SizedBox(height: 20),
+                SizedBox(height: 20),
 
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                    width: 300, // Specify the width here
-                    child: Text(
-                      'Pagong: Hati tayo rito  \n\n'
-                      'ang wika ni Pagong \n'
-                      'Pagong: at kapwa natin itanim and mapagpipilian nating bahagi \n'
-                      'Ganoon nga ang kanilang ginawa. Pinutol nila ang punong saging sa pinakagitna, ',
-                      style: Design.readStory,
-                      textAlign: TextAlign.justify, // Justify the text
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: 300,
+                      height: 450,
+                      child: Text(
+                        'Pagong: Hati tayo rito  \n'
+                        'Ang wika ni Pagong \n\n'
+                        'Pagong: at kapwa natin itanim and mapagpipilian nating bahagi \n\n'
+                        'Ganoon nga ang kanilang ginawa. Pinutol nila ang punong saging sa pinakagitna ',
+                        style: Design.readStory,
+                        textAlign: TextAlign.justify, // Justify the text
+                      ),
                     ),
+                  ],
+                ),
+                SizedBox(height: 50),
+                Positioned(
+                  bottom: 20,
+                  left: 0,
+                  right: 0,
+                  child: Image.asset(
+                    'assets/Animations/Read BG/Read-animate.gif',
                   ),
-                ],
-              ),
-            ],
+                ),
+              ],
+            ),
           ),
           Positioned(
             bottom: 20, // Position below the Play button
@@ -108,7 +124,7 @@ class _PamScene1State extends State<PamScene1> {
                   context,
                   SlidePageRoute(
                     page: Pamscene2(),
-                    direction: SlideDirection.left,
+                    direction: SlideDirection.right,
                   ),
                 );
               },

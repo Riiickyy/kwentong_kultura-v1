@@ -37,7 +37,7 @@ class _MalakasatMagandaBasaState extends State<MalakasatMagandaBasa> {
           },
         ),
         title: const Text(
-          "Ang Kuneho at ang Pagong",
+          "Malakas at Maganda",
           style: TextStyle(
             fontFamily: 'Nunito',
             fontWeight: FontWeight.w900,
@@ -51,59 +51,74 @@ class _MalakasatMagandaBasaState extends State<MalakasatMagandaBasa> {
       ),
       body: Stack(
         children: [
-          // Background: Rive animation filling the entire screen
           Positioned.fill(
-            child: Opacity(
-              opacity: 1.0, // Set the opacity value here (0.0 to 1.0)
-              child: BackgroundRead(
-                assetPath: 'assets/Animations/Read BG/read_bg.riv',
-                stateMachineName: 'State Machine 1',
-              ),
+            child: Image.asset(
+              'assets/images/Animation Page/PaperBG.png',
+              fit: BoxFit.cover,
             ),
           ),
-          Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 20),
-                child: Center(
-                  child: Container(
-                    height: screenHeight * 0.3, // 40% of the screen height
-                    width: screenWidth * 0.8, // 60% of the screen width
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage(
-                          'assets/images/Read Scenes/Malakas at Maganda/SC1.png',
-                        ), // Replace with your image
-                        fit:
-                            BoxFit
-                                .contain, // You can adjust fit (contain, cover, etc.)
+          SingleChildScrollView(
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 20),
+                  child: Center(
+                    child: Container(
+                      height: screenHeight * 0.3, // 40% of the screen height
+                      width: screenWidth * 0.8, // 60% of the screen width
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage(
+                            'assets/images/Read Scenes/Malakas at Maganda/SC1.png',
+                          ), // Replace with your image
+                          fit:
+                              BoxFit
+                                  .contain, // You can adjust fit (contain, cover, etc.)
+                        ),
+                        borderRadius: BorderRadius.circular(8),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.2),
+                            spreadRadius: 2,
+                            blurRadius: 8,
+                          ),
+                        ],
                       ),
                     ),
                   ),
                 ),
-              ),
-              SizedBox(height: 20),
+                SizedBox(height: 20),
 
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text('Malakas at Maganda', style: Design.storyTitle),
-                  SizedBox(height: 20),
-                  SingleChildScrollView(
-                    child: Container(
-                      width: 300, // Specify the width here
-                      child: Text(
-                        'Isang ibong kulay abuhin ang naghahanap ng makakain.  \n\n'
-                        'Nahila niya ang isang uod na nakasiksik sa isang puno ng kawayan.  \n',
-                        style: Design.readStory,
-                        textAlign: TextAlign.justify, // Justify the text
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text('Malakas at Maganda', style: Design.storyTitle),
+                    SizedBox(height: 20),
+                    SingleChildScrollView(
+                      child: Container(
+                        width: 300,
+                        height: 300, // Specify the width here
+                        child: Text(
+                          'Isang ibong kulay abuhin ang naghahanap ng makakain.  \n\n'
+                          'Nahila niya ang isang uod na nakasiksik sa isang puno ng kawayan.  \n',
+                          style: Design.readStory,
+                          textAlign: TextAlign.justify, // Justify the text
+                        ),
                       ),
                     ),
+                  ],
+                ),
+                Positioned(
+                  bottom: 20,
+                  left: 0,
+                  right: 0,
+                  child: Image.asset(
+                    'assets/Animations/Read BG/Read-animate.gif',
                   ),
-                ],
-              ),
-            ],
+                ),
+              ],
+            ),
           ),
           Positioned(
             bottom: 20, // Position below the Play button

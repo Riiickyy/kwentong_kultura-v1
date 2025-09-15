@@ -4,6 +4,7 @@ import 'package:kwentong_kultura/MagbasaPage/Alamatngpinya_Magbasa/Alamatngpinya
 import 'package:kwentong_kultura/MagbasaPage/AsoatKanyangAnino/asoatkanyanganino_basa.dart';
 import 'package:kwentong_kultura/MagbasaPage/Kuneho%20at%20Pagong/kunehoatpagong_basa.dart';
 import 'package:kwentong_kultura/MagbasaPage/MalakasatMaganda/malakasatmaganda_basa.dart';
+import 'package:kwentong_kultura/MagbasaPage/PagongatMatsing/pagongatmatsing_basa.dart';
 import '../Styles/styles.dart';
 
 class Magbasacards extends StatefulWidget {
@@ -14,6 +15,11 @@ class Magbasacards extends StatefulWidget {
 }
 
 class _MyWidgetState extends State<Magbasacards> {
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -190,7 +196,15 @@ class _MyWidgetState extends State<Magbasacards> {
                         ),
                         SizedBox(height: 10),
                         ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              SlidePageRoute(
+                                page: PagongatMatsingBasa(),
+                                direction: SlideDirection.right,
+                              ),
+                            );
+                          },
                           style: Design.buttonDesign,
                           child: Text('Basahin', style: Design.tara),
                         ),
@@ -281,8 +295,8 @@ class _MyWidgetState extends State<Magbasacards> {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Image.network(
-                          'https://picsum.photos/250?image=9',
+                        Image.asset(
+                          'assets/images/Thumbnails/Animation & Read/Ang Alamat ng Maya.png',
                           width: 150,
                           height: 150,
                         ),
@@ -514,7 +528,7 @@ class _MyWidgetState extends State<Magbasacards> {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Image.network(
+                        Image.asset(
                           'assets/images/Thumbnails/Animation & Read/Ang Alamat ng Unggoy.png',
                           width: 150,
                           height: 150,
@@ -527,12 +541,20 @@ class _MyWidgetState extends State<Magbasacards> {
                         ),
                         SizedBox(height: 10),
                         Text(
-                          'Lorem ipsum dolor Lorem ipsum dolor',
+                          'Ito ay ang kwento ng unang Unggoy',
                           style: Design.desciption,
                         ),
                         SizedBox(height: 10),
                         ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              SlidePageRoute(
+                                page: AlamatngpinyaBasa(),
+                                direction: SlideDirection.right,
+                              ),
+                            );
+                          },
                           style: Design.buttonDesign,
                           child: Text('Basahin', style: Design.tara),
                         ),

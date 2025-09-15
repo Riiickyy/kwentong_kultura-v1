@@ -79,9 +79,15 @@ class Design {
     color: Colors.black,
   );
   static TextStyle readStory = TextStyle(
-    fontSize: 18,
+    fontSize: 24,
     fontWeight: FontWeight.w700,
     fontFamily: 'Nunito',
     color: Color(0xFF3f3f3f),
+  );
+  static TextStyle readTitle = TextStyle(
+    fontSize: 32,
+    fontWeight: FontWeight.w900,
+    fontFamily: 'Nunito',
+    color: Colors.black,
   );
 }
