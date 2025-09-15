@@ -570,7 +570,7 @@ class _MakinigcardsState extends State<Makinigcards> {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Image.network(
-                          'https://picsum.photos/250?image=9',
+                          'assets/images/Thumbnails/Animation & Read/Ang Alamat ng Unggoy.png',
                           width: 150,
                           height: 150,
                         ),

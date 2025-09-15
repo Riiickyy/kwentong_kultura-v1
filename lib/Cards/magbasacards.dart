@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:kwentong_kultura/AnimationPage/Malakasatmaganda_animation/malakasatmagandaTitle.dart';
 import 'package:kwentong_kultura/Classes/slide_transition.dart';
 import 'package:kwentong_kultura/MagbasaPage/Alamatngpinya_Magbasa/Alamatngpinya_basa.dart';
 import 'package:kwentong_kultura/MagbasaPage/AsoatKanyangAnino/asoatkanyanganino_basa.dart';
@@ -516,7 +515,7 @@ class _MyWidgetState extends State<Magbasacards> {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Image.network(
-                          'https://picsum.photos/250?image=9',
+                          'assets/images/Thumbnails/Animation & Read/Ang Alamat ng Unggoy.png',
                           width: 150,
                           height: 150,
                         ),

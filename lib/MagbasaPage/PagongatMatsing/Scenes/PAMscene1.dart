@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:kwentong_kultura/MagbasaPage/Kuneho%20at%20Pagong/Scenes/KAPscene10.dart';
-import 'package:kwentong_kultura/MagbasaPage/Kuneho%20at%20Pagong/Scenes/KAPscene8.dart';
+import 'package:kwentong_kultura/Classes/slide_transition.dart';
+import 'package:kwentong_kultura/MagbasaPage/PagongatMatsing/Scenes/PAMscene2.dart';
+import 'package:kwentong_kultura/MagbasaPage/PagongatMatsing/pagongatmatsing_basa.dart';
 import 'package:kwentong_kultura/Pages/taramagbasa.dart';
 import 'package:kwentong_kultura/Background%20Classes/background_read.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
 
-class Kapscene9 extends StatefulWidget {
-  const Kapscene9({super.key});
+class PamScene1 extends StatefulWidget {
+  const PamScene1({super.key});
 
   @override
-  State<Kapscene9> createState() => _Kapscene9State();
+  State<PamScene1> createState() => _PamScene1State();
 }
 
-class _Kapscene9State extends State<Kapscene9> {
+class _PamScene1State extends State<PamScene1> {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -24,50 +25,16 @@ class _Kapscene9State extends State<Kapscene9> {
           onPressed: () {
             Navigator.pushAndRemoveUntil(
               context,
-              PageRouteBuilder(
-                pageBuilder:
-                    (context, animation, secondaryAnimation) => Taramagbasa(),
-                transitionsBuilder: (
-                  context,
-                  animation,
-                  secondaryAnimation,
-                  child,
-                ) {
-                  const begin = Offset(
-                    -1.0,
-                    0.0,
-                  ); // Start position (right side)
-                  const end = Offset.zero; // End position (normal position)
-                  const curve = Curves.easeInOut;
-
-                  var tween = Tween(
-                    begin: begin,
-                    end: end,
-                  ).chain(CurveTween(curve: curve));
-                  var offsetAnimation = animation.drive(tween);
-
-                  // Create a fade animation for smooth fade in/out effect
-                  var fadeAnimation = Tween(
-                    begin: 0.0,
-                    end: 1.0,
-                  ).animate(CurvedAnimation(parent: animation, curve: curve));
-
-                  // Use both SlideTransition and FadeTransition
-                  return FadeTransition(
-                    opacity: fadeAnimation,
-                    child: SlideTransition(
-                      position: offsetAnimation,
-                      child: child,
-                    ),
-                  );
-                },
+              SlidePageRoute(
+                page: Taramagbasa(),
+                direction: SlideDirection.left,
               ),
               (Route<dynamic> route) => false,
             ); // This will navigate back to the previous screen
           },
         ),
         title: const Text(
-          "Ang Kuneho at ang Pagong",
+          "Si Pagong at Matsing",
           style: TextStyle(
             fontFamily: 'Nunito',
             fontWeight: FontWeight.w900,
@@ -101,7 +68,7 @@ class _Kapscene9State extends State<Kapscene9> {
                     decoration: BoxDecoration(
                       image: DecorationImage(
                         image: AssetImage(
-                          'assets/images/Read Scenes/Pagong at Kuneho/SC10.png',
+                          'assets/images/Read Scenes/Pagong at Matsing/SC2.png',
                         ), // Replace with your image
                         fit:
                             BoxFit
@@ -120,9 +87,10 @@ class _Kapscene9State extends State<Kapscene9> {
                   Container(
                     width: 300, // Specify the width here
                     child: Text(
-                      'Pagong: Tignan mo nga naman itong si kuneho. Masyado kasing nagtitiwala sa kanyang kakayahan. Ngayon, naunahan ko na siya, \n'
-                      'sabi ni Pagong  \n\n'
-                      'Ilang sandali pa lamang ay nakarating na ang pagong sa ilalim ng puno ng sampalok. \n',
+                      'Pagong: Hati tayo rito  \n\n'
+                      'ang wika ni Pagong \n'
+                      'Pagong: at kapwa natin itanim and mapagpipilian nating bahagi \n'
+                      'Ganoon nga ang kanilang ginawa. Pinutol nila ang punong saging sa pinakagitna, ',
                       style: Design.readStory,
                       textAlign: TextAlign.justify, // Justify the text
                     ),
@@ -138,32 +106,9 @@ class _Kapscene9State extends State<Kapscene9> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  PageRouteBuilder(
-                    pageBuilder:
-                        (context, animation, secondaryAnimation) =>
-                            Kapscene10(),
-                    transitionsBuilder: (
-                      context,
-                      animation,
-                      secondaryAnimation,
-                      child,
-                    ) {
-                      const begin = Offset(1.0, 0.0);
-                      const end = Offset.zero;
-                      const curve = Curves.easeInOut;
-
-                      var tween = Tween(
-                        begin: begin,
-                        end: end,
-                      ).chain(CurveTween(curve: curve));
-                      var offsetAnimation = animation.drive(tween);
-
-                      // Use SlideTransition to apply the animation
-                      return SlideTransition(
-                        position: offsetAnimation,
-                        child: child,
-                      );
-                    },
+                  SlidePageRoute(
+                    page: Pamscene2(),
+                    direction: SlideDirection.left,
                   ),
                 );
               },
@@ -190,31 +135,9 @@ class _Kapscene9State extends State<Kapscene9> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  PageRouteBuilder(
-                    pageBuilder:
-                        (context, animation, secondaryAnimation) => Kapscene8(),
-                    transitionsBuilder: (
-                      context,
-                      animation,
-                      secondaryAnimation,
-                      child,
-                    ) {
-                      const begin = Offset(-1.0, 0.0);
-                      const end = Offset.zero;
-                      const curve = Curves.easeInOut;
-
-                      var tween = Tween(
-                        begin: begin,
-                        end: end,
-                      ).chain(CurveTween(curve: curve));
-                      var offsetAnimation = animation.drive(tween);
-
-                      // Use SlideTransition to apply the animation
-                      return SlideTransition(
-                        position: offsetAnimation,
-                        child: child,
-                      );
-                    },
+                  SlidePageRoute(
+                    page: PagongatMatsingBasa(),
+                    direction: SlideDirection.left,
                   ),
                 );
               },

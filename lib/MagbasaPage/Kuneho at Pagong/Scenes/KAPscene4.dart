@@ -105,7 +105,7 @@ class _Kapscene4State extends State<Kapscene4> {
                         ), // Replace with your image
                         fit:
                             BoxFit
-                                .cover, // You can adjust fit (contain, cover, etc.)
+                                .contain, // You can adjust fit (contain, cover, etc.)
                       ),
                     ),
                   ),

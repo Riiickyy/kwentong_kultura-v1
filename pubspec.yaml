@@ -94,22 +94,13 @@ flutter:
     - assets/images/Read Scenes/Ang aso at kanyang anino/
     - assets/images/Read Scenes/Pagong at Kuneho/
     - assets/images/Read Scenes/Malakas at Maganda/
+    - assets/images/Read Scenes/Pagong at Matsing/
     - assets/background.mp3
     - assets/pdfs/Pinya.pdf
-    - assets/images/Color/Character/Si Pagong (Sketched).png
-    - assets/images/Color/Character/Si Kuneho (Sketched).png
-    - assets/images/Color/Character/Ang Aso (Sketched).png
-    - assets/images/Color/Scenario/kuneho at pagong Mangga (sketched).jpg
-    - assets/images/Color/Scenario/KareraniKunehoatPagong (Sketched).png
-    - assets/images/Color/Scenario/TulognasiKuneho (Sketched).png
+    - assets/images/Color/Character/
     - assets/Buttonclick.mp3
     - assets/images/Thumbnails/Animation & Read/
-    - assets/images/Thumbnails/Kulay/Scenario/Pagong at ang kuneho sa ilalim ng mangga thumbnail.jpg
-    - assets/images/Thumbnails/Kulay/Character/Sipagongthumbnail.png
-    - assets/images/Thumbnails/Kulay/Character/Kunehothumbnail.jpg
-    - assets/images/Thumbnails/Kulay/Character/Ang aso Thumbnail.jpg
-    - assets/images/Thumbnails/Kulay/Scenario/Karera ni kuneho at pagong.jpg
-    - assets/images/Thumbnails/Kulay/Scenario/Tulogsikuneho Thumbnnail.png
+    - assets/images/Thumbnails/Kulay/Character/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
