@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:kwentong_kultura/Classes/slide_transition.dart';
-import 'package:kwentong_kultura/MagbasaPage/Alamatngpinya_Magbasa/Alamatngpinya_basa.dart';
+import 'package:kwentong_kultura/MagbasaPage/Alamatngpinya_Magbasa/Scenes/ANPscene2.dart';
+import 'package:kwentong_kultura/MagbasaPage/Alamatngunggoy/Scenes/ANUscene3.dart';
+import 'package:kwentong_kultura/MagbasaPage/Alamatngunggoy/Scenes/ANUscene5.dart';
 import 'package:kwentong_kultura/Pages/taramagbasa.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
 
-class Anpscene1 extends StatefulWidget {
-  const Anpscene1({super.key});
+class Anuscene4 extends StatefulWidget {
+  const Anuscene4({super.key});
 
   @override
-  State<Anpscene1> createState() => _Anpscene1State();
+  State<Anuscene4> createState() => _Anuscene4State();
 }
 
-class _Anpscene1State extends State<Anpscene1> {
+class _Anuscene4State extends State<Anuscene4> {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -32,7 +34,7 @@ class _Anpscene1State extends State<Anpscene1> {
           },
         ),
         title: const Text(
-          "Si Pagong at Matsing",
+          "Ang Alamat ng Unggoy",
           style: TextStyle(
             fontFamily: 'Nunito',
             fontWeight: FontWeight.w900,
@@ -64,7 +66,7 @@ class _Anpscene1State extends State<Anpscene1> {
                       decoration: BoxDecoration(
                         image: DecorationImage(
                           image: AssetImage(
-                            'assets/images/Read Scenes/Alamat ng Pinya/SC2.png',
+                            'assets/images/Read Scenes/Alamat ng unggoy/SC3.png',
                           ), // Replace with your image
                           fit:
                               BoxFit
@@ -92,10 +94,13 @@ class _Anpscene1State extends State<Anpscene1> {
                       width: 300,
                       height: 450,
                       child: Text(
-                        'Si Pina ay lumaki sa layaw dahil na rin sa kagagawan ni Aling Rosa. \n \n'
-                        'Gustuhin man niyang turuan itong gumawa sa bahay at magbago ng ugali ay hindi na niya magawa. \n\n'
-                        'Ayang nang baguhin ni Pina ang kanyang nakasanayang masarap na buhay .  \n\n'
-                        'Kung kaya’t napilitan si Aling Rosa na kahit matanda na ay siya pa rin ang nagtatrabaho at gumawa ng lahat ng gawain sa bahay. a ',
+                        'Ina: O! talagang napakatamad mong bata ka! \n \n'
+                        'At napaiyak na ang kanyang ina.  \n\n'
+                        'Pinalo nang pinalo si Juan ng sandok.  \n\n'
+                        'Tumakbong palayo si Juan. \n\n'
+                        'Ibinato ng ina kay Juan ang kutsarang kahoy. \n\n'
+                        'At sinabi niyang \n\n'
+                        'Ina: Magkaroon ka sana ng buntot sa likuran!',
                         style: Design.readStory,
                         textAlign: TextAlign.justify, // Justify the text
                       ),
@@ -122,7 +127,7 @@ class _Anpscene1State extends State<Anpscene1> {
                 Navigator.push(
                   context,
                   SlidePageRoute(
-                    page: Pamscene2(),
+                    page: Anuscene5(),
                     direction: SlideDirection.right,
                   ),
                 );
@@ -151,7 +156,7 @@ class _Anpscene1State extends State<Anpscene1> {
                 Navigator.push(
                   context,
                   SlidePageRoute(
-                    page: AlamatngpinyaBasa(),
+                    page: Anuscene3(),
                     direction: SlideDirection.left,
                   ),
                 );

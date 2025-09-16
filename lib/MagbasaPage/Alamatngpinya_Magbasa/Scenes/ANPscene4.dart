@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:kwentong_kultura/Classes/slide_transition.dart';
-import 'package:kwentong_kultura/MagbasaPage/Alamatngpinya_Magbasa/Alamatngpinya_basa.dart';
+import 'package:kwentong_kultura/MagbasaPage/Alamatngpinya_Magbasa/Scenes/ANPscene2.dart';
 import 'package:kwentong_kultura/Pages/taramagbasa.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
 
-class Anpscene1 extends StatefulWidget {
-  const Anpscene1({super.key});
+class Anpscene4 extends StatefulWidget {
+  const Anpscene4({super.key});
 
   @override
-  State<Anpscene1> createState() => _Anpscene1State();
+  State<Anpscene4> createState() => _Anpscene4State();
 }
 
-class _Anpscene1State extends State<Anpscene1> {
+class _Anpscene4State extends State<Anpscene4> {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -32,7 +32,7 @@ class _Anpscene1State extends State<Anpscene1> {
           },
         ),
         title: const Text(
-          "Si Pagong at Matsing",
+          "Ang Alamat ng Pinya",
           style: TextStyle(
             fontFamily: 'Nunito',
             fontWeight: FontWeight.w900,
@@ -64,7 +64,7 @@ class _Anpscene1State extends State<Anpscene1> {
                       decoration: BoxDecoration(
                         image: DecorationImage(
                           image: AssetImage(
-                            'assets/images/Read Scenes/Alamat ng Pinya/SC2.png',
+                            'assets/images/Read Scenes/Alamat ng Pinya/SC5.png',
                           ), // Replace with your image
                           fit:
                               BoxFit
@@ -92,10 +92,11 @@ class _Anpscene1State extends State<Anpscene1> {
                       width: 300,
                       height: 450,
                       child: Text(
-                        'Si Pina ay lumaki sa layaw dahil na rin sa kagagawan ni Aling Rosa. \n \n'
-                        'Gustuhin man niyang turuan itong gumawa sa bahay at magbago ng ugali ay hindi na niya magawa. \n\n'
-                        'Ayang nang baguhin ni Pina ang kanyang nakasanayang masarap na buhay .  \n\n'
-                        'Kung kaya’t napilitan si Aling Rosa na kahit matanda na ay siya pa rin ang nagtatrabaho at gumawa ng lahat ng gawain sa bahay. a ',
+                        'Isang araw ay magluluto na naman si Pina \n \n'
+                        'Hindi siya makapagsimula dahil hindi niya makita ang sandok \n\n'
+                        'Hinanap niya itong mabuti sa loob ng bahay ngunit di pa rin niya makita\n\n'
+                        'Nagreklamo na siya sa kanyang ina.  \n\n'
+                        'Inutusan siya ng ina na bumaba ng bahay at doon hanapin dahil baka nahulog sa lupa.',
                         style: Design.readStory,
                         textAlign: TextAlign.justify, // Justify the text
                       ),
@@ -122,7 +123,7 @@ class _Anpscene1State extends State<Anpscene1> {
                 Navigator.push(
                   context,
                   SlidePageRoute(
-                    page: Pamscene2(),
+                    page: Anpscene3(),
                     direction: SlideDirection.right,
                   ),
                 );
@@ -151,7 +152,7 @@ class _Anpscene1State extends State<Anpscene1> {
                 Navigator.push(
                   context,
                   SlidePageRoute(
-                    page: AlamatngpinyaBasa(),
+                    page: Anpscene2(),
                     direction: SlideDirection.left,
                   ),
                 );

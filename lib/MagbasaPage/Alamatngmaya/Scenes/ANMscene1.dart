@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:kwentong_kultura/Classes/slide_transition.dart';
-import 'package:kwentong_kultura/MagbasaPage/Alamatngpinya_Magbasa/Alamatngpinya_basa.dart';
+import 'package:kwentong_kultura/MagbasaPage/Alamatngmaya/alamatngmaya_basa.dart';
 import 'package:kwentong_kultura/Pages/taramagbasa.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
 
-class Anpscene1 extends StatefulWidget {
-  const Anpscene1({super.key});
+class Anmscene1 extends StatefulWidget {
+  const Anmscene1({super.key});
 
   @override
-  State<Anpscene1> createState() => _Anpscene1State();
+  State<Anmscene1> createState() => _Anmscene1State();
 }
 
-class _Anpscene1State extends State<Anpscene1> {
+class _Anmscene1State extends State<Anmscene1> {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -25,14 +25,14 @@ class _Anpscene1State extends State<Anpscene1> {
               context,
               SlidePageRoute(
                 page: Taramagbasa(),
-                direction: SlideDirection.left,
+                direction: SlideDirection.right,
               ),
               (Route<dynamic> route) => false,
             ); // This will navigate back to the previous screen
           },
         ),
         title: const Text(
-          "Si Pagong at Matsing",
+          "Ang Aso at ang Kanyang Anino",
           style: TextStyle(
             fontFamily: 'Nunito',
             fontWeight: FontWeight.w900,
@@ -64,7 +64,7 @@ class _Anpscene1State extends State<Anpscene1> {
                       decoration: BoxDecoration(
                         image: DecorationImage(
                           image: AssetImage(
-                            'assets/images/Read Scenes/Alamat ng Pinya/SC2.png',
+                            'assets/images/Read Scenes/Alamat ng Maya/SC2.png',
                           ), // Replace with your image
                           fit:
                               BoxFit
@@ -90,12 +90,13 @@ class _Anpscene1State extends State<Anpscene1> {
                   children: [
                     Container(
                       width: 300,
-                      height: 450,
+                      height: 450, // Specify the width here
                       child: Text(
-                        'Si Pina ay lumaki sa layaw dahil na rin sa kagagawan ni Aling Rosa. \n \n'
-                        'Gustuhin man niyang turuan itong gumawa sa bahay at magbago ng ugali ay hindi na niya magawa. \n\n'
-                        'Ayang nang baguhin ni Pina ang kanyang nakasanayang masarap na buhay .  \n\n'
-                        'Kung kaya’t napilitan si Aling Rosa na kahit matanda na ay siya pa rin ang nagtatrabaho at gumawa ng lahat ng gawain sa bahay. a ',
+                        'Nagbabayo ng palay ang ina nito isang umaga.\n\n'
+                        'Sapagkat sa tanghalian ay wala na silang isasaing. \n\n'
+                        'Habang ang batang si Mayan ay abala naman sa pakikipaglaro sa kanyang mga kapwa bata.\n\n'
+                        'Nang datnan siya ng pagkapagod ay lumapit sa kanyang ina at pinanood na lamang ang kanyang ina sa pagbabayo. \n\n'
+                        'Habang siya’y nakaupo, nakadama siya ng pagkalam ng sikmura.',
                         style: Design.readStory,
                         textAlign: TextAlign.justify, // Justify the text
                       ),
@@ -122,7 +123,7 @@ class _Anpscene1State extends State<Anpscene1> {
                 Navigator.push(
                   context,
                   SlidePageRoute(
-                    page: Pamscene2(),
+                    page: Aakaascene2(),
                     direction: SlideDirection.right,
                   ),
                 );
@@ -151,7 +152,7 @@ class _Anpscene1State extends State<Anpscene1> {
                 Navigator.push(
                   context,
                   SlidePageRoute(
-                    page: AlamatngpinyaBasa(),
+                    page: AlamatngmayaBasa(),
                     direction: SlideDirection.left,
                   ),
                 );

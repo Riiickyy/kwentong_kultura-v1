@@ -1,6 +1,6 @@
 import 'package:appinio_video_player/appinio_video_player.dart';
 import 'package:flutter/material.dart';
-import 'package:kwentong_kultura/QUIZZES/angasoatkanyanganinoQuiz.dart';
+import 'package:kwentong_kultura/QUIZZES/alamatngunggoyQuiz.dart';
 import 'package:video_player/video_player.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
 
@@ -594,7 +594,7 @@ class _AlamantngunggoyCTState extends State<AlamantngunggoyCT> {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return AngAsoatkanyangAninoQuiz();
+                      return AlamatngunggoyQuiz();
                     },
                   ),
                 );

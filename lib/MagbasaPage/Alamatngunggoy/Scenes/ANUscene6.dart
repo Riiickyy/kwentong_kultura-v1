@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:kwentong_kultura/AnimationPage/angalamatngunggoy_animation/alamantngunggoyTitle.dart';
 import 'package:kwentong_kultura/Classes/slide_transition.dart';
-import 'package:kwentong_kultura/MagbasaPage/Alamatngpinya_Magbasa/Alamatngpinya_basa.dart';
+import 'package:kwentong_kultura/MagbasaPage/Alamatngunggoy/Scenes/ANUscene4.dart';
 import 'package:kwentong_kultura/Pages/taramagbasa.dart';
+import 'package:kwentong_kultura/QUIZZES/alamatngunggoyQuiz.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
 
-class Anpscene1 extends StatefulWidget {
-  const Anpscene1({super.key});
+class Anuscene6 extends StatefulWidget {
+  const Anuscene6({super.key});
 
   @override
-  State<Anpscene1> createState() => _Anpscene1State();
+  State<Anuscene6> createState() => _Anuscene6State();
 }
 
-class _Anpscene1State extends State<Anpscene1> {
+class _Anuscene6State extends State<Anuscene6> {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -32,7 +34,7 @@ class _Anpscene1State extends State<Anpscene1> {
           },
         ),
         title: const Text(
-          "Si Pagong at Matsing",
+          "Ang Alamat ng Unggoy",
           style: TextStyle(
             fontFamily: 'Nunito',
             fontWeight: FontWeight.w900,
@@ -64,7 +66,7 @@ class _Anpscene1State extends State<Anpscene1> {
                       decoration: BoxDecoration(
                         image: DecorationImage(
                           image: AssetImage(
-                            'assets/images/Read Scenes/Alamat ng Pinya/SC2.png',
+                            'assets/images/Read Scenes/Alamat ng unggoy/SC7.png',
                           ), // Replace with your image
                           fit:
                               BoxFit
@@ -92,10 +94,12 @@ class _Anpscene1State extends State<Anpscene1> {
                       width: 300,
                       height: 450,
                       child: Text(
-                        'Si Pina ay lumaki sa layaw dahil na rin sa kagagawan ni Aling Rosa. \n \n'
-                        'Gustuhin man niyang turuan itong gumawa sa bahay at magbago ng ugali ay hindi na niya magawa. \n\n'
-                        'Ayang nang baguhin ni Pina ang kanyang nakasanayang masarap na buhay .  \n\n'
-                        'Kung kaya’t napilitan si Aling Rosa na kahit matanda na ay siya pa rin ang nagtatrabaho at gumawa ng lahat ng gawain sa bahay. a ',
+                        'Nang ibuka ni Juan ang kanyang bibig, upang humingi ng tawad sa ina ay boses na lamang na maaligasgas ang lumabas sa kanyang bibig. \n \n'
+                        'At nagsimulang tumubo ang mahahabang buhok at buntot sa kanyang katawan. \n\n'
+                        'Hindi na siya muling nakapagsasalita.  \n\n'
+                        'Si Juan ang naging kauna-unahang unggoy. \n\n'
+                        'Siya ay hindi pinarusahan ng kanyang ina.  \n\n'
+                        'Siya na rin ang nadala ng parusa sa kanyang sarili.',
                         style: Design.readStory,
                         textAlign: TextAlign.justify, // Justify the text
                       ),
@@ -122,19 +126,19 @@ class _Anpscene1State extends State<Anpscene1> {
                 Navigator.push(
                   context,
                   SlidePageRoute(
-                    page: Pamscene2(),
-                    direction: SlideDirection.right,
+                    page: AlamatngunggoyQuiz(),
+                    direction: SlideDirection.up,
                   ),
                 );
               },
               style: Design.nextandPrevButtonDesign,
               icon: Icon(
-                Icons.arrow_forward, // Next button icon
+                Icons.quiz, // Next button icon
                 size: 32, // Icon size
                 color: Colors.white, // Icon color
               ),
               label: Text(
-                'Next', // Button label
+                'Take Quiz', // Button label
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 18, // Font size of label
@@ -151,19 +155,19 @@ class _Anpscene1State extends State<Anpscene1> {
                 Navigator.push(
                   context,
                   SlidePageRoute(
-                    page: AlamatngpinyaBasa(),
-                    direction: SlideDirection.left,
+                    page: AlamantngunggoyTitle(),
+                    direction: SlideDirection.down,
                   ),
                 );
               },
               style: Design.nextandPrevButtonDesign,
               icon: Icon(
-                Icons.arrow_back, // Next button icon
+                Icons.live_tv_rounded, // Next button icon
                 size: 32, // Icon size
                 color: Colors.white, // Icon color
               ),
               label: Text(
-                'Prev', // Button label
+                'Watch', // Button label
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 18, // Font size of label
