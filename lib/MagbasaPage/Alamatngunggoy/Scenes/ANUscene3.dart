@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kwentong_kultura/Classes/slide_transition.dart';
-import 'package:kwentong_kultura/MagbasaPage/Alamatngpinya_Magbasa/Scenes/ANPscene2.dart';
-import 'package:kwentong_kultura/MagbasaPage/Alamatngunggoy/Scenes/ANUscene1.dart';
+import 'package:kwentong_kultura/MagbasaPage/Alamatngunggoy/Scenes/ANUscene2.dart';
+import 'package:kwentong_kultura/MagbasaPage/Alamatngunggoy/Scenes/ANUscene4.dart';
 import 'package:kwentong_kultura/Pages/taramagbasa.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
 
@@ -65,7 +65,7 @@ class _Anuscene3State extends State<Anuscene3> {
                       decoration: BoxDecoration(
                         image: DecorationImage(
                           image: AssetImage(
-                            'assets/images/Read Scenes/Alamat ng unggoy/SC3.png',
+                            'assets/images/Read Scenes/Alamat ng unggoy/SC4.png',
                           ), // Replace with your image
                           fit:
                               BoxFit
@@ -91,12 +91,14 @@ class _Anuscene3State extends State<Anuscene3> {
                   children: [
                     Container(
                       width: 300,
-                      height: 450,
+                      height: 1050,
                       child: Text(
-                        'Hinila niya papasok ng bahay si Juan at sinabing \n \n'
-                        'Ina: Nahanap mo na ba ang sandok? \n\n'
-                        'Ina: Pupunta ako ngayon sa palengke at gusto ko pagbalik ko ay nahanap mo na ang sandok na aking ipinahahanap  \n\n'
-                        'At iniwan na niya ang batang tamad, para masunod na nito ang kanyang iniutos.',
+                        'Pagkaalis ng ina, hindi man lang sinubukan ni Juan na hanapin ang nawawalang sandok. \n \n'
+                        'Sa halip ay naisip niyang kunin na lamang ang kanyang nakitang malaking kutsara na gawa sa kahoy.  \n\n'
+                        'Pupuwedeng ipalit ito sa kanyang hinahanap na sandok. \n\n'
+                        'At nagsimula na muling maglaro hanggang sa pagdating ng kanyang ina.\n\n'
+                        'Ibinigay niya sa ina ang malaking kutsara at sinabing \n\n'
+                        'Juan: Hindi ko mahanap ang sandok, kasi tinatamad ako, pwede na itong malaking kahoy na kutsara na aking nakuha bilang pamalit sa nawawalang sandok',
                         style: Design.readStory,
                         textAlign: TextAlign.justify, // Justify the text
                       ),
@@ -123,7 +125,7 @@ class _Anuscene3State extends State<Anuscene3> {
                 Navigator.push(
                   context,
                   SlidePageRoute(
-                    page: Anpscene2(),
+                    page: Anuscene4(),
                     direction: SlideDirection.right,
                   ),
                 );
@@ -152,7 +154,7 @@ class _Anuscene3State extends State<Anuscene3> {
                 Navigator.push(
                   context,
                   SlidePageRoute(
-                    page: Anuscene1(),
+                    page: Anuscene2(),
                     direction: SlideDirection.left,
                   ),
                 );

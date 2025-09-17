@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kwentong_kultura/Classes/slide_transition.dart';
-import 'package:kwentong_kultura/MagbasaPage/Alamatngpinya_Magbasa/Alamatngpinya_basa.dart';
+import 'package:kwentong_kultura/MagbasaPage/Alamatngpinya_Magbasa/Scenes/ANPscene1.dart';
+import 'package:kwentong_kultura/MagbasaPage/Alamatngpinya_Magbasa/Scenes/ANPscene3.dart';
 import 'package:kwentong_kultura/Pages/taramagbasa.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
 
@@ -32,7 +33,7 @@ class _Anpscene2State extends State<Anpscene2> {
           },
         ),
         title: const Text(
-          "Si Pagong at Matsing",
+          "Ang Alamat ng Pinya",
           style: TextStyle(
             fontFamily: 'Nunito',
             fontWeight: FontWeight.w900,
@@ -121,7 +122,7 @@ class _Anpscene2State extends State<Anpscene2> {
                 Navigator.push(
                   context,
                   SlidePageRoute(
-                    page: Anpscene2(),
+                    page: Anpscene3(),
                     direction: SlideDirection.right,
                   ),
                 );
@@ -150,7 +151,7 @@ class _Anpscene2State extends State<Anpscene2> {
                 Navigator.push(
                   context,
                   SlidePageRoute(
-                    page: AlamatngpinyaBasa(),
+                    page: Anpscene1(),
                     direction: SlideDirection.left,
                   ),
                 );

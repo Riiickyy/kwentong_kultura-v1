@@ -38,7 +38,7 @@ class _AlamatngpinyaBasaState extends State<AlamatngpinyaBasa> {
           },
         ),
         title: const Text(
-          "Si Pagong at Matsing",
+          "Ang Alamat ng Pinya",
           style: TextStyle(
             fontFamily: 'Nunito',
             fontWeight: FontWeight.w900,
@@ -91,7 +91,7 @@ class _AlamatngpinyaBasaState extends State<AlamatngpinyaBasa> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text('Alamat ng Pinya', style: Design.readTitle),
+                    Text('Ang Alamat ng Pinya', style: Design.readTitle),
                     SizedBox(height: 20),
                     Container(
                       width: 300,

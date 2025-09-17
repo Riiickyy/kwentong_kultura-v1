@@ -54,7 +54,7 @@ class _MakinigcardsState extends State<Makinigcards> {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Image.asset(
-                          'assets/images/Thumbnails/Animation & Read/Ang Alamat ng Pinya.png',
+                          'assets/images/Thumbnails/Animation & Read/Ang Alamat ng Pinya.jpg',
                           width: 150,
                           height: 100,
                         ),
@@ -180,7 +180,7 @@ class _MakinigcardsState extends State<Makinigcards> {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Image.asset(
-                          'assets/images/Thumbnails/Animation & Read/Si Matsing at ang Pagong.png',
+                          'assets/images/Thumbnails/Animation & Read/Si Matsing at ang Pagong.jpg',
                           width: 150,
                           height: 100,
                         ),
@@ -371,7 +371,7 @@ class _MakinigcardsState extends State<Makinigcards> {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Image.asset(
-                          'assets/images/Thumbnails/Animation & Read/Ang Alamat ng Maya.png',
+                          'assets/images/Thumbnails/Animation & Read/Ang Alamat ng Maya.jpg',
                           width: 150,
                           height: 100,
                         ),

@@ -1,6 +1,6 @@
 import 'package:appinio_video_player/appinio_video_player.dart';
 import 'package:flutter/material.dart';
-import 'package:kwentong_kultura/QUIZZES/angasoatkanyanganinoQuiz.dart';
+import 'package:kwentong_kultura/QUIZZES/alamatngmayaQuiz.dart';
 import 'package:video_player/video_player.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
 
@@ -452,7 +452,7 @@ class _AlamatngmayaCTState extends State<AlamatngmayaCT> {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return AngAsoatkanyangAninoQuiz();
+                      return AlamatngmayaQuiz();
                     },
                   ),
                 );

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kwentong_kultura/Classes/slide_transition.dart';
+import 'package:kwentong_kultura/MagbasaPage/Alamatngunggoy/Scenes/ANUscene4.dart';
+import 'package:kwentong_kultura/MagbasaPage/Alamatngunggoy/Scenes/ANUscene6.dart';
 import 'package:kwentong_kultura/Pages/taramagbasa.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
 
@@ -89,7 +91,7 @@ class _Anuscene5State extends State<Anuscene5> {
                   children: [
                     Container(
                       width: 300,
-                      height: 450,
+                      height: 650,
                       child: Text(
                         'Nagulat na lamang ang ina nang makita si Juan na lumambitin sa isang puno upang makaiwas.  \n \n'
                         'At napaiyak na ang kanyang ina.  \n\n'
@@ -122,7 +124,7 @@ class _Anuscene5State extends State<Anuscene5> {
                 Navigator.push(
                   context,
                   SlidePageRoute(
-                    page: Anuscene5(),
+                    page: Anuscene6(),
                     direction: SlideDirection.right,
                   ),
                 );
@@ -151,7 +153,7 @@ class _Anuscene5State extends State<Anuscene5> {
                 Navigator.push(
                   context,
                   SlidePageRoute(
-                    page: Anuscene3(),
+                    page: Anuscene4(),
                     direction: SlideDirection.left,
                   ),
                 );

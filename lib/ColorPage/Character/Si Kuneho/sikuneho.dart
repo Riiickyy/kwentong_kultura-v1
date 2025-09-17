@@ -202,7 +202,22 @@ class _SiKunehoState extends State<SiKuneho> {
       ),
       body: Stack(
         children: [
-          Container(color: Color(0xFFC5F1FF)),
+          Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(
+                  'assets/images/Animation Page/PaperBG.png',
+                ), // Replace with your image path
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: -30,
+            left: 10,
+            width: 150,
+            child: Image.asset('assets/Animations/Paint/Paint.gif'),
+          ),
 
           Center(
             child: Column(

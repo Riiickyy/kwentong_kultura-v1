@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kwentong_kultura/AnimationPage/angalamatngunggoy_animation/alamantngunggoyTitle.dart';
 import 'package:kwentong_kultura/Classes/slide_transition.dart';
-import 'package:kwentong_kultura/MagbasaPage/Alamatngunggoy/Scenes/ANUscene4.dart';
 import 'package:kwentong_kultura/Pages/taramagbasa.dart';
 import 'package:kwentong_kultura/QUIZZES/alamatngunggoyQuiz.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
@@ -92,7 +91,7 @@ class _Anuscene6State extends State<Anuscene6> {
                   children: [
                     Container(
                       width: 300,
-                      height: 450,
+                      height: 850,
                       child: Text(
                         'Nang ibuka ni Juan ang kanyang bibig, upang humingi ng tawad sa ina ay boses na lamang na maaligasgas ang lumabas sa kanyang bibig. \n \n'
                         'At nagsimulang tumubo ang mahahabang buhok at buntot sa kanyang katawan. \n\n'

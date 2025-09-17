@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:kwentong_kultura/Classes/slide_transition.dart';
+import 'package:kwentong_kultura/MagbasaPage/Alamatngmaya/alamatngmaya_basa.dart';
 import 'package:kwentong_kultura/MagbasaPage/Alamatngpinya_Magbasa/Alamatngpinya_basa.dart';
+import 'package:kwentong_kultura/MagbasaPage/Alamatngunggoy/alamatngunggoy_basa.dart';
 import 'package:kwentong_kultura/MagbasaPage/AsoatKanyangAnino/asoatkanyanganino_basa.dart';
 import 'package:kwentong_kultura/MagbasaPage/Kuneho%20at%20Pagong/kunehoatpagong_basa.dart';
 import 'package:kwentong_kultura/MagbasaPage/MalakasatMaganda/malakasatmaganda_basa.dart';
@@ -308,12 +310,20 @@ class _MyWidgetState extends State<Magbasacards> {
                         ),
                         SizedBox(height: 10),
                         Text(
-                          'Lorem ipsum dolor Lorem ipsum dolor',
+                          'Ito ay ang kwento ng unang ibong maya',
                           style: Design.desciption,
                         ),
                         SizedBox(height: 10),
                         ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              SlidePageRoute(
+                                page: AlamatngmayaBasa(),
+                                direction: SlideDirection.right,
+                              ),
+                            );
+                          },
                           style: Design.buttonDesign,
                           child: Text('Basahin', style: Design.tara),
                         ),
@@ -353,7 +363,7 @@ class _MyWidgetState extends State<Magbasacards> {
                         ),
                         SizedBox(height: 10),
                         Text(
-                          'Alamat ng Niyog',
+                          'Ito ay kwento ng kauna-unahang puno ng Niyog',
                           style: Design.storyTitle,
                           textAlign: TextAlign.center,
                         ),
@@ -550,7 +560,7 @@ class _MyWidgetState extends State<Magbasacards> {
                             Navigator.push(
                               context,
                               SlidePageRoute(
-                                page: AlamatngpinyaBasa(),
+                                page: AlamatngunggoyBasa(),
                                 direction: SlideDirection.right,
                               ),
                             );

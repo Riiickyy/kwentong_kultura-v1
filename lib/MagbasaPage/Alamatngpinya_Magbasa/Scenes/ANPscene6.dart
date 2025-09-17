@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kwentong_kultura/Classes/slide_transition.dart';
-import 'package:kwentong_kultura/MagbasaPage/Alamatngpinya_Magbasa/Scenes/ANPscene3.dart';
+import 'package:kwentong_kultura/MagbasaPage/Alamatngpinya_Magbasa/Scenes/ANPscene5.dart';
+import 'package:kwentong_kultura/MagbasaPage/Alamatngpinya_Magbasa/Scenes/ANPscene7.dart';
 import 'package:kwentong_kultura/Pages/taramagbasa.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
 
@@ -90,7 +91,7 @@ class _Anpscene6State extends State<Anpscene6> {
                   children: [
                     Container(
                       width: 300,
-                      height: 1000,
+                      height: 900,
                       child: Text(
                         'Ilang oras ang nagdaan ay hindi pa umaakyat si Pina sa bahay.  \n \n'
                         'Lumipas na ang gutom ni Aling Rosa ay wala pa rin si Pina. \n\n'
@@ -125,7 +126,7 @@ class _Anpscene6State extends State<Anpscene6> {
                 Navigator.push(
                   context,
                   SlidePageRoute(
-                    page: Anpscene3(),
+                    page: Anpscene7(),
                     direction: SlideDirection.right,
                   ),
                 );
@@ -154,7 +155,7 @@ class _Anpscene6State extends State<Anpscene6> {
                 Navigator.push(
                   context,
                   SlidePageRoute(
-                    page: Anpscene7(),
+                    page: Anpscene5(),
                     direction: SlideDirection.left,
                   ),
                 );

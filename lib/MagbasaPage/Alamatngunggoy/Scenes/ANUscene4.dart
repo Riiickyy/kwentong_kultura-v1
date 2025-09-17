@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:kwentong_kultura/Classes/slide_transition.dart';
-import 'package:kwentong_kultura/MagbasaPage/Alamatngpinya_Magbasa/Scenes/ANPscene2.dart';
 import 'package:kwentong_kultura/MagbasaPage/Alamatngunggoy/Scenes/ANUscene3.dart';
 import 'package:kwentong_kultura/MagbasaPage/Alamatngunggoy/Scenes/ANUscene5.dart';
 import 'package:kwentong_kultura/Pages/taramagbasa.dart';
@@ -66,7 +65,7 @@ class _Anuscene4State extends State<Anuscene4> {
                       decoration: BoxDecoration(
                         image: DecorationImage(
                           image: AssetImage(
-                            'assets/images/Read Scenes/Alamat ng unggoy/SC3.png',
+                            'assets/images/Read Scenes/Alamat ng unggoy/SC5.png',
                           ), // Replace with your image
                           fit:
                               BoxFit
@@ -92,7 +91,7 @@ class _Anuscene4State extends State<Anuscene4> {
                   children: [
                     Container(
                       width: 300,
-                      height: 450,
+                      height: 750,
                       child: Text(
                         'Ina: O! talagang napakatamad mong bata ka! \n \n'
                         'At napaiyak na ang kanyang ina.  \n\n'

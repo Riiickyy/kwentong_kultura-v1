@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kwentong_kultura/Classes/slide_transition.dart';
-import 'package:kwentong_kultura/MagbasaPage/PagongatMatsing/Scenes/PAMscene1.dart';
+import 'package:kwentong_kultura/MagbasaPage/Alamatngmaya/Scenes/ANMscene1.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
 import 'package:kwentong_kultura/Pages/taramagbasa.dart';
 
@@ -38,7 +38,7 @@ class _AlamatngmayaBasaState extends State<AlamatngmayaBasa> {
           },
         ),
         title: const Text(
-          "Si Pagong at Matsing",
+          "Ang Alamat ng Maya",
           style: TextStyle(
             fontFamily: 'Nunito',
             fontWeight: FontWeight.w900,
@@ -91,15 +91,15 @@ class _AlamatngmayaBasaState extends State<AlamatngmayaBasa> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text('Si Pagong at Matsing', style: Design.readTitle),
+                    Text('Ang Alamat ng Maya', style: Design.readTitle),
                     SizedBox(height: 20),
                     Container(
                       width: 300,
-                      height: 450, // Specify the width here
+                      height: 650, // Specify the width here
                       child: Text(
-                        'Minsan sa paglalakad nina matsing at Pagong ay di sinasadyang makakita sila ng isang punong saging.  \n\n'
-                        'Ang punong ito’y mataba at malaki, malalapad ang kulay luntiang mga dahon. \n\n'
-                        'Napagkaisahan nilang kunin ang punong iyon. \n',
+                        'Noog unang panahon sa isang liblib na lugar sa Bundok ng Karabalyo, may mag-inaing nahananahan doon. \n\n'
+                        'Nakaugalian na sa kanilang lugar na kailangang bayuhin muna ang palay bago kainin.\n\n'
+                        'Si Mayan ay isang batang babaeng may labing-tatlong taong gulang, bukod sa ito’y ubod ng likot, saksakan pa ito ng tamad.\n',
                         style: Design.readStory,
                         textAlign: TextAlign.justify, // Justify the text
                       ),
@@ -127,7 +127,7 @@ class _AlamatngmayaBasaState extends State<AlamatngmayaBasa> {
                 Navigator.push(
                   context,
                   SlidePageRoute(
-                    page: PamScene1(),
+                    page: Anmscene1(),
                     direction: SlideDirection.right,
                   ),
                 );

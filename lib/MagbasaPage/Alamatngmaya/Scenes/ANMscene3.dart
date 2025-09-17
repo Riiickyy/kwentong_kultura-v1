@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:kwentong_kultura/AnimationPage/alamatngmaya_animation/alamatngmayaTitle.dart';
 import 'package:kwentong_kultura/Classes/slide_transition.dart';
-import 'package:kwentong_kultura/MagbasaPage/Alamatngmaya/Scenes/ANMscene1.dart';
 import 'package:kwentong_kultura/Pages/taramagbasa.dart';
+import 'package:kwentong_kultura/QUIZZES/alamatngmayaQuiz.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
 
 class Anmscene3 extends StatefulWidget {
@@ -90,14 +91,14 @@ class _Anmscene3State extends State<Anmscene3> {
                   children: [
                     Container(
                       width: 300,
-                      height: 450, // Specify the width here
+                      height: 850, // Specify the width here
                       child: Text(
                         'Natapos ang kanyang ina sa pagbabayo.  \n\n'
                         'Tinawag niya si Mayan, ngunit halos mamaos na’y hindi pa rin lumilitaw si Mayan. \n\n'
                         'Nang buksan ng ina ang bakol ay may isang maliit na ibon ang lumabas doon. \n\n'
                         'Nanginain ng bigas ang ibon.  \n\n'
                         'Kalaunan ang ibong iyon ay tinawag na Maya.  \n\n'
-                        'Malaki ang hinda ng kanyang ina na si Mayan iyon.',
+                        'Malaki ang hinala ng kanyang ina na si Mayan iyon.',
                         style: Design.readStory,
                         textAlign: TextAlign.justify, // Justify the text
                       ),
@@ -124,7 +125,7 @@ class _Anmscene3State extends State<Anmscene3> {
                 Navigator.push(
                   context,
                   SlidePageRoute(
-                    page: Pinyaquiz(),
+                    page: AlamatngmayaQuiz(),
                     direction: SlideDirection.up,
                   ),
                 );
@@ -153,7 +154,7 @@ class _Anmscene3State extends State<Anmscene3> {
                 Navigator.push(
                   context,
                   SlidePageRoute(
-                    page: AlamatngpinyaTitle(),
+                    page: AlamatngmayaTitle(),
                     direction: SlideDirection.down,
                   ),
                 );

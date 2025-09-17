@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kwentong_kultura/Classes/slide_transition.dart';
-import 'package:kwentong_kultura/MagbasaPage/Alamatngpinya_Magbasa/Scenes/ANPscene3.dart';
+import 'package:kwentong_kultura/MagbasaPage/Alamatngpinya_Magbasa/Scenes/ANPscene4.dart';
+import 'package:kwentong_kultura/MagbasaPage/Alamatngpinya_Magbasa/Scenes/ANPscene6.dart';
 import 'package:kwentong_kultura/Pages/taramagbasa.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
 
@@ -121,7 +122,7 @@ class _Anpscene5State extends State<Anpscene5> {
                 Navigator.push(
                   context,
                   SlidePageRoute(
-                    page: Anpscene3(),
+                    page: Anpscene6(),
                     direction: SlideDirection.right,
                   ),
                 );
@@ -150,7 +151,7 @@ class _Anpscene5State extends State<Anpscene5> {
                 Navigator.push(
                   context,
                   SlidePageRoute(
-                    page: Anpscene3(),
+                    page: Anpscene4(),
                     direction: SlideDirection.left,
                   ),
                 );

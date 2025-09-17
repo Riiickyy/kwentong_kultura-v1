@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kwentong_kultura/Classes/slide_transition.dart';
 import 'package:kwentong_kultura/MagbasaPage/Alamatngmaya/Scenes/ANMscene1.dart';
-import 'package:kwentong_kultura/MagbasaPage/Alamatngmaya/alamatngmaya_basa.dart';
+import 'package:kwentong_kultura/MagbasaPage/Alamatngmaya/Scenes/ANMscene3.dart';
 import 'package:kwentong_kultura/Pages/taramagbasa.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
 
@@ -33,7 +33,7 @@ class _Anmscene2State extends State<Anmscene2> {
           },
         ),
         title: const Text(
-          "Ang Aso at ang Kanyang Anino",
+          "Ang Alamat ng Maya",
           style: TextStyle(
             fontFamily: 'Nunito',
             fontWeight: FontWeight.w900,
@@ -91,7 +91,7 @@ class _Anmscene2State extends State<Anmscene2> {
                   children: [
                     Container(
                       width: 300,
-                      height: 450, // Specify the width here
+                      height: 950, // Specify the width here
                       child: Text(
                         'Nagtungo siya sa kanilang kusina at tumingin sa kaldero kung mayroong makakain kahit ano ngunit bigo siya. \n\n'
                         'At dagli syang lumapit sa bakol.  \n\n'
@@ -125,7 +125,7 @@ class _Anmscene2State extends State<Anmscene2> {
                 Navigator.push(
                   context,
                   SlidePageRoute(
-                    page: Anmscene2(),
+                    page: Anmscene3(),
                     direction: SlideDirection.right,
                   ),
                 );

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:kwentong_kultura/AnimationPage/Alamatngpinya_animation/alamatngpinyaTitle.dart';
 import 'package:kwentong_kultura/Classes/slide_transition.dart';
-import 'package:kwentong_kultura/MagbasaPage/Alamatngpinya_Magbasa/Scenes/ANPscene5.dart';
 import 'package:kwentong_kultura/Pages/taramagbasa.dart';
+import 'package:kwentong_kultura/QUIZZES/pinyaQuiz.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
 
 class Anpscene7 extends StatefulWidget {
@@ -64,7 +65,7 @@ class _Anpscene7State extends State<Anpscene7> {
                       decoration: BoxDecoration(
                         image: DecorationImage(
                           image: AssetImage(
-                            'assets/images/Read Scenes/Alamat ng Pinya/SC7.png',
+                            'assets/images/Read Scenes/Alamat ng Pinya/SC8.png',
                           ), // Replace with your image
                           fit:
                               BoxFit
@@ -90,10 +91,10 @@ class _Anpscene7State extends State<Anpscene7> {
                   children: [
                     Container(
                       width: 300,
-                      height: 1000,
+                      height: 870,
                       child: Text(
                         'Sa isang sulok ng kanilang bakuran ay nakita niya ang isang halaman na ang bunga ay tulad ng isang ulo na maraming mata.   \n \n'
-                        'Nalalasa ni Aling Rosa ang sinabi sa kanyang anak:\n\n'
+                        'Naalala ni Aling Rosa ang sinabi sa kanyang anak:\n\n'
                         '“Sana’y tubuan ka ng maraming mata nang makita mo ang iyong hinahanap!” \n\n'
                         'Napaiyak si Aling Rosa at iniisip na ang ang hamang tumubo sa kanyang bakuran ay ang kanyang anak na si Pina. \n\n'
                         'Inalagaan niya ang halaman ay simula noon ay tinawag niya itong Pinya.\n\n',
@@ -123,19 +124,19 @@ class _Anpscene7State extends State<Anpscene7> {
                 Navigator.push(
                   context,
                   SlidePageRoute(
-                    page: Anpscene7(),
-                    direction: SlideDirection.right,
+                    page: Pinyaquiz(),
+                    direction: SlideDirection.up,
                   ),
                 );
               },
               style: Design.nextandPrevButtonDesign,
               icon: Icon(
-                Icons.arrow_forward, // Next button icon
+                Icons.quiz, // Next button icon
                 size: 32, // Icon size
                 color: Colors.white, // Icon color
               ),
               label: Text(
-                'Next', // Button label
+                'Take Quiz', // Button label
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 18, // Font size of label
@@ -152,19 +153,19 @@ class _Anpscene7State extends State<Anpscene7> {
                 Navigator.push(
                   context,
                   SlidePageRoute(
-                    page: Anpscene5(),
-                    direction: SlideDirection.left,
+                    page: AlamatngpinyaTitle(),
+                    direction: SlideDirection.down,
                   ),
                 );
               },
               style: Design.nextandPrevButtonDesign,
               icon: Icon(
-                Icons.arrow_back, // Next button icon
+                Icons.live_tv_rounded, // Next button icon
                 size: 32, // Icon size
                 color: Colors.white, // Icon color
               ),
               label: Text(
-                'Prev', // Button label
+                'Watch', // Button label
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 18, // Font size of label

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kwentong_kultura/Classes/slide_transition.dart';
-import 'package:kwentong_kultura/MagbasaPage/Alamatngpinya_Magbasa/Alamatngpinya_basa.dart';
-import 'package:kwentong_kultura/MagbasaPage/Alamatngpinya_Magbasa/Scenes/ANPscene2.dart';
+import 'package:kwentong_kultura/MagbasaPage/Alamatngunggoy/Scenes/ANUscene2.dart';
+import 'package:kwentong_kultura/MagbasaPage/Alamatngunggoy/alamatngunggoy_basa.dart';
 import 'package:kwentong_kultura/Pages/taramagbasa.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
 
@@ -91,7 +91,7 @@ class _Anuscene1State extends State<Anuscene1> {
                   children: [
                     Container(
                       width: 300,
-                      height: 450,
+                      height: 750,
                       child: Text(
                         'Isang araw, habang si Juan ay naglalaro sa labas ng kanilang tahanan, tinawag siya ng ina upang hanapin ang nawawalang sandok.  \n \n'
                         'Mabilis namang sumunod ang bata at iniwan ang kanyang paglalaro at lumapit sa ina. \n\n'
@@ -123,7 +123,7 @@ class _Anuscene1State extends State<Anuscene1> {
                 Navigator.push(
                   context,
                   SlidePageRoute(
-                    page: Anpscene2(),
+                    page: Anuscene2(),
                     direction: SlideDirection.right,
                   ),
                 );
@@ -152,7 +152,7 @@ class _Anuscene1State extends State<Anuscene1> {
                 Navigator.push(
                   context,
                   SlidePageRoute(
-                    page: AlamatngpinyaBasa(),
+                    page: AlamatngunggoyBasa(),
                     direction: SlideDirection.left,
                   ),
                 );

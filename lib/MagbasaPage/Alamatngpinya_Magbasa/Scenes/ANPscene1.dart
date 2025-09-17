@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kwentong_kultura/Classes/slide_transition.dart';
 import 'package:kwentong_kultura/MagbasaPage/Alamatngpinya_Magbasa/Alamatngpinya_basa.dart';
+import 'package:kwentong_kultura/MagbasaPage/Alamatngpinya_Magbasa/Scenes/ANPscene2.dart';
 import 'package:kwentong_kultura/Pages/taramagbasa.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
 
@@ -32,7 +33,7 @@ class _Anpscene1State extends State<Anpscene1> {
           },
         ),
         title: const Text(
-          "Si Pagong at Matsing",
+          "Ang Alamat ng Pinya",
           style: TextStyle(
             fontFamily: 'Nunito',
             fontWeight: FontWeight.w900,
@@ -90,12 +91,12 @@ class _Anpscene1State extends State<Anpscene1> {
                   children: [
                     Container(
                       width: 300,
-                      height: 450,
+                      height: 770,
                       child: Text(
                         'Si Pina ay lumaki sa layaw dahil na rin sa kagagawan ni Aling Rosa. \n \n'
                         'Gustuhin man niyang turuan itong gumawa sa bahay at magbago ng ugali ay hindi na niya magawa. \n\n'
-                        'Ayang nang baguhin ni Pina ang kanyang nakasanayang masarap na buhay .  \n\n'
-                        'Kung kaya’t napilitan si Aling Rosa na kahit matanda na ay siya pa rin ang nagtatrabaho at gumawa ng lahat ng gawain sa bahay. a ',
+                        'Ayaw nang baguhin ni Pina ang kanyang nakasanayang masarap na buhay .  \n\n'
+                        'Kung kaya’t napilitan si Aling Rosa na kahit matanda na ay siya pa rin ang nagtatrabaho at gumawa ng lahat ng gawain sa bahay. ',
                         style: Design.readStory,
                         textAlign: TextAlign.justify, // Justify the text
                       ),
@@ -122,7 +123,7 @@ class _Anpscene1State extends State<Anpscene1> {
                 Navigator.push(
                   context,
                   SlidePageRoute(
-                    page: Pamscene2(),
+                    page: Anpscene2(),
                     direction: SlideDirection.right,
                   ),
                 );
