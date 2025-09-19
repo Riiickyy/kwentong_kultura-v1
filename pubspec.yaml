@@ -105,6 +105,8 @@ flutter:
     - assets/Buttonclick.mp3
     - assets/images/Thumbnails/Animation & Read/
     - assets/images/Thumbnails/Kulay/Character/
+    - assets/SFX/
+    - assets/images/Splash/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

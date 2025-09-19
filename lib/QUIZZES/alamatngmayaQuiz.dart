@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:kwentong_kultura/Classes/SFXplayerclass.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
 
 class AlamatngmayaQuiz extends StatefulWidget {
@@ -16,46 +18,74 @@ class _AlamatngmayaQuizState extends State<AlamatngmayaQuiz> {
   int score = 0; // Initialize score
   List<Map<String, dynamic>> questions = [
     {
-      'question': 'What is the capital of the Philippines?',
-      'answers': ['Manila', 'Cebu', 'Davao', 'Quezon City'],
-      'correctAnswer': 'Manila',
+      'question': 'Ano ang pangalan ng batang babae?',
+      'answers': ['a) Mayan', 'b) Pina', 'c) Yumi'],
+      'correctAnswer': 'a) Mayan',
     },
     {
-      'question': 'Who is the first president of the Philippines?',
+      'question': 'Ano ang ginagawa ng ina ni Mayan?',
       'answers': [
-        'Ramon Magsaysay',
-        'Emilio Aguinaldo',
-        'Ferdinand Marcos',
-        'Manuel Quezon',
+        'a) Naghuhugas ng pinggan',
+        'b) Nagbabayo ng palay',
+        'c) Nagtatanim',
       ],
-      'correctAnswer': 'Emilio Aguinaldo',
+      'correctAnswer': 'b) Nagbabayo ng palay',
     },
     {
-      'question': 'Which of these is a national hero of the Philippines?',
+      'question': 'Ano ang ginawa ni Mayan dahil sa gutom?',
+      'answers': ['a) Kumain ng bigas', 'b) Uminom ng tubig', 'c) Natulog'],
+      'correctAnswer': 'a) Kumain ng bigas',
+    },
+    {
+      'question': 'Saan nagtago si Mayan?',
+      'answers': ['a) Sa silong', 'b) Sa bakol', 'c) Sa puno'],
+      'correctAnswer': 'b) Sa bakol',
+    },
+    {
+      'question': 'Anong hayop ang lumabas mula sa bakol?',
+      'answers': ['a) Kalapati', 'b) Ibon', 'c) Agila'],
+      'correctAnswer': 'b) Ibon',
+    },
+    {
+      'question': 'Ano ang ginawa ng ibon nang lumabas ito?',
+      'answers': ['a) Kumanta', 'b) Kumain ng bigas', 'c) Lumipad palayo'],
+      'correctAnswer': 'b) Kumain ng bigas',
+    },
+    {
+      'question': 'Ano ang kulay ng ibon?',
+      'answers': ['a) Kayumanggi', 'b) Malaki at puti', 'c) Itim'],
+      'correctAnswer': 'a) Kayumanggi',
+    },
+    {
+      'question': 'Ano ang naramdaman ng ina nang makita ang ibon?',
+      'answers': ['a) Saya', 'b) Paghihinala', 'c) Galit'],
+      'correctAnswer': 'b) Paghihinala',
+    },
+    {
+      'question': 'Ano ang naging parusa kay Mayan dahil sa katamaran?',
+      'answers': ['a) Naging aso', 'b) Naging ibon', 'c) Naging bulaklak'],
+      'correctAnswer': 'b) Naging ibon',
+    },
+    {
+      'question': 'Anong aral ang makukuha?',
       'answers': [
-        'José Rizal',
-        'Andres Bonifacio',
-        'Emilio Aguinaldo',
-        'All of the above',
+        'a) Maging masipag',
+        'b) Kumain ng marami',
+        'c) Matulog lagi',
       ],
-      'correctAnswer': 'All of the above',
-    },
-    {
-      'question': 'What is the national flower of the Philippines?',
-      'answers': ['Sampaguita', 'Sunflower', 'Rose', 'Orchid'],
-      'correctAnswer': 'Sampaguita',
-    },
-    {
-      'question': 'When is the Independence Day of the Philippines?',
-      'answers': ['July 4', 'June 12', 'August 21', 'December 30'],
-      'correctAnswer': 'June 12',
+      'correctAnswer': 'a) Maging masipag',
     },
   ];
 
   @override
   void initState() {
     super.initState();
-    questions.shuffle(); // Shuffle the questions initially
+    questions.shuffle();
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+    BgmPlayer.player.play();
   }
 
   void onAnswerSelected(String answer) {
@@ -74,7 +104,7 @@ class _AlamatngmayaQuizState extends State<AlamatngmayaQuiz> {
 
   void nextQuestion() {
     setState(() {
-      if (currentQuestionIndex < 2) {
+      if (currentQuestionIndex < 4) {
         // Check if there are more questions
         currentQuestionIndex++;
         isAnswerSelected = false;
@@ -85,16 +115,15 @@ class _AlamatngmayaQuizState extends State<AlamatngmayaQuiz> {
           builder: (BuildContext context) {
             return AlertDialog(
               backgroundColor: Color(0xFFACDC94),
-              title: Text('Quiz Completed', style: Design.storyTitle),
-              content: Text(
-                'You have completed the quiz!\nYour score is: $score points',
-                style: Design.Normaltext,
-              ),
+              title: Text('Quiz Completed', style: Design.readTitle),
+              content: Text('Your score is $score/15', style: Design.RecoPass),
+
               actions: [
                 ElevatedButton(
                   onPressed: () {
                     Navigator.pop(context);
                     setState(() {
+                      questions.shuffle();
                       currentQuestionIndex =
                           0; // Restart quiz or go back to a main page
                       score = 0; // Reset the score
@@ -115,6 +144,12 @@ class _AlamatngmayaQuizState extends State<AlamatngmayaQuiz> {
         );
       }
     });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    BgmPlayer.player.pause();
   }
 
   @override

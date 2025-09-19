@@ -46,6 +46,10 @@ class _HomeUIWidgetState extends State<Firstui> {
   @override
   void initState() {
     super.initState();
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
     loadRiveAnimation();
   }
 

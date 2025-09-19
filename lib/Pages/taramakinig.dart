@@ -1,15 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:kwentong_kultura/Cards/makinigcards.dart';
 
-class Taramakinig extends StatelessWidget {
+class Taramakinig extends StatefulWidget {
   const Taramakinig({super.key});
+
+  @override
+  State<Taramakinig> createState() => _TaramakinigState();
+}
+
+class _TaramakinigState extends State<Taramakinig> {
+  @override
+  void initState() {
+    super.initState();
+    // 🔒 Lock to portrait only while on this screen
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+  }
+
+  @override
+  void dispose() {
+    // 🔓 Reset to allow all orientations again after leaving this screen
+    SystemChrome.setPreferredOrientations(DeviceOrientation.values);
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'Pumili ng Babasahin',
+        title: const Text(
+          'Pumili ng Papanoorin',
           style: TextStyle(
             fontFamily: 'Nunito',
             fontWeight: FontWeight.w900,
@@ -17,15 +40,13 @@ class Taramakinig extends StatelessWidget {
           ),
           textAlign: TextAlign.center,
         ),
-        backgroundColor: Color(0xFFACDC94),
+        backgroundColor: const Color(0xFFACDC94),
         elevation: 6,
-        shadowColor: Colors.black.withOpacity(0.5),
+        shadowColor: Colors.black54,
       ),
-
       body: Stack(
         children: [
-          Container(color: Color(0xFFC5F1FF)),
-
+          Container(color: const Color(0xFFC5F1FF)),
           Positioned(
             top: 50,
             child: Image.asset('assets/images/HomeUI/Cloud.png'),
@@ -34,8 +55,7 @@ class Taramakinig extends StatelessWidget {
             bottom: 10,
             child: Image.asset('assets/images/HomeUI/Cloud.png'),
           ),
-
-          Makinigcards(),
+          const Makinigcards(),
         ],
       ),
     );

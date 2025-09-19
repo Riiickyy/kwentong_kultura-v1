@@ -129,6 +129,10 @@ class _HomeUIWidgetState extends State<HomeUIWidget> {
   void initState() {
     super.initState();
     loadRiveAnimation();
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
   }
 
   @override
@@ -197,7 +201,7 @@ class _HomeUIWidgetState extends State<HomeUIWidget> {
                     child: Image.asset('assets/images/HomeUI/sunncloud.png'),
                   ),
 
-                  Positioned(top: 270, right: 0, left: 0, child: Homebuttons()),
+                  Positioned(top: 300, right: 0, left: 0, child: Homebuttons()),
                   Positioned(
                     bottom: 100,
                     right: 20,

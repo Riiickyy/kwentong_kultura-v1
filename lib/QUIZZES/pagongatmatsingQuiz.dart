@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:kwentong_kultura/Classes/SFXplayerclass.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
 
 class Pagongatmatsingquiz extends StatefulWidget {
@@ -16,46 +18,88 @@ class _PagongatmatsingquizState extends State<Pagongatmatsingquiz> {
   int score = 0; // Initialize score
   List<Map<String, dynamic>> questions = [
     {
-      'question': 'What is the capital of the Philippines?',
-      'answers': ['Manila', 'Cebu', 'Davao', 'Quezon City'],
-      'correctAnswer': 'Manila',
+      'question': 'Ano ang nakita nina Matsing at Pagong habang naglalakad?',
+      'answers': ['a) Punong mangga', 'b) Punong saging', 'c) Punong niyog'],
+      'correctAnswer': 'b) Punong saging',
     },
     {
-      'question': 'Who is the first president of the Philippines?',
+      'question': 'Ano ang ginawa nila sa punong saging?',
+      'answers': ['a) Pinutol at hinati', 'b) Tinapon', 'c) Kinain agad'],
+      'correctAnswer': 'a) Pinutol at hinati',
+    },
+    {
+      'question': 'Anong bahagi ng punong saging ang kinuha ni Matsing?',
+      'answers': ['a) Ulo', 'b) Bahaging may dahon', 'c) Ibaba'],
+      'correctAnswer': 'b) Bahaging may dahon',
+    },
+    {
+      'question': 'Anong nangyari sa tanim ni Matsing?',
+      'answers': ['a) Namunga', 'b) Namamatay', 'c) Lumaki nang malaki'],
+      'correctAnswer': 'b) Namamatay',
+    },
+    {
+      'question': 'Anong nangyari sa tanim ni Pagong?',
+      'answers': ['a) Walang nangyari', 'b) Namunga', 'c) Natuyo'],
+      'correctAnswer': 'b) Namunga',
+    },
+    {
+      'question': 'Sino ang umakyat sa punong saging?',
+      'answers': ['a) Pagong', 'b) Matsing', 'c) Langgam'],
+      'correctAnswer': 'b) Matsing',
+    },
+    {
+      'question': 'Ano ang ginawa ni Matsing sa mga bunga ng saging?',
+      'answers': ['a) Ibinigay kay Pagong', 'b) Kinain lahat', 'c) Tinapon'],
+      'correctAnswer': 'b) Kinain lahat',
+    },
+    {
+      'question': 'Ano ang ginawa ni Pagong bilang paghihiganti?',
       'answers': [
-        'Ramon Magsaysay',
-        'Emilio Aguinaldo',
-        'Ferdinand Marcos',
-        'Manuel Quezon',
+        'a) Naglagay ng tinik sa paligid ng puno',
+        'b) Umalis',
+        'c) Umiyak',
       ],
-      'correctAnswer': 'Emilio Aguinaldo',
+      'correctAnswer': 'a) Naglagay ng tinik sa paligid ng puno',
     },
     {
-      'question': 'Which of these is a national hero of the Philippines?',
+      'question': 'Ano ang nangyari kay Matsing nang bumaba siya?',
+      'answers': ['a) Nasugatan sa tinik', 'b) Nakaligtas', 'c) Natulog'],
+      'correctAnswer': 'a) Nasugatan sa tinik',
+    },
+    {
+      'question': 'Saan tinapon ni Matsing si Pagong?',
+      'answers': ['a) Sa gubat', 'b) Sa ilog', 'c) Sa bundok'],
+      'correctAnswer': 'b) Sa ilog',
+    },
+    {
+      'question': 'Ano ang sabi ni Pagong nang ibinalik siya sa tubig?',
       'answers': [
-        'José Rizal',
-        'Andres Bonifacio',
-        'Emilio Aguinaldo',
-        'All of the above',
+        'a) “Ayoko rito!”',
+        'b) “Salamat, tahanan ko ito.”',
+        'c) “Tulungan mo ako!”',
       ],
-      'correctAnswer': 'All of the above',
+      'correctAnswer': 'b) “Salamat, tahanan ko ito.”',
     },
     {
-      'question': 'What is the national flower of the Philippines?',
-      'answers': ['Sampaguita', 'Sunflower', 'Rose', 'Orchid'],
-      'correctAnswer': 'Sampaguita',
-    },
-    {
-      'question': 'When is the Independence Day of the Philippines?',
-      'answers': ['July 4', 'June 12', 'August 21', 'December 30'],
-      'correctAnswer': 'June 12',
+      'question': 'Ano ang aral ng kwento?',
+      'answers': [
+        'a) Huwag maging sakim at manloko',
+        'b) Laging magalit',
+        'c) Kumain ng marami',
+      ],
+      'correctAnswer': 'a) Huwag maging sakim at manloko',
     },
   ];
 
   @override
   void initState() {
     super.initState();
-    questions.shuffle(); // Shuffle the questions initially
+    questions.shuffle();
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+    BgmPlayer.player.play();
   }
 
   void onAnswerSelected(String answer) {
@@ -74,7 +118,7 @@ class _PagongatmatsingquizState extends State<Pagongatmatsingquiz> {
 
   void nextQuestion() {
     setState(() {
-      if (currentQuestionIndex < 2) {
+      if (currentQuestionIndex < 4) {
         // Check if there are more questions
         currentQuestionIndex++;
         isAnswerSelected = false;
@@ -85,16 +129,14 @@ class _PagongatmatsingquizState extends State<Pagongatmatsingquiz> {
           builder: (BuildContext context) {
             return AlertDialog(
               backgroundColor: Color(0xFFACDC94),
-              title: Text('Quiz Completed', style: Design.storyTitle),
-              content: Text(
-                'You have completed the quiz!\nYour score is: $score points',
-                style: Design.Normaltext,
-              ),
+              title: Text('Quiz Completed', style: Design.readTitle),
+              content: Text('Your score is $score/15', style: Design.RecoPass),
               actions: [
                 ElevatedButton(
                   onPressed: () {
                     Navigator.pop(context);
                     setState(() {
+                      questions.shuffle();
                       currentQuestionIndex =
                           0; // Restart quiz or go back to a main page
                       score = 0; // Reset the score
@@ -115,6 +157,12 @@ class _PagongatmatsingquizState extends State<Pagongatmatsingquiz> {
         );
       }
     });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    BgmPlayer.player.pause();
   }
 
   @override

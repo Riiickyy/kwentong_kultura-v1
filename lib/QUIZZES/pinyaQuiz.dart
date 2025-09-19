@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:kwentong_kultura/Classes/SFXplayerclass.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
 
 class Pinyaquiz extends StatefulWidget {
@@ -16,46 +18,82 @@ class _PinyaquizState extends State<Pinyaquiz> {
   int score = 0; // Initialize score
   List<Map<String, dynamic>> questions = [
     {
-      'question': 'What is the capital of the Philippines?',
-      'answers': ['Manila', 'Cebu', 'Davao', 'Quezon City'],
-      'correctAnswer': 'Manila',
+      'question': 'Sino ang ina ni Pina?',
+      'answers': ['a) Aling Rosa', 'b) Aling Nena', 'c) Aling Maria'],
+      'correctAnswer': 'a) Aling Rosa',
     },
     {
-      'question': 'Who is the first president of the Philippines?',
+      'question': 'Ano ang katangian ni Pina?',
+      'answers': ['a) Masipag', 'b) Tamad', 'c) Mapagbigay'],
+      'correctAnswer': 'b) Tamad',
+    },
+    {
+      'question': 'Ano ang madalas ipagawa ni Aling Rosa kay Pina?',
       'answers': [
-        'Ramon Magsaysay',
-        'Emilio Aguinaldo',
-        'Ferdinand Marcos',
-        'Manuel Quezon',
+        'a) Maglaro sa labas',
+        'b) Maglinis ng bahay',
+        'c) Kumain ng kendi',
       ],
-      'correctAnswer': 'Emilio Aguinaldo',
+      'correctAnswer': 'b) Maglinis ng bahay',
     },
     {
-      'question': 'Which of these is a national hero of the Philippines?',
+      'question': 'Ano ang hinahanap ni Pina na hindi niya makita?',
+      'answers': ['a) Plato', 'b) Sandok', 'c) Baso'],
+      'correctAnswer': 'b) Sandok',
+    },
+    {
+      'question': 'Ano ang sinabi ni Aling Rosa dahil sa inis kay Pina?',
       'answers': [
-        'José Rizal',
-        'Andres Bonifacio',
-        'Emilio Aguinaldo',
-        'All of the above',
+        'a) “Sana’y maging ibon ka!”',
+        'b) “Sana’y tubuan ka ng maraming mata!”',
+        'c) “Sana’y mawala ka na!”',
       ],
-      'correctAnswer': 'All of the above',
+      'correctAnswer': 'b) “Sana’y tubuan ka ng maraming mata!”',
     },
     {
-      'question': 'What is the national flower of the Philippines?',
-      'answers': ['Sampaguita', 'Sunflower', 'Rose', 'Orchid'],
-      'correctAnswer': 'Sampaguita',
+      'question': 'Ano ang natagpuan sa bakuran matapos mawala si Pina?',
+      'answers': ['a) Niyog', 'b) Pinya', 'c) Mangga'],
+      'correctAnswer': 'b) Pinya',
     },
     {
-      'question': 'When is the Independence Day of the Philippines?',
-      'answers': ['July 4', 'June 12', 'August 21', 'December 30'],
-      'correctAnswer': 'June 12',
+      'question': 'Ano ang itsura ng bunga ng pinya?',
+      'answers': [
+        'a) May maraming mata',
+        'b) May maraming paa',
+        'c) May maraming kamay',
+      ],
+      'correctAnswer': 'a) May maraming mata',
+    },
+    {
+      'question': 'Ano ang kulay ng pinya sa animation?',
+      'answers': ['a) Dilaw', 'b) Pula', 'c) Asul'],
+      'correctAnswer': 'a) Dilaw',
+    },
+    {
+      'question': 'Ano ang pakiramdam ni Aling Rosa nang mawala si Pina?',
+      'answers': ['a) Malungkot', 'b) Masaya', 'c) Galit'],
+      'correctAnswer': 'a) Malungkot',
+    },
+    {
+      'question': 'Ano ang aral ng kwento?',
+      'answers': [
+        'a) Maging masunurin at masipag',
+        'b) Lagi na lang maglaro',
+        'c) Huwag tumulong sa magulang',
+      ],
+      'correctAnswer': 'a) Maging masunurin at masipag',
     },
   ];
 
   @override
   void initState() {
     super.initState();
-    questions.shuffle(); // Shuffle the questions initially
+    questions.shuffle();
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+    BgmPlayer.player.play();
   }
 
   void onAnswerSelected(String answer) {
@@ -74,7 +112,7 @@ class _PinyaquizState extends State<Pinyaquiz> {
 
   void nextQuestion() {
     setState(() {
-      if (currentQuestionIndex < 2) {
+      if (currentQuestionIndex < 4) {
         // Check if there are more questions
         currentQuestionIndex++;
         isAnswerSelected = false;
@@ -85,11 +123,8 @@ class _PinyaquizState extends State<Pinyaquiz> {
           builder: (BuildContext context) {
             return AlertDialog(
               backgroundColor: Color(0xFFACDC94),
-              title: Text('Quiz Completed', style: Design.storyTitle),
-              content: Text(
-                'You have completed the quiz!\nYour score is: $score points',
-                style: Design.Normaltext,
-              ),
+              title: Text('Quiz Completed', style: Design.readTitle),
+              content: Text('Your score is $score/15', style: Design.RecoPass),
               actions: [
                 ElevatedButton(
                   onPressed: () {
@@ -115,6 +150,12 @@ class _PinyaquizState extends State<Pinyaquiz> {
         );
       }
     });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    BgmPlayer.player.pause();
   }
 
   @override

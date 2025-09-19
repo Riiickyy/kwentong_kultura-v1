@@ -1,14 +1,49 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:kwentong_kultura/Cards/magbasacards.dart';
+import 'package:kwentong_kultura/Classes/slide_transition.dart';
+import 'package:kwentong_kultura/UI-stack-widget.dart';
 
-class Taramagbasa extends StatelessWidget {
+class Taramagbasa extends StatefulWidget {
   const Taramagbasa({super.key});
+
+  @override
+  State<Taramagbasa> createState() => _TaramagbasaState();
+}
+
+class _TaramagbasaState extends State<Taramagbasa> {
+  @override
+  void initState() {
+    super.initState();
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pushAndRemoveUntil(
+              context,
+              SlidePageRoute(
+                page: const HomeUIWidget(),
+                direction: SlideDirection.down,
+              ),
+              (Route<dynamic> route) => false,
+            );
+          },
+        ),
+        title: const Text(
           'Pumili ng Babasahin',
           style: TextStyle(
             fontFamily: 'Nunito',
@@ -17,14 +52,13 @@ class Taramagbasa extends StatelessWidget {
           ),
           textAlign: TextAlign.center,
         ),
-        backgroundColor: Color(0xFFACDC94),
+        backgroundColor: const Color(0xFFACDC94),
         elevation: 6,
-        shadowColor: Colors.black.withOpacity(0.5),
+        shadowColor: Colors.black54,
       ),
       body: Stack(
         children: [
-          Container(color: Color(0xFFC5F1FF)),
-
+          Container(color: const Color(0xFFC5F1FF)),
           Positioned(
             top: 50,
             child: Image.asset('assets/images/HomeUI/Cloud.png'),
@@ -33,8 +67,7 @@ class Taramagbasa extends StatelessWidget {
             bottom: 10,
             child: Image.asset('assets/images/HomeUI/Cloud.png'),
           ),
-
-          Magbasacards(),
+          const Magbasacards(),
         ],
       ),
     );

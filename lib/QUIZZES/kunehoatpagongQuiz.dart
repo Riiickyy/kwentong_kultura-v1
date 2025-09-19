@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:kwentong_kultura/Classes/SFXplayerclass.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
 
 class KunehoatPagongQuiz extends StatefulWidget {
@@ -16,46 +18,82 @@ class _KunehoatPagongQuizState extends State<KunehoatPagongQuiz> {
   int score = 0; // Initialize score
   List<Map<String, dynamic>> questions = [
     {
-      'question': 'What is the capital of the Philippines?',
-      'answers': ['Manila', 'Cebu', 'Davao', 'Quezon City'],
-      'correctAnswer': 'Manila',
+      'question': 'Sino ang naghamon ng karera?',
+      'answers': ['a) Kuneho', 'b) Pagong', 'c) Kalabaw'],
+      'correctAnswer': 'b) Pagong',
     },
     {
-      'question': 'Who is the first president of the Philippines?',
+      'question': 'Ano ang sinabi ng kuneho tungkol sa kanyang sarili?',
       'answers': [
-        'Ramon Magsaysay',
-        'Emilio Aguinaldo',
-        'Ferdinand Marcos',
-        'Manuel Quezon',
+        'a) Siya ay mabagal',
+        'b) Siya ay mabilis',
+        'c) Siya ay matulogin',
       ],
-      'correctAnswer': 'Emilio Aguinaldo',
+      'correctAnswer': 'b) Siya ay mabilis',
     },
     {
-      'question': 'Which of these is a national hero of the Philippines?',
+      'question': 'Saan sila nagkarera?',
       'answers': [
-        'José Rizal',
-        'Andres Bonifacio',
-        'Emilio Aguinaldo',
-        'All of the above',
+        'a) Sa puno ng mangga',
+        'b) Hanggang puno ng sampalok',
+        'c) Sa ilog',
       ],
-      'correctAnswer': 'All of the above',
+      'correctAnswer': 'b) Hanggang puno ng sampalok',
     },
     {
-      'question': 'What is the national flower of the Philippines?',
-      'answers': ['Sampaguita', 'Sunflower', 'Rose', 'Orchid'],
-      'correctAnswer': 'Sampaguita',
+      'question': 'Ano ang ginawa ng kuneho sa kalagitnaan ng karera?',
+      'answers': [
+        'a) Tumakbo nang mabilis',
+        'b) Natulog sa ilalim ng puno',
+        'c) Kumain',
+      ],
+      'correctAnswer': 'b) Natulog sa ilalim ng puno',
     },
     {
-      'question': 'When is the Independence Day of the Philippines?',
-      'answers': ['July 4', 'June 12', 'August 21', 'December 30'],
-      'correctAnswer': 'June 12',
+      'question': 'Ano ang ginawa ng pagong habang natutulog ang kuneho?',
+      'answers': ['a) Huminto', 'b) Nagpatuloy sa paglakad', 'c) Natulog din'],
+      'correctAnswer': 'b) Nagpatuloy sa paglakad',
+    },
+    {
+      'question': 'Sino ang naunang nakarating sa puno ng sampalok?',
+      'answers': ['a) Pagong', 'b) Kuneho', 'c) Pareho'],
+      'correctAnswer': 'a) Pagong',
+    },
+    {
+      'question': 'Ano ang kulay ng pagong sa animation?',
+      'answers': ['a) Berde', 'b) Pula', 'c) Itim'],
+      'correctAnswer': 'a) Berde',
+    },
+    {
+      'question': 'Ano ang kulay ng kuneho sa animation?',
+      'answers': ['a) Puti', 'b) Kayumanggi', 'c) Dilaw'],
+      'correctAnswer': 'a) Puti',
+    },
+    {
+      'question': 'Ano ang naramdaman ng kuneho nang matalo siya?',
+      'answers': ['a) Saya', 'b) Gulat', 'c) Gutom'],
+      'correctAnswer': 'b) Gulat',
+    },
+    {
+      'question': 'Ano ang aral ng kwento?',
+      'answers': [
+        'a) Huwag maliitin ang iba',
+        'b) Laging matulog',
+        'c) Maging mayabang',
+      ],
+      'correctAnswer': 'a) Huwag maliitin ang iba',
     },
   ];
 
   @override
   void initState() {
     super.initState();
-    questions.shuffle(); // Shuffle the questions initially
+    questions.shuffle();
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+    BgmPlayer.player.play();
   }
 
   void onAnswerSelected(String answer) {
@@ -85,16 +123,15 @@ class _KunehoatPagongQuizState extends State<KunehoatPagongQuiz> {
           builder: (BuildContext context) {
             return AlertDialog(
               backgroundColor: Color(0xFFACDC94),
-              title: Text('Quiz Completed', style: Design.storyTitle),
-              content: Text(
-                'You have completed the quiz!\nYour score is: $score points',
-                style: Design.Normaltext,
-              ),
+              title: Text('Quiz Completed', style: Design.readTitle),
+              content: Text('Your score is $score/15', style: Design.RecoPass),
+
               actions: [
                 ElevatedButton(
                   onPressed: () {
                     Navigator.pop(context);
                     setState(() {
+                      questions.shuffle();
                       currentQuestionIndex =
                           0; // Restart quiz or go back to a main page
                       score = 0; // Reset the score
@@ -115,6 +152,12 @@ class _KunehoatPagongQuizState extends State<KunehoatPagongQuiz> {
         );
       }
     });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    BgmPlayer.player.pause();
   }
 
   @override

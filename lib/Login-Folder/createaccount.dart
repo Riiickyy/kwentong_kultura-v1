@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:kwentong_kultura/Classes/slide_transition.dart';
 import 'package:kwentong_kultura/Login-Folder/Login.dart';
 import 'package:kwentong_kultura/Login-Folder/firstUI.dart';
@@ -19,6 +20,16 @@ class _HomeUIWidgetState extends State<Createaccount> {
   final TextEditingController passwordController = TextEditingController();
   String errorMessage = '';
   bool isLoading = false; // Track loading state
+
+  @override
+  void initState() {
+    super.initState();
+
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+  }
 
   @override
   void dispose() {

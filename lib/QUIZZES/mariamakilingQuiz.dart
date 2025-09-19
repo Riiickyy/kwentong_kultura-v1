@@ -3,14 +3,14 @@ import 'package:flutter/services.dart';
 import 'package:kwentong_kultura/Classes/SFXplayerclass.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
 
-class AlamatngunggoyQuiz extends StatefulWidget {
-  const AlamatngunggoyQuiz({super.key});
+class Mariamakilingquiz extends StatefulWidget {
+  const Mariamakilingquiz({super.key});
 
   @override
-  State<AlamatngunggoyQuiz> createState() => _AlamatngunggoyQuizState();
+  State<Mariamakilingquiz> createState() => _MariamakilingquizState();
 }
 
-class _AlamatngunggoyQuizState extends State<AlamatngunggoyQuiz> {
+class _MariamakilingquizState extends State<Mariamakilingquiz> {
   int currentQuestionIndex = 0;
   bool isAnswerSelected = false;
   bool isAnswerCorrect = false;
@@ -18,58 +18,63 @@ class _AlamatngunggoyQuizState extends State<AlamatngunggoyQuiz> {
   int score = 0; // Initialize score
   List<Map<String, dynamic>> questions = [
     {
-      'question': 'Ano ang pangalan ng batang tamad?',
-      'answers': ['a) Juan', 'b) Pedro', 'c) Jose'],
-      'correctAnswer': 'a) Juan',
+      'question':
+          'Ano ang pangalan ng anak nina Dayang Makiling at Gat Panahon?',
+      'answers': ['a) Maria', 'b) Rosa', 'c) Yumi'],
+      'correctAnswer': 'a) Maria',
     },
     {
-      'question': 'Ano ang ayaw gawin ni Juan?',
-      'answers': ['a) Gumising ng maaga', 'b) Kumain', 'c) Maglaro'],
-      'correctAnswer': 'a) Gumising ng maaga',
+      'question': 'Ano ang dala ng mga alalay ni Maria sa palengke?',
+      'answers': ['a) Prutas', 'b) Gintong luya', 'c) Isda'],
+      'correctAnswer': 'b) Gintong luya',
     },
     {
-      'question': 'Ano ang ipinahanap ng ina niya?',
-      'answers': ['a) Kutsara', 'b) Sandok', 'c) Plato'],
-      'correctAnswer': 'b) Sandok',
+      'question': 'Ano ang ginagawa ng mga tao kapag nadaraanan si Maria?',
+      'answers': ['a) Tumatawa', 'b) Yumuyuko', 'c) Tumatakbo'],
+      'correctAnswer': 'b) Yumuyuko',
     },
     {
-      'question': 'Ano ang ibinigay ni Juan sa kanyang ina?',
-      'answers': ['a) Kutsarang kahoy', 'b) Tinidor', 'c) Baso'],
-      'correctAnswer': 'a) Kutsarang kahoy',
+      'question': 'Sino ang nakabangga ni Maria sa palengke?',
+      'answers': ['a) Gat Dula', 'b) Lakan Buto', 'c) Juan'],
+      'correctAnswer': 'a) Gat Dula',
     },
     {
-      'question': 'Ano ang ginawa ng ina nang hindi sumunod si Juan?',
-      'answers': ['a) Pinagalitan siya', 'b) Pinuri siya', 'c) Pinatulog siya'],
-      'correctAnswer': 'a) Pinagalitan siya',
+      'question': 'Ano ang nadampot nila sabay?',
+      'answers': ['a) Prutas', 'b) Balat ng hayop', 'c) Ginto'],
+      'correctAnswer': 'b) Balat ng hayop',
     },
     {
-      'question': 'Ano ang itinapon ng ina kay Juan?',
-      'answers': ['a) Kutsara', 'b) Baso', 'c) Plato'],
-      'correctAnswer': 'a) Kutsara',
+      'question': 'Ano ang ibinigay ni Maria kay Gat Dula?',
+      'answers': ['a) Isda', 'b) Matamis na ngiti', 'c) Luya'],
+      'correctAnswer': 'b) Matamis na ngiti',
     },
     {
-      'question': 'Ano ang tumubo kay Juan?',
-      'answers': ['a) Buntot', 'b) Sungay', 'c) Pakpak'],
-      'correctAnswer': 'a) Buntot',
+      'question': 'Ano ang naramdaman ng ama ni Maria sa kanilang pag-ibig?',
+      'answers': ['a) Galit', 'b) Saya', 'c) Walang pakialam'],
+      'correctAnswer': 'a) Galit',
     },
     {
-      'question': 'Ano ang kulay ng unggoy sa animation?',
-      'answers': ['a) Kayumanggi', 'b) Pula', 'c) Asul'],
-      'correctAnswer': 'a) Kayumanggi',
+      'question': 'Ano ang nangyari kay Gat Dula sa huli?',
+      'answers': ['a) Naging ibon', 'b) Namatay', 'c) Naging diyos'],
+      'correctAnswer': 'b) Namatay',
+    },
+    {
+      'question': 'Ano ang hiningi ni Maria sa kanyang ama?',
+      'answers': [
+        'a) Kaluluwa ni Gat Dula',
+        'b) Bagong bahay',
+        'c) Gintong palasyo',
+      ],
+      'correctAnswer': 'a) Kaluluwa ni Gat Dula',
     },
     {
       'question': 'Ano ang aral ng kwento?',
       'answers': [
-        'a) Huwag maging tamad',
-        'b) Laging maglaro',
-        'c) Manloko ng magulang',
+        'a) Pag-ibig ay totoo kahit iba ang pinagmulan',
+        'b) Maging tamad',
+        'c) Mag-isa na lang lagi',
       ],
-      'correctAnswer': 'a) Huwag maging tamad',
-    },
-    {
-      'question': 'Ano ang naging hayop si Juan?',
-      'answers': ['a) Unggoy', 'b) Leon', 'c) Kalabaw'],
-      'correctAnswer': 'a) Unggoy',
+      'correctAnswer': 'a) Pag-ibig ay totoo kahit iba ang pinagmulan',
     },
   ];
 

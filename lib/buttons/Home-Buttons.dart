@@ -87,7 +87,7 @@ class _HomebuttonsState extends State<Homebuttons> {
                     TextSpan(
                       children: [
                         TextSpan(text: 'Tara\n', style: Design.tara),
-                        TextSpan(text: 'Makinig', style: Design.action),
+                        TextSpan(text: 'Manood', style: Design.action),
                       ],
                     ),
                     textAlign: TextAlign.center,

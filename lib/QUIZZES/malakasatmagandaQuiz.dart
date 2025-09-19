@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:kwentong_kultura/Classes/SFXplayerclass.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
 
 class MalakasatmagandaQuiz extends StatefulWidget {
@@ -16,46 +18,59 @@ class _MalakasatmagandaQuizState extends State<MalakasatmagandaQuiz> {
   int score = 0; // Initialize score
   List<Map<String, dynamic>> questions = [
     {
-      'question': 'What is the capital of the Philippines?',
-      'answers': ['Manila', 'Cebu', 'Davao', 'Quezon City'],
-      'correctAnswer': 'Manila',
+      'question': 'Ano ang tinuka ng ibon sa kawayan?',
+      'answers': ['a) Uod', 'b) Dahon', 'c) Bunga'],
+      'correctAnswer': 'a) Uod',
     },
     {
-      'question': 'Who is the first president of the Philippines?',
+      'question': 'Ano ang nangyari sa kawayan?',
+      'answers': ['a) Nabiyak', 'b) Nabasag', 'c) Nasunog'],
+      'correctAnswer': 'a) Nabiyak',
+    },
+    {
+      'question': 'Ano ang lumabas mula sa kawayan?',
       'answers': [
-        'Ramon Magsaysay',
-        'Emilio Aguinaldo',
-        'Ferdinand Marcos',
-        'Manuel Quezon',
+        'a) Dalawang bata',
+        'b) Malakas at Maganda',
+        'c) Aso at Pusa',
       ],
-      'correctAnswer': 'Emilio Aguinaldo',
+      'correctAnswer': 'b) Malakas at Maganda',
     },
     {
-      'question': 'Which of these is a national hero of the Philippines?',
+      'question': 'Ano ang katangian ni Malakas?',
+      'answers': ['a) Matipuno at guwapo', 'b) Tamad', 'c) Mapaglaro'],
+      'correctAnswer': 'a) Matipuno at guwapo',
+    },
+    {
+      'question': 'Ano ang katangian ni Maganda?',
+      'answers': ['a) Mahinhin at masipag', 'b) Palalo', 'c) Mapanira'],
+      'correctAnswer': 'a) Mahinhin at masipag',
+    },
+    {
+      'question': 'Ano ang kasarian nina Malakas at Maganda?',
       'answers': [
-        'José Rizal',
-        'Andres Bonifacio',
-        'Emilio Aguinaldo',
-        'All of the above',
+        'a) Parehong lalaki',
+        'b) Lalaki at babae',
+        'c) Parehong babae',
       ],
-      'correctAnswer': 'All of the above',
+      'correctAnswer': 'b) Lalaki at babae',
     },
     {
-      'question': 'What is the national flower of the Philippines?',
-      'answers': ['Sampaguita', 'Sunflower', 'Rose', 'Orchid'],
-      'correctAnswer': 'Sampaguita',
-    },
-    {
-      'question': 'When is the Independence Day of the Philippines?',
-      'answers': ['July 4', 'June 12', 'August 21', 'December 30'],
-      'correctAnswer': 'June 12',
+      'question': 'Ano ang kulay ng kawayan sa animation?',
+      'answers': ['a) Berde', 'b) Pula', 'c) Asul'],
+      'correctAnswer': 'a) Berde',
     },
   ];
 
   @override
   void initState() {
     super.initState();
-    questions.shuffle(); // Shuffle the questions initially
+    questions.shuffle();
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+    BgmPlayer.player.play();
   }
 
   void onAnswerSelected(String answer) {
@@ -74,7 +89,7 @@ class _MalakasatmagandaQuizState extends State<MalakasatmagandaQuiz> {
 
   void nextQuestion() {
     setState(() {
-      if (currentQuestionIndex < 2) {
+      if (currentQuestionIndex < 4) {
         // Check if there are more questions
         currentQuestionIndex++;
         isAnswerSelected = false;
@@ -85,16 +100,15 @@ class _MalakasatmagandaQuizState extends State<MalakasatmagandaQuiz> {
           builder: (BuildContext context) {
             return AlertDialog(
               backgroundColor: Color(0xFFACDC94),
-              title: Text('Quiz Completed', style: Design.storyTitle),
-              content: Text(
-                'You have completed the quiz!\nYour score is: $score points',
-                style: Design.Normaltext,
-              ),
+              title: Text('Quiz Completed', style: Design.readTitle),
+              content: Text('Your score is $score/15', style: Design.RecoPass),
+
               actions: [
                 ElevatedButton(
                   onPressed: () {
                     Navigator.pop(context);
                     setState(() {
+                      questions.shuffle();
                       currentQuestionIndex =
                           0; // Restart quiz or go back to a main page
                       score = 0; // Reset the score
@@ -115,6 +129,12 @@ class _MalakasatmagandaQuizState extends State<MalakasatmagandaQuiz> {
         );
       }
     });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    BgmPlayer.player.pause();
   }
 
   @override

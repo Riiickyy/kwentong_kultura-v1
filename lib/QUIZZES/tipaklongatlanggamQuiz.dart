@@ -3,14 +3,14 @@ import 'package:flutter/services.dart';
 import 'package:kwentong_kultura/Classes/SFXplayerclass.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
 
-class AlamatngunggoyQuiz extends StatefulWidget {
-  const AlamatngunggoyQuiz({super.key});
+class Tipaklongatlanggamquiz extends StatefulWidget {
+  const Tipaklongatlanggamquiz({super.key});
 
   @override
-  State<AlamatngunggoyQuiz> createState() => _AlamatngunggoyQuizState();
+  State<Tipaklongatlanggamquiz> createState() => _TipaklongatlanggamquizState();
 }
 
-class _AlamatngunggoyQuizState extends State<AlamatngunggoyQuiz> {
+class _TipaklongatlanggamquizState extends State<Tipaklongatlanggamquiz> {
   int currentQuestionIndex = 0;
   bool isAnswerSelected = false;
   bool isAnswerCorrect = false;
@@ -18,58 +18,61 @@ class _AlamatngunggoyQuizState extends State<AlamatngunggoyQuiz> {
   int score = 0; // Initialize score
   List<Map<String, dynamic>> questions = [
     {
-      'question': 'Ano ang pangalan ng batang tamad?',
-      'answers': ['a) Juan', 'b) Pedro', 'c) Jose'],
-      'correctAnswer': 'a) Juan',
+      'question': 'Ano ang ginagawa ni Tipaklong habang tag-init?',
+      'answers': ['a) Nagtitiyaga', 'b) Umaawit at naglalaro', 'c) Nagtatanim'],
+      'correctAnswer': 'b) Umaawit at naglalaro',
     },
     {
-      'question': 'Ano ang ayaw gawin ni Juan?',
-      'answers': ['a) Gumising ng maaga', 'b) Kumain', 'c) Maglaro'],
-      'correctAnswer': 'a) Gumising ng maaga',
+      'question': 'Ano ang ginagawa ni Langgam?',
+      'answers': ['a) Nag-iipon ng pagkain', 'b) Naglaro', 'c) Natulog'],
+      'correctAnswer': 'a) Nag-iipon ng pagkain',
     },
     {
-      'question': 'Ano ang ipinahanap ng ina niya?',
-      'answers': ['a) Kutsara', 'b) Sandok', 'c) Plato'],
-      'correctAnswer': 'b) Sandok',
+      'question': 'Ano ang sinabi ni Tipaklong kay Langgam?',
+      'answers': [
+        'a) “Mag-ipon ka rin!”',
+        'b) “Halika, magsaya tayo!”',
+        'c) “Matulog ka na lang!”',
+      ],
+      'correctAnswer': 'b) “Halika, magsaya tayo!”',
     },
     {
-      'question': 'Ano ang ibinigay ni Juan sa kanyang ina?',
-      'answers': ['a) Kutsarang kahoy', 'b) Tinidor', 'c) Baso'],
-      'correctAnswer': 'a) Kutsarang kahoy',
+      'question': 'Ano ang dumating matapos ang ilang araw?',
+      'answers': ['a) Tag-init', 'b) Malakas na ulan', 'c) Lindol'],
+      'correctAnswer': 'b) Malakas na ulan',
     },
     {
-      'question': 'Ano ang ginawa ng ina nang hindi sumunod si Juan?',
-      'answers': ['a) Pinagalitan siya', 'b) Pinuri siya', 'c) Pinatulog siya'],
-      'correctAnswer': 'a) Pinagalitan siya',
+      'question': 'Ano ang nangyari kay Tipaklong nang umulan?',
+      'answers': ['a) Nagutom', 'b) Naging masaya', 'c) Naging masipag'],
+      'correctAnswer': 'a) Nagutom',
     },
     {
-      'question': 'Ano ang itinapon ng ina kay Juan?',
-      'answers': ['a) Kutsara', 'b) Baso', 'c) Plato'],
-      'correctAnswer': 'a) Kutsara',
+      'question': 'Kanino siya humingi ng pagkain?',
+      'answers': ['a) Ibon', 'b) Langgam', 'c) Pusa'],
+      'correctAnswer': 'b) Langgam',
     },
     {
-      'question': 'Ano ang tumubo kay Juan?',
-      'answers': ['a) Buntot', 'b) Sungay', 'c) Pakpak'],
-      'correctAnswer': 'a) Buntot',
+      'question': 'Ano ang sagot ni Langgam?',
+      'answers': [
+        'a) Hindi sapat ang pagkain ko',
+        'b) Sige, kain ka ng marami',
+        'c) Matulog ka muna',
+      ],
+      'correctAnswer': 'a) Hindi sapat ang pagkain ko',
     },
     {
-      'question': 'Ano ang kulay ng unggoy sa animation?',
-      'answers': ['a) Kayumanggi', 'b) Pula', 'c) Asul'],
-      'correctAnswer': 'a) Kayumanggi',
+      'question': 'Ano ang kulay ng tipaklong sa animation?',
+      'answers': ['a) Berde', 'b) Pula', 'c) Itim'],
+      'correctAnswer': 'a) Berde',
     },
     {
       'question': 'Ano ang aral ng kwento?',
       'answers': [
-        'a) Huwag maging tamad',
-        'b) Laging maglaro',
-        'c) Manloko ng magulang',
+        'a) Maging handa at masipag',
+        'b) Lagi lang magsaya',
+        'c) Huwag mag-ipon',
       ],
-      'correctAnswer': 'a) Huwag maging tamad',
-    },
-    {
-      'question': 'Ano ang naging hayop si Juan?',
-      'answers': ['a) Unggoy', 'b) Leon', 'c) Kalabaw'],
-      'correctAnswer': 'a) Unggoy',
+      'correctAnswer': 'a) Maging handa at masipag',
     },
   ];
 
@@ -113,13 +116,11 @@ class _AlamatngunggoyQuizState extends State<AlamatngunggoyQuiz> {
               backgroundColor: Color(0xFFACDC94),
               title: Text('Quiz Completed', style: Design.readTitle),
               content: Text('Your score is $score/15', style: Design.RecoPass),
-
               actions: [
                 ElevatedButton(
                   onPressed: () {
                     Navigator.pop(context);
                     setState(() {
-                      questions.shuffle();
                       currentQuestionIndex =
                           0; // Restart quiz or go back to a main page
                       score = 0; // Reset the score

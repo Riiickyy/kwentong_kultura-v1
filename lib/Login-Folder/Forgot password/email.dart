@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:kwentong_kultura/Classes/slide_transition.dart';
 import 'package:kwentong_kultura/Login-Folder/Login.dart';
 import 'package:kwentong_kultura/auth_service.dart';
@@ -20,6 +21,17 @@ class _PassrecState extends State<Passrec> {
   String errorMessage = '';
   bool isLoading = false; // Track the loading state
 
+  @override
+  void initState() {
+    super.initState();
+    // ✅ Lock orientation to portrait only
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+  }
+
+  @override
   void dispose() {
     emailController.dispose();
     currentPasswordController.dispose();

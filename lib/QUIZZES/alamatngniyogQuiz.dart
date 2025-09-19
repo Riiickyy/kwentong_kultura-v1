@@ -3,14 +3,14 @@ import 'package:flutter/services.dart';
 import 'package:kwentong_kultura/Classes/SFXplayerclass.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
 
-class AlamatngunggoyQuiz extends StatefulWidget {
-  const AlamatngunggoyQuiz({super.key});
+class Alamatngniyogquiz extends StatefulWidget {
+  const Alamatngniyogquiz({super.key});
 
   @override
-  State<AlamatngunggoyQuiz> createState() => _AlamatngunggoyQuizState();
+  State<Alamatngniyogquiz> createState() => _AlamatngniyogquizState();
 }
 
-class _AlamatngunggoyQuizState extends State<AlamatngunggoyQuiz> {
+class _AlamatngniyogquizState extends State<Alamatngniyogquiz> {
   int currentQuestionIndex = 0;
   bool isAnswerSelected = false;
   bool isAnswerCorrect = false;
@@ -18,58 +18,67 @@ class _AlamatngunggoyQuizState extends State<AlamatngunggoyQuiz> {
   int score = 0; // Initialize score
   List<Map<String, dynamic>> questions = [
     {
-      'question': 'Ano ang pangalan ng batang tamad?',
-      'answers': ['a) Juan', 'b) Pedro', 'c) Jose'],
-      'correctAnswer': 'a) Juan',
+      'question': 'Ano ang pangalan ng anak ng mag-asawa?',
+      'answers': ['a) Yumi', 'b) Pina', 'c) Mayan'],
+      'correctAnswer': 'a) Yumi',
     },
     {
-      'question': 'Ano ang ayaw gawin ni Juan?',
-      'answers': ['a) Gumising ng maaga', 'b) Kumain', 'c) Maglaro'],
-      'correctAnswer': 'a) Gumising ng maaga',
+      'question': 'Ano ang katangian ni Yumi?',
+      'answers': ['a) Tamad', 'b) Maganda at masipag', 'c) Palalo'],
+      'correctAnswer': 'b) Maganda at masipag',
     },
     {
-      'question': 'Ano ang ipinahanap ng ina niya?',
-      'answers': ['a) Kutsara', 'b) Sandok', 'c) Plato'],
-      'correctAnswer': 'b) Sandok',
+      'question':
+          'Ano ang ginawa ni Yumi nang umalis ang kanyang mga magulang?',
+      'answers': ['a) Naglinis ng bahay', 'b) Natulog', 'c) Naglaro'],
+      'correctAnswer': 'a) Naglinis ng bahay',
     },
     {
-      'question': 'Ano ang ibinigay ni Juan sa kanyang ina?',
-      'answers': ['a) Kutsarang kahoy', 'b) Tinidor', 'c) Baso'],
-      'correctAnswer': 'a) Kutsarang kahoy',
+      'question': 'Saan pumunta si Yumi matapos maglinis?',
+      'answers': ['a) Sa gubat', 'b) Sa dalampasigan', 'c) Sa palengke'],
+      'correctAnswer': 'b) Sa dalampasigan',
     },
     {
-      'question': 'Ano ang ginawa ng ina nang hindi sumunod si Juan?',
-      'answers': ['a) Pinagalitan siya', 'b) Pinuri siya', 'c) Pinatulog siya'],
-      'correctAnswer': 'a) Pinagalitan siya',
+      'question': 'Ano ang dumating habang siya ay naglalakad?',
+      'answers': ['a) Lindol', 'b) Bagyo', 'c) Araw'],
+      'correctAnswer': 'b) Bagyo',
     },
     {
-      'question': 'Ano ang itinapon ng ina kay Juan?',
-      'answers': ['a) Kutsara', 'b) Baso', 'c) Plato'],
-      'correctAnswer': 'a) Kutsara',
+      'question': 'Ano ang ginawa ni Yumi upang hindi matangay ng hangin?',
+      'answers': [
+        'a) Nagtago sa kuweba',
+        'b) Yumakap sa puno',
+        'c) Pumunta sa bahay',
+      ],
+      'correctAnswer': 'b) Yumakap sa puno',
     },
     {
-      'question': 'Ano ang tumubo kay Juan?',
-      'answers': ['a) Buntot', 'b) Sungay', 'c) Pakpak'],
-      'correctAnswer': 'a) Buntot',
+      'question': 'Ano ang natagpuan ng kanyang mga magulang sa dalampasigan?',
+      'answers': ['a) Isda', 'b) Puno ng niyog', 'c) Pinya'],
+      'correctAnswer': 'b) Puno ng niyog',
     },
     {
-      'question': 'Ano ang kulay ng unggoy sa animation?',
-      'answers': ['a) Kayumanggi', 'b) Pula', 'c) Asul'],
+      'question': 'Ano ang itsura ng bao ng niyog?',
+      'answers': [
+        'a) May tatlong marka na parang mata at bibig',
+        'b) May sungay',
+        'c) May buntot',
+      ],
+      'correctAnswer': 'a) May tatlong marka na parang mata at bibig',
+    },
+    {
+      'question': 'Ano ang kulay ng bao ng niyog? (visual)',
+      'answers': ['a) Kayumanggi', 'b) Berde', 'c) Pula'],
       'correctAnswer': 'a) Kayumanggi',
     },
     {
       'question': 'Ano ang aral ng kwento?',
       'answers': [
-        'a) Huwag maging tamad',
-        'b) Laging maglaro',
-        'c) Manloko ng magulang',
+        'a) Maging mapagmahal at masipag',
+        'b) Maging tamad',
+        'c) Umiwas sa pamilya',
       ],
-      'correctAnswer': 'a) Huwag maging tamad',
-    },
-    {
-      'question': 'Ano ang naging hayop si Juan?',
-      'answers': ['a) Unggoy', 'b) Leon', 'c) Kalabaw'],
-      'correctAnswer': 'a) Unggoy',
+      'correctAnswer': 'a) Maging mapagmahal at masipag',
     },
   ];
 

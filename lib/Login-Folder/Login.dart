@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:kwentong_kultura/Classes/slide_transition.dart';
 import 'package:kwentong_kultura/Login-Folder/Forgot%20password/email.dart';
 import 'package:kwentong_kultura/Login-Folder/firstUI.dart';
@@ -20,6 +21,16 @@ class _HomeUIWidgetState extends State<Login> {
   String errorMessage = '';
   bool isLoading = false; // Add a loading state
 
+  @override
+  void initState() {
+    super.initState();
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+  }
+
+  @override
   void dispose() {
     emailController.dispose();
     passwordController.dispose();
@@ -145,7 +156,7 @@ class _HomeUIWidgetState extends State<Login> {
                             Align(
                               alignment: Alignment.centerLeft,
                               child: Text(
-                                "Username",
+                                "Email",
                                 style: Design.storyTitle,
                                 textAlign: TextAlign.left,
                               ),
@@ -154,7 +165,7 @@ class _HomeUIWidgetState extends State<Login> {
                             TextField(
                               controller: emailController,
                               decoration: InputDecoration(
-                                labelText: 'Username',
+                                labelText: 'Email',
                                 border: OutlineInputBorder(),
                               ),
                             ),

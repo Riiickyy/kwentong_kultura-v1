@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:kwentong_kultura/Classes/SFXplayerclass.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
 
 class AngAsoatkanyangAninoQuiz extends StatefulWidget {
@@ -17,46 +19,78 @@ class _AngAsoatkanyangAninoQuizState extends State<AngAsoatkanyangAninoQuiz> {
   int score = 0; // Initialize score
   List<Map<String, dynamic>> questions = [
     {
-      'question': 'What is the capital of the Philippines?',
-      'answers': ['Manila', 'Cebu', 'Davao', 'Quezon City'],
-      'correctAnswer': 'Manila',
+      'question': 'Ano ang nahanap ng aso sa kagubatan?',
+      'answers': ['a) Isda', 'b) Buto', 'c) Tinapay'],
+      'correctAnswer': 'b) Buto',
     },
     {
-      'question': 'Who is the first president of the Philippines?',
+      'question': 'Saan dumaan ang aso pauwi?',
+      'answers': ['a) Sa tulay', 'b) Sa batis', 'c) Sa gubat'],
+      'correctAnswer': 'b) Sa batis',
+    },
+    {
+      'question': 'Ano ang nakita ng aso sa tubig?',
+      'answers': ['a) Ang kanyang anino', 'b) Isda', 'c) Tao'],
+      'correctAnswer': 'a) Ang kanyang anino',
+    },
+    {
+      'question': 'Ano ang nangyari nang ibuka ng aso ang bibig niya?',
       'answers': [
-        'Ramon Magsaysay',
-        'Emilio Aguinaldo',
-        'Ferdinand Marcos',
-        'Manuel Quezon',
+        'a) Nadagdagan ang buto',
+        'b) Nahulog ang buto',
+        'c) Dumami ang aso',
       ],
-      'correctAnswer': 'Emilio Aguinaldo',
+      'correctAnswer': 'b) Nahulog ang buto',
     },
     {
-      'question': 'Which of these is a national hero of the Philippines?',
+      'question': 'Ano ang itsura ng tubig sa batis?',
+      'answers': ['a) Madumi', 'b) Malinaw', 'c) Maalon'],
+      'correctAnswer': 'b) Malinaw',
+    },
+    {
+      'question': 'Ano ang pakiramdam ng aso nang mawala ang buto?',
+      'answers': ['a) Masaya', 'b) Malungkot', 'c) Galit'],
+      'correctAnswer': 'b) Malungkot',
+    },
+    {
+      'question': 'Anong kulay ng aso sa animation?',
+      'answers': ['a) Puti', 'b) Itim', 'c) Kayumanggi'],
+      'correctAnswer': 'b) Itim',
+    },
+    {
+      'question': 'Ano ang tinuturo ng kwento?',
       'answers': [
-        'José Rizal',
-        'Andres Bonifacio',
-        'Emilio Aguinaldo',
-        'All of the above',
+        'a) Huwag maging sakim',
+        'b) Matulog palagi',
+        'c) Kumain ng marami',
       ],
-      'correctAnswer': 'All of the above',
+      'correctAnswer': 'a) Huwag maging sakim',
     },
     {
-      'question': 'What is the national flower of the Philippines?',
-      'answers': ['Sampaguita', 'Sunflower', 'Rose', 'Orchid'],
-      'correctAnswer': 'Sampaguita',
+      'question': 'Saan nakita ng aso ang kanyang anino?',
+      'answers': ['a) Sa hangin', 'b) Sa tubig', 'c) Sa damo'],
+      'correctAnswer': 'b) Sa tubig',
     },
     {
-      'question': 'When is the Independence Day of the Philippines?',
-      'answers': ['July 4', 'June 12', 'August 21', 'December 30'],
-      'correctAnswer': 'June 12',
+      'question': 'Ano ang dapat gawin ng aso sa halip na maging sakim?',
+      'answers': [
+        'a) Magpasalamat sa kung ano ang mayroon',
+        'b) Magnakaw',
+        'c) Maglaro',
+      ],
+      'correctAnswer': 'a) Magpasalamat sa kung ano ang mayroon',
     },
   ];
 
   @override
   void initState() {
     super.initState();
-    questions.shuffle(); // Shuffle the questions initially
+    questions.shuffle();
+    BgmPlayer.player.play();
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
   }
 
   void onAnswerSelected(String answer) {
@@ -75,7 +109,7 @@ class _AngAsoatkanyangAninoQuizState extends State<AngAsoatkanyangAninoQuiz> {
 
   void nextQuestion() {
     setState(() {
-      if (currentQuestionIndex < 2) {
+      if (currentQuestionIndex < 4) {
         // Check if there are more questions
         currentQuestionIndex++;
         isAnswerSelected = false;
@@ -86,16 +120,14 @@ class _AngAsoatkanyangAninoQuizState extends State<AngAsoatkanyangAninoQuiz> {
           builder: (BuildContext context) {
             return AlertDialog(
               backgroundColor: Color(0xFFACDC94),
-              title: Text('Quiz Completed', style: Design.storyTitle),
-              content: Text(
-                'You have completed the quiz!\nYour score is: $score points',
-                style: Design.Normaltext,
-              ),
+              title: Text('Quiz Completed', style: Design.readTitle),
+              content: Text('Your score is $score/15', style: Design.RecoPass),
               actions: [
                 ElevatedButton(
                   onPressed: () {
                     Navigator.pop(context);
                     setState(() {
+                      questions.shuffle();
                       currentQuestionIndex =
                           0; // Restart quiz or go back to a main page
                       score = 0; // Reset the score
@@ -116,6 +148,12 @@ class _AngAsoatkanyangAninoQuizState extends State<AngAsoatkanyangAninoQuiz> {
         );
       }
     });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    BgmPlayer.player.pause();
   }
 
   @override
@@ -234,8 +272,8 @@ class _AngAsoatkanyangAninoQuizState extends State<AngAsoatkanyangAninoQuiz> {
                                     children: [
                                       Text(
                                         isAnswerCorrect
-                                            ? 'Correct! 🎉'
-                                            : 'Wrong! The correct answer is: ${currentQuestion['correctAnswer']} 😞',
+                                            ? 'Tama ang sagot mo! 🎉'
+                                            : 'Mali ang tamang sagot ay: ${currentQuestion['correctAnswer']} 😞',
                                         style: TextStyle(
                                           fontFamily: 'Nunito',
                                           fontSize: 18,

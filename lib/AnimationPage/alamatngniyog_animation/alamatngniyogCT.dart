@@ -1,5 +1,7 @@
 import 'package:appinio_video_player/appinio_video_player.dart';
 import 'package:flutter/material.dart';
+import 'package:kwentong_kultura/Classes/SFXplayerclass.dart';
+import 'package:kwentong_kultura/QUIZZES/alamatngniyogQuiz.dart';
 import 'package:kwentong_kultura/QUIZZES/angasoatkanyanganinoQuiz.dart';
 import 'package:video_player/video_player.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
@@ -318,6 +320,7 @@ class _AlamatngniyogCTState extends State<AlamatngniyogCT> {
   @override
   void initState() {
     super.initState();
+    BgmPlayer.player.pause();
     initializeVideoPlayer();
   }
 
@@ -386,6 +389,7 @@ class _AlamatngniyogCTState extends State<AlamatngniyogCT> {
     _controller.dispose();
     _customVideoPlayerController.dispose();
     super.dispose();
+    BgmPlayer.player.play();
   }
 
   void _toggleSettings() {
@@ -522,7 +526,7 @@ class _AlamatngniyogCTState extends State<AlamatngniyogCT> {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return AngAsoatkanyangAninoQuiz();
+                      return Alamatngniyogquiz();
                     },
                   ),
                 );

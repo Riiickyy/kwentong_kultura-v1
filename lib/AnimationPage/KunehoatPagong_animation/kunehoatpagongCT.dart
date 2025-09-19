@@ -1,5 +1,6 @@
 import 'package:appinio_video_player/appinio_video_player.dart';
 import 'package:flutter/material.dart';
+import 'package:kwentong_kultura/Classes/SFXplayerclass.dart';
 import 'package:kwentong_kultura/QUIZZES/kunehoatpagongQuiz.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
 import 'package:video_player/video_player.dart';
@@ -351,6 +352,7 @@ class _KunehotPagongCTState extends State<KunehotPagongCT> {
   void initState() {
     super.initState();
     initializeVideoPlayer();
+    BgmPlayer.player.pause();
   }
 
   void initializeVideoPlayer() {
@@ -418,6 +420,7 @@ class _KunehotPagongCTState extends State<KunehotPagongCT> {
     _controller.dispose();
     _customVideoPlayerController.dispose();
     super.dispose();
+    BgmPlayer.player.play();
   }
 
   void _toggleSettings() {

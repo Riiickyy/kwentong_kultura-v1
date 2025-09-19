@@ -1,5 +1,6 @@
 import 'package:appinio_video_player/appinio_video_player.dart';
 import 'package:flutter/material.dart';
+import 'package:kwentong_kultura/Classes/SFXplayerclass.dart';
 import 'package:kwentong_kultura/QUIZZES/alamatngunggoyQuiz.dart';
 import 'package:video_player/video_player.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
@@ -391,6 +392,7 @@ class _AlamantngunggoyCTState extends State<AlamantngunggoyCT> {
   void initState() {
     super.initState();
     initializeVideoPlayer();
+    BgmPlayer.player.pause();
   }
 
   void initializeVideoPlayer() {
@@ -458,6 +460,7 @@ class _AlamantngunggoyCTState extends State<AlamantngunggoyCT> {
     _controller.dispose();
     _customVideoPlayerController.dispose();
     super.dispose();
+    BgmPlayer.player.play();
   }
 
   void _toggleSettings() {
