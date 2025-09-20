@@ -5,6 +5,7 @@ import 'package:kwentong_kultura/Classes/slide_transition.dart';
 import 'package:kwentong_kultura/Login-Folder/Login.dart';
 import 'package:kwentong_kultura/auth_service.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Passrec extends StatefulWidget {
   const Passrec({super.key});
@@ -41,22 +42,44 @@ class _PassrecState extends State<Passrec> {
 
   void resetPassword() async {
     setState(() {
-      isLoading = true; // Start loading
+      isLoading = true;
     });
 
     try {
-      await authService.value.resetPassword(email: emailController.text);
+      // 🔍 Step 1: Check if email exists in Firestore
+      final usersRef = FirebaseFirestore.instance.collection('users');
+      final query =
+          await usersRef
+              .where('email', isEqualTo: emailController.text.trim())
+              .get();
+
+      if (query.docs.isEmpty) {
+        // ❌ No account found
+        setState(() {
+          isLoading = false;
+        });
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Email not registered'),
+            backgroundColor: Colors.red,
+          ),
+        );
+        return; // stop here
+      }
+
+      // ✅ Step 2: Send password reset email
+      await authService.value.resetPassword(email: emailController.text.trim());
+
       setState(() {
-        isLoading = false; // Stop loading on success
+        isLoading = false;
       });
+
       showSnackBarSuccess();
-      print("success");
     } on FirebaseAuthException catch (e) {
       setState(() {
-        isLoading = false; // Stop loading on error
-        showSnackBarFailure(e);
+        isLoading = false;
       });
-      print("fail"); // Pass the exception to show detailed error
+      showSnackBarFailure(e);
     }
   }
 

@@ -6,6 +6,7 @@ import 'package:kwentong_kultura/Login-Folder/Login.dart';
 import 'package:kwentong_kultura/Login-Folder/firstUI.dart';
 import 'package:kwentong_kultura/auth_service.dart';
 import '../Styles/styles.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Createaccount extends StatefulWidget {
   const Createaccount({super.key});
@@ -35,27 +36,48 @@ class _HomeUIWidgetState extends State<Createaccount> {
   void dispose() {
     emailController.dispose();
     passwordController.dispose();
+    nameController.dispose();
     super.dispose();
   }
 
   void register() async {
     setState(() {
-      isLoading = true; // Start loading
+      isLoading = true;
+      errorMessage = '';
     });
 
     try {
-      await authService.value.createAccount(
+      // 1. Create the user in Firebase Auth
+      UserCredential userCredential = await authService.value.createAccount(
         email: emailController.text,
         password: passwordController.text,
+        name: nameController.text,
       );
-      setState(() {
-        isLoading = false; // Stop loading on success
+
+      // 2. Get UID of created user
+      String uid = userCredential.user!.uid;
+
+      // 3. Create user document in Firestore
+      await FirebaseFirestore.instance.collection('users').doc(uid).set({
+        'name': nameController.text.trim(),
+        'email': emailController.text.trim(),
+        'createdAt': FieldValue.serverTimestamp(),
       });
-      _showSuccessDialog(); // Show success dialog after successful account creation
+
+      setState(() {
+        isLoading = false;
+      });
+
+      _showSuccessDialog();
     } on FirebaseAuthException catch (e) {
       setState(() {
-        isLoading = false; // Stop loading on error
-        errorMessage = e.message ?? 'Bad format of Email';
+        isLoading = false;
+        errorMessage = e.message ?? 'Something went wrong';
+      });
+    } catch (e) {
+      setState(() {
+        isLoading = false;
+        errorMessage = 'Unexpected error: $e';
       });
     }
   }

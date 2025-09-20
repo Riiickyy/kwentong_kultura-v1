@@ -66,7 +66,7 @@ class _MakinigcardsState extends State<Makinigcards> {
                           Image.asset(
                             'assets/images/Thumbnails/Animation & Read/Ang Alamat ng Pinya.jpg',
                             width: 150,
-                            height: 150,
+                            height: 100,
                           ),
                           SizedBox(height: 10),
                           Text(
@@ -256,7 +256,7 @@ class _MakinigcardsState extends State<Makinigcards> {
                           Image.network(
                             'https://picsum.photos/250?image=9',
                             width: 150,
-                            height: 150,
+                            height: 100,
                           ),
                           SizedBox(height: 10), // Add spacing
                           Text(
@@ -265,7 +265,7 @@ class _MakinigcardsState extends State<Makinigcards> {
                             textAlign: TextAlign.center,
                           ),
 
-                          SizedBox(height: 40),
+                          SizedBox(height: 10),
                           Text(
                             'Ito ay kwento ng magkaibigang si Tipaklong at Langgam',
                             style: Design.desciption,
@@ -326,7 +326,7 @@ class _MakinigcardsState extends State<Makinigcards> {
                           Image.network(
                             'https://picsum.photos/250?image=9',
                             width: 150,
-                            height: 150,
+                            height: 100,
                           ),
                           SizedBox(height: 10), // Add spacing
                           Text(
@@ -397,7 +397,7 @@ class _MakinigcardsState extends State<Makinigcards> {
                             textAlign: TextAlign.center,
                           ),
 
-                          SizedBox(height: 40),
+                          SizedBox(height: 10),
                           Text(
                             'Ito ay ang kwento ng unang ibong maya',
                             style: Design.desciption,
@@ -528,7 +528,7 @@ class _MakinigcardsState extends State<Makinigcards> {
                             textAlign: TextAlign.center,
                           ),
 
-                          SizedBox(height: 40),
+                          SizedBox(height: 10),
                           Text(
                             'Ang pag-iibigan ni Maria at Gatdula',
                             style: Design.desciption,
@@ -660,7 +660,7 @@ class _MakinigcardsState extends State<Makinigcards> {
                             textAlign: TextAlign.center,
                           ),
 
-                          SizedBox(height: 40),
+                          SizedBox(height: 10),
                           Text(
                             'Ito ay kwento ng paghahanap ng aso ng makakain para sa kanyang hapunan',
                             style: Design.desciption,

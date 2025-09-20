@@ -112,7 +112,7 @@ class _KunehoatPagongQuizState extends State<KunehoatPagongQuiz> {
 
   void nextQuestion() {
     setState(() {
-      if (currentQuestionIndex < 2) {
+      if (currentQuestionIndex < 4) {
         // Check if there are more questions
         currentQuestionIndex++;
         isAnswerSelected = false;

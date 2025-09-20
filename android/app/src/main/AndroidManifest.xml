@@ -2,7 +2,7 @@
 
 
     <application
-        android:label="kwentong_kultura"
+        android:label="Kwentong Kultura"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

@@ -264,7 +264,7 @@ class _MyWidgetState extends State<Magbasacards> {
                             textAlign: TextAlign.center,
                           ),
 
-                          SizedBox(height: 40),
+                          SizedBox(height: 10),
                           Text(
                             'Lorem ipsum dolor Lorem ipsum dolor',
                             style: Design.desciption,
@@ -377,14 +377,14 @@ class _MyWidgetState extends State<Magbasacards> {
                           ),
                           SizedBox(height: 10),
                           Text(
-                            'Ito ay kwento ng kauna-unahang puno ng Niyog',
+                            'Alamat ng Niyog',
                             style: Design.storyTitle,
                             textAlign: TextAlign.center,
                           ),
 
-                          SizedBox(height: 40),
+                          SizedBox(height: 10),
                           Text(
-                            'Lorem ipsum dolor Lorem ipsum dolor',
+                            'Ito ay kwento ng kauna-unahang puno ng Niyog',
                             style: Design.desciption,
                           ),
                           SizedBox(height: 10),
@@ -501,7 +501,7 @@ class _MyWidgetState extends State<Magbasacards> {
                             textAlign: TextAlign.center,
                           ),
 
-                          SizedBox(height: 40),
+                          SizedBox(height: 10),
                           Text(
                             'Lorem ipsum dolor Lorem ipsum dolor',
                             style: Design.desciption,
@@ -626,7 +626,7 @@ class _MyWidgetState extends State<Magbasacards> {
                             textAlign: TextAlign.center,
                           ),
 
-                          SizedBox(height: 40),
+                          SizedBox(height: 10),
                           Text(
                             'Ito ay kwento ng paghahanap ng aso ng makakain para sa kanyang hapunan',
                             style: Design.desciption,

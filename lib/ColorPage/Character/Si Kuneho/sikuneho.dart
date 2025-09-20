@@ -1,10 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'dart:ui' as ui;
 import 'package:flutter/services.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'dart:convert';
 import 'package:kwentong_kultura/ColorPage/Character/Si Kuneho/sikunehocolorclass.dart';
 
 class SiKuneho extends StatefulWidget {
@@ -53,48 +53,69 @@ class _SiKunehoState extends State<SiKuneho> {
   }
 
   Future<void> loadDrawing() async {
-    final prefs = await SharedPreferences.getInstance();
-    List<String>? pointsJson = prefs.getStringList('savedDrawingKuneho');
+    final user = FirebaseAuth.instance.currentUser;
+    if (user == null) return;
 
-    if (pointsJson != null) {
+    final doc =
+        await FirebaseFirestore.instance
+            .collection('users')
+            .doc(user.uid)
+            .collection('drawings')
+            .doc('siKuneho') // 🔑 load the only slot
+            .get();
+
+    if (doc.exists) {
+      List<dynamic> pointsData = doc['drawing'];
       setState(() {
         points =
-            pointsJson.map((json) {
-              var data = jsonDecode(json);
-              return data['dx'] == null
-                  ? null
-                  : DrawingArea(
-                    point: Offset(data['dx'], data['dy']),
-                    areaPaint:
-                        Paint()
-                          ..color = Color(data['color'])
-                          ..strokeWidth = data['strokeWidth'].toDouble()
-                          ..strokeCap = StrokeCap.round
-                          ..isAntiAlias = true,
-                  );
+            pointsData.map((data) {
+              if (data == null) return null;
+              return DrawingArea(
+                point: Offset(data['dx'], data['dy']),
+                areaPaint:
+                    Paint()
+                      ..color = Color(data['color'])
+                      ..strokeWidth = (data['strokeWidth'] as num).toDouble()
+                      ..strokeCap = StrokeCap.round
+                      ..isAntiAlias = true,
+              );
             }).toList();
       });
+    } else {
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(const SnackBar(content: Text("Drawing loaded")));
     }
   }
 
   Future<void> saveDrawing() async {
-    final prefs = await SharedPreferences.getInstance();
-    List<String> pointsJson =
-        points
-            .map(
-              (point) => jsonEncode({
-                'dx': point?.point.dx,
-                'dy': point?.point.dy,
-                'color': point?.areaPaint.color.value,
-                'strokeWidth': point?.areaPaint.strokeWidth,
-              }),
-            )
-            .toList();
+    final user = FirebaseAuth.instance.currentUser;
+    if (user == null) return;
 
-    await prefs.setStringList('savedDrawingKuneho', pointsJson);
+    List<Map<String, dynamic>?> pointsData =
+        points.map((point) {
+          if (point == null) return null;
+          return {
+            'dx': point.point.dx,
+            'dy': point.point.dy,
+            'color': point.areaPaint.color.value,
+            'strokeWidth': point.areaPaint.strokeWidth,
+          };
+        }).toList();
+
+    await FirebaseFirestore.instance
+        .collection('users')
+        .doc(user.uid)
+        .collection('drawings')
+        .doc('siKuneho') // 🔑 only one slot
+        .set({
+          'drawing': pointsData,
+          'timestamp': FieldValue.serverTimestamp(),
+        });
+
     ScaffoldMessenger.of(
       context,
-    ).showSnackBar(SnackBar(content: Text("Drawing saved!")));
+    ).showSnackBar(const SnackBar(content: Text("Color saved!")));
   }
 
   void SelectColor() {
@@ -307,7 +328,7 @@ class _SiKunehoState extends State<SiKuneho> {
                 Container(
                   width: width * 0.80,
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: Color(0xFFACDC94),
                     borderRadius: BorderRadius.all(Radius.circular(20.0)),
                   ),
                   child: Padding(
