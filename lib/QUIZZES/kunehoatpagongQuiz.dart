@@ -157,7 +157,6 @@ class _KunehoatPagongQuizState extends State<KunehoatPagongQuiz> {
   @override
   void dispose() {
     super.dispose();
-    BgmPlayer.player.pause();
   }
 
   @override

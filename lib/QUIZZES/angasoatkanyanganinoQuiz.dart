@@ -153,7 +153,6 @@ class _AngAsoatkanyangAninoQuizState extends State<AngAsoatkanyangAninoQuiz> {
   @override
   void dispose() {
     super.dispose();
-    BgmPlayer.player.pause();
   }
 
   @override

@@ -145,7 +145,6 @@ class _AlamatngunggoyQuizState extends State<AlamatngunggoyQuiz> {
   @override
   void dispose() {
     super.dispose();
-    BgmPlayer.player.pause();
   }
 
   @override

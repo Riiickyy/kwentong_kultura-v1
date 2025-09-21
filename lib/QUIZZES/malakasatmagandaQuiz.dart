@@ -134,7 +134,6 @@ class _MalakasatmagandaQuizState extends State<MalakasatmagandaQuiz> {
   @override
   void dispose() {
     super.dispose();
-    BgmPlayer.player.pause();
   }
 
   @override

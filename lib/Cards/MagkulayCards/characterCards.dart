@@ -595,7 +595,7 @@ class _CharacterCardsState extends State<CharacterCards> {
                           ),
                           SizedBox(height: 10),
                           Text(
-                            'Si Matsing',
+                            'Si Yumi',
                             style: Design.storyTitle,
                             textAlign: TextAlign.center,
                           ),
@@ -644,107 +644,6 @@ class _CharacterCardsState extends State<CharacterCards> {
                           SizedBox(height: 10),
                           Text(
                             'Si Langgam',
-                            style: Design.storyTitle,
-                            textAlign: TextAlign.center,
-                          ),
-
-                          SizedBox(height: 10),
-
-                          ElevatedButton(
-                            onPressed: () {},
-                            style: Design.buttonDesign,
-                            child: Text('Kulayan', style: Design.tara),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-          SizedBox(height: 10),
-          Row(
-            children: [
-              Expanded(
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Color(0xFFACDC94),
-                    borderRadius: BorderRadius.circular(15),
-                    border: Border.all(color: Colors.black),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.1),
-                        spreadRadius: 2,
-                        blurRadius: 5,
-                        offset: Offset(0, 3), // Shadow position
-                      ),
-                    ],
-                  ),
-
-                  child: Card(
-                    color: Color(0xFFACDC94),
-                    child: Padding(
-                      padding: EdgeInsets.all(10.0),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Image.network(
-                            'https://picsum.photos/250?image=9',
-                            width: 150,
-                            height: 150,
-                          ),
-                          SizedBox(height: 10),
-                          Text(
-                            'Si Malakas',
-                            style: Design.storyTitle,
-                            textAlign: TextAlign.center,
-                          ),
-
-                          SizedBox(height: 10),
-                          ElevatedButton(
-                            onPressed: () {},
-                            style: Design.buttonDesign,
-                            child: Text('Kulayan', style: Design.tara),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(width: 10),
-
-              Expanded(
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Color(0xFFACDC94),
-                    borderRadius: BorderRadius.circular(15),
-                    border: Border.all(color: Colors.black),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.1),
-                        spreadRadius: 2,
-                        blurRadius: 5,
-                        offset: Offset(0, 3), // Shadow position
-                      ),
-                    ],
-                  ),
-                  child: Card(
-                    color: Color(0xFFACDC94),
-                    child: Padding(
-                      padding: EdgeInsets.all(10.0),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Image.network(
-                            'https://picsum.photos/250?image=9',
-                            width: 150,
-                            height: 150,
-                          ),
-                          SizedBox(height: 10),
-                          Text(
-                            'Si Mayumi',
                             style: Design.storyTitle,
                             textAlign: TextAlign.center,
                           ),

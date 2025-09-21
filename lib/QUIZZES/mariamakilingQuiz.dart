@@ -150,7 +150,6 @@ class _MariamakilingquizState extends State<Mariamakilingquiz> {
   @override
   void dispose() {
     super.dispose();
-    BgmPlayer.player.pause();
   }
 
   @override

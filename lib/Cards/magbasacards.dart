@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:kwentong_kultura/Classes/slide_transition.dart';
 import 'package:kwentong_kultura/MagbasaPage/Alamatngmaya/alamatngmaya_basa.dart';
+import 'package:kwentong_kultura/MagbasaPage/Alamatngniyog/alamatngniyog_basa.dart';
 import 'package:kwentong_kultura/MagbasaPage/Alamatngpinya_Magbasa/Alamatngpinya_basa.dart';
 import 'package:kwentong_kultura/MagbasaPage/Alamatngunggoy/alamatngunggoy_basa.dart';
 import 'package:kwentong_kultura/MagbasaPage/AsoatKanyangAnino/asoatkanyanganino_basa.dart';
@@ -389,7 +390,15 @@ class _MyWidgetState extends State<Magbasacards> {
                           ),
                           SizedBox(height: 10),
                           ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                SlidePageRoute(
+                                  page: AlamatngniyogBasa(),
+                                  direction: SlideDirection.right,
+                                ),
+                              );
+                            },
                             style: Design.buttonDesign,
                             child: Text('Basahin', style: Design.tara),
                           ),

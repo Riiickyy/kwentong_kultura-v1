@@ -146,7 +146,6 @@ class _TipaklongatlanggamquizState extends State<Tipaklongatlanggamquiz> {
   @override
   void dispose() {
     super.dispose();
-    BgmPlayer.player.pause();
   }
 
   @override

@@ -162,7 +162,6 @@ class _PagongatmatsingquizState extends State<Pagongatmatsingquiz> {
   @override
   void dispose() {
     super.dispose();
-    BgmPlayer.player.pause();
   }
 
   @override

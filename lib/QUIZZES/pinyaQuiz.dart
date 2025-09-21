@@ -155,7 +155,6 @@ class _PinyaquizState extends State<Pinyaquiz> {
   @override
   void dispose() {
     super.dispose();
-    BgmPlayer.player.pause();
   }
 
   @override
