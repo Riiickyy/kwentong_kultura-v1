@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:kwentong_kultura/Classes/SFXplayerclass.dart';
+import 'package:kwentong_kultura/internetchecker.dart';
 import 'Login-Folder/firstUI.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -43,9 +44,10 @@ class _KwentongKulturaState extends State<KwentongKultura> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: AuthLayout(
-        pageIfNotConnected: const Firstui(),
-      ), // Use AuthLayout here
+      home: AuthLayout(pageIfNotConnected: const Firstui()),
+      builder: (context, child) {
+        return InternetChecker(child: child!);
+      },
     );
   }
 }

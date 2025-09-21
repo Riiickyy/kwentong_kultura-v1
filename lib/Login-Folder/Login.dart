@@ -58,7 +58,20 @@ class _HomeUIWidgetState extends State<Login> {
     } on FirebaseAuthException catch (e) {
       setState(() {
         isLoading = false; // Stop loading on error
-        errorMessage = e.message ?? 'Your credentials are wrong';
+        switch (e.code) {
+          case "user-not-found":
+          case "wrong-password":
+            errorMessage = "Incorrect email or password. Please try again.";
+            break;
+          case "invalid-email":
+            errorMessage = "Please enter a valid email address.";
+            break;
+          case "user-disabled":
+            errorMessage = "This account has been disabled. Contact support.";
+            break;
+          default:
+            errorMessage = "Something went wrong. Please try again.";
+        }
       });
     }
   }
