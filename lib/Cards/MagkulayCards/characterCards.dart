@@ -2,8 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:kwentong_kultura/Classes/slide_transition.dart';
 import 'package:kwentong_kultura/ColorPage/Character/Ang%20Aso/angAso.dart';
+import 'package:kwentong_kultura/ColorPage/Character/Maganda/maganda.dart';
+import 'package:kwentong_kultura/ColorPage/Character/Malakas/malakas.dart';
+import 'package:kwentong_kultura/ColorPage/Character/Pinya/pinya.dart';
 import 'package:kwentong_kultura/ColorPage/Character/Si%20Kuneho/sikuneho.dart';
 import 'package:kwentong_kultura/ColorPage/Character/Si%20Pagong/sipagong.dart';
+import 'package:kwentong_kultura/ColorPage/Character/Unggoy/unggoy.dart';
+import 'package:kwentong_kultura/ColorPage/Character/Yumi/yumi.dart';
 import '../../Styles/styles.dart';
 
 class CharacterCards extends StatefulWidget {
@@ -290,14 +295,22 @@ class _CharacterCardsState extends State<CharacterCards> {
                           ),
                           SizedBox(height: 10),
                           Text(
-                            'Si Pinya',
+                            'Ang Pinya',
                             style: Design.storyTitle,
                             textAlign: TextAlign.center,
                           ),
 
                           SizedBox(height: 10),
                           ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                SlidePageRoute(
+                                  page: Pinya(),
+                                  direction: SlideDirection.right,
+                                ),
+                              );
+                            },
                             style: Design.buttonDesign,
                             child: Text('Kulayan', style: Design.tara),
                           ),
@@ -393,14 +406,22 @@ class _CharacterCardsState extends State<CharacterCards> {
                           ),
                           SizedBox(height: 10),
                           Text(
-                            'Si Unggoy',
+                            'Ang Unggoy',
                             style: Design.storyTitle,
                             textAlign: TextAlign.center,
                           ),
 
                           SizedBox(height: 10),
                           ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                SlidePageRoute(
+                                  page: Unggoy(),
+                                  direction: SlideDirection.right,
+                                ),
+                              );
+                            },
                             style: Design.buttonDesign,
                             child: Text('Kulayan', style: Design.tara),
                           ),
@@ -501,7 +522,15 @@ class _CharacterCardsState extends State<CharacterCards> {
 
                           SizedBox(height: 10),
                           ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                SlidePageRoute(
+                                  page: Malakas(),
+                                  direction: SlideDirection.right,
+                                ),
+                              );
+                            },
                             style: Design.buttonDesign,
                             child: Text('Kulayan', style: Design.tara),
                           ),
@@ -550,7 +579,15 @@ class _CharacterCardsState extends State<CharacterCards> {
                           SizedBox(height: 10),
 
                           ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                SlidePageRoute(
+                                  page: Maganda(),
+                                  direction: SlideDirection.right,
+                                ),
+                              );
+                            },
                             style: Design.buttonDesign,
                             child: Text('Kulayan', style: Design.tara),
                           ),
@@ -602,7 +639,15 @@ class _CharacterCardsState extends State<CharacterCards> {
 
                           SizedBox(height: 10),
                           ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                SlidePageRoute(
+                                  page: Yumi(),
+                                  direction: SlideDirection.right,
+                                ),
+                              );
+                            },
                             style: Design.buttonDesign,
                             child: Text('Kulayan', style: Design.tara),
                           ),
