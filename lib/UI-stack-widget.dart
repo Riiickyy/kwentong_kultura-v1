@@ -138,6 +138,10 @@ class _HomeUIWidgetState extends State<HomeUIWidget> {
   @override
   void dispose() {
     super.dispose();
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
   }
 
   @override

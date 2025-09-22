@@ -283,10 +283,10 @@ class _CharacterCardsState extends State<CharacterCards> {
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Image.network(
-                            'https://picsum.photos/250?image=9',
+                          Image.asset(
+                            'assets/images/Thumbnails/Kulay/Character/Pinya.png',
                             width: 150,
-                            height: 150,
+                            height: 100,
                           ),
                           SizedBox(height: 10),
                           Text(
@@ -386,14 +386,14 @@ class _CharacterCardsState extends State<CharacterCards> {
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Image.network(
-                            'https://picsum.photos/250?image=9',
+                          Image.asset(
+                            'assets/images/Thumbnails/Kulay/Character/Unggoy.png',
                             width: 150,
-                            height: 150,
+                            height: 100,
                           ),
                           SizedBox(height: 10),
                           Text(
-                            'Si Matsing',
+                            'Si Unggoy',
                             style: Design.storyTitle,
                             textAlign: TextAlign.center,
                           ),
@@ -487,10 +487,10 @@ class _CharacterCardsState extends State<CharacterCards> {
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Image.network(
-                            'https://picsum.photos/250?image=9',
+                          Image.asset(
+                            'assets/images/Thumbnails/Kulay/Character/Malakas.png',
                             width: 150,
-                            height: 150,
+                            height: 100,
                           ),
                           SizedBox(height: 10),
                           Text(
@@ -535,10 +535,10 @@ class _CharacterCardsState extends State<CharacterCards> {
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Image.network(
-                            'https://picsum.photos/250?image=9',
+                          Image.asset(
+                            'assets/images/Thumbnails/Kulay/Character/Maganda.png',
                             width: 150,
-                            height: 150,
+                            height: 100,
                           ),
                           SizedBox(height: 10),
                           Text(
@@ -588,10 +588,10 @@ class _CharacterCardsState extends State<CharacterCards> {
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Image.network(
-                            'https://picsum.photos/250?image=9',
+                          Image.asset(
+                            'assets/images/Thumbnails/Kulay/Character/Yumi.png',
                             width: 150,
-                            height: 150,
+                            height: 100,
                           ),
                           SizedBox(height: 10),
                           Text(

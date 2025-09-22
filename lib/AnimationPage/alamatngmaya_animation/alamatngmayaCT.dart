@@ -2,6 +2,7 @@ import 'package:appinio_video_player/appinio_video_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:kwentong_kultura/Classes/SFXplayerclass.dart';
+import 'package:kwentong_kultura/Classes/slide_transition.dart';
 import 'package:kwentong_kultura/QUIZZES/alamatngmayaQuiz.dart';
 import 'package:video_player/video_player.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
@@ -16,6 +17,7 @@ class AlamatngmayaCT extends StatefulWidget {
 class _AlamatngmayaCTState extends State<AlamatngmayaCT> {
   late CustomVideoPlayerController _customVideoPlayerController;
   late VideoPlayerController _controller;
+
   double _playbackSpeed = 1.0;
   double _fontSize = 24;
   bool _isSettingsOpen = false;
@@ -89,7 +91,6 @@ class _AlamatngmayaCTState extends State<AlamatngmayaCT> {
       "endMilli": 400,
       "text": "nagbabayo ng palay ang Ina nito isang umaga",
     },
-
     {
       "startSec": 42,
       "startMilli": 367,
@@ -252,6 +253,12 @@ class _AlamatngmayaCTState extends State<AlamatngmayaCT> {
     super.initState();
     initializeVideoPlayer();
     BgmPlayer.player.pause();
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+      DeviceOrientation.landscapeLeft,
+      DeviceOrientation.landscapeRight,
+    ]);
   }
 
   void initializeVideoPlayer() {
@@ -259,6 +266,7 @@ class _AlamatngmayaCTState extends State<AlamatngmayaCT> {
       ..initialize().then((value) {
         setState(() {});
       });
+
     _customVideoPlayerController = CustomVideoPlayerController(
       context: context,
       videoPlayerController: _controller,
@@ -267,19 +275,18 @@ class _AlamatngmayaCTState extends State<AlamatngmayaCT> {
         playbackSpeedButtonAvailable: true,
       ),
     );
+
     _controller.addListener(_updateSubtitle); // Listen to video progress
   }
 
   void _updateSubtitle() {
-    final currentTime =
-        _controller.value.position.inMilliseconds; // Get time in milliseconds
+    final currentTime = _controller.value.position.inMilliseconds;
+
     String fullSubtitle = "";
     int subtitleStartTime = 0;
     int subtitleEndTime = 0;
 
-    // Find the current subtitle based on the video time
     for (var subtitle in subtitles) {
-      // Convert the start and end times to milliseconds
       int subtitleStartInMilliseconds =
           subtitle["startSec"] * 1000 + subtitle["startMilli"];
       int subtitleEndInMilliseconds =
@@ -319,6 +326,7 @@ class _AlamatngmayaCTState extends State<AlamatngmayaCT> {
     _controller.dispose();
     _customVideoPlayerController.dispose();
     super.dispose();
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     BgmPlayer.player.play();
   }
 
@@ -331,232 +339,290 @@ class _AlamatngmayaCTState extends State<AlamatngmayaCT> {
   @override
   Widget build(BuildContext context) {
     List<String> words = _currentSubtitle.split(" ");
+
     return Scaffold(
       backgroundColor: Colors.lightBlue.shade100,
-      body: Stack(
-        children: [
-          Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(
-                  'assets/images/Animation Page/PaperBG.png',
-                ), // Replace with your image path
-                fit:
-                    BoxFit.cover, // Adjust the image to cover the entire screen
-              ),
-            ),
-          ),
-          Column(
-            children: [
-              Expanded(
-                child: AspectRatio(
-                  aspectRatio:
-                      _controller.value.isInitialized
-                          ? _controller.value.aspectRatio
-                          : 16 / 9,
-                  child:
-                      _controller.value.isInitialized
-                          ? CustomVideoPlayer(
-                            customVideoPlayerController:
-                                _customVideoPlayerController,
-                          )
-                          : const Center(child: CircularProgressIndicator()),
-                ),
-              ),
-              Expanded(
-                child: Container(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      AnimatedOpacity(
-                        opacity: 1.0,
-                        duration: const Duration(milliseconds: 250),
-                        child: RichText(
-                          textAlign: TextAlign.center,
-                          text: TextSpan(
-                            children: List.generate(words.length, (index) {
-                              return TextSpan(
-                                text: "${words[index]} ",
-                                style: TextStyle(
-                                  fontFamily: 'Nunito',
-                                  fontSize: _fontSize,
-                                  fontWeight: FontWeight.w900,
-                                  color:
-                                      index <= _currentWordIndex
-                                          ? Color(0xFF760AFB)
-                                          : Color(
-                                            0xFF3f3f3f,
-                                          ), // Highlight effect
-                                ),
-                              );
-                            }),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
-          Positioned(
-            bottom:
-                105, // Adjust to position above the quiz and settings buttons
-            left: 20, // Positioned left
-            child: ElevatedButton(
-              onPressed: () {
-                setState(() {
-                  if (_controller.value.isPlaying) {
-                    // If video is currently playing, pause it
-                    _controller.pause();
-                  } else {
-                    // If video is paused, play it
-                    _controller.play();
-                  }
-                });
-              },
-              style: Design.playVideoButtonDesign,
-              child: Column(
-                mainAxisSize:
-                    MainAxisSize
-                        .min, // Ensures the column only takes as much space as needed
-                children: [
-                  Icon(
-                    _controller.value.isPlaying
-                        ? Icons.pause
-                        : Icons.play_arrow,
-                    size: 32, // Adjust the icon size
-                    color: Color(0xFF3f3f3f), // Set icon color to white
-                  ),
-                  SizedBox(
-                    height: 0, // Adds space between the icon and the label
-                  ),
-                  Text(
-                    _controller.value.isPlaying ? 'Pause' : 'Play',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 12,
-                      color: Color(
-                        0xFF3f3f3f,
-                      ), // Set text color to white (same as button color)
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
+      body: OrientationBuilder(
+        builder: (context, orientation) {
+          if (orientation == Orientation.portrait) {
+            return _buildPortrait(words);
+          } else {
+            return _buildLandscape(words);
+          }
+        },
+      ),
+    );
+  }
 
-          Positioned(
-            bottom: 20, // Adjust to position below Play button
-            left: 20, // Positioned left with some margin
-            child: ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return AlamatngmayaQuiz();
-                    },
-                  ),
-                );
-              },
-              style: Design.quizButtonDesign,
-              child: Column(
-                mainAxisSize:
-                    MainAxisSize
-                        .min, // Ensures the column only takes as much space as needed
-                children: [
-                  Icon(
-                    Icons.quiz,
-                    size: 24, // Adjust the icon size
+  // ----------------- Portrait Layout -----------------
+  Widget _buildPortrait(List<String> words) {
+    final isLandscape =
+        MediaQuery.of(context).orientation == Orientation.landscape;
+    return Stack(
+      children: [
+        Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/images/Animation Page/PaperBG.png'),
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
+        Column(
+          children: [
+            Expanded(
+              child: AspectRatio(
+                aspectRatio:
+                    _controller.value.isInitialized
+                        ? _controller.value.aspectRatio
+                        : 16 / 9,
+                child:
+                    _controller.value.isInitialized
+                        ? CustomVideoPlayer(
+                          customVideoPlayerController:
+                              _customVideoPlayerController,
+                        )
+                        : const Center(child: CircularProgressIndicator()),
+              ),
+            ),
+            Expanded(
+              child: Container(
+                padding: const EdgeInsets.all(16.0),
+                child:
+                    isLandscape
+                        ? _buildSubtitleLandscape(words) // ✅ New boxed style
+                        : _buildSubtitle(words), // ✅ Original full-width
+              ),
+            ),
+          ],
+        ),
+        _buildButtonsPortrait(),
+        if (_isSettingsOpen) _buildSettingsDialog(),
+      ],
+    );
+  }
+
+  // ----------------- Landscape Layout -----------------
+  Widget _buildLandscape(List<String> words) {
+    return Stack(
+      children: [
+        // Video full screen
+        Positioned.fill(
+          child:
+              _controller.value.isInitialized
+                  ? CustomVideoPlayer(
+                    customVideoPlayerController: _customVideoPlayerController,
+                  )
+                  : const Center(child: CircularProgressIndicator()),
+        ),
+
+        // Subtitles overlay
+        Positioned(
+          bottom: 20,
+          left: 16,
+          right: 16,
+          child: _buildSubtitleLandscape(words),
+        ),
+
+        // Buttons
+      ],
+    );
+  }
+
+  // ----------------- Karaoke Subtitle -----------------
+  Widget _buildSubtitle(List<String> words) {
+    return RichText(
+      textAlign: TextAlign.center,
+      text: TextSpan(
+        children: List.generate(words.length, (index) {
+          return TextSpan(
+            text: "${words[index]} ",
+            style: TextStyle(
+              fontFamily: 'Nunito',
+              fontSize: _fontSize,
+              fontWeight: FontWeight.w900,
+              color:
+                  index <= _currentWordIndex
+                      ? const Color(0xFF760AFB)
+                      : const Color(0xFFfefefe),
+            ),
+          );
+        }),
+      ),
+    );
+  }
+
+  // ----------------- Karaoke Subtitle for Landscape -----------------
+  Widget _buildSubtitleLandscape(List<String> words) {
+    double screenWidth = MediaQuery.of(context).size.width;
+
+    return Center(
+      child: Container(
+        width: screenWidth * 0.7, // 70% of screen width
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        decoration: BoxDecoration(
+          color: Colors.black.withOpacity(0.6),
+          borderRadius: BorderRadius.circular(12),
+        ),
+
+        child: RichText(
+          textAlign: TextAlign.center,
+          text: TextSpan(
+            children: List.generate(words.length, (index) {
+              return TextSpan(
+                text: "${words[index]} ",
+                style: TextStyle(
+                  fontFamily: 'Nunito',
+                  fontSize: 14, // slightly smaller
+                  fontWeight: FontWeight.w700,
+                  color:
+                      index <= _currentWordIndex
+                          ? Colors.yellowAccent
+                          : Colors.white,
+                ),
+              );
+            }),
+          ),
+        ),
+      ),
+    );
+  }
+
+  // ----------------- Portrait Buttons -----------------
+  Widget _buildButtonsPortrait() {
+    return Stack(
+      children: [
+        Positioned(
+          bottom: 105,
+          left: 20,
+          child: ElevatedButton(
+            onPressed: () {
+              setState(() {
+                if (_controller.value.isPlaying) {
+                  _controller.pause();
+                } else {
+                  _controller.play();
+                }
+              });
+            },
+            style: Design.playVideoButtonDesign,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(
+                  _controller.value.isPlaying ? Icons.pause : Icons.play_arrow,
+                  size: 32,
+                  color: const Color(0xFF3f3f3f),
+                ),
+                const Text(
+                  'Play',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 12,
                     color: Color(0xFF3f3f3f),
                   ),
-                  SizedBox(
-                    height: 0, // Adds space between the icon and the label
-                  ),
-                  Text(
-                    'Quiz',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 12,
-                      color: Color(0xFF3f3f3f),
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
-          // Settings button
-          Positioned(
-            bottom: 100,
-            right: 20,
-            child: FloatingActionButton(
-              backgroundColor: Colors.orange.shade300,
-              onPressed: _toggleSettings,
-              child: Icon(Icons.settings),
+        ),
+        Positioned(
+          bottom: 20,
+          left: 20,
+          child: ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                SlidePageRoute(
+                  page: AlamatngmayaQuiz(),
+                  direction: SlideDirection.right,
+                ),
+              );
+            },
+            style: Design.quizButtonDesign,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: const [
+                Icon(Icons.quiz, size: 24, color: Color(0xFF3f3f3f)),
+                Text(
+                  'Quiz',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 12,
+                    color: Color(0xFF3f3f3f),
+                  ),
+                ),
+              ],
             ),
           ),
+        ),
+        Positioned(
+          bottom: 100,
+          right: 20,
+          child: FloatingActionButton(
+            backgroundColor: Colors.orange.shade300,
+            onPressed: _toggleSettings,
+            child: const Icon(Icons.settings),
+          ),
+        ),
+      ],
+    );
+  }
 
-          if (_isSettingsOpen)
-            Center(
-              child: Container(
-                width: 300,
-                height: 250,
-                padding: const EdgeInsets.all(16),
-                decoration: BoxDecoration(
-                  color: Colors.orange.shade200,
-                  borderRadius: BorderRadius.circular(16),
+  // ----------------- Settings Dialog -----------------
+  Widget _buildSettingsDialog() {
+    return Center(
+      child: Container(
+        width: 300,
+        height: 250,
+        padding: const EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          color: Colors.orange.shade200,
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text(
+                  "Settings",
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        const Text(
-                          "Settings",
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        IconButton(
-                          icon: const Icon(Icons.close),
-                          onPressed: _toggleSettings,
-                        ),
-                      ],
-                    ),
-                    const Text("Sukat ng sulat"),
-                    Slider(
-                      value: _fontSize,
-                      min: 12,
-                      max: 32,
-                      onChanged: (value) {
-                        setState(() {
-                          _fontSize = value;
-                        });
-                      },
-                    ),
-                    const Text("Bilis ng Sulat at Palabas\n"),
-                    Slider(
-                      value: _playbackSpeed,
-                      min: 0.5,
-                      max: 2.0,
-                      divisions: 3,
-                      label: "${_playbackSpeed}x",
-                      onChanged: (value) {
-                        setState(() {
-                          _playbackSpeed = value;
-                          _controller.setPlaybackSpeed(value);
-                        });
-                      },
-                    ),
-                  ],
+                IconButton(
+                  icon: const Icon(Icons.close),
+                  onPressed: _toggleSettings,
                 ),
-              ),
+              ],
             ),
-        ],
+            const Text("Sukat ng sulat"),
+            Slider(
+              value: _fontSize,
+              min: 12,
+              max: 32,
+              onChanged: (value) {
+                setState(() {
+                  _fontSize = value;
+                });
+              },
+            ),
+            const Text("Bilis ng Sulat at Palabas\n"),
+            Slider(
+              value: _playbackSpeed,
+              min: 0.5,
+              max: 2.0,
+              divisions: 3,
+              label: "${_playbackSpeed}x",
+              onChanged: (value) {
+                setState(() {
+                  _playbackSpeed = value;
+                  _controller.setPlaybackSpeed(value);
+                });
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
