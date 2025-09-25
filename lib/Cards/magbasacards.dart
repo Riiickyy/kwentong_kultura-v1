@@ -9,6 +9,7 @@ import 'package:kwentong_kultura/MagbasaPage/AsoatKanyangAnino/asoatkanyanganino
 import 'package:kwentong_kultura/MagbasaPage/Kuneho%20at%20Pagong/kunehoatpagong_basa.dart';
 import 'package:kwentong_kultura/MagbasaPage/MalakasatMaganda/malakasatmaganda_basa.dart';
 import 'package:kwentong_kultura/MagbasaPage/PagongatMatsing/pagongatmatsing_basa.dart';
+import 'package:kwentong_kultura/MagbasaPage/Tipaklong%20at%20Langgam/tipaklongatlanggam_basa.dart';
 import '../Styles/styles.dart';
 
 class Magbasacards extends StatefulWidget {
@@ -257,10 +258,10 @@ class _MyWidgetState extends State<Magbasacards> {
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Image.network(
-                            'https://picsum.photos/250?image=9',
+                          Image.asset(
+                            'assets/images/Thumbnails/Animation & Read/TipaklongAtLanggam.jpg',
                             width: 150,
-                            height: 150,
+                            height: 100,
                           ),
                           SizedBox(height: 10),
                           Text(
@@ -276,7 +277,15 @@ class _MyWidgetState extends State<Magbasacards> {
                           ),
                           SizedBox(height: 10),
                           ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                SlidePageRoute(
+                                  page: TipaklongatlanggamBasa(),
+                                  direction: SlideDirection.right,
+                                ),
+                              );
+                            },
                             style: Design.buttonDesign,
                             child: Text('Basahin', style: Design.tara),
                           ),
