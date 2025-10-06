@@ -16,6 +16,8 @@ class _AlamatngmayaQuizState extends State<AlamatngmayaQuiz> {
   bool isAnswerCorrect = false;
   String selectedAnswer = '';
   int score = 0; // Initialize score
+
+  //quiz questions and answers
   List<Map<String, dynamic>> questions = [
     {
       'question': 'Ano ang pangalan ng batang babae?',
@@ -80,7 +82,7 @@ class _AlamatngmayaQuizState extends State<AlamatngmayaQuiz> {
   @override
   void initState() {
     super.initState();
-    questions.shuffle();
+    questions.shuffle(); // make the questions random
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
@@ -102,6 +104,7 @@ class _AlamatngmayaQuizState extends State<AlamatngmayaQuiz> {
     });
   }
 
+  //question to make it show 5 questions only
   void nextQuestion() {
     setState(() {
       if (currentQuestionIndex < 4) {
@@ -124,8 +127,7 @@ class _AlamatngmayaQuizState extends State<AlamatngmayaQuiz> {
                     Navigator.pop(context);
                     setState(() {
                       questions.shuffle();
-                      currentQuestionIndex =
-                          0; // Restart quiz or go back to a main page
+                      currentQuestionIndex = 0; // Restart quiz
                       score = 0; // Reset the score
                       isAnswerSelected = false;
                     });
@@ -229,11 +231,13 @@ class _AlamatngmayaQuizState extends State<AlamatngmayaQuiz> {
                                 ),
                                 SizedBox(height: 20),
                                 Text(
+                                  //question that is showing
                                   currentQuestion['question'],
                                   style: Design.storyTitle,
                                   textAlign: TextAlign.center,
                                 ),
                                 SizedBox(height: 20),
+                                // This part shows all the answer buttons for the current question
                                 ...currentQuestion['answers'].map((answer) {
                                   return ElevatedButton(
                                     style: Design.buttonDesign.copyWith(
@@ -252,6 +256,9 @@ class _AlamatngmayaQuizState extends State<AlamatngmayaQuiz> {
                                             ), // Default color when no answer is selected
                                       ),
                                     ),
+                                    // When the user taps a button:
+                                    // - If they already answered, do nothing
+                                    // - If not, check if the answer is correct
                                     onPressed:
                                         isAnswerSelected
                                             ? null // Disable button if an answer is already selected
@@ -267,8 +274,8 @@ class _AlamatngmayaQuizState extends State<AlamatngmayaQuiz> {
                                     children: [
                                       Text(
                                         isAnswerCorrect
-                                            ? 'Correct! 🎉'
-                                            : 'Wrong! The correct answer is: ${currentQuestion['correctAnswer']} 😞',
+                                            ? 'Magaling Tama ka! 🎉'
+                                            : 'Mali! ang tamang sagot ay: ${currentQuestion['correctAnswer']} 😞',
                                         style: TextStyle(
                                           fontFamily: 'Nunito',
                                           fontSize: 18,

@@ -34,15 +34,12 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
-  expandable_text: ^2.3.0
   color_picker_field: ^2.1.0
   flutter_colorpicker: ^1.1.0
   video_player: ^2.9.3
   appinio_video_player: ^1.2.2
-  shared_preferences: ^2.5.3
   flutter_native_splash: ^2.4.5
   just_audio: ^0.9.46
-  pdfx: ^2.9.1
   firebase_core: ^3.15.1
   firebase_auth: ^5.6.2
   audioplayers: ^6.5.0
@@ -76,26 +73,16 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/images/HomeUI/Cloud.png
-    - assets/images/HomeUI/Wood.png
-    - assets/images/HomeUI/sunncloud.png
-    - assets/images/HomeUI/Title.png
-    - assets/images/HomeUI/first.png
-    - assets/images/HomeUI/Login BG/LoginBG.png
-    - assets/images/HomeUI/Login BG/Ant.png
-    - assets/images/HomeUI/Login BG/Grasshopper.png
+    - assets/images/HomeUI/
+    - assets/images/HomeUI/Login BG/
     - assets/Animations/LOGIN ANIMATIONS/
     - assets/Animations/Quiz/
     - assets/Animations/Paint/
     - assets/images/Animation Page/
-    - assets/Animations/login_bg_last (4).riv
-    - assets/Animations/honmepage.riv
-    - assets/Animations/homepage.riv
     - assets/Animations/
-    - assets/Animations/Read BG/read_bg.riv
+    - assets/Animations/
     - assets/Animations/Read BG/
     - assets/videos/
-    - assets/videos/AlamatngMaya.mp4
     - assets/images/Read Scenes/Ang aso at kanyang anino/
     - assets/images/Read Scenes/Pagong at Kuneho/
     - assets/images/Read Scenes/Malakas at Maganda/
@@ -105,8 +92,7 @@ flutter:
     - assets/images/Read Scenes/Alamat ng unggoy/
     - assets/images/Read Scenes/Alamat ng Niyog/
     - assets/images/Read Scenes/Tipaklong at Langgam/
-    - assets/background.mp3
-    - assets/pdfs/Pinya.pdf
+    - assets/images/Read Scenes/Maria Makiling/
     - assets/images/Color/Character/
     - assets/Buttonclick.mp3
     - assets/images/Thumbnails/Animation & Read/

@@ -5,6 +5,8 @@ import 'package:kwentong_kultura/ColorPage/Character/Ang%20Aso/angAso.dart';
 import 'package:kwentong_kultura/ColorPage/Character/Langgam/siLanggam.dart';
 import 'package:kwentong_kultura/ColorPage/Character/Maganda/maganda.dart';
 import 'package:kwentong_kultura/ColorPage/Character/Malakas/malakas.dart';
+import 'package:kwentong_kultura/ColorPage/Character/Maria/Maria.dart';
+import 'package:kwentong_kultura/ColorPage/Character/Maya/Maya.dart';
 import 'package:kwentong_kultura/ColorPage/Character/Pinya/pinya.dart';
 import 'package:kwentong_kultura/ColorPage/Character/Si%20Kuneho/sikuneho.dart';
 import 'package:kwentong_kultura/ColorPage/Character/Si%20Pagong/sipagong.dart';
@@ -354,10 +356,10 @@ class _CharacterCardsState extends State<CharacterCards> {
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Image.network(
-                            'https://picsum.photos/250?image=9',
+                          Image.asset(
+                            'assets/images/Thumbnails/Kulay/Character/Maria Makiling.png',
                             width: 150,
-                            height: 150,
+                            height: 100,
                           ),
                           SizedBox(height: 10),
                           Text(
@@ -369,7 +371,15 @@ class _CharacterCardsState extends State<CharacterCards> {
                           SizedBox(height: 10),
 
                           ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                SlidePageRoute(
+                                  page: Maria(),
+                                  direction: SlideDirection.right,
+                                ),
+                              );
+                            },
                             style: Design.buttonDesign,
                             child: Text('Kulayan', style: Design.tara),
                           ),
@@ -464,10 +474,10 @@ class _CharacterCardsState extends State<CharacterCards> {
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Image.network(
-                            'https://picsum.photos/250?image=9',
+                          Image.asset(
+                            'assets/images/Thumbnails/Kulay/Character/Maya.png',
                             width: 150,
-                            height: 150,
+                            height: 100,
                           ),
                           SizedBox(height: 10),
                           Text(
@@ -479,7 +489,15 @@ class _CharacterCardsState extends State<CharacterCards> {
                           SizedBox(height: 10),
 
                           ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                SlidePageRoute(
+                                  page: Maya(),
+                                  direction: SlideDirection.right,
+                                ),
+                              );
+                            },
                             style: Design.buttonDesign,
                             child: Text('Kulayan', style: Design.tara),
                           ),

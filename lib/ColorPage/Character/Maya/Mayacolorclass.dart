@@ -1,15 +1,15 @@
 import 'dart:ui' as ui;
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:kwentong_kultura/ColorPage/Scenario/AngTulognasiKuneho/Tulog_si_kuneho.dart';
+import 'package:kwentong_kultura/ColorPage/Character/Maya/Maya.dart';
 
-class TulogSiKunehocolorclass extends CustomPainter {
+class Mayacolorclass extends CustomPainter {
   List<DrawingArea?> points;
   Color color;
   double strokeWidth;
   ui.Image? backgroundImage;
 
-  TulogSiKunehocolorclass({
+  Mayacolorclass({
     required this.points,
     required this.color,
     required this.strokeWidth,
@@ -38,8 +38,6 @@ class TulogSiKunehocolorclass extends CustomPainter {
       backgroundImage!.height.toDouble(),
     );
     Rect dst = Rect.fromLTWH(0, 0, scaleX, scaleY);
-
-    canvas.drawImageRect(backgroundImage!, src, dst, Paint());
 
     canvas.drawImageRect(backgroundImage!, src, dst, Paint());
 

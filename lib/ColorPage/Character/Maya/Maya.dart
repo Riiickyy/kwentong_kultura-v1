@@ -1,17 +1,17 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'dart:ui' as ui;
 import 'package:flutter/services.dart';
+import 'package:kwentong_kultura/ColorPage/Character/Maya/Mayacolorclass.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'dart:convert';
-import 'package:kwentong_kultura/ColorPage/Scenario/PagongkunehoMangga/PagongKunehoManggaColorClass.dart';
 
-class PagongKunehoMangga extends StatefulWidget {
-  const PagongKunehoMangga({super.key});
+class Maya extends StatefulWidget {
+  const Maya({super.key});
 
   @override
-  State<PagongKunehoMangga> createState() => _PagongKunehoManggaState();
+  State<Maya> createState() => _MayaState();
 }
 
 class DrawingArea {
@@ -21,7 +21,7 @@ class DrawingArea {
   DrawingArea({required this.point, required this.areaPaint});
 }
 
-class _PagongKunehoManggaState extends State<PagongKunehoMangga> {
+class _MayaState extends State<Maya> {
   List<DrawingArea?> points = [];
   List<DrawingArea?> redoStack = [];
   late Color selectedColor;
@@ -40,7 +40,7 @@ class _PagongKunehoManggaState extends State<PagongKunehoMangga> {
 
   Future<void> loadImage() async {
     final ByteData data = await rootBundle.load(
-      'assets/images/Color/Scenario/kuneho at pagong Mangga (sketched).jpg',
+      'assets/images/Color/Character/Maya.png',
     ); // Replace with your image path
     final ui.Codec codec = await ui.instantiateImageCodec(
       data.buffer.asUint8List(),
@@ -52,51 +52,71 @@ class _PagongKunehoManggaState extends State<PagongKunehoMangga> {
     });
   }
 
+  //to load the drawing from firestore, display it on the screen and checck if there was a color saved
   Future<void> loadDrawing() async {
-    final prefs = await SharedPreferences.getInstance();
-    List<String>? pointsJson = prefs.getStringList(
-      'savedDrawingPagongKunehoMangga',
-    );
+    final user = FirebaseAuth.instance.currentUser;
+    if (user == null) return;
 
-    if (pointsJson != null) {
+    final doc =
+        await FirebaseFirestore.instance
+            .collection('users')
+            .doc(user.uid)
+            .collection('drawings')
+            .doc('Maya') // 🔑 load the last color saved
+            .get();
+
+    if (doc.exists) {
+      List<dynamic> pointsData = doc['drawing'];
       setState(() {
         points =
-            pointsJson.map((json) {
-              var data = jsonDecode(json);
-              return data['dx'] == null
-                  ? null
-                  : DrawingArea(
-                    point: Offset(data['dx'], data['dy']),
-                    areaPaint:
-                        Paint()
-                          ..color = Color(data['color'])
-                          ..strokeWidth = data['strokeWidth'].toDouble()
-                          ..strokeCap = StrokeCap.round
-                          ..isAntiAlias = true,
-                  );
+            pointsData.map((data) {
+              if (data == null) return null;
+              return DrawingArea(
+                point: Offset(data['dx'], data['dy']),
+                areaPaint:
+                    Paint()
+                      ..color = Color(data['color'])
+                      ..strokeWidth = (data['strokeWidth'] as num).toDouble()
+                      ..strokeCap = StrokeCap.round
+                      ..isAntiAlias = true,
+              );
             }).toList();
       });
+    } else {
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(const SnackBar(content: Text("Drawing loaded")));
     }
   }
 
   Future<void> saveDrawing() async {
-    final prefs = await SharedPreferences.getInstance();
-    List<String> pointsJson =
-        points
-            .map(
-              (point) => jsonEncode({
-                'dx': point?.point.dx,
-                'dy': point?.point.dy,
-                'color': point?.areaPaint.color.value,
-                'strokeWidth': point?.areaPaint.strokeWidth,
-              }),
-            )
-            .toList();
+    final user = FirebaseAuth.instance.currentUser;
+    if (user == null) return;
 
-    await prefs.setStringList('savedDrawingPagongKunehoMangga', pointsJson);
+    List<Map<String, dynamic>?> pointsData =
+        points.map((point) {
+          if (point == null) return null;
+          return {
+            'dx': point.point.dx,
+            'dy': point.point.dy,
+            'color': point.areaPaint.color.value,
+            'strokeWidth': point.areaPaint.strokeWidth,
+          };
+        }).toList();
+    //funtion to save the drawing to firestore
+    await FirebaseFirestore.instance
+        .collection('users')
+        .doc(user.uid)
+        .collection('drawings')
+        .doc('Maya') // 🔑 only one slot
+        .set({
+          'drawing': pointsData,
+          'timestamp': FieldValue.serverTimestamp(),
+        });
+
     ScaffoldMessenger.of(
       context,
-    ).showSnackBar(SnackBar(content: Text("Drawing saved!")));
+    ).showSnackBar(const SnackBar(content: Text("Color saved!")));
   }
 
   void SelectColor() {
@@ -189,30 +209,37 @@ class _PagongKunehoManggaState extends State<PagongKunehoMangga> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.start, // Align text to the left
-          crossAxisAlignment: CrossAxisAlignment.center, // Vertically center it
-          children: [
-            Expanded(
-              child: Text(
-                'Si Pagong at ang kuneho \n sa ilalim ng mangga',
-                style: TextStyle(
-                  fontFamily: 'Nunito',
-                  fontWeight: FontWeight.w900,
-                  fontSize: 14,
-                ),
-                textAlign: TextAlign.justify, // Justify the text
-              ),
-            ),
-          ],
+        title: Text(
+          'Ang Maya',
+          style: TextStyle(
+            fontFamily: 'Nunito',
+            fontWeight: FontWeight.w900,
+            fontSize: 24,
+          ),
         ),
+        centerTitle: true,
         backgroundColor: Color(0xFFACDC94),
         elevation: 6,
         shadowColor: Colors.black.withOpacity(0.5),
       ),
       body: Stack(
         children: [
-          Container(color: Color(0xFFC5F1FF)),
+          Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(
+                  'assets/images/Animation Page/PaperBG.png',
+                ), // Replace with your image path
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: -30,
+            left: 10,
+            width: 150,
+            child: Image.asset('assets/Animations/Paint/Paint.gif'),
+          ),
 
           Center(
             child: Column(
@@ -286,7 +313,7 @@ class _PagongKunehoManggaState extends State<PagongKunehoMangga> {
                       child: ClipRRect(
                         borderRadius: BorderRadius.all(Radius.circular(20.0)),
                         child: CustomPaint(
-                          painter: PagongkunehoManggacolorclass(
+                          painter: Mayacolorclass(
                             points: points,
                             strokeWidth: strokeWidth,
                             color: selectedColor,
@@ -302,7 +329,7 @@ class _PagongKunehoManggaState extends State<PagongKunehoMangga> {
                 Container(
                   width: width * 0.80,
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: Color(0xFFACDC94),
                     borderRadius: BorderRadius.all(Radius.circular(20.0)),
                   ),
                   child: Padding(

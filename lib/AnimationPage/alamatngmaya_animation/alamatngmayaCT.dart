@@ -18,12 +18,13 @@ class _AlamatngmayaCTState extends State<AlamatngmayaCT> {
   late CustomVideoPlayerController _customVideoPlayerController;
   late VideoPlayerController _controller;
 
-  double _playbackSpeed = 1.0;
+  double _playbackSpeed = 1.0; // for controlling narration speed
   double _fontSize = 24;
   bool _isSettingsOpen = false;
   String _currentSubtitle = "";
   int _currentWordIndex = -1;
 
+  // Subtitle timing list (syncs with narration)
   final List<Map<String, dynamic>> subtitles = [
     {
       "startSec": 1,
@@ -245,14 +246,14 @@ class _AlamatngmayaCTState extends State<AlamatngmayaCT> {
       "text": "malaki ang hinala ng kanyang Ina na si Mayan iyon",
     },
   ];
-
+  // Video asset that includes both video and voice narration
   String assetVideo = 'assets/videos/AlamatngMaya.mp4';
 
   @override
   void initState() {
     super.initState();
-    initializeVideoPlayer();
-    BgmPlayer.player.pause();
+    initializeVideoPlayer(); // sets up video & narration
+    BgmPlayer.player.pause(); // pauses background music so narration is clear
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
@@ -262,11 +263,15 @@ class _AlamatngmayaCTState extends State<AlamatngmayaCT> {
   }
 
   void initializeVideoPlayer() {
+    // The VideoPlayerController automatically plays both
+    // the video *and its built-in audio track (voice narration)*
+    // because MP4 includes sound by default.
     _controller = VideoPlayerController.asset(assetVideo)
       ..initialize().then((value) {
         setState(() {});
       });
 
+    // The custom player to control the video
     _customVideoPlayerController = CustomVideoPlayerController(
       context: context,
       videoPlayerController: _controller,
@@ -278,6 +283,10 @@ class _AlamatngmayaCTState extends State<AlamatngmayaCT> {
 
     _controller.addListener(_updateSubtitle); // Listen to video progress
   }
+
+  // This checks the current playback time and
+  // finds which subtitle matches that timestamp.
+  // It makes the text appear in sync with the narration voice.
 
   void _updateSubtitle() {
     final currentTime = _controller.value.position.inMilliseconds;
@@ -299,14 +308,14 @@ class _AlamatngmayaCTState extends State<AlamatngmayaCT> {
         subtitleEndTime = subtitleEndInMilliseconds;
       }
     }
-
+    // When narration moves to a new line, update text
     if (fullSubtitle != _currentSubtitle) {
       setState(() {
         _currentSubtitle = fullSubtitle;
         _currentWordIndex = 0;
       });
     }
-
+    // highlight each word in sync with narration speed
     int elapsedTime = currentTime - subtitleStartTime;
     List<String> words = _currentSubtitle.split(" ");
     int wordsToHighlight = (elapsedTime *
@@ -327,7 +336,7 @@ class _AlamatngmayaCTState extends State<AlamatngmayaCT> {
     _customVideoPlayerController.dispose();
     super.dispose();
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-    BgmPlayer.player.play();
+    BgmPlayer.player.play(); // resumes background music when they exit
   }
 
   void _toggleSettings() {
@@ -434,13 +443,20 @@ class _AlamatngmayaCTState extends State<AlamatngmayaCT> {
     return RichText(
       textAlign: TextAlign.center,
       text: TextSpan(
+        // Generate a TextSpan (styled text) for each word
         children: List.generate(words.length, (index) {
           return TextSpan(
+            // Add a space after each word
             text: "${words[index]} ",
             style: TextStyle(
               fontFamily: 'Nunito',
               fontSize: _fontSize,
               fontWeight: FontWeight.w900,
+
+              // 🟣 If the word index is less than or equal to
+              // _currentWordIndex, it means the narration already
+              // reached or passed that word → highlight it.
+              // Otherwise, keep it white (not yet spoken).
               color:
                   index <= _currentWordIndex
                       ? const Color(0xFF760AFB)

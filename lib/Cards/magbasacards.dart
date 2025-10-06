@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:kwentong_kultura/Classes/slide_transition.dart';
+import 'package:kwentong_kultura/MagbasaPage/Alamatngmariamakiling/mariamakiling_basa.dart';
 import 'package:kwentong_kultura/MagbasaPage/Alamatngmaya/alamatngmaya_basa.dart';
 import 'package:kwentong_kultura/MagbasaPage/Alamatngniyog/alamatngniyog_basa.dart';
 import 'package:kwentong_kultura/MagbasaPage/Alamatngpinya_Magbasa/Alamatngpinya_basa.dart';
@@ -511,21 +512,21 @@ class _MyWidgetState extends State<Magbasacards> {
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Image.network(
-                            'https://picsum.photos/250?image=9',
+                          Image.asset(
+                            'assets/images/Thumbnails/Animation & Read/Makiling.jpg',
                             width: 150,
-                            height: 150,
+                            height: 100,
                           ),
                           SizedBox(height: 10),
                           Text(
-                            'Maria Makiling',
+                            'Alamat ng Maria Makiling',
                             style: Design.storyTitle,
                             textAlign: TextAlign.center,
                           ),
 
                           SizedBox(height: 10),
                           Text(
-                            'Lorem ipsum dolor Lorem ipsum dolor',
+                            'Ang pag-iibigan ni Maria at Gatdula',
                             style: Design.desciption,
                           ),
                           SizedBox(height: 10),
@@ -534,7 +535,7 @@ class _MyWidgetState extends State<Magbasacards> {
                               Navigator.push(
                                 context,
                                 SlidePageRoute(
-                                  page: MalakasatMagandaBasa(),
+                                  page: MariamakilingBasa(),
                                   direction: SlideDirection.right,
                                 ),
                               );

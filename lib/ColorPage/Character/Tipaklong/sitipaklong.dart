@@ -209,7 +209,7 @@ class _SitipaklongState extends State<Sitipaklong> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Si Pagong',
+          'Si Tipaklong',
           style: TextStyle(
             fontFamily: 'Nunito',
             fontWeight: FontWeight.w900,

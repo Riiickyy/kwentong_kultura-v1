@@ -525,14 +525,14 @@ class _MakinigcardsState extends State<Makinigcards> {
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Image.network(
-                            'https://picsum.photos/250?image=9',
+                          Image.asset(
+                            'assets/images/Thumbnails/Animation & Read/Makiling.jpg',
                             width: 150,
-                            height: 150,
+                            height: 100,
                           ),
                           SizedBox(height: 10), // Add spacing
                           Text(
-                            'Maria Makiling',
+                            'Alamat ng Maria Makiling',
                             style: Design.storyTitle,
                             textAlign: TextAlign.center,
                           ),

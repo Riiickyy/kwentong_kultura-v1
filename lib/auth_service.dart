@@ -51,7 +51,6 @@ class AuthService {
       password: password,
     );
 
-    // Update display name in Firebase Auth profile (optional but good)
     await userCred.user!.updateDisplayName(name);
 
     await firestore.collection('users').doc(userCred.user!.uid).set({

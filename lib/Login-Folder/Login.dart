@@ -44,6 +44,7 @@ class _HomeUIWidgetState extends State<Login> {
 
     try {
       await authService.value.signIn(
+        // call the signIn method from authService
         email: emailController.text,
         password: passwordController.text,
       );
