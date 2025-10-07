@@ -67,7 +67,7 @@ class _AlamatngniyogquizState extends State<Alamatngniyogquiz> {
       'correctAnswer': 'a) May tatlong marka na parang mata at bibig',
     },
     {
-      'question': 'Ano ang kulay ng bao ng niyog? (visual)',
+      'question': 'Ano ang kulay ng bao ng niyog?',
       'answers': ['a) Kayumanggi', 'b) Berde', 'c) Pula'],
       'correctAnswer': 'a) Kayumanggi',
     },

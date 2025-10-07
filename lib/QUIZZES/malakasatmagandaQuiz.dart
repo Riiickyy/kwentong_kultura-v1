@@ -56,7 +56,7 @@ class _MalakasatmagandaQuizState extends State<MalakasatmagandaQuiz> {
       'correctAnswer': 'b) Lalaki at babae',
     },
     {
-      'question': 'Ano ang kulay ng kawayan sa animation?',
+      'question': 'Ano ang kulay ng kawayan sa kwento?',
       'answers': ['a) Berde', 'b) Pula', 'c) Asul'],
       'correctAnswer': 'a) Berde',
     },

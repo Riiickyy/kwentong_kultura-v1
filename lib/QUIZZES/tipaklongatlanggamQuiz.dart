@@ -61,7 +61,7 @@ class _TipaklongatlanggamquizState extends State<Tipaklongatlanggamquiz> {
       'correctAnswer': 'a) Hindi sapat ang pagkain ko',
     },
     {
-      'question': 'Ano ang kulay ng tipaklong sa animation?',
+      'question': 'Ano ang kulay ng tipaklong sa kwento?',
       'answers': ['a) Berde', 'b) Pula', 'c) Itim'],
       'correctAnswer': 'a) Berde',
     },

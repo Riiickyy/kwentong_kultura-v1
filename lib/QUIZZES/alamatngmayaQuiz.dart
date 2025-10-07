@@ -231,7 +231,7 @@ class _AlamatngmayaQuizState extends State<AlamatngmayaQuiz> {
                                 ),
                                 SizedBox(height: 20),
                                 Text(
-                                  //question that is showing
+                                  //question that is show
                                   currentQuestion['question'],
                                   style: Design.storyTitle,
                                   textAlign: TextAlign.center,

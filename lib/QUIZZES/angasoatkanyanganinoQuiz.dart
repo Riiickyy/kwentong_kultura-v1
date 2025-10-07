@@ -53,7 +53,7 @@ class _AngAsoatkanyangAninoQuizState extends State<AngAsoatkanyangAninoQuiz> {
       'correctAnswer': 'b) Malungkot',
     },
     {
-      'question': 'Anong kulay ng aso sa animation?',
+      'question': 'Anong kulay ng aso sa kwento?',
       'answers': ['a) Puti', 'b) Itim', 'c) Kayumanggi'],
       'correctAnswer': 'b) Itim',
     },

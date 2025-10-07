@@ -5,6 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 ValueNotifier<AuthService> authService = ValueNotifier(AuthService());
 
+//class to handle user data and authentication
 class AuthService {
   final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
@@ -13,7 +14,7 @@ class AuthService {
 
   Stream<User?> get authStateChanges => firebaseAuth.authStateChanges();
 
-  // ✅ LOGIN
+  //  LOGIN
   Future<UserCredential> signIn({
     required String email,
     required String password,
@@ -23,7 +24,7 @@ class AuthService {
       password: password,
     );
 
-    // ✅ Check if user doc exists, if not create it
+    //  Check if user doc exists, if not create it
     DocumentReference userDoc = firestore
         .collection('users')
         .doc(userCred.user!.uid);
@@ -40,7 +41,7 @@ class AuthService {
     return userCred;
   }
 
-  // ✅ REGISTER (create new user)
+  //  REGISTER (create new user)
   Future<UserCredential> createAccount({
     required String email,
     required String password,
@@ -62,12 +63,12 @@ class AuthService {
     return userCred;
   }
 
-  // ✅ SIGN OUT
+  //  SIGN OUT
   Future<void> signOut() async {
     await firebaseAuth.signOut();
   }
 
-  // ✅ RESET PASSWORD with old password
+  //  RESET PASSWORD with old password
   Future<void> resetPasswordFromCurrentPassword({
     required String currentPassword,
     required String newPassword,
@@ -81,12 +82,12 @@ class AuthService {
     await currentUser!.updatePassword(newPassword);
   }
 
-  // ✅ RESET PASSWORD just by email
+  //  RESET PASSWORD just by email
   Future<void> resetPassword({required String email}) async {
     await firebaseAuth.sendPasswordResetEmail(email: email);
   }
 
-  // ✅ RESET PASSWORD + Check Firestore first
+  //  RESET PASSWORD + Check Firestore first
   Future<void> resetPasswordWithCheck({required String email}) async {
     final query =
         await firestore

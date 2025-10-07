@@ -53,7 +53,7 @@ class _AlamatngunggoyQuizState extends State<AlamatngunggoyQuiz> {
       'correctAnswer': 'a) Buntot',
     },
     {
-      'question': 'Ano ang kulay ng unggoy sa animation?',
+      'question': 'Ano ang kulay ng unggoy sa kwento?',
       'answers': ['a) Kayumanggi', 'b) Pula', 'c) Asul'],
       'correctAnswer': 'a) Kayumanggi',
     },

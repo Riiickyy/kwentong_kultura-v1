@@ -65,7 +65,7 @@ class _PinyaquizState extends State<Pinyaquiz> {
       'correctAnswer': 'a) May maraming mata',
     },
     {
-      'question': 'Ano ang kulay ng pinya sa animation?',
+      'question': 'Ano ang kulay ng pinya sa kwento?',
       'answers': ['a) Dilaw', 'b) Pula', 'c) Asul'],
       'correctAnswer': 'a) Dilaw',
     },

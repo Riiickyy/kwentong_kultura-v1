@@ -60,7 +60,7 @@ class _KunehoatPagongQuizState extends State<KunehoatPagongQuiz> {
       'correctAnswer': 'a) Pagong',
     },
     {
-      'question': 'Ano ang kulay ng pagong sa animation?',
+      'question': 'Ano ang kulay ng pagong sa kwento?',
       'answers': ['a) Berde', 'b) Pula', 'c) Itim'],
       'correctAnswer': 'a) Berde',
     },

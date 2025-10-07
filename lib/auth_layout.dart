@@ -7,7 +7,7 @@ class AuthLayout extends StatelessWidget {
   const AuthLayout({super.key, this.pageIfNotConnected});
 
   final Widget? pageIfNotConnected;
-
+  // see if user is already login or not when opening the app
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
