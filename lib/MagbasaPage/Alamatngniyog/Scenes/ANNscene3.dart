@@ -85,31 +85,25 @@ class _Annscene3State extends State<Annscene3> {
                 ),
                 SizedBox(height: 20),
 
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: 300,
-                      height: 450,
-                      child: Text(
-                        'Nang makaalis ang kanyang mga magulang, naglinis si Yumi.  \n'
-                        'Nilinis niya ang kabuuan ng kanilang tahanan, maging ang bakuran.  \n\n'
-                        'Naglalaba siya at pagkatapos ay namalantsa.   \n\n'
-                        'Ang mga sira-sirang damit ay kanyang sinulsihan.',
-                        style: Design.readStory,
-                        textAlign: TextAlign.justify, // Justify the text
-                      ),
-                    ),
-                  ],
+                Container(
+                  width: 300,
+                  height: 550,
+                  child: Text(
+                    'Nang makaalis ang kanyang mga magulang, naglinis si Yumi.  \n'
+                    'Nilinis niya ang kabuuan ng kanilang tahanan, maging ang bakuran.  \n\n'
+                    'Naglalaba siya at pagkatapos ay namalantsa.   \n\n'
+                    'Ang mga sira-sirang damit ay kanyang sinulsihan.',
+                    style: Design.readStory,
+                    textAlign: TextAlign.justify, // Justify the text
+                  ),
                 ),
+
                 SizedBox(height: 20),
-                Positioned(
-                  bottom: 20,
-                  left: 0,
-                  right: 0,
+                Container(
+                  alignment: Alignment.center,
                   child: Image.asset(
                     'assets/Animations/Read BG/Read-animate.gif',
+                    fit: BoxFit.contain,
                   ),
                 ),
               ],

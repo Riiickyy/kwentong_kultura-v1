@@ -118,8 +118,11 @@ class _AlamatngmayaQuizState extends State<AlamatngmayaQuiz> {
           builder: (BuildContext context) {
             return AlertDialog(
               backgroundColor: Color(0xFFACDC94),
-              title: Text('Quiz Completed', style: Design.readTitle),
-              content: Text('Your score is $score/15', style: Design.RecoPass),
+              title: Text('Natapos mo ang tanong', style: Design.readTitle),
+              content: Text(
+                'Nakakuha ka ng  $score/15 points!',
+                style: Design.RecoPass,
+              ),
 
               actions: [
                 ElevatedButton(

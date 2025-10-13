@@ -85,32 +85,26 @@ class _Annscene5State extends State<Annscene5> {
                 ),
                 SizedBox(height: 20),
 
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: 300,
-                      height: 450,
-                      child: Text(
-                        'Maya-maya ay nagdilim ang kalangitan. \n\n'
-                        'Biglang bumuhos ang malakas na ulan \n\n'
-                        'Maging ang hangin ay kay lakas!  \n\n'
-                        'May bagyo! \n\n'
-                        'Upang hindi siya matangay nang napakalakas na hangin ay mahigpit na yumakap si Yumi sa punongkahoy.\n\n',
-                        style: Design.readStory,
-                        textAlign: TextAlign.justify, // Justify the text
-                      ),
-                    ),
-                  ],
+                Container(
+                  width: 300,
+                  height: 650,
+                  child: Text(
+                    'Maya-maya ay nagdilim ang kalangitan. \n\n'
+                    'Biglang bumuhos ang malakas na ulan \n\n'
+                    'Maging ang hangin ay kay lakas!  \n\n'
+                    'May bagyo! \n\n'
+                    'Upang hindi siya matangay nang napakalakas na hangin ay mahigpit na yumakap si Yumi sa punongkahoy.\n\n',
+                    style: Design.readStory,
+                    textAlign: TextAlign.justify, // Justify the text
+                  ),
                 ),
+
                 SizedBox(height: 20),
-                Positioned(
-                  bottom: 20,
-                  left: 0,
-                  right: 0,
+                Container(
+                  alignment: Alignment.center,
                   child: Image.asset(
                     'assets/Animations/Read BG/Read-animate.gif',
+                    fit: BoxFit.contain,
                   ),
                 ),
               ],

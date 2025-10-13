@@ -85,32 +85,26 @@ class _Anpscene4State extends State<Anpscene4> {
                 ),
                 SizedBox(height: 20),
 
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: 300,
-                      height: 650,
-                      child: Text(
-                        'Isang araw ay magluluto na naman si Pina \n \n'
-                        'Hindi siya makapagsimula dahil hindi niya makita ang sandok \n\n'
-                        'Hinanap niya itong mabuti sa loob ng bahay ngunit di pa rin niya makita\n\n'
-                        'Nagreklamo na siya sa kanyang ina.  \n\n'
-                        'Inutusan siya ng ina na bumaba ng bahay at doon hanapin dahil baka nahulog sa lupa.',
-                        style: Design.readStory,
-                        textAlign: TextAlign.justify, // Justify the text
-                      ),
-                    ),
-                  ],
+                Container(
+                  width: 300,
+                  height: 650,
+                  child: Text(
+                    'Isang araw ay magluluto na naman si Pina \n \n'
+                    'Hindi siya makapagsimula dahil hindi niya makita ang sandok \n\n'
+                    'Hinanap niya itong mabuti sa loob ng bahay ngunit di pa rin niya makita\n\n'
+                    'Nagreklamo na siya sa kanyang ina.  \n\n'
+                    'Inutusan siya ng ina na bumaba ng bahay at doon hanapin dahil baka nahulog sa lupa.',
+                    style: Design.readStory,
+                    textAlign: TextAlign.justify, // Justify the text
+                  ),
                 ),
+
                 SizedBox(height: 20),
-                Positioned(
-                  bottom: 20,
-                  left: 0,
-                  right: 0,
+                Container(
+                  alignment: Alignment.center,
                   child: Image.asset(
                     'assets/Animations/Read BG/Read-animate.gif',
+                    fit: BoxFit.contain,
                   ),
                 ),
               ],

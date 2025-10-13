@@ -88,32 +88,25 @@ class _MalakasatMagandaBasaState extends State<MalakasatMagandaBasa> {
                 ),
                 SizedBox(height: 20),
 
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text('Malakas at Maganda', style: Design.readTitle),
-                    SizedBox(height: 20),
-                    SingleChildScrollView(
-                      child: Container(
-                        width: 300,
-                        height: 300, // Specify the width here
-                        child: Text(
-                          'Isang ibong kulay abuhin ang naghahanap ng makakain.  \n\n'
-                          'Nahila niya ang isang uod na nakasiksik sa isang puno ng kawayan.  \n',
-                          style: Design.readStory,
-                          textAlign: TextAlign.justify, // Justify the text
-                        ),
-                      ),
-                    ),
-                  ],
+                Text('Malakas at Maganda', style: Design.readTitle),
+                SizedBox(height: 20),
+
+                Container(
+                  width: 300,
+                  height: 300, // Specify the width here
+                  child: Text(
+                    'Isang ibong kulay abuhin ang naghahanap ng makakain.  \n\n'
+                    'Nahila niya ang isang uod na nakasiksik sa isang puno ng kawayan.  \n',
+                    style: Design.readStory,
+                    textAlign: TextAlign.justify, // Justify the text
+                  ),
                 ),
-                Positioned(
-                  bottom: 20,
-                  left: 0,
-                  right: 0,
+                SizedBox(height: 20),
+                Container(
+                  alignment: Alignment.center,
                   child: Image.asset(
                     'assets/Animations/Read BG/Read-animate.gif',
+                    fit: BoxFit.contain,
                   ),
                 ),
               ],

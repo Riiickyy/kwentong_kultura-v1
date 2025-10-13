@@ -85,29 +85,23 @@ class _Mamscene3State extends State<Mamscene3> {
                 ),
                 SizedBox(height: 20),
 
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: 300,
-                      height: 450, // Specify the width here
-                      child: Text(
-                        'Si Malakas ay matipuno at guwapong lalaki. \n\n'
-                        'Si Maganda ay mahinhin, balingkinitan katawan at masipag.   \n\n'
-                        'Sila ang kauna-unahang babae at lalaki sa lahi ng mga Tagalog.\n',
-                        style: Design.readStory,
-                        textAlign: TextAlign.justify, // Justify the text
-                      ),
-                    ),
-                  ],
+                Container(
+                  width: 300,
+                  height: 350, // Specify the width here
+                  child: Text(
+                    'Si Malakas ay matipuno at guwapong lalaki. \n\n'
+                    'Si Maganda ay mahinhin, balingkinitan katawan at masipag.   \n\n'
+                    'Sila ang kauna-unahang babae at lalaki sa lahi ng mga Tagalog.\n',
+                    style: Design.readStory,
+                    textAlign: TextAlign.justify, // Justify the text
+                  ),
                 ),
-                Positioned(
-                  bottom: 20,
-                  left: 0,
-                  right: 0,
+                SizedBox(height: 20),
+                Container(
+                  alignment: Alignment.center,
                   child: Image.asset(
                     'assets/Animations/Read BG/Read-animate.gif',
+                    fit: BoxFit.contain,
                   ),
                 ),
               ],

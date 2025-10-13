@@ -85,30 +85,24 @@ class _Anpscene5State extends State<Anpscene5> {
                 ),
                 SizedBox(height: 20),
 
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: 300,
-                      height: 450,
-                      child: Text(
-                        'Nagkagalit na ang mag-ina dahil sa paghahanap ng nawawalang sandok  \n \n'
-                        'Hanggang sa nasambit ni Aling Rosa ang \n\n'
-                        'Aling Rosa: Sana’y tubuan ka ng maraming mata nang makita mo ang iyong hinahanap!\n\n',
-                        style: Design.readStory,
-                        textAlign: TextAlign.justify, // Justify the text
-                      ),
-                    ),
-                  ],
+                Container(
+                  width: 300,
+                  height: 450,
+                  child: Text(
+                    'Nagkagalit na ang mag-ina dahil sa paghahanap ng nawawalang sandok  \n \n'
+                    'Hanggang sa nasambit ni Aling Rosa ang \n\n'
+                    'Aling Rosa: Sana’y tubuan ka ng maraming mata nang makita mo ang iyong hinahanap!\n\n',
+                    style: Design.readStory,
+                    textAlign: TextAlign.justify, // Justify the text
+                  ),
                 ),
+
                 SizedBox(height: 20),
-                Positioned(
-                  bottom: 20,
-                  left: 0,
-                  right: 0,
+                Container(
+                  alignment: Alignment.center,
                   child: Image.asset(
                     'assets/Animations/Read BG/Read-animate.gif',
+                    fit: BoxFit.contain,
                   ),
                 ),
               ],

@@ -87,32 +87,27 @@ class _AlamatngmayaBasaState extends State<AlamatngmayaBasa> {
                   ),
                 ),
                 SizedBox(height: 20),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text('Ang Alamat ng Maya', style: Design.readTitle),
-                    SizedBox(height: 20),
-                    Container(
-                      width: 300,
-                      height: 650, // Specify the width here
-                      child: Text(
-                        'Noog unang panahon sa isang liblib na lugar sa Bundok ng Karabalyo, may mag-inaing nahananahan doon. \n\n'
-                        'Nakaugalian na sa kanilang lugar na kailangang bayuhin muna ang palay bago kainin.\n\n'
-                        'Si Mayan ay isang batang babaeng may labing-tatlong taong gulang, bukod sa ito’y ubod ng likot, saksakan pa ito ng tamad.\n',
-                        style: Design.readStory,
-                        textAlign: TextAlign.justify, // Justify the text
-                      ),
-                    ),
-                  ],
-                ),
+
+                Text('Ang Alamat ng Maya', style: Design.readTitle),
                 SizedBox(height: 20),
-                Positioned(
-                  bottom: 20,
-                  left: 0,
-                  right: 0,
+                Container(
+                  width: 300,
+                  height: 650, // Specify the width here
+                  child: Text(
+                    'Noog unang panahon sa isang liblib na lugar sa Bundok ng Karabalyo, may mag-inaing nahananahan doon. \n\n'
+                    'Nakaugalian na sa kanilang lugar na kailangang bayuhin muna ang palay bago kainin.\n\n'
+                    'Si Mayan ay isang batang babaeng may labing-tatlong taong gulang, bukod sa ito’y ubod ng likot, saksakan pa ito ng tamad.\n',
+                    style: Design.readStory,
+                    textAlign: TextAlign.justify, // Justify the text
+                  ),
+                ),
+
+                SizedBox(height: 20),
+                Container(
+                  alignment: Alignment.center,
                   child: Image.asset(
                     'assets/Animations/Read BG/Read-animate.gif',
+                    fit: BoxFit.contain,
                   ),
                 ),
               ],

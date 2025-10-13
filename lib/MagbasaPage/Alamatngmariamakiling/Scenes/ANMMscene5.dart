@@ -85,29 +85,23 @@ class _Anmmscene5State extends State<Anmmscene5> {
                 ),
                 SizedBox(height: 20),
 
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: 300,
-                      height: 450, // Specify the width here
-                      child: Text(
-                        'Kahit na ang pag-iibigan nila Maria at Gat Dula ay hinadlangan ang pag-ibigan nina Maria at Gat Dula, ay mas lalo pa itong yumabong.\n\n'
-                        'Hindi na nakakapunta si Maria sa lupa ay nagagawa pa rin niyang subaybayan at panoorin si Gat Dula.\n\n',
-                        style: Design.readStory,
-                        textAlign: TextAlign.justify, // Justify the text
-                      ),
-                    ),
-                  ],
+                Container(
+                  width: 300,
+                  height: 450, // Specify the width here
+                  child: Text(
+                    'Kahit na ang pag-iibigan nila Maria at Gat Dula ay hinadlangan ang pag-ibigan nina Maria at Gat Dula, ay mas lalo pa itong yumabong.\n\n'
+                    'Hindi na nakakapunta si Maria sa lupa ay nagagawa pa rin niyang subaybayan at panoorin si Gat Dula.\n\n',
+                    style: Design.readStory,
+                    textAlign: TextAlign.justify, // Justify the text
+                  ),
                 ),
+
                 SizedBox(height: 20),
-                Positioned(
-                  bottom: 20,
-                  left: 0,
-                  right: 0,
+                Container(
+                  alignment: Alignment.center,
                   child: Image.asset(
                     'assets/Animations/Read BG/Read-animate.gif',
+                    fit: BoxFit.contain,
                   ),
                 ),
               ],

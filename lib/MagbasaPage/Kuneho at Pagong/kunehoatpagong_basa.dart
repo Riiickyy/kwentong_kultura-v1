@@ -89,37 +89,31 @@ class _KunehoatpagongBasaState extends State<KunehoatpagongBasa> {
                 ),
                 SizedBox(height: 20),
 
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Ang Kuneho at ang Pagong',
-                      style: Design.readTitle,
-                      textAlign: TextAlign.center,
-                    ),
-                    SizedBox(height: 20),
-
-                    Container(
-                      width: 300,
-                      height: 350, // Specify the width here
-                      child: Text(
-                        'Isang araw, ang kuneho at ang pagong ay nagpapahinga sa ilalim ng malaking, punong mangga. \n\n'
-                        'Pagong: Kaibigang kuneho \n'
-                        'wika ng pagong ',
-                        style: Design.readStory,
-                        textAlign: TextAlign.justify, // Justify the text
-                      ),
-                    ),
-                  ],
+                Text(
+                  'Ang Kuneho at ang Pagong',
+                  style: Design.readTitle,
+                  textAlign: TextAlign.center,
                 ),
                 SizedBox(height: 20),
-                Positioned(
-                  bottom: 20,
-                  left: 0,
-                  right: 0,
+
+                Container(
+                  width: 300,
+                  height: 350, // Specify the width here
+                  child: Text(
+                    'Isang araw, ang kuneho at ang pagong ay nagpapahinga sa ilalim ng malaking, punong mangga. \n\n'
+                    'Pagong: Kaibigang kuneho \n'
+                    'wika ng pagong ',
+                    style: Design.readStory,
+                    textAlign: TextAlign.justify, // Justify the text
+                  ),
+                ),
+
+                SizedBox(height: 20),
+                Container(
+                  alignment: Alignment.center,
                   child: Image.asset(
                     'assets/Animations/Read BG/Read-animate.gif',
+                    fit: BoxFit.contain,
                   ),
                 ),
               ],

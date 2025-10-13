@@ -87,33 +87,27 @@ class _Pamscene11State extends State<Pamscene11> {
                 ),
                 SizedBox(height: 20),
 
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: 300,
-                      height: 600, // Specify the width here
-                      child: Text(
-                        'Matsing: Aha!  \n'
-                        'wika ni Matsing na napapangisi pa. \n\n'
-                        'Matsing: Sa madaling salita, takot kang malunod. Kung gayon ay lulunurin kita!\n\n'
-                        'Walang nagawa si Pagong ng dalhin siya ni Matsing sa may ilog at buong lakas na itinapon siya.  \n\n'
-                        'Ngunit lumitaw agad si Pagong at waring nang-uuyam sa nadaya at nagtatakang si Matsing.\n\n'
-                        'Pagong: Naisahan kita, Matsing. Ang tubig ay aking tirahan. Salamat sa iyo at ibinalik mo ako sa aking tahanan. \n\n',
-                        style: Design.readStory,
-                        textAlign: TextAlign.justify, // Justify the text
-                      ),
-                    ),
-                  ],
+                Container(
+                  width: 300,
+                  height: 900, // Specify the width here
+                  child: Text(
+                    'Matsing: Aha!  \n'
+                    'wika ni Matsing na napapangisi pa. \n\n'
+                    'Matsing: Sa madaling salita, takot kang malunod. Kung gayon ay lulunurin kita!\n\n'
+                    'Walang nagawa si Pagong ng dalhin siya ni Matsing sa may ilog at buong lakas na itinapon siya.  \n\n'
+                    'Ngunit lumitaw agad si Pagong at waring nang-uuyam sa nadaya at nagtatakang si Matsing.\n\n'
+                    'Pagong: Naisahan kita, Matsing. Ang tubig ay aking tirahan. Salamat sa iyo at ibinalik mo ako sa aking tahanan. \n\n',
+                    style: Design.readStory,
+                    textAlign: TextAlign.justify, // Justify the text
+                  ),
                 ),
+
                 SizedBox(height: 20),
-                Positioned(
-                  bottom: 20,
-                  left: 0,
-                  right: 0,
+                Container(
+                  alignment: Alignment.center,
                   child: Image.asset(
                     'assets/Animations/Read BG/Read-animate.gif',
+                    fit: BoxFit.contain,
                   ),
                 ),
               ],

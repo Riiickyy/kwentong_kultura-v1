@@ -85,32 +85,24 @@ class _Kapscene1State extends State<Kapscene1> {
                 ),
                 SizedBox(height: 20),
 
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SingleChildScrollView(
-                      child: Container(
-                        width: 300,
-                        height: 350,
-                        child: Text(
-                          'Pagong: wala ba tayong gagawin kundi panoorin ang mga dahon ng punong manggang ito?\n\n'
-                          'Kuneho: Bakit ano ba ang gusto mong gawin?\n'
-                          'tanong ng kuneho.\n',
-                          style: Design.readStory,
-                          textAlign: TextAlign.justify, // Justify the text
-                        ),
-                      ),
-                    ),
-                  ],
+                Container(
+                  width: 300,
+                  height: 350,
+                  child: Text(
+                    'Pagong: wala ba tayong gagawin kundi panoorin ang mga dahon ng punong manggang ito?\n\n'
+                    'Kuneho: Bakit ano ba ang gusto mong gawin?\n'
+                    'tanong ng kuneho.\n',
+                    style: Design.readStory,
+                    textAlign: TextAlign.justify, // Justify the text
+                  ),
                 ),
+
                 SizedBox(height: 20),
-                Positioned(
-                  bottom: 20,
-                  left: 0,
-                  right: 0,
+                Container(
+                  alignment: Alignment.center,
                   child: Image.asset(
                     'assets/Animations/Read BG/Read-animate.gif',
+                    fit: BoxFit.contain,
                   ),
                 ),
               ],

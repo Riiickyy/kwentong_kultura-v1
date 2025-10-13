@@ -85,31 +85,25 @@ class _Kapscene4State extends State<Kapscene4> {
                 ),
                 SizedBox(height: 20),
 
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: 300,
-                      height: 450, // Specify the width here
-                      child: Text(
-                        'Kuneho: Kilala mo naman kung sino ako at kung gaano ako kabilis sa takbuhan. \n\n '
-                        'Kuneho: Hindi pa man ay alam ko nang ako ang mananalo sa paligsahang ito,\n'
-                        'Dagdag pa nito.\n\n'
-                        'Kuneho:  Kaya, bago ka pa mapagod ay bawiin mo na ang sinabi mo, kawawa ka lang.',
-                        style: Design.readStory,
-                        textAlign: TextAlign.justify, // Justify the text
-                      ),
-                    ),
-                  ],
+                Container(
+                  width: 300,
+                  height: 450, // Specify the width here
+                  child: Text(
+                    'Kuneho: Kilala mo naman kung sino ako at kung gaano ako kabilis sa takbuhan. \n\n '
+                    'Kuneho: Hindi pa man ay alam ko nang ako ang mananalo sa paligsahang ito,\n'
+                    'Dagdag pa nito.\n\n'
+                    'Kuneho:  Kaya, bago ka pa mapagod ay bawiin mo na ang sinabi mo, kawawa ka lang.',
+                    style: Design.readStory,
+                    textAlign: TextAlign.justify, // Justify the text
+                  ),
                 ),
+
                 SizedBox(height: 20),
-                Positioned(
-                  bottom: 20,
-                  left: 0,
-                  right: 0,
+                Container(
+                  alignment: Alignment.center,
                   child: Image.asset(
                     'assets/Animations/Read BG/Read-animate.gif',
+                    fit: BoxFit.contain,
                   ),
                 ),
               ],

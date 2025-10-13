@@ -85,33 +85,27 @@ class _Tamscene3State extends State<Tamscene3> {
                 ),
                 SizedBox(height: 20),
 
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: 300,
-                      height: 450,
-                      child: Text(
-                        'Lumipas ang ilang araw. Ang kalangitan ay sinaklot ng dilim. Biglang bumuhos ang napakalakas na ulan.   \n'
-                        'Halos masira lahat ng mga pananim. \n\n'
-                        'Nakaramdam ng gutom si Tipaklong habang nasa sulok ng kanyang tirahan.  \n\n'
-                        'Paano ako ngayon. Nagugutom ako,  \n\n'
-                        'Bulong niya sa sarili. At naalala niya si Langgam.  \n\n'
-                        'Kahit patuloy ang buhos ng malakas na ulan ay sinagasa niya iyon upang makarating sa bahay ni Langgam.  \n\n',
-                        style: Design.readStory,
-                        textAlign: TextAlign.justify, // Justify the text
-                      ),
-                    ),
-                  ],
+                Container(
+                  width: 300,
+                  height: 850,
+                  child: Text(
+                    'Lumipas ang ilang araw. Ang kalangitan ay sinaklot ng dilim. Biglang bumuhos ang napakalakas na ulan.   \n'
+                    'Halos masira lahat ng mga pananim. \n\n'
+                    'Nakaramdam ng gutom si Tipaklong habang nasa sulok ng kanyang tirahan.  \n\n'
+                    'Tipaklong: Paano ako ngayon. Nagugutom ako,  \n\n'
+                    'Bulong niya sa sarili. At naalala niya si Langgam.  \n\n'
+                    'Kahit patuloy ang buhos ng malakas na ulan ay sinagasa niya iyon upang makarating sa bahay ni Langgam.  \n\n',
+                    style: Design.readStory,
+                    textAlign: TextAlign.justify, // Justify the text
+                  ),
                 ),
+
                 SizedBox(height: 20),
-                Positioned(
-                  bottom: 20,
-                  left: 0,
-                  right: 0,
+                Container(
+                  alignment: Alignment.center,
                   child: Image.asset(
                     'assets/Animations/Read BG/Read-animate.gif',
+                    fit: BoxFit.contain,
                   ),
                 ),
               ],

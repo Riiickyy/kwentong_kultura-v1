@@ -85,28 +85,22 @@ class _Mamscene1State extends State<Mamscene1> {
                 ),
                 SizedBox(height: 20),
 
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: 300,
-                      height: 300, // Specify the width here
-                      child: Text(
-                        'Tinuka niya nang tinuka ang bahaging ito upang makuha at makain ang uod. \n\n'
-                        'Hindi niya tinigilan ang pagtuka hanggang sa mabiyak ito.',
-                        style: Design.readStory,
-                        textAlign: TextAlign.justify, // Justify the text
-                      ),
-                    ),
-                  ],
+                Container(
+                  width: 300,
+                  height: 300, // Specify the width here
+                  child: Text(
+                    'Tinuka niya nang tinuka ang bahaging ito upang makuha at makain ang uod. \n\n'
+                    'Hindi niya tinigilan ang pagtuka hanggang sa mabiyak ito.',
+                    style: Design.readStory,
+                    textAlign: TextAlign.justify, // Justify the text
+                  ),
                 ),
-                Positioned(
-                  bottom: 20,
-                  left: 0,
-                  right: 0,
+                SizedBox(height: 20),
+                Container(
+                  alignment: Alignment.center,
                   child: Image.asset(
                     'assets/Animations/Read BG/Read-animate.gif',
+                    fit: BoxFit.contain,
                   ),
                 ),
               ],
@@ -121,7 +115,7 @@ class _Mamscene1State extends State<Mamscene1> {
                   context,
                   SlidePageRoute(
                     page: Mamscene2(),
-                    direction: SlideDirection.left,
+                    direction: SlideDirection.right,
                   ),
                 );
               },

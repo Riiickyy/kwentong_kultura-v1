@@ -80,30 +80,24 @@ class Aakaascene2 extends StatelessWidget {
                 ),
                 SizedBox(height: 20),
 
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: 300,
-                      height: 450, // Specify the width here
-                      child: Text(
-                        'May kalayuan ang tirahan ng aso kaya’t siya’y nagmamadaling tumakbo.\n\n'
-                        'Bago siya makarating sa kanyang tahanan ay kailangan niyang dumaan sa isang batis na may malinis at malinaw na tubig.\n\n'
-                        'Habang siya’y patawid na, nasilayan niya ang kanyang anino sa tubig. Ngunit hindi niya alam na ito’y kanyang anino. \n\n',
-                        style: Design.readStory,
-                        textAlign: TextAlign.justify, // Justify the text
-                      ),
-                    ),
-                  ],
+                Container(
+                  width: 300,
+                  height: 650, // Specify the width here
+                  child: Text(
+                    'May kalayuan ang tirahan ng aso kaya’t siya’y nagmamadaling tumakbo.\n\n'
+                    'Bago siya makarating sa kanyang tahanan ay kailangan niyang dumaan sa isang batis na may malinis at malinaw na tubig.\n\n'
+                    'Habang siya’y patawid na, nasilayan niya ang kanyang anino sa tubig. Ngunit hindi niya alam na ito’y kanyang anino. \n\n',
+                    style: Design.readStory,
+                    textAlign: TextAlign.justify, // Justify the text
+                  ),
                 ),
+
                 SizedBox(height: 20),
-                Positioned(
-                  bottom: 20,
-                  left: 0,
-                  right: 0,
+                Container(
+                  alignment: Alignment.center,
                   child: Image.asset(
                     'assets/Animations/Read BG/Read-animate.gif',
+                    fit: BoxFit.contain,
                   ),
                 ),
               ],

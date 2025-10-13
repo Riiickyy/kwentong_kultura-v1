@@ -85,34 +85,28 @@ class _Anpscene6State extends State<Anpscene6> {
                 ),
                 SizedBox(height: 20),
 
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: 300,
-                      height: 900,
-                      child: Text(
-                        'Ilang oras ang nagdaan ay hindi pa umaakyat si Pina sa bahay.  \n \n'
-                        'Lumipas na ang gutom ni Aling Rosa ay wala pa rin si Pina. \n\n'
-                        'Gabi na, ay wala pa rin si Pina\n\n'
-                        'Nag-alaala na si Aling Rosa at hindi pagbalik ni Pina. \n\n'
-                        'Nagtangong siya sa kanilang mga kapitbahay ngunit walang nakakita kay Pina. \n\n'
-                        'Hinanap niya itong muli sa buong kabahayan at sa buong bakuran. \n\n'
-                        'Hindi na niya nakita si Pina. \n\n',
-                        style: Design.readStory,
-                        textAlign: TextAlign.justify, // Justify the text
-                      ),
-                    ),
-                  ],
+                Container(
+                  width: 300,
+                  height: 900,
+                  child: Text(
+                    'Ilang oras ang nagdaan ay hindi pa umaakyat si Pina sa bahay.  \n \n'
+                    'Lumipas na ang gutom ni Aling Rosa ay wala pa rin si Pina. \n\n'
+                    'Gabi na, ay wala pa rin si Pina\n\n'
+                    'Nag-alaala na si Aling Rosa at hindi pagbalik ni Pina. \n\n'
+                    'Nagtangong siya sa kanilang mga kapitbahay ngunit walang nakakita kay Pina. \n\n'
+                    'Hinanap niya itong muli sa buong kabahayan at sa buong bakuran. \n\n'
+                    'Hindi na niya nakita si Pina. \n\n',
+                    style: Design.readStory,
+                    textAlign: TextAlign.justify, // Justify the text
+                  ),
                 ),
+
                 SizedBox(height: 20),
-                Positioned(
-                  bottom: 20,
-                  left: 0,
-                  right: 0,
+                Container(
+                  alignment: Alignment.center,
                   child: Image.asset(
                     'assets/Animations/Read BG/Read-animate.gif',
+                    fit: BoxFit.contain,
                   ),
                 ),
               ],

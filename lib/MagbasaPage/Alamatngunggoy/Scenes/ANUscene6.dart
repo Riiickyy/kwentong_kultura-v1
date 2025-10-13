@@ -85,33 +85,27 @@ class _Anuscene6State extends State<Anuscene6> {
                 ),
                 SizedBox(height: 20),
 
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: 300,
-                      height: 850,
-                      child: Text(
-                        'Nang ibuka ni Juan ang kanyang bibig, upang humingi ng tawad sa ina ay boses na lamang na maaligasgas ang lumabas sa kanyang bibig. \n \n'
-                        'At nagsimulang tumubo ang mahahabang buhok at buntot sa kanyang katawan. \n\n'
-                        'Hindi na siya muling nakapagsasalita.  \n\n'
-                        'Si Juan ang naging kauna-unahang unggoy. \n\n'
-                        'Siya ay hindi pinarusahan ng kanyang ina.  \n\n'
-                        'Siya na rin ang nadala ng parusa sa kanyang sarili.',
-                        style: Design.readStory,
-                        textAlign: TextAlign.justify, // Justify the text
-                      ),
-                    ),
-                  ],
+                Container(
+                  width: 300,
+                  height: 850,
+                  child: Text(
+                    'Nang ibuka ni Juan ang kanyang bibig, upang humingi ng tawad sa ina ay boses na lamang na maaligasgas ang lumabas sa kanyang bibig. \n \n'
+                    'At nagsimulang tumubo ang mahahabang buhok at buntot sa kanyang katawan. \n\n'
+                    'Hindi na siya muling nakapagsasalita.  \n\n'
+                    'Si Juan ang naging kauna-unahang unggoy. \n\n'
+                    'Siya ay hindi pinarusahan ng kanyang ina.  \n\n'
+                    'Siya na rin ang nadala ng parusa sa kanyang sarili.',
+                    style: Design.readStory,
+                    textAlign: TextAlign.justify, // Justify the text
+                  ),
                 ),
+
                 SizedBox(height: 20),
-                Positioned(
-                  bottom: 20,
-                  left: 0,
-                  right: 0,
+                Container(
+                  alignment: Alignment.center,
                   child: Image.asset(
                     'assets/Animations/Read BG/Read-animate.gif',
+                    fit: BoxFit.contain,
                   ),
                 ),
               ],

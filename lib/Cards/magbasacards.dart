@@ -273,7 +273,7 @@ class _MyWidgetState extends State<Magbasacards> {
 
                           SizedBox(height: 10),
                           Text(
-                            'Lorem ipsum dolor Lorem ipsum dolor',
+                            'Ito ay kwento ng magkaibigang si Tipaklong at Langgam',
                             style: Design.desciption,
                           ),
                           SizedBox(height: 10),

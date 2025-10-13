@@ -85,31 +85,25 @@ class _Anmmscene1State extends State<Anmmscene1> {
                 ),
                 SizedBox(height: 20),
 
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: 300,
-                      height: 750, // Specify the width here
-                      child: Text(
-                        'Dahil sa ang diyos ay namumuhay na parang tao, sila rin ay nagtutungo sa palengke.\n\n'
-                        'Si Maria ay madalas pumunta sa palengke kasama ang dalawang alalay.  \n\n'
-                        'Ang mga alalay ay may dalang basket na puno ng gintong luya na ipinagpapalit sa mga bagay na nais. \n\n'
-                        'At lahat ng tao na nadaraanan ni Maria ay yumuyuko bilang paggalang sa kanya.',
-                        style: Design.readStory,
-                        textAlign: TextAlign.justify, // Justify the text
-                      ),
-                    ),
-                  ],
+                Container(
+                  width: 300,
+                  height: 750, // Specify the width here
+                  child: Text(
+                    'Dahil sa ang diyos ay namumuhay na parang tao, sila rin ay nagtutungo sa palengke.\n\n'
+                    'Si Maria ay madalas pumunta sa palengke kasama ang dalawang alalay.  \n\n'
+                    'Ang mga alalay ay may dalang basket na puno ng gintong luya na ipinagpapalit sa mga bagay na nais. \n\n'
+                    'At lahat ng tao na nadaraanan ni Maria ay yumuyuko bilang paggalang sa kanya.',
+                    style: Design.readStory,
+                    textAlign: TextAlign.justify, // Justify the text
+                  ),
                 ),
+
                 SizedBox(height: 20),
-                Positioned(
-                  bottom: 20,
-                  left: 0,
-                  right: 0,
+                Container(
+                  alignment: Alignment.center,
                   child: Image.asset(
                     'assets/Animations/Read BG/Read-animate.gif',
+                    fit: BoxFit.contain,
                   ),
                 ),
               ],

@@ -85,27 +85,21 @@ class _Mamscene2State extends State<Mamscene2> {
                 ),
                 SizedBox(height: 20),
 
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: 300,
-                      height: 300, // Specify the width here
-                      child: Text(
-                        'Nakatakas ang uod ngunit lumakas ang dalawang nilikha na tinawag na Malakas at Maganda.\n\n',
-                        style: Design.readStory,
-                        textAlign: TextAlign.justify, // Justify the text
-                      ),
-                    ),
-                  ],
+                Container(
+                  width: 300,
+                  height: 200, // Specify the width here
+                  child: Text(
+                    'Nakatakas ang uod ngunit lumakas ang dalawang nilikha na tinawag na Malakas at Maganda.\n\n',
+                    style: Design.readStory,
+                    textAlign: TextAlign.justify, // Justify the text
+                  ),
                 ),
-                Positioned(
-                  bottom: 20,
-                  left: 0,
-                  right: 0,
+                SizedBox(height: 20),
+                Container(
+                  alignment: Alignment.center,
                   child: Image.asset(
                     'assets/Animations/Read BG/Read-animate.gif',
+                    fit: BoxFit.contain,
                   ),
                 ),
               ],
@@ -120,7 +114,7 @@ class _Mamscene2State extends State<Mamscene2> {
                   context,
                   SlidePageRoute(
                     page: Mamscene3(),
-                    direction: SlideDirection.left,
+                    direction: SlideDirection.right,
                   ),
                 );
               },

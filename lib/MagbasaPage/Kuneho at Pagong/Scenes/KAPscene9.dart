@@ -85,31 +85,25 @@ class _Kapscene9State extends State<Kapscene9> {
                 ),
                 SizedBox(height: 20),
 
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: 300,
-                      height: 450,
-                      child: Text(
-                        'Pagong: Tignan mo nga naman itong si kuneho. \n \n'
-                        'Pagong: Masyado kasing nagtitiwala sa kanyang kakayahan. Ngayon, naunahan ko na siya \n'
-                        'Sabi ni Pagong  \n\n'
-                        'Ilang sandali pa lamang ay nakarating na ang pagong sa ilalim ng puno ng sampalok. \n',
-                        style: Design.readStory,
-                        textAlign: TextAlign.justify, // Justify the text
-                      ),
-                    ),
-                  ],
+                Container(
+                  width: 300,
+                  height: 450,
+                  child: Text(
+                    'Pagong: Tignan mo nga naman itong si kuneho. \n \n'
+                    'Pagong: Masyado kasing nagtitiwala sa kanyang kakayahan. Ngayon, naunahan ko na siya \n'
+                    'Sabi ni Pagong  \n\n'
+                    'Ilang sandali pa lamang ay nakarating na ang pagong sa ilalim ng puno ng sampalok. \n',
+                    style: Design.readStory,
+                    textAlign: TextAlign.justify, // Justify the text
+                  ),
                 ),
+
                 SizedBox(height: 20),
-                Positioned(
-                  bottom: 20,
-                  left: 0,
-                  right: 0,
+                Container(
+                  alignment: Alignment.center,
                   child: Image.asset(
                     'assets/Animations/Read BG/Read-animate.gif',
+                    fit: BoxFit.contain,
                   ),
                 ),
               ],

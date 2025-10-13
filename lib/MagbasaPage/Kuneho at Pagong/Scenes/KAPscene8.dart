@@ -80,30 +80,24 @@ class Kapscene8 extends StatelessWidget {
                 ),
                 SizedBox(height: 20),
 
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: 300,
-                      height: 350,
-                      child: Text(
-                        'Lumipas ang mga minuto. \n\n'
-                        'Naabutan ng pagong ang kinaroroonan ng kuneho. \n\n'
-                        'Nakita niya kung gaano kahimbing ang tulog nito sa ilalim ng punong mangga.  \n\n',
-                        style: Design.readStory,
-                        textAlign: TextAlign.justify, // Justify the text
-                      ),
-                    ),
-                  ],
+                Container(
+                  width: 300,
+                  height: 350,
+                  child: Text(
+                    'Lumipas ang mga minuto. \n\n'
+                    'Naabutan ng pagong ang kinaroroonan ng kuneho. \n\n'
+                    'Nakita niya kung gaano kahimbing ang tulog nito sa ilalim ng punong mangga.  \n\n',
+                    style: Design.readStory,
+                    textAlign: TextAlign.justify, // Justify the text
+                  ),
                 ),
+
                 SizedBox(height: 20),
-                Positioned(
-                  bottom: 20,
-                  left: 0,
-                  right: 0,
+                Container(
+                  alignment: Alignment.center,
                   child: Image.asset(
                     'assets/Animations/Read BG/Read-animate.gif',
+                    fit: BoxFit.contain,
                   ),
                 ),
               ],

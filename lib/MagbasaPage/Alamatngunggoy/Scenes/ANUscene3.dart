@@ -85,33 +85,27 @@ class _Anuscene3State extends State<Anuscene3> {
                 ),
                 SizedBox(height: 20),
 
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: 300,
-                      height: 1050,
-                      child: Text(
-                        'Pagkaalis ng ina, hindi man lang sinubukan ni Juan na hanapin ang nawawalang sandok. \n \n'
-                        'Sa halip ay naisip niyang kunin na lamang ang kanyang nakitang malaking kutsara na gawa sa kahoy.  \n\n'
-                        'Pupuwedeng ipalit ito sa kanyang hinahanap na sandok. \n\n'
-                        'At nagsimula na muling maglaro hanggang sa pagdating ng kanyang ina.\n\n'
-                        'Ibinigay niya sa ina ang malaking kutsara at sinabing \n\n'
-                        'Juan: Hindi ko mahanap ang sandok, kasi tinatamad ako, pwede na itong malaking kahoy na kutsara na aking nakuha bilang pamalit sa nawawalang sandok',
-                        style: Design.readStory,
-                        textAlign: TextAlign.justify, // Justify the text
-                      ),
-                    ),
-                  ],
+                Container(
+                  width: 300,
+                  height: 1050,
+                  child: Text(
+                    'Pagkaalis ng ina, hindi man lang sinubukan ni Juan na hanapin ang nawawalang sandok. \n \n'
+                    'Sa halip ay naisip niyang kunin na lamang ang kanyang nakitang malaking kutsara na gawa sa kahoy.  \n\n'
+                    'Pupuwedeng ipalit ito sa kanyang hinahanap na sandok. \n\n'
+                    'At nagsimula na muling maglaro hanggang sa pagdating ng kanyang ina.\n\n'
+                    'Ibinigay niya sa ina ang malaking kutsara at sinabing \n\n'
+                    'Juan: Hindi ko mahanap ang sandok, kasi tinatamad ako, pwede na itong malaking kahoy na kutsara na aking nakuha bilang pamalit sa nawawalang sandok',
+                    style: Design.readStory,
+                    textAlign: TextAlign.justify, // Justify the text
+                  ),
                 ),
+
                 SizedBox(height: 20),
-                Positioned(
-                  bottom: 20,
-                  left: 0,
-                  right: 0,
+                Container(
+                  alignment: Alignment.center,
                   child: Image.asset(
                     'assets/Animations/Read BG/Read-animate.gif',
+                    fit: BoxFit.contain,
                   ),
                 ),
               ],

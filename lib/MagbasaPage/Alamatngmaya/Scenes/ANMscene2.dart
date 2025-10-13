@@ -85,33 +85,27 @@ class _Anmscene2State extends State<Anmscene2> {
                 ),
                 SizedBox(height: 20),
 
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: 300,
-                      height: 950, // Specify the width here
-                      child: Text(
-                        'Nagtungo siya sa kanilang kusina at tumingin sa kaldero kung mayroong makakain kahit ano ngunit bigo siya. \n\n'
-                        'At dagli syang lumapit sa bakol.  \n\n'
-                        'Sa tantiya niya’y may isang salop pa ang laman niyon. \n\n'
-                        'Dahil sa tindi ng gutom, sinimulan niyang kainin ang bigas.  \n\n'
-                        'Waring hindi pa siya nasiyahan, inalis pa ang takip ng bakol at palihim na pumasok sa loob. \n\n'
-                        'Siya’y naupo, at saka niya muling ibinalik ang takip. hangad niyang hindi siya makita ng ina.',
-                        style: Design.readStory,
-                        textAlign: TextAlign.justify, // Justify the text
-                      ),
-                    ),
-                  ],
+                Container(
+                  width: 300,
+                  height: 950, // Specify the width here
+                  child: Text(
+                    'Nagtungo siya sa kanilang kusina at tumingin sa kaldero kung mayroong makakain kahit ano ngunit bigo siya. \n\n'
+                    'At dagli syang lumapit sa bakol.  \n\n'
+                    'Sa tantiya niya’y may isang salop pa ang laman niyon. \n\n'
+                    'Dahil sa tindi ng gutom, sinimulan niyang kainin ang bigas.  \n\n'
+                    'Waring hindi pa siya nasiyahan, inalis pa ang takip ng bakol at palihim na pumasok sa loob. \n\n'
+                    'Siya’y naupo, at saka niya muling ibinalik ang takip. hangad niyang hindi siya makita ng ina.',
+                    style: Design.readStory,
+                    textAlign: TextAlign.justify, // Justify the text
+                  ),
                 ),
+
                 SizedBox(height: 20),
-                Positioned(
-                  bottom: 20,
-                  left: 0,
-                  right: 0,
+                Container(
+                  alignment: Alignment.center,
                   child: Image.asset(
                     'assets/Animations/Read BG/Read-animate.gif',
+                    fit: BoxFit.contain,
                   ),
                 ),
               ],

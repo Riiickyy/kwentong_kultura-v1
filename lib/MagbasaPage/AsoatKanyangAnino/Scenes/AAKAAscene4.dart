@@ -85,28 +85,22 @@ class _Aakaascene4State extends State<Aakaascene4> {
                 ),
                 SizedBox(height: 20),
 
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: 300,
-                      height: 200, // Specify the width here
-                      child: Text(
-                        'Ang aso’y lungkot na lungkot na umuwi dahil ang kanyang pinakaingat-ingatan na buto ay nawala din.\n',
-                        style: Design.readStory,
-                        textAlign: TextAlign.justify, // Justify the text
-                      ),
-                    ),
-                  ],
+                Container(
+                  width: 300,
+                  height: 200, // Specify the width here
+                  child: Text(
+                    'Ang aso’y lungkot na lungkot na umuwi dahil ang kanyang pinakaingat-ingatan na buto ay nawala din.\n',
+                    style: Design.readStory,
+                    textAlign: TextAlign.justify, // Justify the text
+                  ),
                 ),
+
                 SizedBox(height: 20),
-                Positioned(
-                  bottom: 20,
-                  left: 0,
-                  right: 0,
+                Container(
+                  alignment: Alignment.center,
                   child: Image.asset(
                     'assets/Animations/Read BG/Read-animate.gif',
+                    fit: BoxFit.contain,
                   ),
                 ),
               ],

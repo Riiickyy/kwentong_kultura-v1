@@ -87,31 +87,25 @@ class _Pamscene6State extends State<Pamscene6> {
                 ),
                 SizedBox(height: 20),
 
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: 300,
-                      height: 600, // Specify the width here
-                      child: Text(
-                        'Pagong: Ngunit bigyan mo naman ako kahit ilang piraso lang \n\n'
-                        'Pagsusumamo ni Pagong nang makitang iilang piraso na lamang ang mga bunga.\n\n'
-                        'Matsing: Ha, ha, ha, hindi na kita bibigyan kahit isa. \n\n'
-                        'Tumatawang wika ni Matsing. \n\n',
-                        style: Design.readStory,
-                        textAlign: TextAlign.justify, // Justify the text
-                      ),
-                    ),
-                  ],
+                Container(
+                  width: 300,
+                  height: 400, // Specify the width here
+                  child: Text(
+                    'Pagong: Ngunit bigyan mo naman ako kahit ilang piraso lang \n\n'
+                    'Pagsusumamo ni Pagong nang makitang iilang piraso na lamang ang mga bunga.\n\n'
+                    'Matsing: Ha, ha, ha, hindi na kita bibigyan kahit isa. \n\n'
+                    'Tumatawang wika ni Matsing. \n\n',
+                    style: Design.readStory,
+                    textAlign: TextAlign.justify, // Justify the text
+                  ),
                 ),
+
                 SizedBox(height: 20),
-                Positioned(
-                  bottom: 20,
-                  left: 0,
-                  right: 0,
+                Container(
+                  alignment: Alignment.center,
                   child: Image.asset(
                     'assets/Animations/Read BG/Read-animate.gif',
+                    fit: BoxFit.contain,
                   ),
                 ),
               ],

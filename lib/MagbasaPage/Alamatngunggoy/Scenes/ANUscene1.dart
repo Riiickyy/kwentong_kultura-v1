@@ -85,31 +85,25 @@ class _Anuscene1State extends State<Anuscene1> {
                 ),
                 SizedBox(height: 20),
 
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: 300,
-                      height: 750,
-                      child: Text(
-                        'Isang araw, habang si Juan ay naglalaro sa labas ng kanilang tahanan, tinawag siya ng ina upang hanapin ang nawawalang sandok.  \n \n'
-                        'Mabilis namang sumunod ang bata at iniwan ang kanyang paglalaro at lumapit sa ina. \n\n'
-                        'Makalipas ang ilang oras ay naghinala ang kanyang ina na tila hindi siya sinusunod ni Juan.   \n\n'
-                        'Nagalit ito. Lalo na nang makita niyang nasa labas uli ito at naglalaro.',
-                        style: Design.readStory,
-                        textAlign: TextAlign.justify, // Justify the text
-                      ),
-                    ),
-                  ],
+                Container(
+                  width: 300,
+                  height: 750,
+                  child: Text(
+                    'Isang araw, habang si Juan ay naglalaro sa labas ng kanilang tahanan, tinawag siya ng ina upang hanapin ang nawawalang sandok.  \n \n'
+                    'Mabilis namang sumunod ang bata at iniwan ang kanyang paglalaro at lumapit sa ina. \n\n'
+                    'Makalipas ang ilang oras ay naghinala ang kanyang ina na tila hindi siya sinusunod ni Juan.   \n\n'
+                    'Nagalit ito. Lalo na nang makita niyang nasa labas uli ito at naglalaro.',
+                    style: Design.readStory,
+                    textAlign: TextAlign.justify, // Justify the text
+                  ),
                 ),
+
                 SizedBox(height: 20),
-                Positioned(
-                  bottom: 20,
-                  left: 0,
-                  right: 0,
+                Container(
+                  alignment: Alignment.center,
                   child: Image.asset(
                     'assets/Animations/Read BG/Read-animate.gif',
+                    fit: BoxFit.contain,
                   ),
                 ),
               ],

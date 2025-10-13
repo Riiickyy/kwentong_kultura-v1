@@ -84,32 +84,26 @@ class _Annscene6State extends State<Annscene6> {
                 ),
                 SizedBox(height: 20),
 
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: 300,
-                      height: 450,
-                      child: Text(
-                        'Nang bumalik ang mag-asawa, hindi nila natagpuan si Yumi.  \n\n'
-                        'Kahit saang dako ay hinanap nila ito. \n\n'
-                        'Sa may dalampasigan ay may natagpuan silang isang halaman.  \n\n'
-                        'Ang mga dahon nito’y mahahaba at maraming bunga. \n\n'
-                        'Kumuha ng isa ang matandang lalaki. \n\n',
-                        style: Design.readStory,
-                        textAlign: TextAlign.justify, // Justify the text
-                      ),
-                    ),
-                  ],
+                Container(
+                  width: 300,
+                  height: 650,
+                  child: Text(
+                    'Nang bumalik ang mag-asawa, hindi nila natagpuan si Yumi.  \n\n'
+                    'Kahit saang dako ay hinanap nila ito. \n\n'
+                    'Sa may dalampasigan ay may natagpuan silang isang halaman.  \n\n'
+                    'Ang mga dahon nito’y mahahaba at maraming bunga. \n\n'
+                    'Kumuha ng isa ang matandang lalaki. \n\n',
+                    style: Design.readStory,
+                    textAlign: TextAlign.justify, // Justify the text
+                  ),
                 ),
+
                 SizedBox(height: 20),
-                Positioned(
-                  bottom: 20,
-                  left: 0,
-                  right: 0,
+                Container(
+                  alignment: Alignment.center,
                   child: Image.asset(
                     'assets/Animations/Read BG/Read-animate.gif',
+                    fit: BoxFit.contain,
                   ),
                 ),
               ],

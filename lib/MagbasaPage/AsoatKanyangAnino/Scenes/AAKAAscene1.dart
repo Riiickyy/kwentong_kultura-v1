@@ -85,32 +85,26 @@ class _Aakaascene1State extends State<Aakaascene1> {
                 ),
                 SizedBox(height: 20),
 
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: 300,
-                      height: 450, // Specify the width here
-                      child: Text(
-                        'Sa wakas ay may nakita siyang kapirasong buto. Agad niya itong sinakmal at itinakbo.\n\n'
-                        'Aso: Salamat naman at makakakain na ako\n'
-                        'Wika niya sa sarili.\n\n'
-                        'Aso: Iuuwi ko na ito at nang makapaghapunan na ako,\n'
-                        'Dagdag pa niya.',
-                        style: Design.readStory,
-                        textAlign: TextAlign.justify, // Justify the text
-                      ),
-                    ),
-                  ],
+                Container(
+                  width: 300,
+                  height: 450, // Specify the width here
+                  child: Text(
+                    'Sa wakas ay may nakita siyang kapirasong buto. Agad niya itong sinakmal at itinakbo.\n\n'
+                    'Aso: Salamat naman at makakakain na ako\n'
+                    'Wika niya sa sarili.\n\n'
+                    'Aso: Iuuwi ko na ito at nang makapaghapunan na ako,\n'
+                    'Dagdag pa niya.',
+                    style: Design.readStory,
+                    textAlign: TextAlign.justify, // Justify the text
+                  ),
                 ),
+
                 SizedBox(height: 20),
-                Positioned(
-                  bottom: 20,
-                  left: 0,
-                  right: 0,
+                Container(
+                  alignment: Alignment.center,
                   child: Image.asset(
                     'assets/Animations/Read BG/Read-animate.gif',
+                    fit: BoxFit.contain,
                   ),
                 ),
               ],

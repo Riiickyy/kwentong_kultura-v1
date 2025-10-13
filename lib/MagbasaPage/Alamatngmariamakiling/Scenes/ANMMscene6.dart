@@ -85,29 +85,23 @@ class _Anmmscene6State extends State<Anmmscene6> {
                 ),
                 SizedBox(height: 20),
 
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: 300,
-                      height: 350, // Specify the width here
-                      child: Text(
-                        'Kahit na napakaroon ng labanan sina Gat Dula at Lakan Buto ay wala ni isang galos si Gat Dula sa binata.\n\n'
-                        'Dahil na rin sa palaging pagsusubaybay ni Maria.\n\n',
-                        style: Design.readStory,
-                        textAlign: TextAlign.justify, // Justify the text
-                      ),
-                    ),
-                  ],
+                Container(
+                  width: 300,
+                  height: 350, // Specify the width here
+                  child: Text(
+                    'Kahit na napakaroon ng labanan sina Gat Dula at Lakan Buto ay wala ni isang galos si Gat Dula sa binata.\n\n'
+                    'Dahil na rin sa palaging pagsusubaybay ni Maria.\n\n',
+                    style: Design.readStory,
+                    textAlign: TextAlign.justify, // Justify the text
+                  ),
                 ),
+
                 SizedBox(height: 20),
-                Positioned(
-                  bottom: 20,
-                  left: 0,
-                  right: 0,
+                Container(
+                  alignment: Alignment.center,
                   child: Image.asset(
                     'assets/Animations/Read BG/Read-animate.gif',
+                    fit: BoxFit.contain,
                   ),
                 ),
               ],

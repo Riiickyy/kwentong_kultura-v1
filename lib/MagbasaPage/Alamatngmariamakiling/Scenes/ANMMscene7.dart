@@ -85,30 +85,24 @@ class _Anmmscene7State extends State<Anmmscene7> {
                 ),
                 SizedBox(height: 20),
 
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: 300,
-                      height: 450, // Specify the width here
-                      child: Text(
-                        'Si Gat Dula ay walang kakayahang makita si Maria. \n\n'
-                        'Sa lungkot ay nagkasakit ito at namatay\n\n'
-                        'Dahil sa labis na pag-ibig ni Maria kay Gat Dula hiniling nito sa Ama, na ibigay na lamang sa kanya ang kaluluwa ni Gat Dula, bilang alaala sa yumaong nilang pag-ibig',
-                        style: Design.readStory,
-                        textAlign: TextAlign.justify, // Justify the text
-                      ),
-                    ),
-                  ],
+                Container(
+                  width: 300,
+                  height: 450, // Specify the width here
+                  child: Text(
+                    'Si Gat Dula ay walang kakayahang makita si Maria. \n\n'
+                    'Sa lungkot ay nagkasakit ito at namatay\n\n'
+                    'Dahil sa labis na pag-ibig ni Maria kay Gat Dula hiniling nito sa Ama, na ibigay na lamang sa kanya ang kaluluwa ni Gat Dula, bilang alaala sa yumaong nilang pag-ibig',
+                    style: Design.readStory,
+                    textAlign: TextAlign.justify, // Justify the text
+                  ),
                 ),
+
                 SizedBox(height: 20),
-                Positioned(
-                  bottom: 20,
-                  left: 0,
-                  right: 0,
+                Container(
+                  alignment: Alignment.center,
                   child: Image.asset(
                     'assets/Animations/Read BG/Read-animate.gif',
+                    fit: BoxFit.contain,
                   ),
                 ),
               ],

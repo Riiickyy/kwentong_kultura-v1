@@ -85,30 +85,24 @@ class _Kapscene2State extends State<Kapscene2> {
                 ),
                 SizedBox(height: 20),
 
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: 300,
-                      height: 450, // Specify the width here
-                      child: Text(
-                        'Pagong: Halika, magkarera tayo. Nakikita mo ba ang puno ng sampalok na ‘yon? \n\n'
-                        'Pagong:Kung sino ang unang makakarating sa atin doon ay siyang panalo\n\n'
-                        'Sabi ng pagong.',
-                        style: Design.readStory,
-                        textAlign: TextAlign.justify, // Justify the text
-                      ),
-                    ),
-                  ],
+                Container(
+                  width: 300,
+                  height: 450, // Specify the width here
+                  child: Text(
+                    'Pagong: Halika, magkarera tayo. Nakikita mo ba ang puno ng sampalok na ‘yon? \n\n'
+                    'Pagong:Kung sino ang unang makakarating sa atin doon ay siyang panalo\n\n'
+                    'Sabi ng pagong.',
+                    style: Design.readStory,
+                    textAlign: TextAlign.justify, // Justify the text
+                  ),
                 ),
+
                 SizedBox(height: 20),
-                Positioned(
-                  bottom: 20,
-                  left: 0,
-                  right: 0,
+                Container(
+                  alignment: Alignment.center,
                   child: Image.asset(
                     'assets/Animations/Read BG/Read-animate.gif',
+                    fit: BoxFit.contain,
                   ),
                 ),
               ],

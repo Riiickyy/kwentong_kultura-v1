@@ -1,10 +1,13 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:kwentong_kultura/Classes/slide_transition.dart';
 import 'package:kwentong_kultura/Login-Folder/firstUI.dart';
+import 'package:kwentong_kultura/Pages/taramagbasa.dart';
+import 'package:kwentong_kultura/Pages/taramagkulay.dart';
+import 'package:kwentong_kultura/Pages/taramakinig.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
 import 'package:kwentong_kultura/auth_service.dart';
-import 'buttons/Home-Buttons.dart';
 import 'package:rive/rive.dart' as rive;
 
 class HomeUIWidget extends StatefulWidget {
@@ -21,6 +24,7 @@ class _HomeUIWidgetState extends State<HomeUIWidget> {
   // Function to load the Rive animation
   Future<void> loadRiveAnimation() async {
     try {
+      await rive.RiveFile.initialize();
       final data = await rootBundle.load('assets/Animations/homepage.riv');
       final file = rive.RiveFile.import(data);
       _riveArtboard = file.mainArtboard;
@@ -205,7 +209,115 @@ class _HomeUIWidgetState extends State<HomeUIWidget> {
                     child: Image.asset('assets/images/HomeUI/sunncloud.png'),
                   ),
 
-                  Positioned(top: 300, right: 0, left: 0, child: Homebuttons()),
+                  Positioned(
+                    top: 300,
+                    left: 0,
+                    right: 0,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Center(
+                          child: ElevatedButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                SlidePageRoute(
+                                  page: Taramagbasa(),
+                                  direction: SlideDirection.up,
+                                ),
+                              );
+                            },
+                            style: Design.buttonDesign,
+                            child: SizedBox(
+                              width: 180,
+                              child: Text.rich(
+                                TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text: 'Tara\n',
+                                      style: Design.tara,
+                                    ),
+                                    TextSpan(
+                                      text: 'Magbasa',
+                                      style: Design.action,
+                                    ),
+                                  ],
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 21.0),
+                        Center(
+                          child: ElevatedButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                SlidePageRoute(
+                                  page: Taramakinig(),
+                                  direction: SlideDirection.up,
+                                ),
+                              );
+                            },
+                            style: Design.buttonDesign,
+                            child: SizedBox(
+                              width: 180,
+                              child: Text.rich(
+                                TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text: 'Tara\n',
+                                      style: Design.tara,
+                                    ),
+                                    TextSpan(
+                                      text: 'Manood',
+                                      style: Design.action,
+                                    ),
+                                  ],
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 21.0),
+                        Center(
+                          child: ElevatedButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                SlidePageRoute(
+                                  page: Taramagkulay(),
+                                  direction: SlideDirection.up,
+                                ),
+                              );
+                            },
+                            style: Design.buttonDesign,
+                            child: SizedBox(
+                              width: 180,
+                              child: Text.rich(
+                                TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text: 'Tara\n',
+                                      style: Design.tara,
+                                    ),
+                                    TextSpan(
+                                      text: 'Magkulay',
+                                      style: Design.action,
+                                    ),
+                                  ],
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+
                   Positioned(
                     bottom: 100,
                     right: 20,

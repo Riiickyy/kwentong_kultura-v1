@@ -87,31 +87,25 @@ class _Pamscene8State extends State<Pamscene8> {
                 ),
                 SizedBox(height: 20),
 
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: 300,
-                      height: 600, // Specify the width here
-                      child: Text(
-                        'Nang maubos na lahat ni Matsing ang bunga ng saging ay nagpasiya na itong bumaba. \n\n'
-                        'Gayon na lamang ang pagkakasugat ng kaniyang katawan dahil sa mga tinik na inilagay ni Pagong.\n\n'
-                        'Galit na galit si Matsing.\n\n'
-                        'Nahirapan siya sa paghahanap bago niya nakita si Pagong. \n',
-                        style: Design.readStory,
-                        textAlign: TextAlign.justify, // Justify the text
-                      ),
-                    ),
-                  ],
+                Container(
+                  width: 300,
+                  height: 600, // Specify the width here
+                  child: Text(
+                    'Nang maubos na lahat ni Matsing ang bunga ng saging ay nagpasiya na itong bumaba. \n\n'
+                    'Gayon na lamang ang pagkakasugat ng kaniyang katawan dahil sa mga tinik na inilagay ni Pagong.\n\n'
+                    'Galit na galit si Matsing.\n\n'
+                    'Nahirapan siya sa paghahanap bago niya nakita si Pagong. \n',
+                    style: Design.readStory,
+                    textAlign: TextAlign.justify, // Justify the text
+                  ),
                 ),
+
                 SizedBox(height: 20),
-                Positioned(
-                  bottom: 20,
-                  left: 0,
-                  right: 0,
+                Container(
+                  alignment: Alignment.center,
                   child: Image.asset(
                     'assets/Animations/Read BG/Read-animate.gif',
+                    fit: BoxFit.contain,
                   ),
                 ),
               ],

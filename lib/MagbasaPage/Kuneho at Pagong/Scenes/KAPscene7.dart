@@ -85,32 +85,26 @@ class _Kapscene7State extends State<Kapscene7> {
                 ),
                 SizedBox(height: 20),
 
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: 300,
-                      height: 450,
-                      child: Text(
-                        'Kuneho: Hay naku, tutal ay matatagalan pa ang pagong na ito, mainam pang magpahinga muna ako sa ilalim ng punong ito \n\n'
-                        'Kuneho: Mainit masyado!\n\n'
-                        'Wika ng kuneho. \n\n'
-                        'At nahiga nga ang kuneho sa lilim ng punong mangga.\n\n'
-                        'Ilang sandali pa lamang ay nakatulog na ang kuneho.',
-                        style: Design.readStory,
-                        textAlign: TextAlign.justify, // Justify the text
-                      ),
-                    ),
-                  ],
+                Container(
+                  width: 300,
+                  height: 450,
+                  child: Text(
+                    'Kuneho: Hay naku, tutal ay matatagalan pa ang pagong na ito, mainam pang magpahinga muna ako sa ilalim ng punong ito \n\n'
+                    'Kuneho: Mainit masyado!\n\n'
+                    'Wika ng kuneho. \n\n'
+                    'At nahiga nga ang kuneho sa lilim ng punong mangga.\n\n'
+                    'Ilang sandali pa lamang ay nakatulog na ang kuneho.',
+                    style: Design.readStory,
+                    textAlign: TextAlign.justify, // Justify the text
+                  ),
                 ),
+
                 SizedBox(height: 20),
-                Positioned(
-                  bottom: 20,
-                  left: 0,
-                  right: 0,
+                Container(
+                  alignment: Alignment.center,
                   child: Image.asset(
                     'assets/Animations/Read BG/Read-animate.gif',
+                    fit: BoxFit.contain,
                   ),
                 ),
               ],

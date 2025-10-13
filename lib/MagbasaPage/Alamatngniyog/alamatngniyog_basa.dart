@@ -82,32 +82,27 @@ class _AlamatngniyogBasaState extends State<AlamatngniyogBasa> {
                   ),
                 ),
                 SizedBox(height: 20),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text('Alamat ng Niyog', style: Design.readTitle),
-                    SizedBox(height: 20),
-                    Container(
-                      width: 300,
-                      height: 450, // Specify the width here
-                      child: Text(
-                        'Noong unang panahon, sa lalawigan ng Laguna,  \n\n'
-                        'Ay may naninirahang mag-asawa na may isang anak.\n\n'
-                        'Ito ay si Yumi. May angking kagandahan si Yumi.  \n',
-                        style: Design.readStory,
-                        textAlign: TextAlign.justify, // Justify the text
-                      ),
-                    ),
-                  ],
-                ),
+
+                Text('Alamat ng Niyog', style: Design.readTitle),
                 SizedBox(height: 20),
-                Positioned(
-                  bottom: 20,
-                  left: 0,
-                  right: 0,
+                Container(
+                  width: 300,
+                  height: 450, // Specify the width here
+                  child: Text(
+                    'Noong unang panahon, sa lalawigan ng Laguna,  \n\n'
+                    'Ay may naninirahang mag-asawa na may isang anak.\n\n'
+                    'Ito ay si Yumi. May angking kagandahan si Yumi.  \n',
+                    style: Design.readStory,
+                    textAlign: TextAlign.justify, // Justify the text
+                  ),
+                ),
+
+                SizedBox(height: 20),
+                Container(
+                  alignment: Alignment.center,
                   child: Image.asset(
                     'assets/Animations/Read BG/Read-animate.gif',
+                    fit: BoxFit.contain,
                   ),
                 ),
               ],

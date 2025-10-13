@@ -85,31 +85,25 @@ class _Anuscene2State extends State<Anuscene2> {
                 ),
                 SizedBox(height: 20),
 
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: 300,
-                      height: 650,
-                      child: Text(
-                        'Hinila niya papasok ng bahay si Juan at sinabing \n \n'
-                        'Ina: Nahanap mo na ba ang sandok? \n\n'
-                        'Ina: Pupunta ako ngayon sa palengke at gusto ko pagbalik ko ay nahanap mo na ang sandok na aking ipinahahanap  \n\n'
-                        'At iniwan na niya ang batang tamad, para masunod na nito ang kanyang iniutos.',
-                        style: Design.readStory,
-                        textAlign: TextAlign.justify, // Justify the text
-                      ),
-                    ),
-                  ],
+                Container(
+                  width: 300,
+                  height: 650,
+                  child: Text(
+                    'Hinila niya papasok ng bahay si Juan at sinabing \n \n'
+                    'Ina: Nahanap mo na ba ang sandok? \n\n'
+                    'Ina: Pupunta ako ngayon sa palengke at gusto ko pagbalik ko ay nahanap mo na ang sandok na aking ipinahahanap  \n\n'
+                    'At iniwan na niya ang batang tamad, para masunod na nito ang kanyang iniutos.',
+                    style: Design.readStory,
+                    textAlign: TextAlign.justify, // Justify the text
+                  ),
                 ),
+
                 SizedBox(height: 20),
-                Positioned(
-                  bottom: 20,
-                  left: 0,
-                  right: 0,
+                Container(
+                  alignment: Alignment.center,
                   child: Image.asset(
                     'assets/Animations/Read BG/Read-animate.gif',
+                    fit: BoxFit.contain,
                   ),
                 ),
               ],

@@ -85,32 +85,26 @@ class _Anpscene3State extends State<Anpscene3> {
                 ),
                 SizedBox(height: 20),
 
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: 300,
-                      height: 750,
-                      child: Text(
-                        'Masama man ang loob ay pumayag si Pina na magluto at gumawa ng iba pa \n \n'
-                        'Ngunit pamali-mali dahil hindi siya sanay magtrabaho  \n\n'
-                        'Nagtagal ang sakit ni Aling Rosa at nagsawa si Pina sa paggawa at pagsunod sa utos ng ina. \n\n'
-                        'Madalas na silang magkagalit.  \n\n'
-                        'Laging masama ang loob ni Pina habang gumagawa ng trabaho sa bahay.',
-                        style: Design.readStory,
-                        textAlign: TextAlign.justify, // Justify the text
-                      ),
-                    ),
-                  ],
+                Container(
+                  width: 300,
+                  height: 750,
+                  child: Text(
+                    'Masama man ang loob ay pumayag si Pina na magluto at gumawa ng iba pa \n \n'
+                    'Ngunit pamali-mali dahil hindi siya sanay magtrabaho  \n\n'
+                    'Nagtagal ang sakit ni Aling Rosa at nagsawa si Pina sa paggawa at pagsunod sa utos ng ina. \n\n'
+                    'Madalas na silang magkagalit.  \n\n'
+                    'Laging masama ang loob ni Pina habang gumagawa ng trabaho sa bahay.',
+                    style: Design.readStory,
+                    textAlign: TextAlign.justify, // Justify the text
+                  ),
                 ),
+
                 SizedBox(height: 20),
-                Positioned(
-                  bottom: 20,
-                  left: 0,
-                  right: 0,
+                Container(
+                  alignment: Alignment.center,
                   child: Image.asset(
                     'assets/Animations/Read BG/Read-animate.gif',
+                    fit: BoxFit.contain,
                   ),
                 ),
               ],

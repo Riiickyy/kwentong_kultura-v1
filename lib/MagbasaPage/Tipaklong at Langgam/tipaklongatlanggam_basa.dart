@@ -82,32 +82,27 @@ class _TipaklongatlanggamBasaState extends State<TipaklongatlanggamBasa> {
                   ),
                 ),
                 SizedBox(height: 20),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text('Si Tipaklong at Langgam', style: Design.readTitle),
-                    SizedBox(height: 20),
-                    Container(
-                      width: 300,
-                      height: 450, // Specify the width here
-                      child: Text(
-                        'Kaya ganda at kay aliwalas ng paligid.   \n\n'
-                        'Nakakatuwang masdan ang mga dahon ng ibat-ibang uri ng bulaklak habang ito’y isinasayaw ng hangin amihan. \n\n'
-                        'Palundag-lundag at masayang umaawit si Tipaklong habang siya’y palipat-lipat sa mga sanga ng halaman.  \n',
-                        style: Design.readStory,
-                        textAlign: TextAlign.justify, // Justify the text
-                      ),
-                    ),
-                  ],
-                ),
+
+                Text('Si Tipaklong at Langgam', style: Design.readTitle),
                 SizedBox(height: 20),
-                Positioned(
-                  bottom: 20,
-                  left: 0,
-                  right: 0,
+                Container(
+                  width: 300,
+                  height: 450, // Specify the width here
+                  child: Text(
+                    'Kaya ganda at kay aliwalas ng paligid.   \n\n'
+                    'Nakakatuwang masdan ang mga dahon ng ibat-ibang uri ng bulaklak habang ito’y isinasayaw ng hangin amihan. \n\n'
+                    'Palundag-lundag at masayang umaawit si Tipaklong habang siya’y palipat-lipat sa mga sanga ng halaman.  \n',
+                    style: Design.readStory,
+                    textAlign: TextAlign.justify, // Justify the text
+                  ),
+                ),
+
+                SizedBox(height: 20),
+                Container(
+                  alignment: Alignment.center,
                   child: Image.asset(
                     'assets/Animations/Read BG/Read-animate.gif',
+                    fit: BoxFit.contain,
                   ),
                 ),
               ],

@@ -85,32 +85,26 @@ class _Annscene7State extends State<Annscene7> {
                 ),
                 SizedBox(height: 20),
 
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: 300,
-                      height: 450,
-                      child: Text(
-                        'Dagli niyang inalis ang makapal na balat nito.   \n\n'
-                        'Lumabas ang isang mabilog at matigas na bao. \n\n'
-                        'May tatlong marka ito na animo’y dalawang mata at isang bibig.   \n\n'
-                        'Ito ang unang puno ng niyog.  \n\n'
-                        'Tulad ni Yumi, mataas at mayumil kung kumilos.\n\n',
-                        style: Design.readStory,
-                        textAlign: TextAlign.justify, // Justify the text
-                      ),
-                    ),
-                  ],
+                Container(
+                  width: 300,
+                  height: 450,
+                  child: Text(
+                    'Dagli niyang inalis ang makapal na balat nito.   \n\n'
+                    'Lumabas ang isang mabilog at matigas na bao. \n\n'
+                    'May tatlong marka ito na animo’y dalawang mata at isang bibig.   \n\n'
+                    'Ito ang unang puno ng niyog.  \n\n'
+                    'Tulad ni Yumi, mataas at mayumil kung kumilos.\n\n',
+                    style: Design.readStory,
+                    textAlign: TextAlign.justify, // Justify the text
+                  ),
                 ),
+
                 SizedBox(height: 20),
-                Positioned(
-                  bottom: 20,
-                  left: 0,
-                  right: 0,
+                Container(
+                  alignment: Alignment.center,
                   child: Image.asset(
                     'assets/Animations/Read BG/Read-animate.gif',
+                    fit: BoxFit.contain,
                   ),
                 ),
               ],

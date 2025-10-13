@@ -85,32 +85,26 @@ class _Anpscene7State extends State<Anpscene7> {
                 ),
                 SizedBox(height: 20),
 
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: 300,
-                      height: 870,
-                      child: Text(
-                        'Sa isang sulok ng kanilang bakuran ay nakita niya ang isang halaman na ang bunga ay tulad ng isang ulo na maraming mata.   \n \n'
-                        'Naalala ni Aling Rosa ang sinabi sa kanyang anak:\n\n'
-                        '“Sana’y tubuan ka ng maraming mata nang makita mo ang iyong hinahanap!” \n\n'
-                        'Napaiyak si Aling Rosa at iniisip na ang ang hamang tumubo sa kanyang bakuran ay ang kanyang anak na si Pina. \n\n'
-                        'Inalagaan niya ang halaman ay simula noon ay tinawag niya itong Pinya.\n\n',
-                        style: Design.readStory,
-                        textAlign: TextAlign.justify, // Justify the text
-                      ),
-                    ),
-                  ],
+                Container(
+                  width: 300,
+                  height: 870,
+                  child: Text(
+                    'Sa isang sulok ng kanilang bakuran ay nakita niya ang isang halaman na ang bunga ay tulad ng isang ulo na maraming mata.   \n \n'
+                    'Naalala ni Aling Rosa ang sinabi sa kanyang anak:\n\n'
+                    '“Sana’y tubuan ka ng maraming mata nang makita mo ang iyong hinahanap!” \n\n'
+                    'Napaiyak si Aling Rosa at iniisip na ang ang hamang tumubo sa kanyang bakuran ay ang kanyang anak na si Pina. \n\n'
+                    'Inalagaan niya ang halaman ay simula noon ay tinawag niya itong Pinya.\n\n',
+                    style: Design.readStory,
+                    textAlign: TextAlign.justify, // Justify the text
+                  ),
                 ),
+
                 SizedBox(height: 20),
-                Positioned(
-                  bottom: 20,
-                  left: 0,
-                  right: 0,
+                Container(
+                  alignment: Alignment.center,
                   child: Image.asset(
                     'assets/Animations/Read BG/Read-animate.gif',
+                    fit: BoxFit.contain,
                   ),
                 ),
               ],

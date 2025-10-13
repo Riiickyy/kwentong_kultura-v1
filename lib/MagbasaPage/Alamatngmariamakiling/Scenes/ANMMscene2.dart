@@ -85,32 +85,26 @@ class _Anmmscene2State extends State<Anmmscene2> {
                 ),
                 SizedBox(height: 20),
 
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: 300,
-                      height: 750, // Specify the width here
-                      child: Text(
-                        'Hindi lamang ang mga tao sa lugar nila ang nagtutungo sa palengke. \n\n'
-                        'Pati na rin ang mga taga-ibang nayon.  \n\n'
-                        'Isang araw, habang namimili si Maria ay nakabangga niya si Gat Dula na nakatira sa ibang nayon. \n\n'
-                        'Nagkataon na sabay nilang nadampot ang magandang balat ng hayop at nagkahawakan sila ng kamay. \n\n'
-                        'Yumuko si Gat Dula bilang paghingi ng pasensya at pagbibigay respeto kay Maria.',
-                        style: Design.readStory,
-                        textAlign: TextAlign.justify, // Justify the text
-                      ),
-                    ),
-                  ],
+                Container(
+                  width: 300,
+                  height: 850, // Specify the width here
+                  child: Text(
+                    'Hindi lamang ang mga tao sa lugar nila ang nagtutungo sa palengke. \n\n'
+                    'Pati na rin ang mga taga-ibang nayon.  \n\n'
+                    'Isang araw, habang namimili si Maria ay nakabangga niya si Gat Dula na nakatira sa ibang nayon. \n\n'
+                    'Nagkataon na sabay nilang nadampot ang magandang balat ng hayop at nagkahawakan sila ng kamay. \n\n'
+                    'Yumuko si Gat Dula bilang paghingi ng pasensya at pagbibigay respeto kay Maria.',
+                    style: Design.readStory,
+                    textAlign: TextAlign.justify, // Justify the text
+                  ),
                 ),
+
                 SizedBox(height: 20),
-                Positioned(
-                  bottom: 20,
-                  left: 0,
-                  right: 0,
+                Container(
+                  alignment: Alignment.center,
                   child: Image.asset(
                     'assets/Animations/Read BG/Read-animate.gif',
+                    fit: BoxFit.contain,
                   ),
                 ),
               ],

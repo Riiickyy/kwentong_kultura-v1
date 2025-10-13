@@ -85,31 +85,25 @@ class _Annscene2State extends State<Annscene2> {
                 ),
                 SizedBox(height: 20),
 
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: 300,
-                      height: 450,
-                      child: Text(
-                        'Ama: Yumi, kami’y mangingsisda ng iyong ina \n'
-                        'Minsan ay wika ng kanyang Ama. \n\n'
-                        'Ama: Tiyak naming kinabukasan ng umaga ang aming balik.  \n\n'
-                        'Ama: Mas mabuting manatili ka na lamang dito sa bahay habang wala kami.',
-                        style: Design.readStory,
-                        textAlign: TextAlign.justify, // Justify the text
-                      ),
-                    ),
-                  ],
+                Container(
+                  width: 300,
+                  height: 550,
+                  child: Text(
+                    'Ama: Yumi, kami’y mangingsisda ng iyong ina \n'
+                    'Minsan ay wika ng kanyang Ama. \n\n'
+                    'Ama: Tiyak naming kinabukasan ng umaga ang aming balik.  \n\n'
+                    'Ama: Mas mabuting manatili ka na lamang dito sa bahay habang wala kami.',
+                    style: Design.readStory,
+                    textAlign: TextAlign.justify, // Justify the text
+                  ),
                 ),
+
                 SizedBox(height: 20),
-                Positioned(
-                  bottom: 20,
-                  left: 0,
-                  right: 0,
+                Container(
+                  alignment: Alignment.center,
                   child: Image.asset(
                     'assets/Animations/Read BG/Read-animate.gif',
+                    fit: BoxFit.contain,
                   ),
                 ),
               ],

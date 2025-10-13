@@ -85,29 +85,23 @@ class _Annscene4State extends State<Annscene4> {
                 ),
                 SizedBox(height: 20),
 
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: 300,
-                      height: 450,
-                      child: Text(
-                        'Matapos ang mga gawaiing ito, naisipan ni Yumi na mamasyal sa dalampasigan \n'
-                        'Nang mahapo siya sa paglalakad ay naupo siya sa ilalim ng isang punongkahoy. \n\n',
-                        style: Design.readStory,
-                        textAlign: TextAlign.justify, // Justify the text
-                      ),
-                    ),
-                  ],
+                Container(
+                  width: 300,
+                  height: 350,
+                  child: Text(
+                    'Matapos ang mga gawaiing ito, naisipan ni Yumi na mamasyal sa dalampasigan \n'
+                    'Nang mahapo siya sa paglalakad ay naupo siya sa ilalim ng isang punongkahoy. \n\n',
+                    style: Design.readStory,
+                    textAlign: TextAlign.justify, // Justify the text
+                  ),
                 ),
+
                 SizedBox(height: 20),
-                Positioned(
-                  bottom: 20,
-                  left: 0,
-                  right: 0,
+                Container(
+                  alignment: Alignment.center,
                   child: Image.asset(
                     'assets/Animations/Read BG/Read-animate.gif',
+                    fit: BoxFit.contain,
                   ),
                 ),
               ],

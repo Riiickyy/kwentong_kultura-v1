@@ -85,31 +85,24 @@ class _Anmmscene3State extends State<Anmmscene3> {
                 ),
                 SizedBox(height: 20),
 
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: 300,
-                      height: 450, // Specify the width here
-                      child: Text(
-                        'Magmula noon ay madalas na silang nagkikita si Gat Dula sa palengke.  \n\n'
-                        'Minsang nilapitan niya si Maria at kinausap. \n\n'
-                        'Binigyan siya nito ng isang matamis na ngiti.  \n\n'
-                        'Ito ang naging simula ng pag-iibigan ni Maria at Gat Dula. ',
-                        style: Design.readStory,
-                        textAlign: TextAlign.justify, // Justify the text
-                      ),
-                    ),
-                  ],
+                Container(
+                  width: 300,
+                  height: 550, // Specify the width here
+                  child: Text(
+                    'Magmula noon ay madalas na silang nagkikita si Gat Dula sa palengke.  \n\n'
+                    'Minsang nilapitan niya si Maria at kinausap. \n\n'
+                    'Binigyan siya nito ng isang matamis na ngiti.  \n\n'
+                    'Ito ang naging simula ng pag-iibigan ni Maria at Gat Dula. ',
+                    style: Design.readStory,
+                    textAlign: TextAlign.justify, // Justify the text
+                  ),
                 ),
                 SizedBox(height: 20),
-                Positioned(
-                  bottom: 20,
-                  left: 0,
-                  right: 0,
+                Container(
+                  alignment: Alignment.center,
                   child: Image.asset(
                     'assets/Animations/Read BG/Read-animate.gif',
+                    fit: BoxFit.contain,
                   ),
                 ),
               ],

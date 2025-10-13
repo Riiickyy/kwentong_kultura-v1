@@ -87,35 +87,28 @@ class _Pamscene4State extends State<Pamscene4> {
                 ),
                 SizedBox(height: 20),
 
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: 300,
-                      height: 1000, // Specify the width here
-                      child: Text(
-                        'Pagong: Ah! Ang sa akin ay napakabuti. May mga dahong malalapad at ngayon ay namunga na. \n'
-                        'Pagong: Hindi ko nga makuha ang mga bunga dala ng di ko naman maakyat ito  \n'
-                        'Sabi ni Pagong.\n\n'
-                        'Matsing: Kung ang pag-uusapan ay ang pag-akyat sa punong saging, ipaubaya mo iyan sa akin. Kayang kaya kong pumanhik sa punong saging\n'
-                        'Pagmamayabang ni Matsing. \n\n'
-                        'Pagong: Hindi pa man ay nagpapasalamat na ako sa iyo, Matsing\n'
-                        'Wika ni Pagong. \n\n'
-                        'At tinungo nila ang bahay ni Pagong.',
-                        style: Design.readStory,
-                        textAlign: TextAlign.justify, // Justify the text
-                      ),
-                    ),
-                  ],
+                Container(
+                  width: 300,
+                  height: 1000, // Specify the width here
+                  child: Text(
+                    'Pagong: Ah! Ang sa akin ay napakabuti. May mga dahong malalapad at ngayon ay namunga na. \n'
+                    'Pagong: Hindi ko nga makuha ang mga bunga dala ng di ko naman maakyat ito  \n'
+                    'Sabi ni Pagong.\n\n'
+                    'Matsing: Kung ang pag-uusapan ay ang pag-akyat sa punong saging, ipaubaya mo iyan sa akin. Kayang kaya kong pumanhik sa punong saging\n'
+                    'Pagmamayabang ni Matsing. \n\n'
+                    'Pagong: Hindi pa man ay nagpapasalamat na ako sa iyo, Matsing\n'
+                    'Wika ni Pagong. \n\n'
+                    'At tinungo nila ang bahay ni Pagong.',
+                    style: Design.readStory,
+                    textAlign: TextAlign.justify, // Justify the text
+                  ),
                 ),
                 SizedBox(height: 20),
-                Positioned(
-                  bottom: 20,
-                  left: 0,
-                  right: 0,
+                Container(
+                  alignment: Alignment.center,
                   child: Image.asset(
                     'assets/Animations/Read BG/Read-animate.gif',
+                    fit: BoxFit.contain,
                   ),
                 ),
               ],

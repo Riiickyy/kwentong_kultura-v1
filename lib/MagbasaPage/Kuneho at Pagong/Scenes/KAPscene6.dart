@@ -85,31 +85,25 @@ class _Kapscene6State extends State<Kapscene6> {
                 ),
                 SizedBox(height: 20),
 
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: 300,
-                      height: 450,
-                      child: Text(
-                        'Kuneho: O sige, ikaw ang may kagustuhan nito.\n'
-                        'Sagot ng kuneho. \n\n'
-                        'At nag-umpisa ang paligsahan.\n\n'
-                        'Nakakalayo na ang kuneho ngunit ang pagong ay mabagal pa rin ang pag-usad sa kanyang likuran.',
-                        style: Design.readStory,
-                        textAlign: TextAlign.justify, // Justify the text
-                      ),
-                    ),
-                  ],
+                Container(
+                  width: 300,
+                  height: 450,
+                  child: Text(
+                    'Kuneho: O sige, ikaw ang may kagustuhan nito.\n'
+                    'Sagot ng kuneho. \n\n'
+                    'At nag-umpisa ang paligsahan.\n\n'
+                    'Nakakalayo na ang kuneho ngunit ang pagong ay mabagal pa rin ang pag-usad sa kanyang likuran.',
+                    style: Design.readStory,
+                    textAlign: TextAlign.justify, // Justify the text
+                  ),
                 ),
+
                 SizedBox(height: 20),
-                Positioned(
-                  bottom: 20,
-                  left: 0,
-                  right: 0,
+                Container(
+                  alignment: Alignment.center,
                   child: Image.asset(
                     'assets/Animations/Read BG/Read-animate.gif',
+                    fit: BoxFit.contain,
                   ),
                 ),
               ],

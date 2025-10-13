@@ -85,34 +85,28 @@ class _Tamscene2State extends State<Tamscene2> {
                 ),
                 SizedBox(height: 20),
 
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: 300,
-                      height: 950,
-                      child: Text(
-                        'Tipaklong: Hay naku! Langgam, bakit nagtitiyaga kang magbuhat ng mga mabibigat na pagkain gayong kay dami namang pagkain sa paligid,  \n\n'
-                        'Panunudyo ni Tipaklong kay Langgam na halos di makalakad dahil sa bigat ng kanyang pinapasan.\n\n'
-                        'Langgam: Nag-iipon na kasi ako ng aking makakain. Alam mo namang malapit na ang tag-ulan \n\n'
-                        'Sagot naman ni Langgam. \n\n'
-                        'Tipaklong: Matagal pa iyong sinasabi mong tag-ulan. Hatika muna rito, tularan mo ako, nagsasaya, pakanta-kanta. Hindi ako nagpapakapagod na katulad mo,\n\n'
-                        'Wika ni Tipaklong \n\n'
-                        'Hindi na pinansin ni Langgam si Tipaklong. Nagpatuloy na ito sa paglalakad. \n\n',
-                        style: Design.readStory,
-                        textAlign: TextAlign.justify, // Justify the text
-                      ),
-                    ),
-                  ],
+                Container(
+                  width: 300,
+                  height: 950,
+                  child: Text(
+                    'Tipaklong: Hay naku! Langgam, bakit nagtitiyaga kang magbuhat ng mga mabibigat na pagkain gayong kay dami namang pagkain sa paligid,  \n\n'
+                    'Panunudyo ni Tipaklong kay Langgam na halos di makalakad dahil sa bigat ng kanyang pinapasan.\n\n'
+                    'Langgam: Nag-iipon na kasi ako ng aking makakain. Alam mo namang malapit na ang tag-ulan \n\n'
+                    'Sagot naman ni Langgam. \n\n'
+                    'Tipaklong: Matagal pa iyong sinasabi mong tag-ulan. Hatika muna rito, tularan mo ako, nagsasaya, pakanta-kanta. Hindi ako nagpapakapagod na katulad mo,\n\n'
+                    'Wika ni Tipaklong \n\n'
+                    'Hindi na pinansin ni Langgam si Tipaklong. Nagpatuloy na ito sa paglalakad. \n\n',
+                    style: Design.readStory,
+                    textAlign: TextAlign.justify, // Justify the text
+                  ),
                 ),
+
                 SizedBox(height: 20),
-                Positioned(
-                  bottom: 20,
-                  left: 0,
-                  right: 0,
+                Container(
+                  alignment: Alignment.center,
                   child: Image.asset(
                     'assets/Animations/Read BG/Read-animate.gif',
+                    fit: BoxFit.contain,
                   ),
                 ),
               ],

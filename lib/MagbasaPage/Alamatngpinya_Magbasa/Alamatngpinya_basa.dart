@@ -87,32 +87,27 @@ class _AlamatngpinyaBasaState extends State<AlamatngpinyaBasa> {
                   ),
                 ),
                 SizedBox(height: 20),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text('Ang Alamat ng Pinya', style: Design.readTitle),
-                    SizedBox(height: 20),
-                    Container(
-                      width: 300,
-                      height: 450, // Specify the width here
-                      child: Text(
-                        'Mahal na mahal ni Aling Rosa ang kanyang anak na si Pina.  \n\n'
-                        'Inaalagaan niya itong mabuti at hindi niya pinapagawa sa bahay upang hindi ito mapagod.  \n\n'
-                        'Masaya na siyang nagsisilbi sa anak at gumawa ng lahat ng trabaho sa bahay \n',
-                        style: Design.readStory,
-                        textAlign: TextAlign.justify, // Justify the text
-                      ),
-                    ),
-                  ],
-                ),
+
+                Text('Ang Alamat ng Pinya', style: Design.readTitle),
                 SizedBox(height: 20),
-                Positioned(
-                  bottom: 20,
-                  left: 0,
-                  right: 0,
+                Container(
+                  width: 300,
+                  height: 450, // Specify the width here
+                  child: Text(
+                    'Mahal na mahal ni Aling Rosa ang kanyang anak na si Pina.  \n\n'
+                    'Inaalagaan niya itong mabuti at hindi niya pinapagawa sa bahay upang hindi ito mapagod.  \n\n'
+                    'Masaya na siyang nagsisilbi sa anak at gumawa ng lahat ng trabaho sa bahay \n',
+                    style: Design.readStory,
+                    textAlign: TextAlign.justify, // Justify the text
+                  ),
+                ),
+
+                SizedBox(height: 20),
+                Container(
+                  alignment: Alignment.center,
                   child: Image.asset(
                     'assets/Animations/Read BG/Read-animate.gif',
+                    fit: BoxFit.contain,
                   ),
                 ),
               ],

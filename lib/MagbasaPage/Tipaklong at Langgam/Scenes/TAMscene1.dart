@@ -85,29 +85,23 @@ class _Tamscene1State extends State<Tamscene1> {
                 ),
                 SizedBox(height: 20),
 
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: 300,
-                      height: 450,
-                      child: Text(
-                        'Naaliww siyang pagmasdan ang mga paru-parong dumadapo sa ubod ng mga bulaklak.  \n'
-                        'Sagana ang pagkain sa paligid kaya wala siyang dapat ipangamba. \n\n',
-                        style: Design.readStory,
-                        textAlign: TextAlign.justify, // Justify the text
-                      ),
-                    ),
-                  ],
+                Container(
+                  width: 300,
+                  height: 250,
+                  child: Text(
+                    'Naaliww siyang pagmasdan ang mga paru-parong dumadapo sa ubod ng mga bulaklak.  \n'
+                    'Sagana ang pagkain sa paligid kaya wala siyang dapat ipangamba. \n\n',
+                    style: Design.readStory,
+                    textAlign: TextAlign.justify, // Justify the text
+                  ),
                 ),
+
                 SizedBox(height: 20),
-                Positioned(
-                  bottom: 20,
-                  left: 0,
-                  right: 0,
+                Container(
+                  alignment: Alignment.center,
                   child: Image.asset(
                     'assets/Animations/Read BG/Read-animate.gif',
+                    fit: BoxFit.contain,
                   ),
                 ),
               ],

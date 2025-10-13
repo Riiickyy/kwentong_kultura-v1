@@ -85,30 +85,24 @@ class _Aakaascene3State extends State<Aakaascene3> {
                 ),
                 SizedBox(height: 20),
 
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: 300,
-                      height: 450, // Specify the width here
-                      child: Text(
-                        'Ang buong akala niya’y may isa pang may hawak ng buto.\n\n'
-                        'Sa kanyang pagnanasang mapasakanya pa ang buto, ibinukas niya ang kanyang bibig para kunin ito. \n\n'
-                        'Nahulog ang butong hawak niya at ito’y pumasa-ilalim na sa tubig. \n\n',
-                        style: Design.readStory,
-                        textAlign: TextAlign.justify, // Justify the text
-                      ),
-                    ),
-                  ],
+                Container(
+                  width: 300,
+                  height: 550, // Specify the width here
+                  child: Text(
+                    'Ang buong akala niya’y may isa pang may hawak ng buto.\n\n'
+                    'Sa kanyang pagnanasang mapasakanya pa ang buto, ibinukas niya ang kanyang bibig para kunin ito. \n\n'
+                    'Nahulog ang butong hawak niya at ito’y pumasa-ilalim na sa tubig. \n\n',
+                    style: Design.readStory,
+                    textAlign: TextAlign.justify, // Justify the text
+                  ),
                 ),
+
                 SizedBox(height: 20),
-                Positioned(
-                  bottom: 20,
-                  left: 0,
-                  right: 0,
+                Container(
+                  alignment: Alignment.center,
                   child: Image.asset(
                     'assets/Animations/Read BG/Read-animate.gif',
+                    fit: BoxFit.contain,
                   ),
                 ),
               ],

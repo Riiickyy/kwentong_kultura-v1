@@ -87,38 +87,33 @@ class _AlamatngunggoyBasaState extends State<AlamatngunggoyBasa> {
                   ),
                 ),
                 SizedBox(height: 20),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Ang Alamat ng Unggoy',
-                      style: Design.readTitle,
-                      textAlign: TextAlign.center,
-                    ),
-                    SizedBox(height: 20),
-                    Container(
-                      width: 300,
-                      height: 850, // Specify the width here
-                      child: Text(
-                        'Mayroong isang batang napakatamad, ang pangalan niya ay Juan. \n\n'
-                        'Lagi na lamang napakahirap sa kanya ang mga bagay na napakasimple lamang gawin.  \n\n'
-                        'Isa rin sa kanyang ikinaiinis ay ang paggising nang maaga. \n \n'
-                        'Hindi na alam ng ina ni Juan ang gagawin sa isang batang katulad niya. \n\n'
-                        'Masyado siyang napapalaki nito sa layaw, at hindi na alam ang dapat gawin upang masupil na ang masamang pag-uugali ng anak.',
-                        style: Design.readStory,
-                        textAlign: TextAlign.justify, // Justify the text
-                      ),
-                    ),
-                  ],
+
+                Text(
+                  'Ang Alamat ng Unggoy',
+                  style: Design.readTitle,
+                  textAlign: TextAlign.center,
                 ),
                 SizedBox(height: 20),
-                Positioned(
-                  bottom: 20,
-                  left: 0,
-                  right: 0,
+                Container(
+                  width: 300,
+                  height: 850, // Specify the width here
+                  child: Text(
+                    'Mayroong isang batang napakatamad, ang pangalan niya ay Juan. \n\n'
+                    'Lagi na lamang napakahirap sa kanya ang mga bagay na napakasimple lamang gawin.  \n\n'
+                    'Isa rin sa kanyang ikinaiinis ay ang paggising nang maaga. \n \n'
+                    'Hindi na alam ng ina ni Juan ang gagawin sa isang batang katulad niya. \n\n'
+                    'Masyado siyang napapalaki nito sa layaw, at hindi na alam ang dapat gawin upang masupil na ang masamang pag-uugali ng anak.',
+                    style: Design.readStory,
+                    textAlign: TextAlign.justify, // Justify the text
+                  ),
+                ),
+
+                SizedBox(height: 20),
+                Container(
+                  alignment: Alignment.center,
                   child: Image.asset(
                     'assets/Animations/Read BG/Read-animate.gif',
+                    fit: BoxFit.contain,
                   ),
                 ),
               ],

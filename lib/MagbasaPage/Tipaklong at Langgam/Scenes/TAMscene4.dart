@@ -85,32 +85,26 @@ class _Tamscene4State extends State<Tamscene4> {
                 ),
                 SizedBox(height: 20),
 
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: 300,
-                      height: 950,
-                      child: Text(
-                        'Tipaklong: Kaibigang Langgam, si Tipaklong ito. Papapasukin mo ako \n\n'
-                        'Tipaklong: Labis ang nadarama kong pagkagutom. Wala akong mahanap na pagkain sa aking tirahan. Pakainin mo ako,.\n\n'
-                        'Pagmamakaawa ni Tipaklong \n\n'
-                        'Marahang binuksan ni Langgam ang pinto.  \n\n'
-                        'Langgam: Pagpaumanhin mo, Tipaklong ngunit sapat lang sa akin ang naipon kong pagkain at sa palagay ko’y matagal pa bago tumila ang ulan\n\n',
-                        style: Design.readStory,
-                        textAlign: TextAlign.justify, // Justify the text
-                      ),
-                    ),
-                  ],
+                Container(
+                  width: 300,
+                  height: 750,
+                  child: Text(
+                    'Tipaklong: Kaibigang Langgam, si Tipaklong ito. Papapasukin mo ako \n\n'
+                    'Tipaklong: Labis ang nadarama kong pagkagutom. Wala akong mahanap na pagkain sa aking tirahan. Pakainin mo ako,.\n\n'
+                    'Pagmamakaawa ni Tipaklong \n\n'
+                    'Marahang binuksan ni Langgam ang pinto.  \n\n'
+                    'Langgam: Pagpaumanhin mo, Tipaklong ngunit sapat lang sa akin ang naipon kong pagkain at sa palagay ko’y matagal pa bago tumila ang ulan\n\n',
+                    style: Design.readStory,
+                    textAlign: TextAlign.justify, // Justify the text
+                  ),
                 ),
+
                 SizedBox(height: 20),
-                Positioned(
-                  bottom: 20,
-                  left: 0,
-                  right: 0,
+                Container(
+                  alignment: Alignment.center,
                   child: Image.asset(
                     'assets/Animations/Read BG/Read-animate.gif',
+                    fit: BoxFit.contain,
                   ),
                 ),
               ],

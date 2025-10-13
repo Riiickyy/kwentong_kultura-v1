@@ -87,29 +87,23 @@ class _Pamscene7State extends State<Pamscene7> {
                 ),
                 SizedBox(height: 20),
 
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: 300,
-                      height: 600, // Specify the width here
-                      child: Text(
-                        'Sa galit ni Pagong ay naisipan nitong maghiganti. \n\n'
-                        'Tinungo nito ang ilog, namulot ng mga ilang tinik at isa-isang tinusok sa paligid-ligid ng punong saging at pagkatapos ay nangubli sya sa isang bao. .\n\n',
-                        style: Design.readStory,
-                        textAlign: TextAlign.justify, // Justify the text
-                      ),
-                    ),
-                  ],
+                Container(
+                  width: 300,
+                  height: 300, // Specify the width here
+                  child: Text(
+                    'Sa galit ni Pagong ay naisipan nitong maghiganti. \n\n'
+                    'Tinungo nito ang ilog, namulot ng mga ilang tinik at isa-isang tinusok sa paligid-ligid ng punong saging at pagkatapos ay nangubli sya sa isang bao. .\n\n',
+                    style: Design.readStory,
+                    textAlign: TextAlign.justify, // Justify the text
+                  ),
                 ),
+
                 SizedBox(height: 20),
-                Positioned(
-                  bottom: 20,
-                  left: 0,
-                  right: 0,
+                Container(
+                  alignment: Alignment.center,
                   child: Image.asset(
                     'assets/Animations/Read BG/Read-animate.gif',
+                    fit: BoxFit.contain,
                   ),
                 ),
               ],
