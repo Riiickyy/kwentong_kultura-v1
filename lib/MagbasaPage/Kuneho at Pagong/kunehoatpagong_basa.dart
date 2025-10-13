@@ -41,7 +41,7 @@ class _KunehoatpagongBasaState extends State<KunehoatpagongBasa> {
           style: TextStyle(
             fontFamily: 'Nunito',
             fontWeight: FontWeight.w900,
-            fontSize: 24,
+            fontSize: 18,
           ),
           textAlign: TextAlign.center,
         ),

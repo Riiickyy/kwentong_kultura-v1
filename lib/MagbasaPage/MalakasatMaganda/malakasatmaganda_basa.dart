@@ -88,7 +88,11 @@ class _MalakasatMagandaBasaState extends State<MalakasatMagandaBasa> {
                 ),
                 SizedBox(height: 20),
 
-                Text('Malakas at Maganda', style: Design.readTitle),
+                Text(
+                  'Malakas at Maganda',
+                  style: Design.readTitle,
+                  textAlign: TextAlign.center,
+                ),
                 SizedBox(height: 20),
 
                 Container(

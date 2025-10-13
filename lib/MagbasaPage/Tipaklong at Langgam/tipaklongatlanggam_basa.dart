@@ -37,7 +37,7 @@ class _TipaklongatlanggamBasaState extends State<TipaklongatlanggamBasa> {
           style: TextStyle(
             fontFamily: 'Nunito',
             fontWeight: FontWeight.w900,
-            fontSize: 24,
+            fontSize: 18,
           ),
           textAlign: TextAlign.center,
         ),
@@ -83,7 +83,11 @@ class _TipaklongatlanggamBasaState extends State<TipaklongatlanggamBasa> {
                 ),
                 SizedBox(height: 20),
 
-                Text('Si Tipaklong at Langgam', style: Design.readTitle),
+                Text(
+                  'Si Tipaklong at Langgam',
+                  style: Design.readTitle,
+                  textAlign: TextAlign.center,
+                ),
                 SizedBox(height: 20),
                 Container(
                   width: 300,

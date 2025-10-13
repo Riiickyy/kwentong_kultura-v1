@@ -41,7 +41,7 @@ class _AsoatkanyanganinoBasaState extends State<AsoatkanyanganinoBasa> {
           style: TextStyle(
             fontFamily: 'Nunito',
             fontWeight: FontWeight.w900,
-            fontSize: 24,
+            fontSize: 16,
           ),
           textAlign: TextAlign.center,
         ),

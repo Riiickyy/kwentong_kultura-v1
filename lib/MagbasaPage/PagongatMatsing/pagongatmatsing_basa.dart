@@ -42,7 +42,7 @@ class _PagongatMatsingBasaState extends State<PagongatMatsingBasa> {
           style: TextStyle(
             fontFamily: 'Nunito',
             fontWeight: FontWeight.w900,
-            fontSize: 24,
+            fontSize: 18,
           ),
           textAlign: TextAlign.center,
         ),
@@ -88,7 +88,11 @@ class _PagongatMatsingBasaState extends State<PagongatMatsingBasa> {
                 ),
                 SizedBox(height: 20),
 
-                Text('Si Pagong at Matsing', style: Design.readTitle),
+                Text(
+                  'Si Pagong at Matsing',
+                  style: Design.readTitle,
+                  textAlign: TextAlign.center,
+                ),
                 SizedBox(height: 20),
                 Container(
                   width: 300,

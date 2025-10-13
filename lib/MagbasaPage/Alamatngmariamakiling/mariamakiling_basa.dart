@@ -37,7 +37,7 @@ class _MariamakilingBasaState extends State<MariamakilingBasa> {
           style: TextStyle(
             fontFamily: 'Nunito',
             fontWeight: FontWeight.w900,
-            fontSize: 24,
+            fontSize: 18,
           ),
           textAlign: TextAlign.center,
         ),
@@ -83,7 +83,11 @@ class _MariamakilingBasaState extends State<MariamakilingBasa> {
                 ),
                 SizedBox(height: 20),
 
-                Text('Ang Alamat ng Maria Makiling', style: Design.readTitle),
+                Text(
+                  'Ang Alamat ng Maria Makiling',
+                  style: Design.readTitle,
+                  textAlign: TextAlign.center,
+                ),
                 SizedBox(height: 20),
                 Container(
                   width: 300,

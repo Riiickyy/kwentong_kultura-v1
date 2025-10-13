@@ -83,7 +83,11 @@ class _AlamatngniyogBasaState extends State<AlamatngniyogBasa> {
                 ),
                 SizedBox(height: 20),
 
-                Text('Alamat ng Niyog', style: Design.readTitle),
+                Text(
+                  'Alamat ng Niyog',
+                  style: Design.readTitle,
+                  textAlign: TextAlign.center,
+                ),
                 SizedBox(height: 20),
                 Container(
                   width: 300,

@@ -88,7 +88,11 @@ class _AlamatngmayaBasaState extends State<AlamatngmayaBasa> {
                 ),
                 SizedBox(height: 20),
 
-                Text('Ang Alamat ng Maya', style: Design.readTitle),
+                Text(
+                  'Ang Alamat ng Maya',
+                  style: Design.readTitle,
+                  textAlign: TextAlign.center,
+                ),
                 SizedBox(height: 20),
                 Container(
                   width: 300,

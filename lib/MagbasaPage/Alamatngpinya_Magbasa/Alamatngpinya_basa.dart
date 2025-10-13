@@ -88,7 +88,11 @@ class _AlamatngpinyaBasaState extends State<AlamatngpinyaBasa> {
                 ),
                 SizedBox(height: 20),
 
-                Text('Ang Alamat ng Pinya', style: Design.readTitle),
+                Text(
+                  'Ang Alamat ng Pinya',
+                  style: Design.readTitle,
+                  textAlign: TextAlign.center,
+                ),
                 SizedBox(height: 20),
                 Container(
                   width: 300,

@@ -112,7 +112,7 @@ class _TaramakinigState extends State<Taramakinig> {
                                 ),
                                 SizedBox(height: 10),
                                 Text(
-                                  'Ito ay ag kwento kung paano nagkameron ng prutas na Pinya',
+                                  'Ito ay ang kwento kung paano nagkameron ng prutas na Pinya',
                                   style: Design.desciption,
                                 ),
                                 SizedBox(height: 10), // Add spacing
