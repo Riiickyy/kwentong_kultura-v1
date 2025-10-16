@@ -82,9 +82,13 @@ class _SitipaklongState extends State<Sitipaklong> {
             }).toList();
       });
     } else {
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(const SnackBar(content: Text("Drawing loaded")));
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text(
+            "You don’t have any saved color yet. Start coloring now!",
+          ),
+        ),
+      );
     }
   }
 
