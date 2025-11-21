@@ -285,7 +285,8 @@ class _MariamakilingCTState extends State<MariamakilingCT> {
     },
   ];
 
-  String assetVideo = 'assets/videos/MariaMakiling.mp4';
+  String assetVideo =
+      'https://res.cloudinary.com/dlir6ad5u/video/upload/v1761538233/MariaMakiling_rry1rw.mp4';
 
   @override
   void initState() {
@@ -301,7 +302,7 @@ class _MariamakilingCTState extends State<MariamakilingCT> {
   }
 
   void initializeVideoPlayer() {
-    _controller = VideoPlayerController.asset(assetVideo)
+    _controller = VideoPlayerController.networkUrl(Uri.parse(assetVideo))
       ..initialize().then((value) {
         setState(() {});
       });

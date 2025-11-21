@@ -33,7 +33,7 @@ class _Mamscene3State extends State<Mamscene3> {
           },
         ),
         title: const Text(
-          "Ang Kuneho at ang Pagong",
+          "Malakas at Maganda",
           style: TextStyle(
             fontFamily: 'Nunito',
             fontWeight: FontWeight.w900,

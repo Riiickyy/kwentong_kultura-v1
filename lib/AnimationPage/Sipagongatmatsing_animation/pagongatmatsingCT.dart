@@ -655,7 +655,8 @@ class _PagongatmatsingCTState extends State<PagongatmatsingCT> {
     },
   ];
 
-  String assetVideo = 'assets/videos/PagongatMatsing.mp4';
+  String assetVideo =
+      'https://res.cloudinary.com/dlir6ad5u/video/upload/v1761540500/PagongatMatsing_lyqghl.mp4';
   @override
   void initState() {
     super.initState();
@@ -670,7 +671,7 @@ class _PagongatmatsingCTState extends State<PagongatmatsingCT> {
   }
 
   void initializeVideoPlayer() {
-    _controller = VideoPlayerController.asset(assetVideo)
+    _controller = VideoPlayerController.networkUrl(Uri.parse(assetVideo))
       ..initialize().then((value) {
         setState(() {});
       });

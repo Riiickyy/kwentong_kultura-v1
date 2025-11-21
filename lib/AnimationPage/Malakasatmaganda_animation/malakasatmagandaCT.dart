@@ -100,7 +100,8 @@ class _MalakasatmagandaCTState extends State<MalakasatmagandaCT> {
     },
   ];
 
-  String assetVideo = 'assets/videos/MalakasatMaganda.mp4';
+  String assetVideo =
+      'https://res.cloudinary.com/dlir6ad5u/video/upload/v1761538185/MalakasatMaganda_vf2vsc.mp4';
 
   @override
   void initState() {
@@ -116,7 +117,7 @@ class _MalakasatmagandaCTState extends State<MalakasatmagandaCT> {
   }
 
   void initializeVideoPlayer() {
-    _controller = VideoPlayerController.asset(assetVideo)
+    _controller = VideoPlayerController.networkUrl(Uri.parse(assetVideo))
       ..initialize().then((value) {
         setState(() {});
       });

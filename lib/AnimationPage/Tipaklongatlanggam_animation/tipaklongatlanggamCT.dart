@@ -355,7 +355,8 @@ class _TipaklongatlanggamCTState extends State<TipaklongatlanggamCT> {
     },
   ];
 
-  String assetVideo = 'assets/videos/TipaklongatLanggam.mp4';
+  String assetVideo =
+      'https://res.cloudinary.com/dlir6ad5u/video/upload/v1761538239/TipaklongatLanggam_lezzsm.mp4';
 
   @override
   void initState() {
@@ -371,7 +372,7 @@ class _TipaklongatlanggamCTState extends State<TipaklongatlanggamCT> {
   }
 
   void initializeVideoPlayer() {
-    _controller = VideoPlayerController.asset(assetVideo)
+    _controller = VideoPlayerController.networkUrl(Uri.parse(assetVideo))
       ..initialize().then((value) {
         setState(() {});
       });

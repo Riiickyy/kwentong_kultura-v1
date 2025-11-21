@@ -348,7 +348,8 @@ class _KunehotPagongCTState extends State<KunehotPagongCT> {
     },
   ];
 
-  String assetVideo = 'assets/videos/KunehoatPagong.mp4';
+  String assetVideo =
+      'https://res.cloudinary.com/dlir6ad5u/video/upload/v1761538233/KunehoatPagong_kgg41j.mp4';
 
   @override
   void initState() {
@@ -364,7 +365,7 @@ class _KunehotPagongCTState extends State<KunehotPagongCT> {
   }
 
   void initializeVideoPlayer() {
-    _controller = VideoPlayerController.asset(assetVideo)
+    _controller = VideoPlayerController.networkUrl(Uri.parse(assetVideo))
       ..initialize().then((value) {
         setState(() {});
       });

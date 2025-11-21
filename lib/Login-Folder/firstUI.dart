@@ -4,7 +4,7 @@ import 'package:kwentong_kultura/Classes/slide_transition.dart';
 import 'package:kwentong_kultura/Login-Folder/Login.dart';
 import 'package:kwentong_kultura/Login-Folder/createaccount.dart';
 import '../Styles/styles.dart';
-import 'package:rive/rive.dart' hide Image;
+import 'package:rive/rive.dart' as rive;
 
 class Firstui extends StatefulWidget {
   const Firstui({super.key});
@@ -14,17 +14,18 @@ class Firstui extends StatefulWidget {
 }
 
 class _HomeUIWidgetState extends State<Firstui> {
-  late Artboard _riveArtboard;
+  late rive.Artboard _riveArtboard;
   bool _isLoaded = false;
 
   // Function to load the Rive animation
   Future<void> loadRiveAnimation() async {
     try {
+      await rive.RiveFile.initialize();
       final data = await rootBundle.load('assets/Animations/loginbg_final.riv');
-      final file = RiveFile.import(data);
+      final file = rive.RiveFile.import(data);
       _riveArtboard = file.mainArtboard;
       print('Available State Machines: ${_riveArtboard.stateMachines}');
-      var controller = StateMachineController.fromArtboard(
+      var controller = rive.StateMachineController.fromArtboard(
         _riveArtboard,
         'State Machine 1',
       );
@@ -65,7 +66,10 @@ class _HomeUIWidgetState extends State<Firstui> {
                   Positioned.fill(
                     child: Opacity(
                       opacity: 1.0,
-                      child: Rive(artboard: _riveArtboard, fit: BoxFit.cover),
+                      child: rive.Rive(
+                        artboard: _riveArtboard,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
 

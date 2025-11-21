@@ -177,7 +177,8 @@ class _AsoAtKanyangAninoCTState extends State<AsoAtKanyangAninoCT> {
     },
   ];
 
-  String assetVideo = 'assets/videos/AngAsoatangKanyangAnino.mp4';
+  String assetVideo =
+      'https://res.cloudinary.com/dlir6ad5u/video/upload/v1761538147/AngAsoatangKanyangAnino_jur9r9.mp4';
 
   @override
   void initState() {
@@ -193,7 +194,7 @@ class _AsoAtKanyangAninoCTState extends State<AsoAtKanyangAninoCT> {
   }
 
   void initializeVideoPlayer() {
-    _controller = VideoPlayerController.asset(assetVideo)
+    _controller = VideoPlayerController.networkUrl(Uri.parse(assetVideo))
       ..initialize().then((value) {
         setState(() {});
       });

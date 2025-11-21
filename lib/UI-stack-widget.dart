@@ -1,6 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:kwentong_kultura/Classes/SFXplayerclass.dart';
 import 'package:kwentong_kultura/Classes/slide_transition.dart';
 import 'package:kwentong_kultura/Login-Folder/firstUI.dart';
 import 'package:kwentong_kultura/Pages/taramagbasa.dart';
@@ -9,6 +11,7 @@ import 'package:kwentong_kultura/Pages/taramakinig.dart';
 import 'package:kwentong_kultura/Styles/styles.dart';
 import 'package:kwentong_kultura/auth_service.dart';
 import 'package:rive/rive.dart' as rive;
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeUIWidget extends StatefulWidget {
   const HomeUIWidget({super.key});
@@ -20,6 +23,20 @@ class HomeUIWidget extends StatefulWidget {
 class _HomeUIWidgetState extends State<HomeUIWidget> {
   late rive.Artboard _riveArtboard;
   bool _isLoaded = false;
+  double _bgmVolume = 100; // Default 100%
+  bool _isMuted = false;
+
+  Future<void> _loadBgmSettings() async {
+    final prefs = await SharedPreferences.getInstance();
+    _bgmVolume = prefs.getDouble('settings_bgm_volume') ?? 100;
+    _isMuted = _bgmVolume == 0;
+    setState(() {});
+  }
+
+  Future<void> _saveBgmSettings() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setDouble('settings_bgm_volume', _bgmVolume);
+  }
 
   // Function to load the Rive animation
   Future<void> loadRiveAnimation() async {
@@ -49,81 +66,204 @@ class _HomeUIWidgetState extends State<HomeUIWidget> {
   }
 
   // Method to show the logout confirmation dialog
-  void _showLogoutDialog() {
+  void _showSettingsDialog() {
+    final user = FirebaseAuth.instance.currentUser;
+    TextEditingController nameController = TextEditingController(
+      text: user?.displayName ?? '',
+    );
+
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        return Dialog(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(15),
-          ),
-          elevation: 7,
-          child: Container(
-            decoration: BoxDecoration(
-              color: Color(0xFFACDC94), // Light green background
-              borderRadius: BorderRadius.circular(15),
-              border: Border.all(
-                color: Colors.black, // Black border
-                width: 2, // Border width
+        return StatefulBuilder(
+          builder: (context, setState) {
+            return Dialog(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15),
               ),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    'Are you sure you want to logout?',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 28,
-                      fontWeight: FontWeight.bold,
+              elevation: 7,
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Color(0xFFACDC94),
+                  borderRadius: BorderRadius.circular(15),
+                  border: Border.all(color: Colors.black, width: 2),
+                ),
+                padding: const EdgeInsets.all(20),
+                child: Stack(
+                  children: [
+                    // ❌ CLOSE BUTTON
+                    Positioned(
+                      right: 0,
+                      top: 0,
+                      child: IconButton(
+                        icon: Icon(Icons.close, color: Colors.black),
+                        onPressed: () => Navigator.pop(context),
+                      ),
                     ),
-                  ),
-                  SizedBox(height: 20),
 
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      TextButton(
-                        style: Design.buttonDesign,
-                        onPressed: () async {
-                          try {
-                            // Sign out the user
-                            await authService.value.signOut();
-                            // Navigate to Firstui after logout
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const Firstui(),
+                    Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const SizedBox(height: 10),
+
+                        Text(
+                          'Settings',
+                          style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          ),
+                        ),
+
+                        const SizedBox(height: 20),
+
+                        // DISPLAY NAME + EDIT BUTTON
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Name:',
+                              style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.black,
+                                fontWeight: FontWeight.w600,
                               ),
-                            );
-                          } on FirebaseAuthException catch (e) {
-                            print(e);
-                          }
-                        },
-                        child: Text(
-                          'Yes',
-                          style: TextStyle(color: Colors.black, fontSize: 28),
+                            ),
+                            ElevatedButton(
+                              style: Design.buttonDesign,
+                              onPressed: () async {
+                                showDialog(
+                                  context: context,
+                                  builder: (context) {
+                                    return AlertDialog(
+                                      title: const Text("Edit Name"),
+                                      content: TextField(
+                                        controller: nameController,
+                                        decoration: const InputDecoration(
+                                          hintText: "Enter your name",
+                                        ),
+                                      ),
+                                      actions: [
+                                        TextButton(
+                                          onPressed:
+                                              () => Navigator.pop(context),
+                                          child: const Text("Cancel"),
+                                        ),
+                                        TextButton(
+                                          onPressed: () async {
+                                            if (user != null) {
+                                              // ✅ Update Firebase Auth Display Name
+                                              await user.updateDisplayName(
+                                                nameController.text,
+                                              );
+                                              await user.reload();
+
+                                              // ✅ Save to Firestore
+                                              await FirebaseFirestore.instance
+                                                  .collection("users")
+                                                  .doc(user.uid)
+                                                  .set({
+                                                    "name": nameController.text,
+                                                    "email": user.email ?? "",
+                                                  }, SetOptions(merge: true));
+                                            }
+
+                                            setState(() {});
+                                            Navigator.pop(context);
+                                          },
+                                          child: const Text("Save"),
+                                        ),
+                                      ],
+                                    );
+                                  },
+                                );
+                              },
+                              child: Text(
+                                user?.displayName ?? "Edit",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 18,
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
-                      ),
-                      TextButton(
-                        style: Design.buttonDesign,
-                        onPressed: () {
-                          Navigator.of(context).pop(); // Close the dialog
-                        },
-                        child: Text(
-                          'No',
-                          style: TextStyle(color: Colors.black, fontSize: 28),
+
+                        const SizedBox(height: 20),
+
+                        // BGM VOLUME SLIDER
+                        Row(
+                          children: [
+                            GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  _isMuted = !_isMuted;
+                                  if (_isMuted) {
+                                    _bgmVolume = 0;
+                                    BgmPlayer.player.setVolume(0);
+                                  } else {
+                                    _bgmVolume = 50;
+                                    BgmPlayer.player.setVolume(0.5);
+                                  }
+                                  _saveBgmSettings();
+                                });
+                              },
+                              child: Icon(
+                                _isMuted ? Icons.volume_off : Icons.volume_up,
+                                color: Colors.black,
+                                size: 30,
+                              ),
+                            ),
+                            Expanded(
+                              child: Slider(
+                                value: _bgmVolume,
+                                min: 0,
+                                max: 100,
+                                divisions: 100,
+                                label: "${_bgmVolume.toInt()}%",
+                                onChanged: (value) {
+                                  setState(() {
+                                    _bgmVolume = value;
+                                    _isMuted = value == 0;
+                                    BgmPlayer.player.setVolume(value / 100);
+                                    _saveBgmSettings();
+                                  });
+                                },
+                              ),
+                            ),
+                          ],
                         ),
-                      ),
-                    ],
-                  ),
-                ],
+
+                        const SizedBox(height: 30),
+
+                        // LOGOUT BUTTON
+                        TextButton.icon(
+                          icon: Icon(Icons.logout, color: Colors.black),
+                          onPressed: () async {
+                            try {
+                              await authService.value.signOut();
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const Firstui(),
+                                ),
+                              );
+                            } on FirebaseAuthException catch (e) {
+                              print(e);
+                            }
+                          },
+                          label: const Text(
+                            'Logout',
+                            style: TextStyle(color: Colors.black, fontSize: 22),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ),
+            );
+          },
         );
       },
     );
@@ -132,6 +272,7 @@ class _HomeUIWidgetState extends State<HomeUIWidget> {
   @override
   void initState() {
     super.initState();
+    _loadBgmSettings();
     loadRiveAnimation();
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
@@ -324,8 +465,8 @@ class _HomeUIWidgetState extends State<HomeUIWidget> {
                     child: FloatingActionButton(
                       backgroundColor: Colors.orange.shade300,
                       onPressed:
-                          _showLogoutDialog, // Directly call the method to show dialog
-                      child: Icon(Icons.logout),
+                          _showSettingsDialog, // Directly call the method to show dialog
+                      child: Icon(Icons.settings, color: Colors.black),
                     ),
                   ),
                 ],

@@ -359,7 +359,8 @@ class _AlamatngpinyaCTState extends State<AlamatngpinyaCT> {
     },
   ];
 
-  String assetVideo = 'assets/videos/AlamatngPinya.mp4';
+  String assetVideo =
+      'https://res.cloudinary.com/dlir6ad5u/video/upload/v1761538191/AlamatngPinya_hk3mhv.mp4';
 
   @override
   void initState() {
@@ -375,7 +376,7 @@ class _AlamatngpinyaCTState extends State<AlamatngpinyaCT> {
   }
 
   void initializeVideoPlayer() {
-    _controller = VideoPlayerController.asset(assetVideo)
+    _controller = VideoPlayerController.networkUrl(Uri.parse(assetVideo))
       ..initialize().then((value) {
         setState(() {});
       });

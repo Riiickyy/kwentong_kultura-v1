@@ -247,7 +247,8 @@ class _AlamatngmayaCTState extends State<AlamatngmayaCT> {
     },
   ];
   // Video asset that includes both video and voice narration
-  String assetVideo = 'assets/videos/AlamatngMaya.mp4';
+  String assetVideo =
+      'https://res.cloudinary.com/dlir6ad5u/video/upload/v1761536590/AlamatngMaya_cgqqtj.mp4';
 
   @override
   void initState() {
@@ -266,7 +267,7 @@ class _AlamatngmayaCTState extends State<AlamatngmayaCT> {
     // The VideoPlayerController automatically plays both
     // the video *and its built-in audio track (voice narration)*
     // because MP4 includes sound by default.
-    _controller = VideoPlayerController.asset(assetVideo)
+    _controller = VideoPlayerController.networkUrl(Uri.parse(assetVideo))
       ..initialize().then((value) {
         setState(() {});
       });

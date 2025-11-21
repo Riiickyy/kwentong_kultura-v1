@@ -388,7 +388,8 @@ class _AlamantngunggoyCTState extends State<AlamantngunggoyCT> {
     },
   ];
 
-  String assetVideo = 'assets/videos/AlamatngUnggoy.mp4';
+  String assetVideo =
+      'https://res.cloudinary.com/dlir6ad5u/video/upload/v1761538217/AlamatngUnggoy_m2y5e4.mp4';
 
   @override
   void initState() {
@@ -404,7 +405,7 @@ class _AlamantngunggoyCTState extends State<AlamantngunggoyCT> {
   }
 
   void initializeVideoPlayer() {
-    _controller = VideoPlayerController.asset(assetVideo)
+    _controller = VideoPlayerController.networkUrl(Uri.parse(assetVideo))
       ..initialize().then((value) {
         setState(() {});
       });
